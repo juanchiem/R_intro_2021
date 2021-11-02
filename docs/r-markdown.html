@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>15 R Markdown | Exploración, manipulación y visualización de datos con R</title>
+  <meta name="description" content="15 R Markdown | Exploración, manipulación y visualización de datos con R" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="15 R Markdown | Exploración, manipulación y visualización de datos con R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="juanchiem/R_Intro" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="15 R Markdown | Exploración, manipulación y visualización de datos con R" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="anova.html"/>
+<link rel="next" href="trabajo-final-de-curso.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Motivación</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#objetivos"><i class="fa fa-check"></i>Objetivos</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="config.html"><a href="config.html"><i class="fa fa-check"></i><b>1</b> Configuraciones básicas</a>
+<ul>
+<li class="chapter" data-level="" data-path="config.html"><a href="config.html#paquetes-de-r"><i class="fa fa-check"></i>Paquetes de R</a></li>
+<li class="chapter" data-level="" data-path="config.html"><a href="config.html#workflow-componentes"><i class="fa fa-check"></i>Workflow componentes</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="sintaxis.html"><a href="sintaxis.html"><i class="fa fa-check"></i><b>2</b> Sintaxis</a>
+<ul>
+<li class="chapter" data-level="" data-path="sintaxis.html"><a href="sintaxis.html#r-calculadora"><i class="fa fa-check"></i>R Calculadora</a></li>
+<li class="chapter" data-level="" data-path="sintaxis.html"><a href="sintaxis.html#comparaciones-lógicas"><i class="fa fa-check"></i>Comparaciones lógicas</a></li>
+<li class="chapter" data-level="" data-path="sintaxis.html"><a href="sintaxis.html#variables-y-asignaciones"><i class="fa fa-check"></i>Variables y asignaciones</a></li>
+<li class="chapter" data-level="" data-path="sintaxis.html"><a href="sintaxis.html#funciones"><i class="fa fa-check"></i>Funciones</a></li>
+<li class="chapter" data-level="" data-path="sintaxis.html"><a href="sintaxis.html#tips"><i class="fa fa-check"></i>Tips</a></li>
+<li class="chapter" data-level="" data-path="sintaxis.html"><a href="sintaxis.html#s.o.s."><i class="fa fa-check"></i>S.O.S.</a></li>
+<li class="chapter" data-level="" data-path="sintaxis.html"><a href="sintaxis.html#tablas_resumen"><i class="fa fa-check"></i>Tablas resumen</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html"><i class="fa fa-check"></i><b>3</b> Tipos de datos</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#vectores"><i class="fa fa-check"></i><b>3.1</b> Vectores</a></li>
+<li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#numéricos"><i class="fa fa-check"></i>Numéricos</a></li>
+<li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#lógicos"><i class="fa fa-check"></i>Lógicos</a></li>
+<li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#caracter"><i class="fa fa-check"></i>Caracter</a></li>
+<li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#fechas"><i class="fa fa-check"></i>Fechas</a></li>
+<li class="chapter" data-level="3.2" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#secuencias"><i class="fa fa-check"></i><b>3.2</b> Secuencias</a>
+<ul>
+<li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#numéricas"><i class="fa fa-check"></i>Numéricas</a></li>
+<li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#letras"><i class="fa fa-check"></i>Letras</a></li>
+<li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#fechas-1"><i class="fa fa-check"></i>Fechas</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#números-aleatorios"><i class="fa fa-check"></i><b>3.3</b> Números aleatorios</a></li>
+<li class="chapter" data-level="3.4" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#valores-especiales"><i class="fa fa-check"></i><b>3.4</b> Valores especiales</a></li>
+<li class="chapter" data-level="3.5" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#factores"><i class="fa fa-check"></i><b>3.5</b> Factores</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="estructura-de-datos.html"><a href="estructura-de-datos.html"><i class="fa fa-check"></i><b>4</b> Estructura de datos</a>
+<ul>
+<li class="chapter" data-level="" data-path="estructura-de-datos.html"><a href="estructura-de-datos.html#data-frames"><i class="fa fa-check"></i>Data frames</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="visualización.html"><a href="visualización.html"><i class="fa fa-check"></i><b>5</b> Visualización</a>
+<ul>
+<li class="chapter" data-level="" data-path="visualización.html"><a href="visualización.html#ggplot"><i class="fa fa-check"></i>ggplot</a></li>
+<li class="chapter" data-level="5.1" data-path="visualización.html"><a href="visualización.html#ambas-variables-contínuas"><i class="fa fa-check"></i><b>5.1</b> Ambas variables contínuas</a></li>
+<li class="chapter" data-level="5.2" data-path="visualización.html"><a href="visualización.html#comparación-de-niveles-de-factores"><i class="fa fa-check"></i><b>5.2</b> Comparación de niveles de factores</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="visualización.html"><a href="visualización.html#observaciones-media-mediana"><i class="fa fa-check"></i><b>5.2.1</b> Observaciones + media / mediana</a></li>
+<li class="chapter" data-level="5.2.2" data-path="visualización.html"><a href="visualización.html#barplot-se"><i class="fa fa-check"></i><b>5.2.2</b> Barplot + SE</a></li>
+<li class="chapter" data-level="5.2.3" data-path="visualización.html"><a href="visualización.html#box-plot"><i class="fa fa-check"></i><b>5.2.3</b> Box-plot</a></li>
+<li class="chapter" data-level="5.2.4" data-path="visualización.html"><a href="visualización.html#violin-plot"><i class="fa fa-check"></i><b>5.2.4</b> Violin plot</a></li>
+<li class="chapter" data-level="5.2.5" data-path="visualización.html"><a href="visualización.html#media-dispersión"><i class="fa fa-check"></i><b>5.2.5</b> Media &amp; dispersión</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="importación.html"><a href="importación.html"><i class="fa fa-check"></i><b>6</b> Importación</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="importación.html"><a href="importación.html#desde-pc"><i class="fa fa-check"></i><b>6.1</b> Desde PC</a></li>
+<li class="chapter" data-level="6.2" data-path="importación.html"><a href="importación.html#desde-googlesheets"><i class="fa fa-check"></i><b>6.2</b> Desde googlesheets</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="tidyverse.html"><a href="tidyverse.html"><i class="fa fa-check"></i>Tidyverse</a></li>
+<li class="chapter" data-level="7" data-path="re-estructuración.html"><a href="re-estructuración.html"><i class="fa fa-check"></i><b>7</b> Re-estructuración</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="re-estructuración.html"><a href="re-estructuración.html#unir-dataframes"><i class="fa fa-check"></i><b>7.1</b> Unir dataframes</a></li>
+<li class="chapter" data-level="7.2" data-path="re-estructuración.html"><a href="re-estructuración.html#reordenar-niveles-de-un-factor"><i class="fa fa-check"></i><b>7.2</b> Reordenar niveles de un factor</a></li>
+<li class="chapter" data-level="7.3" data-path="re-estructuración.html"><a href="re-estructuración.html#modificar-variables"><i class="fa fa-check"></i><b>7.3</b> Modificar variables</a></li>
+<li class="chapter" data-level="7.4" data-path="re-estructuración.html"><a href="re-estructuración.html#agregar-variables"><i class="fa fa-check"></i><b>7.4</b> Agregar variables</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="sumarización.html"><a href="sumarización.html"><i class="fa fa-check"></i><b>8</b> Sumarización</a></li>
+<li class="chapter" data-level="9" data-path="selección.html"><a href="selección.html"><i class="fa fa-check"></i><b>9</b> Selección</a></li>
+<li class="chapter" data-level="10" data-path="filtrado.html"><a href="filtrado.html"><i class="fa fa-check"></i><b>10</b> Filtrado</a></li>
+<li class="chapter" data-level="11" data-path="depuración.html"><a href="depuración.html"><i class="fa fa-check"></i><b>11</b> Depuración</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="depuración.html"><a href="depuración.html#separar---unir-columnas"><i class="fa fa-check"></i><b>11.1</b> Separar - unir columnas</a></li>
+<li class="chapter" data-level="11.2" data-path="depuración.html"><a href="depuración.html#depuración-de-variables-tipo-carácter"><i class="fa fa-check"></i><b>11.2</b> Depuración de variables tipo carácter</a></li>
+<li class="chapter" data-level="11.3" data-path="depuración.html"><a href="depuración.html#exploración-rápida-del-dataset"><i class="fa fa-check"></i><b>11.3</b> Exploración rápida del dataset</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="correlacion.html"><a href="correlacion.html"><i class="fa fa-check"></i><b>12</b> Correlacion</a></li>
+<li class="chapter" data-level="13" data-path="regresión-linear.html"><a href="regresión-linear.html"><i class="fa fa-check"></i><b>13</b> Regresión linear</a></li>
+<li class="chapter" data-level="14" data-path="anova.html"><a href="anova.html"><i class="fa fa-check"></i><b>14</b> Anova</a>
+<ul>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#un-solo-factor"><i class="fa fa-check"></i>Un solo factor</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#dos-factores"><i class="fa fa-check"></i>Dos factores</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>15</b> R Markdown</a>
+<ul>
+<li class="chapter" data-level="" data-path="r-markdown.html"><a href="r-markdown.html#elementos-básicos-de-r-markdown"><i class="fa fa-check"></i>Elementos básicos de R Markdown</a></li>
+<li class="chapter" data-level="" data-path="r-markdown.html"><a href="r-markdown.html#formateo-de-texto-con-markdown"><i class="fa fa-check"></i>Formateo de texto con Markdown</a></li>
+<li class="chapter" data-level="" data-path="r-markdown.html"><a href="r-markdown.html#encabezados"><i class="fa fa-check"></i>Encabezados</a></li>
+<li class="chapter" data-level="" data-path="r-markdown.html"><a href="r-markdown.html#listas"><i class="fa fa-check"></i>Listas</a></li>
+<li class="chapter" data-level="" data-path="r-markdown.html"><a href="r-markdown.html#enlaces-e-imágenes"><i class="fa fa-check"></i>Enlaces e imágenes</a></li>
+<li class="chapter" data-level="" data-path="r-markdown.html"><a href="r-markdown.html#tablas"><i class="fa fa-check"></i>Tablas</a></li>
+<li class="chapter" data-level="" data-path="r-markdown.html"><a href="r-markdown.html#bloques-de-código"><i class="fa fa-check"></i>Bloques de código</a></li>
+<li class="chapter" data-level="" data-path="r-markdown.html"><a href="r-markdown.html#tablas-1"><i class="fa fa-check"></i>Tablas</a></li>
+<li class="chapter" data-level="" data-path="r-markdown.html"><a href="r-markdown.html#opciones-globales"><i class="fa fa-check"></i>Opciones globales</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="trabajo-final-de-curso.html"><a href="trabajo-final-de-curso.html"><i class="fa fa-check"></i><b>16</b> Trabajo final de curso</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Exploración, manipulación y visualización de datos con R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="r-markdown" class="section level1" number="15">
+<h1><span class="header-section-number">15</span> R Markdown</h1>
+<p>R Markdown provee un marco de escritura para ciencia de datos, que combina tu código, sus resultados y tus comentarios en prosa. Los documentos de R Markdown son completamente reproducibles y soportan docenas de formatos de salida tales como PDFs, archivos de Word, presentaciones y más.</p>
+<p>Los archivos R Markdown están diseñados para ser usados de tres maneras:</p>
+<ol style="list-style-type: decimal">
+<li><p>Para comunicarse con quienes toman decisiones, que desean enfocarse en las conclusiones, no en el código que subyace al análisis.</p></li>
+<li><p>Para colaborar con otras personas que hacen ciencia de datos, quienes están interesados tanto en tus conclusiones como en el modo en el que llegaste a ellas (es decir, el código).</p></li>
+<li><p>Como si fuera un notebook de laboratorio moderno donde puedes capturar no solo que hiciste, sino también lo que estabas pensando cuando lo hacías.</p></li>
+</ol>
+<div id="elementos-básicos-de-r-markdown" class="section level2 unnumbered">
+<h2>Elementos básicos de R Markdown</h2>
+<p>Este es un archivo R Markdown, un archivo de texto plano que tiene la extensión <code>.Rmd</code>:</p>
+<p>Contiene tres tipos importantes de contenido:</p>
+<ol style="list-style-type: decimal">
+<li>Un <strong>encabezado YAML</strong> (opcional) rodeado de <code>---</code>s.</li>
+<li><strong>Chunks</strong> de código de R rodeados de <code>```</code>.</li>
+<li>Texto mezclado con formateos de texto simple como <code># Encabezado</code> e <code>_italicas_</code>.</li>
+</ol>
+<p>Cuando abres un archivo <code>.Rmd</code>, obtienes una interfaz de notebook donde el código y el output están intercalados. Puedes ejecutar cada bloque de código haciendo clic en el ícono ejecutar (se parece a un botón de reproducir en la parte superior del bloque de código), o presionando <code>Ctrl + Shift + Enter</code>. RStudio ejecuta el código y muestra los resultados incustrados en el código.</p>
+<p>Para producir un reporte completo que contenga todo el texto, código y resultados, haz clic en “Knit” o presionar <code>Ctrl + Shift + K</code>. Esto mostrará el reporte en el panel viewer y creará un archivo HTML independiente que puedes compartir con otras personas</p>
+</div>
+<div id="formateo-de-texto-con-markdown" class="section level2 unnumbered">
+<h2>Formateo de texto con Markdown</h2>
+<p>Formato de texto</p>
+<p><em>cursiva</em> o <em>cursiva</em>
+<strong>negrita</strong> <strong>negrita</strong>
+<code>code</code>
+superíndice<sup>2</sup> y subíndice<sub>2</sub></p>
+</div>
+<div id="encabezados" class="section level2 unnumbered">
+<h2>Encabezados</h2>
+<div class="boxed">
+<h1 id="encabezado-de-primer-nivel">
+Encabezado de primer nivel
+</h1>
+<h2 id="encabezado-de-segundo-nivel">
+Encabezado de segundo nivel
+</h2>
+<h3 id="encabezado-de-tercer-nivel">
+Encabezado de tercer nivel
+</h3>
+</div>
+</div>
+<div id="listas" class="section level2 unnumbered">
+<h2>Listas</h2>
+<ul>
+<li><p>Elemento 1 en lista no enumerada</p></li>
+<li><p>Elemento 2</p>
+<ul>
+<li><p>Elemento 2a</p></li>
+<li><p>Elemento 2b</p></li>
+</ul></li>
+</ul>
+<ol style="list-style-type: decimal">
+<li><p>Elemento 1 en lista enumerada</p></li>
+<li><p>Elemento 2. La numeración se incrementa automáticamente en el output.</p></li>
+</ol>
+</div>
+<div id="enlaces-e-imágenes" class="section level2 unnumbered">
+<h2>Enlaces e imágenes</h2>
+<p><a href="https://es.r4ds.hadley.nz/" class="uri">https://es.r4ds.hadley.nz/</a> Español</p>
+<p><a href="https://r4ds.had.co.nz/" class="uri">https://r4ds.had.co.nz/</a> Inglés</p>
+<p><a href="https://es.r4ds.hadley.nz/">texto del enlace</a></p>
+<div class="figure">
+<img src="fig/top.jpg" alt="" />
+<p class="caption">pie de página opcional</p>
+</div>
+</div>
+<div id="tablas" class="section level2 unnumbered">
+<h2>Tablas</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Primer encabezado</th>
+<th>Segundo encabezado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Contenido de la celda</td>
+<td>Contenido de la celda</td>
+</tr>
+<tr class="even">
+<td>Contenido de la celda</td>
+<td>Contenido de la celda</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="bloques-de-código" class="section level2 unnumbered">
+<h2>Bloques de código</h2>
+<p>Para ejecutar código dentro de un documento R Markdown, necesitas insertar un bloque o chunk, en inglés. Hay tres maneras para hacerlo:</p>
+<pre><code>Con el atajo de teclado: Cmd/Ctrl + Alt + I
+
+Con el ícono “Insert” en la barra de edición
+
+Tipeando manualmente los delimitadores de bloque ```{r} y ```.</code></pre>
+<p>Obviamente, nuestra recomendación es que aprendas a usar el atajo de teclado. A largo plazo, te ahorrará mucho tiempo.</p>
+<p>Puedes continuar ejecutando el código usando el atajo de teclado que para este momento (¡esperamos!) ya conoces y amas : Cmd/Ctrl + Enter. Sin embargo, los bloques de código tienen otro atajo de teclado: Cmd/Ctrl + Shift + Enter, que ejecuta todo el código en el bloque. Piensa el bloque como una función. Un bloque debería ser relativamente autónomo y enfocado en torno a una sola tarea.</p>
+<p>Las siguientes secciones describen el encabezado de bloque, que consiste en</p>
+<p>Opciones de los bloques</p>
+<p>La salida de los bloques puede personalizarse con options, que son argumentos suministrados en el encabezado del bloque. Knitr provee casi 60 opciones que puedes usar para personalizar tus bloques de código. Aquí cubriremos las opciones de bloques más importantes que usarás más frecuentemente. Puedes ver la lista completa en <a href="http://yihui.name/knitr/options/" class="uri">http://yihui.name/knitr/options/</a>.</p>
+<p>El conjunto más importante de opciones controla si tu bloque de código es ejecutado y qué resultados estarán insertos en el reporte final:</p>
+<p><code>eval = FALSE</code> evita que el código sea evaluado. (Y, obviamente, si el código no es ejecutado no se generaran resultados). Esto es útil para mostrar códigos de ejemplo, o para deshabilitar un gran bloque de código sin comentar cada línea.</p>
+<p><code>include = FALSE</code> ejecuta el código, pero no muestra el código o los resultados en el documento final. Usa esto para código de configuración que no quieres que abarrote tu reporte.</p>
+<p><code>echo = FALSE</code> evita que se vea el código, pero sí muestra los resultados en el archivo final. Utiliza esto cuando quieres escribir reportes enfocados a personas que no quieren ver el código subyacente de R.</p>
+<p><code>message = FALSE</code> o warning = FALSE evita que aparezcan mensajes o advertencias en el archivo final.</p>
+<p><code>results = 'hide'</code> oculta el output impreso; fig.show = ‘hide’ oculta gráficos.</p>
+<p><code>error = TRUE</code> causa que el render continúe incluso si el código devuelve un error. Esto es algo que raramente quieres incluir en la versión final de tu reporte, pero puede ser muy útil si necesitas depurar exactamente qué ocurre dentro de tu .Rmd. Es también útil si estás enseñando R y quieres incluir deliberadamente un error. Por defecto, error = FALSE provoca que el knitting falle si hay incluso un error en el documento.</p>
+<p>La siguiente tabla resume qué tipos de output suprime cada opción:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Option</th>
+<th>Ejecuta</th>
+<th>Muestra</th>
+<th>Output</th>
+<th>Gráficos</th>
+<th>Mensajes</th>
+<th>Advertencias</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>eval = FALSE</code></td>
+<td>-</td>
+<td></td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td><code>include = FALSE</code></td>
+<td></td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td><code>echo = FALSE</code></td>
+<td></td>
+<td>-</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>results = "hide"</code></td>
+<td></td>
+<td></td>
+<td>-</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>fig.show = "hide"</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td>-</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>message = FALSE</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>-</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>warning = FALSE</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tablas-1" class="section level2 unnumbered">
+<h2>Tablas</h2>
+<p>Por defecto, R Markdown imprime data frames y matrices tal como se ven en la consola:</p>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="r-markdown.html#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars)</span></code></pre></div>
+<p>Si prefieres que los datos tengan formato adicional, puedes usar la función knitr::kable</p>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="r-markdown.html#cb189-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb189-2"><a href="r-markdown.html#cb189-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(mtcars), </span>
+<span id="cb189-3"><a href="r-markdown.html#cb189-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">&quot;A knitr kable.&quot;</span></span>
+<span id="cb189-4"><a href="r-markdown.html#cb189-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+</div>
+<div id="opciones-globales" class="section level2 unnumbered">
+<h2>Opciones globales</h2>
+<p>A medida que trabajes más con knitr, descubrirás que algunas de las opciones de bloque por defecto no se ajustan a tus necesidades y querrás cambiarlas. Puedes hacer esto incluyendo <code>knitr::opts_chunk$set()</code> en un bloque de código. Por ejemplo, cuando escribimos un reporte para una persona no interesada en el código incluiremos en el seteo global:</p>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="r-markdown.html#cb190-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Global options</span></span>
+<span id="cb190-2"><a href="r-markdown.html#cb190-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(</span>
+<span id="cb190-3"><a href="r-markdown.html#cb190-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">echo=</span><span class="cn">FALSE</span>,</span>
+<span id="cb190-4"><a href="r-markdown.html#cb190-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">comment=</span><span class="cn">NA</span>,</span>
+<span id="cb190-5"><a href="r-markdown.html#cb190-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">message=</span><span class="cn">FALSE</span>,</span>
+<span id="cb190-6"><a href="r-markdown.html#cb190-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">warning=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<p>Esto ocultará por defecto el código, así que solo mostrará los bloques que deliberadamente has elegido mostrar (con <code>echo = TRUE</code>).</p>
+<p>Más info sobre <code>R Markdown</code> en <a href="https://es.r4ds.hadley.nz/r-markdown.html" class="uri">https://es.r4ds.hadley.nz/r-markdown.html</a></p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="anova.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="trabajo-final-de-curso.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

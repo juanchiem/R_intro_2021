@@ -1,0 +1,157 @@
+#Importación
+
+Planillas de datos - propiedades
+
+Conocer las distintas etapas del workflow de investigación confiere la gran ventaja de poder pensar nuestras acciones como parte de un todo, y no como etapas aisladas. Por ejemplo, una planilla de campo de papel de formato "apaisado" ("wide") puede que aún no esté lista para ser analizada, pero este formato confiere ciertas ventajas prácticas (confección de planilla de papel, control interno de las evaluaciones, pasaje a planilla electrónica). Por lo tanto en una siguiente etapa luego de la importación al entorno de nuestra sesión, puede que necesitemos re-estructurarla y asi poder continuar hacia la exploración. 
+
+Veamos **4 Principios básicos** de buenas prácticas en la elaboración de planillas de datos - Adaptado de [@broman2018data]
+
+Como regla global, y siguiendo lo ya comentado en la la clase anterior, los dataframes tienen: columnas (verticales) que son **variables** y filas (horizontales) que son las **observaciones** (generalmente de unidades experimentales/sujetos individuales).
+
+**1 - Consistencia**
+
+Sean creativos al nombrar las variables: usen 3-4 letras (minúsculas) por palabra y en caso de necesitar usar “_”. No usar acentos ni ñ. Nunca dejen espacios y maximicen el ahorro de letras, siempre y cuando se justifique, por ej:
+
+  * severidad = sev
+  * incidencia = inc
+  * rendimiento = rto 
+  * hoja = hj (bien podría ser “hoja”)
+  * planta = pl (bien podría ser “planta”)
+  * bloque = bq
+  * temperatura = temp
+  * máxima = max
+
+Adopten siempre los mismos términos
+
+* No escatimen en columnas: rep_pl -> rep | pl
+
+* Crear diccionario de términos: Agreguen una planilla con el detalle por extenso de las variables y sus unidades. Piensen que esa planilla la debería entender cualquier persona sin auxilio de sus propios comentarios. 
+
+**2 - Rectangular**
+
+Todo set de datos tiene sus dimensiones específicas: n filas - n columnas. 
+Si se perdió alguna parcela/planta por algún motivo extra-tratamiento simplemente es un NA, y así deben definir esa observación, no poner “muerta” o “perdida”. 
+
+**3 - Cero es un dato!** 
+
+Cero no significa ausencia de observación, en este caso podemos dejar en blanco (si se usa .xls)
+
+**4 - Planilla plana -> DATOS CRUDOS**
+
+* SIN FÓRMULAS 
+* no combinar celdas
+* no resaltar
+* no hacer bordes 
+* sin negritas
+* caracteres puros
+
+# Importación 
+
+## Desde PC 
+
+Principalmente usaremos planillas Excel guardados en nuestra computadora. Estos pueden estar guardados en formato .xlsx (planillas tradicionales) o .csv (texto separado con comas, cuando se traten de datasets muy grandes). 
+
+Importemos algunos datasets característicos de uso cotidiano. Usaremos el archivo "datos_curso_unne.xls"  
+
+```{r}
+library(tidyverse)
+library(readxl)
+```
+
+* que hojas tiene el archivo?
+
+```{r}
+excel_sheets(("data/datos_curso_unne.xls"))
+```
+
+1 - soja: ensayo de rendimiento de 4 cultivares en un DBCA
+
++ trt: cultivares 	
++ bk_[1 a 4] : rendimiento en kg/ha en cada bloque	
+`
+```{r}
+soja <- read_excel("data/datos_curso_unne.xls", sheet ="soja")
+soja
+```
+
+2 - canola: medidas repetidas en el tiempo
+
++ trt: tratamiento fungicida 	
++ bk: bloque	
++ inc_ : % de plantas con presencia de la enfermedad phoma (incidencia) a través del tiempo termico (15, 58, 95, 146, 165, 180, 248)
+
+```{r}
+canola <- read_excel("data/datos_curso_unne.xls", sheet ="canola")
+```
+
+3 - bce_met: temperaturas y radiacion de 2018
+
++ fecha	
++ tmax	(Cº)
++ tmin	(Cº)
++ rad (Mj/m2)
+
+```{r}
+bce_met <- read_excel("data/datos_curso_unne.xls", sheet ="bce_met")
+```
+
+4 - bce_lluvias: precipitaciones de 2018
+
+```{r}
+bce_lluvias <- read_excel("data/datos_curso_unne.xls", sheet ="bce_lluvias")
+```
+
+5 - maiz: rendimientos de lotes de producción del sudeste de Buenos Aires
+
+```{r}
+maiz <- read_excel("data/datos_curso_unne.xls", sheet ="maiz")
+```
+
+6 - triticum: [triticum.csv] 
+
+```{r}
+triticum <- read_csv("data/triticum_monococcum.csv")
+```
+
+:::{#box1 .blue-box}
+Una forma práctica es vía clicks de mouse en el panel de entorno de la sesión: 
+- Buscan el archivo a importar en el explorador de archivos del panel multipropósito de RStudio 
+- Hacen click sobre el archivo  
+- Seleccionan "import dataset" y dan `import`  
+- Configuran las opciones de importación y para que nuestro **script sea reproducible** copian el código generado y lo pegan en el script!" 
+:::
+
+## Desde googlesheets
+
+```{r}
+pacman::p_load(gsheet)
+```
+
+```{r}
+url_data <- "https://docs.google.com/spreadsheets/d/1c_FXVNkkj4LD8hVUForaaI24UhRauh_tWsy7sFRSM2k/edit#gid=1579441844"
+browseURL(url_data)
+```
+
+Nuevamente importemos "soja"
+
+```{r}
+url_soja <- "https://docs.google.com/spreadsheets/d/1c_FXVNkkj4LD8hVUForaaI24UhRauh_tWsy7sFRSM2k/edit#gid=1579441844"
+
+soja <- gsheet2tbl(url_soja)
+
+```
+
+```{r}
+url_mz <- "https://docs.google.com/spreadsheets/d/1c_FXVNkkj4LD8hVUForaaI24UhRauh_tWsy7sFRSM2k/edit#gid=1706724730"
+
+maiz <- gsheet2tbl(url_mz)
+
+```
+
+> Ahora compilaremos todos los dataframes importados en un archivo `datos_cursos.Rdata`
+
+```{r}
+save(soja, canola, bce_met, bce_lluvias, maiz, triticum, file="data/datos_curso.Rdata")
+```
+
+> Creamos un nuevo script, pero ahora `.Rmd`

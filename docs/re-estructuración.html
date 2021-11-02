@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>7 Re-estructuración | Exploración, manipulación y visualización de datos con R</title>
+  <meta name="description" content="7 Re-estructuración | Exploración, manipulación y visualización de datos con R" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="7 Re-estructuración | Exploración, manipulación y visualización de datos con R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="juanchiem/R_Intro" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="7 Re-estructuración | Exploración, manipulación y visualización de datos con R" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="tidyverse.html"/>
+<link rel="next" href="sumarización.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Motivación</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#objetivos"><i class="fa fa-check"></i>Objetivos</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="config.html"><a href="config.html"><i class="fa fa-check"></i><b>1</b> Configuraciones básicas</a>
+<ul>
+<li class="chapter" data-level="" data-path="config.html"><a href="config.html#paquetes-de-r"><i class="fa fa-check"></i>Paquetes de R</a></li>
+<li class="chapter" data-level="" data-path="config.html"><a href="config.html#workflow-componentes"><i class="fa fa-check"></i>Workflow componentes</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="sintaxis.html"><a href="sintaxis.html"><i class="fa fa-check"></i><b>2</b> Sintaxis</a>
+<ul>
+<li class="chapter" data-level="" data-path="sintaxis.html"><a href="sintaxis.html#r-calculadora"><i class="fa fa-check"></i>R Calculadora</a></li>
+<li class="chapter" data-level="" data-path="sintaxis.html"><a href="sintaxis.html#comparaciones-lógicas"><i class="fa fa-check"></i>Comparaciones lógicas</a></li>
+<li class="chapter" data-level="" data-path="sintaxis.html"><a href="sintaxis.html#variables-y-asignaciones"><i class="fa fa-check"></i>Variables y asignaciones</a></li>
+<li class="chapter" data-level="" data-path="sintaxis.html"><a href="sintaxis.html#funciones"><i class="fa fa-check"></i>Funciones</a></li>
+<li class="chapter" data-level="" data-path="sintaxis.html"><a href="sintaxis.html#tips"><i class="fa fa-check"></i>Tips</a></li>
+<li class="chapter" data-level="" data-path="sintaxis.html"><a href="sintaxis.html#s.o.s."><i class="fa fa-check"></i>S.O.S.</a></li>
+<li class="chapter" data-level="" data-path="sintaxis.html"><a href="sintaxis.html#tablas_resumen"><i class="fa fa-check"></i>Tablas resumen</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html"><i class="fa fa-check"></i><b>3</b> Tipos de datos</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#vectores"><i class="fa fa-check"></i><b>3.1</b> Vectores</a></li>
+<li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#numéricos"><i class="fa fa-check"></i>Numéricos</a></li>
+<li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#lógicos"><i class="fa fa-check"></i>Lógicos</a></li>
+<li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#caracter"><i class="fa fa-check"></i>Caracter</a></li>
+<li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#fechas"><i class="fa fa-check"></i>Fechas</a></li>
+<li class="chapter" data-level="3.2" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#secuencias"><i class="fa fa-check"></i><b>3.2</b> Secuencias</a>
+<ul>
+<li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#numéricas"><i class="fa fa-check"></i>Numéricas</a></li>
+<li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#letras"><i class="fa fa-check"></i>Letras</a></li>
+<li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#fechas-1"><i class="fa fa-check"></i>Fechas</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#números-aleatorios"><i class="fa fa-check"></i><b>3.3</b> Números aleatorios</a></li>
+<li class="chapter" data-level="3.4" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#valores-especiales"><i class="fa fa-check"></i><b>3.4</b> Valores especiales</a></li>
+<li class="chapter" data-level="3.5" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#factores"><i class="fa fa-check"></i><b>3.5</b> Factores</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="estructura-de-datos.html"><a href="estructura-de-datos.html"><i class="fa fa-check"></i><b>4</b> Estructura de datos</a>
+<ul>
+<li class="chapter" data-level="" data-path="estructura-de-datos.html"><a href="estructura-de-datos.html#data-frames"><i class="fa fa-check"></i>Data frames</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="visualización.html"><a href="visualización.html"><i class="fa fa-check"></i><b>5</b> Visualización</a>
+<ul>
+<li class="chapter" data-level="" data-path="visualización.html"><a href="visualización.html#ggplot"><i class="fa fa-check"></i>ggplot</a></li>
+<li class="chapter" data-level="5.1" data-path="visualización.html"><a href="visualización.html#ambas-variables-contínuas"><i class="fa fa-check"></i><b>5.1</b> Ambas variables contínuas</a></li>
+<li class="chapter" data-level="5.2" data-path="visualización.html"><a href="visualización.html#comparación-de-niveles-de-factores"><i class="fa fa-check"></i><b>5.2</b> Comparación de niveles de factores</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="visualización.html"><a href="visualización.html#observaciones-media-mediana"><i class="fa fa-check"></i><b>5.2.1</b> Observaciones + media / mediana</a></li>
+<li class="chapter" data-level="5.2.2" data-path="visualización.html"><a href="visualización.html#barplot-se"><i class="fa fa-check"></i><b>5.2.2</b> Barplot + SE</a></li>
+<li class="chapter" data-level="5.2.3" data-path="visualización.html"><a href="visualización.html#box-plot"><i class="fa fa-check"></i><b>5.2.3</b> Box-plot</a></li>
+<li class="chapter" data-level="5.2.4" data-path="visualización.html"><a href="visualización.html#violin-plot"><i class="fa fa-check"></i><b>5.2.4</b> Violin plot</a></li>
+<li class="chapter" data-level="5.2.5" data-path="visualización.html"><a href="visualización.html#media-dispersión"><i class="fa fa-check"></i><b>5.2.5</b> Media &amp; dispersión</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="importación.html"><a href="importación.html"><i class="fa fa-check"></i><b>6</b> Importación</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="importación.html"><a href="importación.html#desde-pc"><i class="fa fa-check"></i><b>6.1</b> Desde PC</a></li>
+<li class="chapter" data-level="6.2" data-path="importación.html"><a href="importación.html#desde-googlesheets"><i class="fa fa-check"></i><b>6.2</b> Desde googlesheets</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="tidyverse.html"><a href="tidyverse.html"><i class="fa fa-check"></i>Tidyverse</a></li>
+<li class="chapter" data-level="7" data-path="re-estructuración.html"><a href="re-estructuración.html"><i class="fa fa-check"></i><b>7</b> Re-estructuración</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="re-estructuración.html"><a href="re-estructuración.html#unir-dataframes"><i class="fa fa-check"></i><b>7.1</b> Unir dataframes</a></li>
+<li class="chapter" data-level="7.2" data-path="re-estructuración.html"><a href="re-estructuración.html#reordenar-niveles-de-un-factor"><i class="fa fa-check"></i><b>7.2</b> Reordenar niveles de un factor</a></li>
+<li class="chapter" data-level="7.3" data-path="re-estructuración.html"><a href="re-estructuración.html#modificar-variables"><i class="fa fa-check"></i><b>7.3</b> Modificar variables</a></li>
+<li class="chapter" data-level="7.4" data-path="re-estructuración.html"><a href="re-estructuración.html#agregar-variables"><i class="fa fa-check"></i><b>7.4</b> Agregar variables</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="sumarización.html"><a href="sumarización.html"><i class="fa fa-check"></i><b>8</b> Sumarización</a></li>
+<li class="chapter" data-level="9" data-path="selección.html"><a href="selección.html"><i class="fa fa-check"></i><b>9</b> Selección</a></li>
+<li class="chapter" data-level="10" data-path="filtrado.html"><a href="filtrado.html"><i class="fa fa-check"></i><b>10</b> Filtrado</a></li>
+<li class="chapter" data-level="11" data-path="depuración.html"><a href="depuración.html"><i class="fa fa-check"></i><b>11</b> Depuración</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="depuración.html"><a href="depuración.html#separar---unir-columnas"><i class="fa fa-check"></i><b>11.1</b> Separar - unir columnas</a></li>
+<li class="chapter" data-level="11.2" data-path="depuración.html"><a href="depuración.html#depuración-de-variables-tipo-carácter"><i class="fa fa-check"></i><b>11.2</b> Depuración de variables tipo carácter</a></li>
+<li class="chapter" data-level="11.3" data-path="depuración.html"><a href="depuración.html#exploración-rápida-del-dataset"><i class="fa fa-check"></i><b>11.3</b> Exploración rápida del dataset</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="correlacion.html"><a href="correlacion.html"><i class="fa fa-check"></i><b>12</b> Correlacion</a></li>
+<li class="chapter" data-level="13" data-path="regresión-linear.html"><a href="regresión-linear.html"><i class="fa fa-check"></i><b>13</b> Regresión linear</a></li>
+<li class="chapter" data-level="14" data-path="anova.html"><a href="anova.html"><i class="fa fa-check"></i><b>14</b> Anova</a>
+<ul>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#un-solo-factor"><i class="fa fa-check"></i>Un solo factor</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#dos-factores"><i class="fa fa-check"></i>Dos factores</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>15</b> R Markdown</a>
+<ul>
+<li class="chapter" data-level="" data-path="r-markdown.html"><a href="r-markdown.html#elementos-básicos-de-r-markdown"><i class="fa fa-check"></i>Elementos básicos de R Markdown</a></li>
+<li class="chapter" data-level="" data-path="r-markdown.html"><a href="r-markdown.html#formateo-de-texto-con-markdown"><i class="fa fa-check"></i>Formateo de texto con Markdown</a></li>
+<li class="chapter" data-level="" data-path="r-markdown.html"><a href="r-markdown.html#encabezados"><i class="fa fa-check"></i>Encabezados</a></li>
+<li class="chapter" data-level="" data-path="r-markdown.html"><a href="r-markdown.html#listas"><i class="fa fa-check"></i>Listas</a></li>
+<li class="chapter" data-level="" data-path="r-markdown.html"><a href="r-markdown.html#enlaces-e-imágenes"><i class="fa fa-check"></i>Enlaces e imágenes</a></li>
+<li class="chapter" data-level="" data-path="r-markdown.html"><a href="r-markdown.html#tablas"><i class="fa fa-check"></i>Tablas</a></li>
+<li class="chapter" data-level="" data-path="r-markdown.html"><a href="r-markdown.html#bloques-de-código"><i class="fa fa-check"></i>Bloques de código</a></li>
+<li class="chapter" data-level="" data-path="r-markdown.html"><a href="r-markdown.html#tablas-1"><i class="fa fa-check"></i>Tablas</a></li>
+<li class="chapter" data-level="" data-path="r-markdown.html"><a href="r-markdown.html#opciones-globales"><i class="fa fa-check"></i>Opciones globales</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="trabajo-final-de-curso.html"><a href="trabajo-final-de-curso.html"><i class="fa fa-check"></i><b>16</b> Trabajo final de curso</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Exploración, manipulación y visualización de datos con R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="re-estructuración" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Re-estructuración</h1>
+<p>pivot_longer</p>
+<p>“Wide” -&gt; “long”</p>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="re-estructuración.html#cb82-1" aria-hidden="true" tabindex="-1"></a>soja_long <span class="ot">&lt;-</span> soja <span class="sc">%&gt;%</span> </span>
+<span id="cb82-2"><a href="re-estructuración.html#cb82-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb82-3"><a href="re-estructuración.html#cb82-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">&quot;bk&quot;</span>),</span>
+<span id="cb82-4"><a href="re-estructuración.html#cb82-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">&quot;bk&quot;</span>,</span>
+<span id="cb82-5"><a href="re-estructuración.html#cb82-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_prefix =</span> <span class="st">&quot;bk_&quot;</span>,</span>
+<span id="cb82-6"><a href="re-estructuración.html#cb82-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">&quot;rinde&quot;</span></span>
+<span id="cb82-7"><a href="re-estructuración.html#cb82-7" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb82-8"><a href="re-estructuración.html#cb82-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb82-9"><a href="re-estructuración.html#cb82-9" aria-hidden="true" tabindex="-1"></a>soja_long</span></code></pre></div>
+<p>Hagamos un último control de calidad…</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="re-estructuración.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(soja_long)</span>
+<span id="cb83-2"><a href="re-estructuración.html#cb83-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb83-3"><a href="re-estructuración.html#cb83-3" aria-hidden="true" tabindex="-1"></a>soja_long <span class="ot">&lt;-</span> soja_long <span class="sc">%&gt;%</span> </span>
+<span id="cb83-4"><a href="re-estructuración.html#cb83-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="fu">vars</span>(trt, bk), as.factor)</span>
+<span id="cb83-5"><a href="re-estructuración.html#cb83-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb83-6"><a href="re-estructuración.html#cb83-6" aria-hidden="true" tabindex="-1"></a>soja_long</span></code></pre></div>
+<p>Ahora si, listo para un primer gráfico (por el momento no importa la apariencia)…</p>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="re-estructuración.html#cb84-1" aria-hidden="true" tabindex="-1"></a>soja_long <span class="sc">%&gt;%</span> </span>
+<span id="cb84-2"><a href="re-estructuración.html#cb84-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb84-3"><a href="re-estructuración.html#cb84-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>trt, <span class="at">y =</span>rinde) <span class="sc">+</span> </span>
+<span id="cb84-4"><a href="re-estructuración.html#cb84-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha=</span><span class="fl">0.2</span>) </span>
+<span id="cb84-5"><a href="re-estructuración.html#cb84-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># geom_text(aes(label=bk), hjust=2)+</span></span>
+<span id="cb84-6"><a href="re-estructuración.html#cb84-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># stat_summary(fun=mean, col=&quot;red&quot;)</span></span></code></pre></div>
+<div id="unir-dataframes" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Unir dataframes</h2>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="re-estructuración.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr) <span class="co"># no hace falta si activamos tidyverse!</span></span></code></pre></div>
+<p>En esta etapa del flujo de trabajo introduciremos <code>{dplyr}</code> apenas con la funciones <code>join()</code> y <code>mutate()</code>.</p>
+<div id="box1" class="blue-box">
+<p>Full detalle de dplyr en:</p>
+<ul>
+<li><a href="https://dplyr.tidyverse.org/">Sitio oficial</a></li>
+<li><a href="https://es.r4ds.hadley.nz/datos-relacionales.html">R para ciencia de datos</a></li>
+</ul>
+</div>
+<p><img src="fig/joins.png" width="300" />
+Veamos los datos meteorologicos de Balcarce:</p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="re-estructuración.html#cb86-1" aria-hidden="true" tabindex="-1"></a>bce_met</span>
+<span id="cb86-2"><a href="re-estructuración.html#cb86-2" aria-hidden="true" tabindex="-1"></a>bce_lluvias</span></code></pre></div>
+<blockquote>
+<p>que pueden observar?</p>
+</blockquote>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="re-estructuración.html#cb87-1" aria-hidden="true" tabindex="-1"></a>bce_full <span class="ot">&lt;-</span> bce_met <span class="sc">%&gt;%</span> </span>
+<span id="cb87-2"><a href="re-estructuración.html#cb87-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(bce_lluvias, <span class="at">by=</span><span class="st">&quot;fecha&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb87-3"><a href="re-estructuración.html#cb87-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pp =</span> <span class="fu">replace_na</span>(pp, <span class="dv">0</span>))</span>
+<span id="cb87-4"><a href="re-estructuración.html#cb87-4" aria-hidden="true" tabindex="-1"></a>bce_full </span></code></pre></div>
+<p>Ahora si, veamos el data-type!</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="re-estructuración.html#cb88-1" aria-hidden="true" tabindex="-1"></a>bce_full</span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="re-estructuración.html#cb89-1" aria-hidden="true" tabindex="-1"></a>bce_full <span class="ot">&lt;-</span> bce_full <span class="sc">%&gt;%</span></span>
+<span id="cb89-2"><a href="re-estructuración.html#cb89-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="fu">vars</span>(fecha), lubridate<span class="sc">::</span>dmy)</span>
+<span id="cb89-3"><a href="re-estructuración.html#cb89-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-4"><a href="re-estructuración.html#cb89-4" aria-hidden="true" tabindex="-1"></a>bce_full</span></code></pre></div>
+<div id="box1" class="blue-box">
+<p><code>scale_x_date</code> permite formatear los rótulos de los ejes de fchas:</p>
+<p>Podemos usaar diferentes combinaciones de dias, semanas, meses y años:</p>
+<ul>
+<li>nombre del mes name: %b (abreviado) o %B (completo)</li>
+<li>%d: día del mes como nro decimal</li>
+<li>%Y: año completo</li>
+<li>todas las opciones en ?strptime</li>
+</ul>
+</div>
+<p>Temperaturas juntas en el mismo gráfico…</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="re-estructuración.html#cb90-1" aria-hidden="true" tabindex="-1"></a>bce_full <span class="sc">%&gt;%</span> </span>
+<span id="cb90-2"><a href="re-estructuración.html#cb90-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb90-3"><a href="re-estructuración.html#cb90-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>fecha)<span class="sc">+</span></span>
+<span id="cb90-4"><a href="re-estructuración.html#cb90-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> tmax, <span class="at">col =</span> <span class="st">&quot;Máxima&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb90-5"><a href="re-estructuración.html#cb90-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> tmin, <span class="at">col =</span> <span class="st">&quot;Mínima&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb90-6"><a href="re-estructuración.html#cb90-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="st">&quot;&quot;</span>,</span>
+<span id="cb90-7"><a href="re-estructuración.html#cb90-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;Máxima&quot;</span> <span class="ot">=</span> <span class="st">&quot;red&quot;</span>, <span class="st">&quot;Mínima&quot;</span> <span class="ot">=</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb90-8"><a href="re-estructuración.html#cb90-8" aria-hidden="true" tabindex="-1"></a>                      )<span class="sc">+</span></span>
+<span id="cb90-9"><a href="re-estructuración.html#cb90-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">&quot;1 month&quot;</span>, <span class="at">date_labels =</span> <span class="st">&quot;%b&quot;</span>,</span>
+<span id="cb90-10"><a href="re-estructuración.html#cb90-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">limits =</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">&quot;2018-01-01&quot;</span>, <span class="st">&quot;2018-31-12&quot;</span>)))<span class="sc">+</span></span>
+<span id="cb90-11"><a href="re-estructuración.html#cb90-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle=</span><span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div>
+<p>Y lluvias?</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="re-estructuración.html#cb91-1" aria-hidden="true" tabindex="-1"></a>bce_full <span class="sc">%&gt;%</span> </span>
+<span id="cb91-2"><a href="re-estructuración.html#cb91-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb91-3"><a href="re-estructuración.html#cb91-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>fecha)<span class="sc">+</span></span>
+<span id="cb91-4"><a href="re-estructuración.html#cb91-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">y =</span> pp)) </span></code></pre></div>
+</div>
+<div id="reordenar-niveles-de-un-factor" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Reordenar niveles de un factor</h2>
+<p>El paquete <code>{forcats}</code> podria incluirse en los logos de la taza ya que hace un aporte clave para la manipulación de los niveles de un factor. En la clase de repaso vimos este ejemplo con el dataset <code>iris</code></p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="re-estructuración.html#cb92-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
+<span id="cb92-2"><a href="re-estructuración.html#cb92-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb92-3"><a href="re-estructuración.html#cb92-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Species=</span> <span class="fu">fct_relevel</span>(Species,<span class="st">&quot;virginica&quot;</span>)</span>
+<span id="cb92-4"><a href="re-estructuración.html#cb92-4" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb92-5"><a href="re-estructuración.html#cb92-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb92-6"><a href="re-estructuración.html#cb92-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>Sepal.Length)<span class="sc">+</span></span>
+<span id="cb92-7"><a href="re-estructuración.html#cb92-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()<span class="sc">+</span></span>
+<span id="cb92-8"><a href="re-estructuración.html#cb92-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="st">&quot;Species&quot;</span>)<span class="sc">+</span></span>
+<span id="cb92-9"><a href="re-estructuración.html#cb92-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
+<span id="cb92-10"><a href="re-estructuración.html#cb92-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span> <span class="st">&quot;Largo del sépalo (cm)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Número de casos&quot;</span>)</span></code></pre></div>
+
+<p>#Modificación</p>
+<p>Hasta el momento hemos:</p>
+<ul>
+<li><strong>importado</strong> nuestros datasets</li>
+<li><strong>guardado</strong> en formato .Rdata</li>
+<li><strong>cargado</strong> para nuevas sesiones de trabajo</li>
+<li><strong>re-estructurado</strong> en algunos casos</li>
+</ul>
+<p>Ahora nos adentraremos en la <strong>modificación</strong>, <strong>creación</strong>, <strong>filtrado</strong> y <strong>sumarización</strong> de variables.</p>
+<p>Para ello usaremos a otro potente paquete del ecosistema tidyverse:</p>
+<p><img src="fig/dplyr_hex.png" width="150" /></p>
+<ul>
+<li>Carguemos nuestros datos!</li>
+</ul>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="re-estructuración.html#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;data/datos_curso.Rdata&quot;</span>) </span>
+<span id="cb93-2"><a href="re-estructuración.html#cb93-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
+<ul>
+<li>Activemos tidyverse</li>
+</ul>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="re-estructuración.html#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) </span></code></pre></div>
+<p>Las principales funciones que nos auxiliaran en esta tarea son la familia <code>mutate</code></p>
+<p>Retomemos los datos meteorológicos de Balcarce 2018</p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="re-estructuración.html#cb95-1" aria-hidden="true" tabindex="-1"></a>bce_met</span>
+<span id="cb95-2"><a href="re-estructuración.html#cb95-2" aria-hidden="true" tabindex="-1"></a>bce_lluvias</span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="re-estructuración.html#cb96-1" aria-hidden="true" tabindex="-1"></a>bce_full <span class="ot">&lt;-</span> bce_met <span class="sc">%&gt;%</span> </span>
+<span id="cb96-2"><a href="re-estructuración.html#cb96-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(bce_lluvias, <span class="at">by=</span><span class="st">&quot;fecha&quot;</span>)</span>
+<span id="cb96-3"><a href="re-estructuración.html#cb96-3" aria-hidden="true" tabindex="-1"></a>bce_full </span></code></pre></div>
+<p>Ya que lo anterior no seria eficiente tener que hacerlo en cada nueva sesión, actualicemos nuestro “banco de datos” del proyecto:</p>
+<p>(primero borremos manualmente que datasets u objetos no queremos guardar)</p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="re-estructuración.html#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save.image</span>(<span class="st">&quot;data/datos_curso.Rdata&quot;</span>)</span>
+<span id="cb97-2"><a href="re-estructuración.html#cb97-2" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;data/datos_curso.Rdata&quot;</span>) </span></code></pre></div>
+</div>
+<div id="modificar-variables" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> Modificar variables</h2>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="re-estructuración.html#cb98-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(lubridate)</span>
+<span id="cb98-2"><a href="re-estructuración.html#cb98-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb98-3"><a href="re-estructuración.html#cb98-3" aria-hidden="true" tabindex="-1"></a>bce_full <span class="ot">&lt;-</span> bce_full <span class="sc">%&gt;%</span></span>
+<span id="cb98-4"><a href="re-estructuración.html#cb98-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">fecha =</span> lubridate<span class="sc">::</span><span class="fu">dmy</span>(fecha))</span>
+<span id="cb98-5"><a href="re-estructuración.html#cb98-5" aria-hidden="true" tabindex="-1"></a>bce_full</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="re-estructuración.html#cb99-1" aria-hidden="true" tabindex="-1"></a>bce_full <span class="ot">&lt;-</span> bce_full <span class="sc">%&gt;%</span> </span>
+<span id="cb99-2"><a href="re-estructuración.html#cb99-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pp =</span> <span class="fu">replace_na</span>(pp, <span class="dv">0</span>))</span></code></pre></div>
+</div>
+<div id="agregar-variables" class="section level2" number="7.4">
+<h2><span class="header-section-number">7.4</span> Agregar variables</h2>
+<p>Hasta aqui modificamos las variables “in-situ,” ahora agreguemos unas columnas:</p>
+<p><img src="fig/dplyr_mutate_new.png" width="600" /></p>
+<ul>
+<li>Extrayendo informacion de la columna fecha:</li>
+</ul>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="re-estructuración.html#cb100-1" aria-hidden="true" tabindex="-1"></a>bce_full <span class="ot">&lt;-</span> bce_full <span class="sc">%&gt;%</span> </span>
+<span id="cb100-2"><a href="re-estructuración.html#cb100-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">anio =</span> <span class="fu">year</span>(fecha),</span>
+<span id="cb100-3"><a href="re-estructuración.html#cb100-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">mes =</span> <span class="fu">month</span>(fecha),</span>
+<span id="cb100-4"><a href="re-estructuración.html#cb100-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">semana =</span> <span class="fu">week</span>(fecha),</span>
+<span id="cb100-5"><a href="re-estructuración.html#cb100-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">juliano =</span> <span class="fu">yday</span>(fecha))</span>
+<span id="cb100-6"><a href="re-estructuración.html#cb100-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb100-7"><a href="re-estructuración.html#cb100-7" aria-hidden="true" tabindex="-1"></a>bce_full</span></code></pre></div>
+<ul>
+<li>Haciendo operaciones matemáticas/lógicas</li>
+</ul>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="re-estructuración.html#cb101-1" aria-hidden="true" tabindex="-1"></a>bce_full <span class="ot">&lt;-</span> bce_full <span class="sc">%&gt;%</span> </span>
+<span id="cb101-2"><a href="re-estructuración.html#cb101-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb101-3"><a href="re-estructuración.html#cb101-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">tmean =</span> (tmax <span class="sc">+</span> tmin) <span class="sc">/</span> <span class="dv">2</span>,</span>
+<span id="cb101-4"><a href="re-estructuración.html#cb101-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">helada_agro =</span> <span class="fu">if_else</span>(tmin<span class="sc">&lt;</span><span class="dv">3</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>),</span>
+<span id="cb101-5"><a href="re-estructuración.html#cb101-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">helada_abs =</span> <span class="fu">if_else</span>(tmin<span class="sc">&lt;</span><span class="dv">0</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>))</span>
+<span id="cb101-6"><a href="re-estructuración.html#cb101-6" aria-hidden="true" tabindex="-1"></a>bce_full</span></code></pre></div>
+<ul>
+<li>O condiciones multiples</li>
+</ul>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="re-estructuración.html#cb102-1" aria-hidden="true" tabindex="-1"></a>bce_full <span class="ot">&lt;-</span> bce_full <span class="sc">%&gt;%</span> </span>
+<span id="cb102-2"><a href="re-estructuración.html#cb102-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb102-3"><a href="re-estructuración.html#cb102-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">fav_enf =</span> <span class="fu">if_else</span>(tmean<span class="sc">&gt;</span><span class="dv">20</span> <span class="sc">&amp;</span> pp<span class="sc">&gt;</span> <span class="dv">3</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb102-4"><a href="re-estructuración.html#cb102-4" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<blockquote>
+<p>calcule el cociente fototermal diario siendo éste = la radiacion divido la temperatura media</p>
+</blockquote>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="tidyverse.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sumarización.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

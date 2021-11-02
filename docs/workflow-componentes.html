@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Workflow componentes | Exploración, manipulación y visualización de datos con R</title>
+  <meta name="description" content="Workflow componentes | Exploración, manipulación y visualización de datos con R" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Workflow componentes | Exploración, manipulación y visualización de datos con R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="juanchiem/R_Intro" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Workflow componentes | Exploración, manipulación y visualización de datos con R" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="paquetes-de-r.html"/>
+<link rel="next" href="vectores.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Motivación</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#objetivos"><i class="fa fa-check"></i>Objetivos</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="config.html"><a href="config.html"><i class="fa fa-check"></i><b>1</b> Configuraciones básicas</a></li>
+<li class="chapter" data-level="" data-path="paquetes-de-r.html"><a href="paquetes-de-r.html"><i class="fa fa-check"></i>Paquetes de R</a></li>
+<li class="chapter" data-level="" data-path="workflow-componentes.html"><a href="workflow-componentes.html"><i class="fa fa-check"></i>Workflow componentes</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="workflow-componentes.html"><a href="workflow-componentes.html#comparaciones-lógicas"><i class="fa fa-check"></i><b>1.1</b> Comparaciones lógicas</a></li>
+<li class="chapter" data-level="1.2" data-path="workflow-componentes.html"><a href="workflow-componentes.html#variables-y-asignaciones"><i class="fa fa-check"></i><b>1.2</b> Variables y asignaciones</a></li>
+<li class="chapter" data-level="1.3" data-path="workflow-componentes.html"><a href="workflow-componentes.html#funciones"><i class="fa fa-check"></i><b>1.3</b> Funciones</a></li>
+<li class="chapter" data-level="1.4" data-path="workflow-componentes.html"><a href="workflow-componentes.html#tips"><i class="fa fa-check"></i><b>1.4</b> Tips</a></li>
+<li class="chapter" data-level="1.5" data-path="workflow-componentes.html"><a href="workflow-componentes.html#s.o.s."><i class="fa fa-check"></i><b>1.5</b> S.O.S.</a></li>
+<li class="chapter" data-level="1.6" data-path="workflow-componentes.html"><a href="workflow-componentes.html#tablas_resumen"><i class="fa fa-check"></i><b>1.6</b> Tablas resumen</a></li>
+<li class="chapter" data-level="1.7" data-path="workflow-componentes.html"><a href="workflow-componentes.html#numéricos"><i class="fa fa-check"></i><b>1.7</b> Numéricos</a></li>
+<li class="chapter" data-level="1.8" data-path="workflow-componentes.html"><a href="workflow-componentes.html#lógicos"><i class="fa fa-check"></i><b>1.8</b> Lógicos</a></li>
+<li class="chapter" data-level="1.9" data-path="workflow-componentes.html"><a href="workflow-componentes.html#caracter"><i class="fa fa-check"></i><b>1.9</b> Caracter</a></li>
+<li class="chapter" data-level="1.10" data-path="workflow-componentes.html"><a href="workflow-componentes.html#fechas"><i class="fa fa-check"></i><b>1.10</b> Fechas</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="vectores.html"><a href="vectores.html"><i class="fa fa-check"></i><b>2</b> Vectores</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="vectores.html"><a href="vectores.html#secuencias"><i class="fa fa-check"></i><b>2.1</b> Secuencias</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="vectores.html"><a href="vectores.html#numéricas"><i class="fa fa-check"></i><b>2.1.1</b> Numéricas</a></li>
+<li class="chapter" data-level="2.1.2" data-path="vectores.html"><a href="vectores.html#letras"><i class="fa fa-check"></i><b>2.1.2</b> Letras</a></li>
+<li class="chapter" data-level="2.1.3" data-path="vectores.html"><a href="vectores.html#fechas-1"><i class="fa fa-check"></i><b>2.1.3</b> Fechas</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="vectores.html"><a href="vectores.html#números-aleatorios"><i class="fa fa-check"></i><b>2.2</b> Números aleatorios</a></li>
+<li class="chapter" data-level="2.3" data-path="vectores.html"><a href="vectores.html#valores-especiales"><i class="fa fa-check"></i><b>2.3</b> Valores especiales</a></li>
+<li class="chapter" data-level="2.4" data-path="vectores.html"><a href="vectores.html#factores"><i class="fa fa-check"></i><b>2.4</b> Factores</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="vectores.html"><a href="vectores.html#data_frames"><i class="fa fa-check"></i><b>2.4.1</b> Data frames</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="vectores.html"><a href="vectores.html#ggplot-i"><i class="fa fa-check"></i><b>2.5</b> ggplot (I)</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="importación.html"><a href="importación.html"><i class="fa fa-check"></i><b>3</b> Importación</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="importación.html"><a href="importación.html#desde-pc"><i class="fa fa-check"></i><b>3.1</b> Desde PC</a></li>
+<li class="chapter" data-level="3.2" data-path="importación.html"><a href="importación.html#desde-googlesheets"><i class="fa fa-check"></i><b>3.2</b> Desde googlesheets</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="wide-a-long.html"><a href="wide-a-long.html"><i class="fa fa-check"></i><b>4</b> Wide a long</a></li>
+<li class="chapter" data-level="5" data-path="unir-dataframes.html"><a href="unir-dataframes.html"><i class="fa fa-check"></i><b>5</b> Unir dataframes</a></li>
+<li class="chapter" data-level="6" data-path="reordenar-niveles-de-un-factor.html"><a href="reordenar-niveles-de-un-factor.html"><i class="fa fa-check"></i><b>6</b> Reordenar niveles de un factor</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="reordenar-niveles-de-un-factor.html"><a href="reordenar-niveles-de-un-factor.html#modificar-variables"><i class="fa fa-check"></i><b>6.1</b> Modificar variables</a></li>
+<li class="chapter" data-level="6.2" data-path="reordenar-niveles-de-un-factor.html"><a href="reordenar-niveles-de-un-factor.html#agregar-variables"><i class="fa fa-check"></i><b>6.2</b> Agregar variables</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="sumarización.html"><a href="sumarización.html"><i class="fa fa-check"></i><b>7</b> Sumarización</a></li>
+<li class="chapter" data-level="8" data-path="selección.html"><a href="selección.html"><i class="fa fa-check"></i><b>8</b> Selección</a></li>
+<li class="chapter" data-level="9" data-path="filtrado.html"><a href="filtrado.html"><i class="fa fa-check"></i><b>9</b> Filtrado</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="filtrado.html"><a href="filtrado.html#separar---unir-columnas"><i class="fa fa-check"></i><b>9.1</b> Separar - unir columnas</a></li>
+<li class="chapter" data-level="9.2" data-path="filtrado.html"><a href="filtrado.html#depuración-de-variables-tipo-carácter"><i class="fa fa-check"></i><b>9.2</b> Depuración de variables tipo carácter</a></li>
+<li class="chapter" data-level="9.3" data-path="filtrado.html"><a href="filtrado.html#exploración-rápida-del-dataset"><i class="fa fa-check"></i><b>9.3</b> Exploración rápida del dataset</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="regresión-linear.html"><a href="regresión-linear.html"><i class="fa fa-check"></i><b>10</b> Regresión linear</a></li>
+<li class="chapter" data-level="11" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>11</b> R Markdown</a></li>
+<li class="chapter" data-level="12" data-path="elementos-básicos-de-r-markdown.html"><a href="elementos-básicos-de-r-markdown.html"><i class="fa fa-check"></i><b>12</b> Elementos básicos de R Markdown</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="elementos-básicos-de-r-markdown.html"><a href="elementos-básicos-de-r-markdown.html#formateo-de-texto-con-markdown"><i class="fa fa-check"></i><b>12.1</b> Formateo de texto con Markdown</a></li>
+<li class="chapter" data-level="12.2" data-path="elementos-básicos-de-r-markdown.html"><a href="elementos-básicos-de-r-markdown.html#formato-de-texto"><i class="fa fa-check"></i><b>12.2</b> Formato de texto</a></li>
+<li class="chapter" data-level="12.3" data-path="elementos-básicos-de-r-markdown.html"><a href="elementos-básicos-de-r-markdown.html#encabezados"><i class="fa fa-check"></i><b>12.3</b> Encabezados</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="encabezado-de-primer-nivel.html"><a href="encabezado-de-primer-nivel.html"><i class="fa fa-check"></i><b>13</b> Encabezado de primer nivel</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="encabezado-de-primer-nivel.html"><a href="encabezado-de-primer-nivel.html#encabezado-de-segundo-nivel"><i class="fa fa-check"></i><b>13.1</b> Encabezado de segundo nivel</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="encabezado-de-primer-nivel.html"><a href="encabezado-de-primer-nivel.html#encabezado-de-tercer-nivel"><i class="fa fa-check"></i><b>13.1.1</b> Encabezado de tercer nivel</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="encabezado-de-primer-nivel.html"><a href="encabezado-de-primer-nivel.html#listas"><i class="fa fa-check"></i><b>13.2</b> Listas</a></li>
+<li class="chapter" data-level="13.3" data-path="encabezado-de-primer-nivel.html"><a href="encabezado-de-primer-nivel.html#enlaces-e-imágenes"><i class="fa fa-check"></i><b>13.3</b> Enlaces e imágenes</a></li>
+<li class="chapter" data-level="13.4" data-path="encabezado-de-primer-nivel.html"><a href="encabezado-de-primer-nivel.html#tablas"><i class="fa fa-check"></i><b>13.4</b> Tablas</a></li>
+<li class="chapter" data-level="13.5" data-path="encabezado-de-primer-nivel.html"><a href="encabezado-de-primer-nivel.html#bloques-de-código"><i class="fa fa-check"></i><b>13.5</b> Bloques de código</a></li>
+<li class="chapter" data-level="13.6" data-path="encabezado-de-primer-nivel.html"><a href="encabezado-de-primer-nivel.html#tablas-1"><i class="fa fa-check"></i><b>13.6</b> Tablas</a></li>
+<li class="chapter" data-level="13.7" data-path="encabezado-de-primer-nivel.html"><a href="encabezado-de-primer-nivel.html#opciones-globales"><i class="fa fa-check"></i><b>13.7</b> Opciones globales</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Exploración, manipulación y visualización de datos con R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="workflow-componentes" class="section level1 unnumbered">
+<h1>Workflow componentes</h1>
+<p>Varios tipos de archivos serán creados y usados durante una sesión de R:</p>
+<ul>
+<li>datos crudos (hojas de cálculo) - datos manipulados</li>
+<li>scripts</li>
+<li>gráficos</li>
+<li>reportes de resultados</li>
+</ul>
+<p>Una análisis debe poder ser retomado en cualquier momento pudiendo darse por concluída cuando el trabajo es publicado. Hasta entonces debemos tener rápido acceso a todos los objetos creados en <em>sesiones</em> anteriores. Para ello debemos manejarnos siempre bajo <em>buenas prácticas</em> de trabajo. Esto nos permitirá entender qué quisimos hacer tiempo atrás, seremos intuitivos para encontrar archivos/objetos, y finalmente crearemos trabajos <em>reproducibles</em>…<br />
+Una forma práctica de administrar todos los objetos de una sesión es por medio del uso de “proyectos” de R Studio.</p>
+<p><img src="fig/workflow.jpg" /></p>
+<p>Una sugerencia es generar subcarpetas en nuestras máquinas, en preferencia dentro de dropbox / google drive. Esto no sólo mantendrá nuestro trabajo resguardado de posibles pérdidas (backup), retomarlo desde diferentes máquinas (trabajo/casa), sino que también le permitirá compartir en tiempo real sus avances con los colaboradores de su trabajo.</p>
+<center>
+<img src="fig/folders.png" />
+</center>
+<blockquote>
+<p>Crear una nuevo proyecto llamado “R_intro”</p>
+</blockquote>
+<blockquote>
+<p>Crear un script “dia_1”</p>
+</blockquote>
+<p>¿Dónde se guardaría el siguiente gráfico?</p>
+<blockquote>
+<p>En este ejemplo, usaremos una función “plot()” y un dataset “pressure” prediseñados en paquetes de carga automática al iniciar R.</p>
+</blockquote>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="workflow-componentes.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pressure)</span></code></pre></div>
+
+<p>#Sintaxis</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="workflow-componentes.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="sc">+</span> <span class="dv">9</span></span>
+<span id="cb2-2"><a href="workflow-componentes.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="sc">-</span> </span>
+<span id="cb2-3"><a href="workflow-componentes.html#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">3</span> <span class="sc">*</span></span>
+<span id="cb2-4"><a href="workflow-componentes.html#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span></span>
+<span id="cb2-5"><a href="workflow-componentes.html#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#4%1</span></span>
+<span id="cb2-6"><a href="workflow-componentes.html#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="workflow-componentes.html#cb2-7" aria-hidden="true" tabindex="-1"></a>(<span class="dv">4</span> <span class="sc">+</span> <span class="dv">5</span> ) <span class="sc">*</span> <span class="dv">7</span> <span class="sc">-</span> (<span class="dv">36</span><span class="sc">/</span><span class="dv">18</span>)<span class="sc">^</span><span class="dv">3</span></span></code></pre></div>
+<div id="box1" class="blue-box">
+<p>Ver <a href="workflow-componentes.html#tablas_resumen">tablas resumen</a> de operadores aritméticos y lógicos (al final del capítulo)</p>
+</div>
+<blockquote>
+<p>Reto matemático que se volvió viral en las redes sociales*</p>
+</blockquote>
+<p><img src="fig/reto.jpeg" /></p>
+<p>Existen dos soluciones, según método que se aplique: el PEMDAS = 1 (parenthesis &lt; exponents &lt; multiplicación &lt; division &lt; addition &lt; subtraction) y el BODMAS = 16 (Brackets &lt; Orders (Powers and Square Roots) &lt; Division &lt; Multiplication &lt; Addition &lt; Subtraction).</p>
+<blockquote>
+<p>Cómo opera R?</p>
+</blockquote>
+<p>Se puede decir que hay diferencia de estilos al programar. Se deberia tener presente que otros pueden leer tu código (optar por buenas prácticas)</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="workflow-componentes.html#cb3-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">3</span><span class="sc">+</span>(<span class="dv">5</span><span class="sc">*</span>(<span class="dv">2</span><span class="sc">^</span><span class="dv">2</span>))) <span class="co"># difícil de leer</span></span>
+<span id="cb3-2"><a href="workflow-componentes.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="sc">+</span> <span class="dv">5</span> <span class="sc">*</span> <span class="dv">2</span> <span class="sc">^</span> <span class="dv">2</span>   <span class="co"># si se recuerdan las reglas, todo bien</span></span>
+<span id="cb3-3"><a href="workflow-componentes.html#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="sc">+</span> <span class="dv">5</span> <span class="sc">*</span> (<span class="dv">2</span> <span class="sc">^</span> <span class="dv">2</span>)   <span class="co"># si se olvidan algunas reglas, esto podría ayudar</span></span></code></pre></div>
+<div id="comparaciones-lógicas" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Comparaciones lógicas</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="workflow-componentes.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span><span class="sc">&gt;</span><span class="dv">3</span></span>
+<span id="cb4-2"><a href="workflow-componentes.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="sc">==</span> <span class="dv">4</span></span>
+<span id="cb4-3"><a href="workflow-componentes.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="sc">==</span> <span class="dv">4</span></span>
+<span id="cb4-4"><a href="workflow-componentes.html#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="sc">!=</span> <span class="dv">3</span></span>
+<span id="cb4-5"><a href="workflow-componentes.html#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">&gt;=</span> <span class="sc">-</span><span class="dv">9</span></span></code></pre></div>
+<p></br></p>
+</div>
+<div id="variables-y-asignaciones" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Variables y asignaciones</h2>
+<p>Podemos almacenar valores en variables usando el operador de asignación <code>&lt;-</code>, veamos un ejemplo:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="workflow-componentes.html#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">40</span></span></code></pre></div>
+<p>Esta asignación no muestra el valor, sino que lo almacena para más adelante en algo llamado “variable.” Que contiene x?</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="workflow-componentes.html#cb6-1" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<div id="box1" class="blue-box">
+<p>shortcut de “&lt;-” : <code>Alt -</code></p>
+</div>
+<p>Chequear la pestaña Environment en uno de los paneles de RStudio. Nuestra variable x se puede usar en lugar de un número en cualquier cálculo que espere un número:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="workflow-componentes.html#cb7-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">1</span> <span class="co"># observen cómo RStudio actualiza/sobrescribe x en la pestaña superior derecha</span></span>
+<span id="cb7-2"><a href="workflow-componentes.html#cb7-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div>
+<p>El lado derecho de la asignación puede ser cualquier expresión de R válida. La expresión del lado derecho se evalúa por completo antes de que se realice la asignación.</p>
+<p>También es posible utilizar el operador = para la asignación</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="workflow-componentes.html#cb8-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">40</span></span></code></pre></div>
+<p>Esta forma es menos común entre los usuarios R (se recomienda usar <code>&lt;-</code>).</p>
+<p></br></p>
+</div>
+<div id="funciones" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Funciones</h2>
+<p>Como dijimos, los paquetes son básicamente un conjunto de funciones generadas por los autores de los mismos pero el usuario puede crear sus propias funciones.</p>
+<p>Componentes de las funciones:</p>
+<p>nombre_funcion(argumentos)</p>
+<ul>
+<li><p><em>Nombre</em>: Generalmente, el nombre es intuitivo, por ejemplo, <code>mean</code> es la función que calcula la media, <code>round</code> es la funión que redondea un número.(Como habrán notado R está en inglés)</p></li>
+<li><p><em>Argumentos</em>: Un argumento es un marcador de posición. Cuando se invoca una función, se debe indicar valores a los argumentos. Los argumentos son opcionales; es decir, una función puede no contener argumentos. También los argumentos pueden tener valores por defecto.</p></li>
+</ul>
+<p>Algunos cálculos basados en funciones matemáticas. Son las mas simples, y no esta funcion no contienen argumentos.
+[para chequear la info de la función, solo basta con seleccionar todos sus caracteres + F1]</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="workflow-componentes.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">3</span>) </span>
+<span id="cb9-2"><a href="workflow-componentes.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 3^0.5 </span></span>
+<span id="cb9-3"><a href="workflow-componentes.html#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 3^(1/2)</span></span>
+<span id="cb9-4"><a href="workflow-componentes.html#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">10</span>) <span class="co"># logaritmo natural</span></span>
+<span id="cb9-5"><a href="workflow-componentes.html#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fl">2.302585</span>)</span>
+<span id="cb9-6"><a href="workflow-componentes.html#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># log(10, base=10)</span></span></code></pre></div>
+<p>Funciones básicas pero con argumentos</p>
+<ul>
+<li>Redondeo</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="workflow-componentes.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">4.3478</span>)  </span>
+<span id="cb10-2"><a href="workflow-componentes.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">4.3478</span>, <span class="at">digits=</span><span class="dv">3</span>)  </span></code></pre></div>
+</div>
+<div id="tips" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> Tips</h2>
+<p>1 - No se tienen en cuenta los espacios en blanco entre palabras: podemos o no dejar espacios para que el código se pueda ordenar de forma adecuada y poder entenderse.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="workflow-componentes.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>( pressure )</span>
+<span id="cb11-2"><a href="workflow-componentes.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pressur e)</span></code></pre></div>
+<p>2 - Se distinguen las mayúsculas y minúsculas (“case sensitive”): para variables en el código, podemos crear diferentes variables con nombres iguales pero alternando mayúsculas y minúsculas.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="workflow-componentes.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Plot</span>(pressure)</span></code></pre></div>
+<p>3 - Se pueden incluir comentarios: como vimos anteriormente los comentarios se utilizan para añadir información en el código. De paso observamos que</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="workflow-componentes.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pressur e) <span class="co"># da error</span></span>
+<span id="cb13-2"><a href="workflow-componentes.html#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="workflow-componentes.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># grafico press vs temp</span></span>
+<span id="cb13-4"><a href="workflow-componentes.html#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pressure)</span></code></pre></div>
+<p>Aprovechemos a ir describiendo los “argumentos” de las “funciones”:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="workflow-componentes.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pressure, <span class="co"># grafico press vs temp</span></span>
+<span id="cb14-2"><a href="workflow-componentes.html#cb14-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">pch =</span> <span class="dv">19</span>, <span class="co"># cambio el tipo de puntos vacios a puntos llenos </span></span>
+<span id="cb14-3"><a href="workflow-componentes.html#cb14-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">col=</span> <span class="st">&quot;blue&quot;</span> <span class="co"># uso color azul para rellenarlos  </span></span>
+<span id="cb14-4"><a href="workflow-componentes.html#cb14-4" aria-hidden="true" tabindex="-1"></a>     )</span></code></pre></div>
+<p>4 - El punto y coma (;) actúa como separador de comandos aún en la misma línea del script!</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="workflow-componentes.html#cb15-1" aria-hidden="true" tabindex="-1"></a>pressure; <span class="fu">plot</span>(pressure)</span></code></pre></div>
+<p>5 - Los nombres de las variables pueden contener letras, números, guiones bajos y puntos, pero <em>NO PUEDEN</em>:</p>
+<ul>
+<li>comenzar con un número</li>
+<li>contener espacios en absoluto</li>
+</ul>
+<p>Cada uno adopta su propia forma para nombres largos de variables, por ej:</p>
+<ul>
+<li>puntos.entre.palabras</li>
+<li>guiones_bajos_entre_palabras</li>
+<li>MayúsculasMinúsculasParaSepararPalabras</li>
+</ul>
+<p>No importa como lo adopten, pero es aconsejable ser consistente.</p>
+</div>
+<div id="s.o.s." class="section level2" number="1.5">
+<h2><span class="header-section-number">1.5</span> S.O.S.</h2>
+<ul>
+<li>En el mismo R: <code>?sd</code>; <code>??sd</code>; F1 sobre la función</li>
+</ul>
+<blockquote>
+<p>Googlear: <em>r generate a sequence of uppercase letters</em></p>
+</blockquote>
+<ul>
+<li><p><a href="https://stackoverflow.com/">Stack Overflow en inglés</a> / <a href="https://es.stackoverflow.com">Stack Overflow en español</a> /
+<a href="https://community.rstudio.com/">RStudio</a>: comunidades altamente activas por los usuarios de R y otros lenguajes de programación.</p></li>
+<li><p><a href="https://www.r-project.org/mail.html">R Mailing Lists</a>: especificas de cada área de la ciencia.</p></li>
+</ul>
+<p><strong>¿Cómo hacer una buena pregunta en las comunidades?</strong></p>
+<ul>
+<li><p>Ser conciso pero gentil…</p></li>
+<li><p>Ser reproducible: su código debe correr en cualquier máquina. La comunidad no irá a ayudarle si no pueden reproducir su error (detallar paquetes y versión de R en caso necesario)</p></li>
+</ul>
+</div>
+<div id="tablas_resumen" class="section level2" number="1.6">
+<h2><span class="header-section-number">1.6</span> Tablas resumen</h2>
+<table class="table" style="font-size: 15px; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:op-arit">Table 1.1: </span>Operadores aritméticos
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Operador
+</th>
+<th style="text-align:left;">
+Detalle
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<code>x + y</code>
+</td>
+<td style="text-align:left;">
+Suma de x e y
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>x - y</code>
+</td>
+<td style="text-align:left;">
+Resta de x menos y
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>x * y</code>
+</td>
+<td style="text-align:left;">
+Multiplicación
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>x / y</code>
+</td>
+<td style="text-align:left;">
+División de x por y
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>x %/% y</code>
+</td>
+<td style="text-align:left;">
+Parte entera de la división de x por y
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>x %% y</code>
+</td>
+<td style="text-align:left;">
+Resto de la división de x por y
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>x ^ y</code>
+</td>
+<td style="text-align:left;">
+x elevado a y-ésima potencia (equivalente a **)
+</td>
+</tr>
+</tbody>
+</table>
+<p><br><br></p>
+<table class="table" style="font-size: 15px; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:op-logi">Table 1.2: </span>Operadores lógicos
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Operador
+</th>
+<th style="text-align:left;">
+Prueba.lógica
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+x &lt; y
+</td>
+<td style="text-align:left;">
+x menor que y?
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+x &lt;= y
+</td>
+<td style="text-align:left;">
+x menor o igual que y?
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+x &gt; y
+</td>
+<td style="text-align:left;">
+x mayor que y?
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+x &gt;= y
+</td>
+<td style="text-align:left;">
+x mayor o igual que y?
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+x == y
+</td>
+<td style="text-align:left;">
+x igual que y?
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+x != y
+</td>
+<td style="text-align:left;">
+x diferente que y?
+</td>
+</tr>
+</tbody>
+</table>
+<p><br>
+<br></p>
+<table class="table" style="font-size: 15px; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:matem">Table 1.3: </span>Funciones matemáticas
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Operador
+</th>
+<th style="text-align:left;">
+Detalle
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<code>sqrt(x)</code>
+</td>
+<td style="text-align:left;">
+raiz de x
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>exp(y)</code>
+</td>
+<td style="text-align:left;">
+exponencial de y
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>log(x)</code>
+</td>
+<td style="text-align:left;">
+logaritmo natural de x = ln
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>log10(x)</code>
+</td>
+<td style="text-align:left;">
+logaritmo base 10 de x
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>sum(x)</code>
+</td>
+<td style="text-align:left;">
+suma todos los elementos de x
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>prod(x)</code>
+</td>
+<td style="text-align:left;">
+producto de todos los elementos de x
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>round(x, n)</code>
+</td>
+<td style="text-align:left;">
+redondea x a n-digitos
+</td>
+</tr>
+</tbody>
+</table>
+<p><br>
+<br></p>
+<table class="table" style="font-size: 15px; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:shortcuts">Table 1.4: </span>Algunos atajos comúnmente usados
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Teclas
+</th>
+<th style="text-align:left;">
+Detalle
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Alt+Shift+K
+</td>
+<td style="text-align:left;">
+panel de todos los atajos
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ctrl+Z / Ctrl+Shift+Z
+</td>
+<td style="text-align:left;">
+undo/redo
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Alt+ -
+</td>
+<td style="text-align:left;">
+&lt;-
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ctrl+r
+</td>
+<td style="text-align:left;">
+corre la línea/bloque completa de código
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ctrl+l
+</td>
+<td style="text-align:left;">
+limpia la consola
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ctrl+Shift+c
+</td>
+<td style="text-align:left;">
+silencia la línea de código
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ctrl+Shift+d
+</td>
+<td style="text-align:left;">
+duplica la línea de código
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ctrl+i
+</td>
+<td style="text-align:left;">
+indexa el bloque de código
+</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Ver todos los atajos en R Studio <code>Ctrl | Shift | k</code></li>
+</ul>
+<hr />
+
+<p>#Tipos de datos</p>
+<p>Para realizar un uso eficiente de R es preciso entender y aprender a manipular bien las distintas clases de objetos que maneja el programa. En esta sección nos vamos a ocupar particulamente de aquellos objetos que R utiliza para representar datos: valores, vectores y dataframes (hay más), y su naturaleza.</p>
+<p>Para un procesamiento correcto, un lenguaje de programación debe saber qué se puede y qué no se puede hacer con un valor en particular. Por ejemplo, no se puede sumar palabras “hola” y “mundo.”</p>
+<p>Del mismo modo, no puede cambiar los números 1 y -34.5 de minúsculas a mayúsculas. Debido a esto, R tiene una característica llamada tipos de datos.</p>
+<p>R proporciona las funciones class () y typeof () para averiguar cuál es la clase y el tipo de cualquier variable. R tiene cinco tipos de datos que son:</p>
+<table class="table" style="font-size: 15px; width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Clase
+</th>
+<th style="text-align:left;">
+Ejemplo
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+numérica
+</td>
+<td style="text-align:left;">
+12.3, 5, 999, …
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lógica
+</td>
+<td style="text-align:left;">
+TRUE, FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+caracter
+</td>
+<td style="text-align:left;">
+hola, JUAN…
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+fecha
+</td>
+<td style="text-align:left;">
+2021-05-06, 31/01/1965
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="numéricos" class="section level2" number="1.7">
+<h2><span class="header-section-number">1.7</span> Numéricos</h2>
+<p>Tipos: <code>integer</code> vs <code>double</code></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="workflow-componentes.html#cb16-1" aria-hidden="true" tabindex="-1"></a>num <span class="ot">&lt;-</span> <span class="dv">8</span></span>
+<span id="cb16-2"><a href="workflow-componentes.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(num)</span>
+<span id="cb16-3"><a href="workflow-componentes.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(num)</span>
+<span id="cb16-4"><a href="workflow-componentes.html#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="workflow-componentes.html#cb16-5" aria-hidden="true" tabindex="-1"></a>inte <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(num)</span>
+<span id="cb16-6"><a href="workflow-componentes.html#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(inte)</span>
+<span id="cb16-7"><a href="workflow-componentes.html#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(inte)</span>
+<span id="cb16-8"><a href="workflow-componentes.html#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-9"><a href="workflow-componentes.html#cb16-9" aria-hidden="true" tabindex="-1"></a>num <span class="sc">+</span> inte</span>
+<span id="cb16-10"><a href="workflow-componentes.html#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-11"><a href="workflow-componentes.html#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="co"># inte2 &lt;- 8L</span></span></code></pre></div>
+</div>
+<div id="lógicos" class="section level2" number="1.8">
+<h2><span class="header-section-number">1.8</span> Lógicos</h2>
+<p>El tipo de dato lógico o booleano es en computación aquel que puede representar valores de lógica binaria, esto es 2 valores: falso o verdadero</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="workflow-componentes.html#cb17-1" aria-hidden="true" tabindex="-1"></a>logi <span class="ot">&lt;-</span> <span class="cn">FALSE</span> <span class="co"># logi &lt;- false</span></span>
+<span id="cb17-2"><a href="workflow-componentes.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(logi)</span>
+<span id="cb17-3"><a href="workflow-componentes.html#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(logi)</span>
+<span id="cb17-4"><a href="workflow-componentes.html#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="workflow-componentes.html#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">as.logical</span>(<span class="dv">0</span>)</span>
+<span id="cb17-6"><a href="workflow-componentes.html#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">as.logical</span>(<span class="dv">1</span>)</span></code></pre></div>
+</div>
+<div id="caracter" class="section level2" number="1.9">
+<h2><span class="header-section-number">1.9</span> Caracter</h2>
+<p>Almacena valores de “caracteres” o “cadenas” (en inglés “string”): pueden contener letras, números y símbolos. La forma más sencilla de indicar que un valor es de tipo carácter es colocar el valor entre comillas simples o dobles.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="workflow-componentes.html#cb18-1" aria-hidden="true" tabindex="-1"></a>car <span class="ot">&lt;-</span> <span class="st">&quot;Hola mundo&quot;</span> <span class="co"># carac &lt;- &#39;hola mundo&#39; </span></span>
+<span id="cb18-2"><a href="workflow-componentes.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(car)</span>
+<span id="cb18-3"><a href="workflow-componentes.html#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(car)</span>
+<span id="cb18-4"><a href="workflow-componentes.html#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="workflow-componentes.html#cb18-5" aria-hidden="true" tabindex="-1"></a>car2 <span class="ot">&lt;-</span> <span class="fu">as.character</span>(<span class="st">&quot;Hola mundo&quot;</span>)</span>
+<span id="cb18-6"><a href="workflow-componentes.html#cb18-6" aria-hidden="true" tabindex="-1"></a>car3 <span class="ot">&lt;-</span> <span class="fu">as.character</span>(num)</span>
+<span id="cb18-7"><a href="workflow-componentes.html#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(car3)</span></code></pre></div>
+</div>
+<div id="fechas" class="section level2" number="1.10">
+<h2><span class="header-section-number">1.10</span> Fechas</h2>
+<p>Almacena valores de “caracteres” o “cadenas” (en inglés “string”): pueden contener letras, números y símbolos. La forma más sencilla de indicar que un valor es de tipo carácter es colocar el valor entre comillas simples o dobles.</p>
+<ul>
+<li>El formato default es yyyy-mm-dd</li>
+</ul>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="workflow-componentes.html#cb19-1" aria-hidden="true" tabindex="-1"></a>fechas_vector <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">&quot;2007-06-22&quot;</span>, <span class="st">&quot;2004-02-13&quot;</span>))</span>
+<span id="cb19-2"><a href="workflow-componentes.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(fechas_vector)</span></code></pre></div>
+<ul>
+<li>Pero nosostros comunmente usamos ‘dd/mm/yyyy,’ así que debemos convertir</li>
+</ul>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="workflow-componentes.html#cb20-1" aria-hidden="true" tabindex="-1"></a>fechas <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;01/06/2020&quot;</span>, <span class="st">&quot;31/12/2020&quot;</span>)</span>
+<span id="cb20-2"><a href="workflow-componentes.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(fechas)</span>
+<span id="cb20-3"><a href="workflow-componentes.html#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="workflow-componentes.html#cb20-4" aria-hidden="true" tabindex="-1"></a>fechas_date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(fechas, <span class="st">&quot;%d/%m/%Y&quot;</span>) <span class="co"># con paquete base</span></span>
+<span id="cb20-5"><a href="workflow-componentes.html#cb20-5" aria-hidden="true" tabindex="-1"></a>fechas_date <span class="ot">&lt;-</span> lubridate<span class="sc">::</span><span class="fu">dmy</span>(fechas) <span class="co"># con lubridate!</span></span>
+<span id="cb20-6"><a href="workflow-componentes.html#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(fechas_date)</span>
+<span id="cb20-7"><a href="workflow-componentes.html#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="fu">diff</span>(fechas_date)</span></code></pre></div>
+<div id="box1" class="blue-box">
+<ul>
+<li>Forzando las clases explícitamente</li>
+</ul>
+<p><code>as.character()</code>, <code>as.numeric()</code>, <code>as.integer()</code> y <code>as.logical()</code></p>
+<p>Si colocáramos dos o más clases diferentes dentro de un mismo vector, R va forzar a que todos los elementos pasen a pertenecer a una misma clase. El número 1.7 cambiaría a “1.7” si fuera creado junto con “a.”</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="workflow-componentes.html#cb21-1" aria-hidden="true" tabindex="-1"></a>y1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.7</span>, <span class="st">&quot;a&quot;</span>)  <span class="do">## character</span></span>
+<span id="cb21-2"><a href="workflow-componentes.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(y1)</span>
+<span id="cb21-3"><a href="workflow-componentes.html#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="workflow-componentes.html#cb21-4" aria-hidden="true" tabindex="-1"></a>y2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="dv">0</span>, <span class="dv">10</span>)   <span class="do">## numeric</span></span>
+<span id="cb21-5"><a href="workflow-componentes.html#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(y2)</span>
+<span id="cb21-6"><a href="workflow-componentes.html#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="workflow-componentes.html#cb21-7" aria-hidden="true" tabindex="-1"></a>y3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="st">&quot;a&quot;</span>) <span class="do">## character</span></span>
+<span id="cb21-8"><a href="workflow-componentes.html#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(y3)</span>
+<span id="cb21-9"><a href="workflow-componentes.html#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-10"><a href="workflow-componentes.html#cb21-10" aria-hidden="true" tabindex="-1"></a>y4 <span class="ot">&lt;-</span> <span class="fu">c</span>(T, F)</span>
+<span id="cb21-11"><a href="workflow-componentes.html#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(y4)</span>
+<span id="cb21-12"><a href="workflow-componentes.html#cb21-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-13"><a href="workflow-componentes.html#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(y1)</span>
+<span id="cb21-14"><a href="workflow-componentes.html#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(y3)</span>
+<span id="cb21-15"><a href="workflow-componentes.html#cb21-15" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(y4)</span>
+<span id="cb21-16"><a href="workflow-componentes.html#cb21-16" aria-hidden="true" tabindex="-1"></a><span class="fu">as.logical</span>(y2)</span></code></pre></div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="paquetes-de-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="vectores.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+new_session: true
+book_filename: "R-Intro_2021"
+output_dir: "docs"
+language:
+  ui:
+    chapter_name: ""
+    references_name: "Referencias "
+delete_merged_file: true
+
+rmd_files: [
+"index.Rmd",
+"1-intro.Rmd",
+"2-sintaxis.Rmd",
+"3-data_type.Rmd",
+"4-data_str.Rmd",
+"5-visualizar.Rmd",
+"6-importar.Rmd",
+"7-reestructurar.Rmd",
+"8-modificar.Rmd",
+"9-depurar.Rmd",
+"10-modelar1.Rmd",
+"11-modelar2.Rmd",
+"12_comunicar.Rmd"
+]
+
+before_chapter_script: "_common.R"
+
+# https://github.com/dcl-docs/wrangle/blob/master/_bookdown.yml
