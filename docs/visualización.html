@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5 Visualización | Exploración, manipulación y visualización de datos con R</title>
-  <meta name="description" content="5 Visualización | Exploración, manipulación y visualización de datos con R" />
+  <title>5 Visualización | Exploración y manipulación de datos con R</title>
+  <meta name="description" content="5 Visualización | Exploración y manipulación de datos con R" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5 Visualización | Exploración, manipulación y visualización de datos con R" />
+  <meta property="og:title" content="5 Visualización | Exploración y manipulación de datos con R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="juanchiem/R_Intro" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5 Visualización | Exploración, manipulación y visualización de datos con R" />
+  <meta name="twitter:title" content="5 Visualización | Exploración y manipulación de datos con R" />
   
   
   
@@ -53,6 +53,7 @@
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -259,7 +260,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Exploración, manipulación y visualización de datos con R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Exploración y manipulación de datos con R</a>
           </h1>
         </div>
 
@@ -376,10 +377,26 @@ Dentro de la capa <code>aes</code> debemos indicar que a que variable se atribuy
 <p><img src="fig/plos_bars.png" /></p>
 <div class="rmdnote">
 <p>
-De <span class="citation"><span class="citation">(<a href="#ref-doi:10.1111/j.1476-5381.2011.01251.x" role="doc-biblioref">Drummond and Vowler 2011</a>)</span></span>: Fig 1. Many different datasets can lead to the same bar graph.
+De <span class="citation"><span class="citation">(<a href="#ref-doi:10.1111/j.1476-5381.2011.01251.x" role="doc-biblioref">Drummond and Vowler 2011</a>)</span></span>: Fig 1.
+Many different datasets can lead to the same bar graph.
 </p>
 <p>
-The full data may suggest different conclusions from the summary statistics. The means and SEs for the four example datasets shown in Panels B–E are all within 0.5 units of the means and SEs shown in the bar graph (Panel A). p-values were calculated in R (version 3.0.3) using an unpaired t-test, an unpaired t-test with Welch’s correction for unequal variances, or a Wilcoxon rank sum test. - In Panel B, the distribution in both groups appears symmetric. Although the data suggest a small difference between groups, there is substantial overlap between groups. - In Panel C, the apparent difference between groups is driven by an outlier. - Panel D suggests a possible bimodal distribution. Additional data are needed to confirm that the distribution is bimodal and to determine whether this effect is explained by a covariate. - In Panel E, the smaller range of values in group two may simply be due to the fact that there are only three observations. Additional data for group two would be needed to determine whether the groups are actually different.
+The full data may suggest different conclusions from the summary
+statistics. The means and SEs for the four example datasets shown in
+Panels B–E are all within 0.5 units of the means and SEs shown in the
+bar graph (Panel A). p-values were calculated in R (version 3.0.3) using
+an unpaired t-test, an unpaired t-test with Welch’s correction for
+unequal variances, or a Wilcoxon rank sum test. - In Panel B, the
+distribution in both groups appears symmetric. Although the data suggest
+a small difference between groups, there is substantial overlap between
+groups. - In Panel C, the apparent difference between groups is driven
+by an outlier. - Panel D suggests a possible bimodal distribution.
+Additional data are needed to confirm that the distribution is bimodal
+and to determine whether this effect is explained by a covariate. - In
+Panel E, the smaller range of values in group two may simply be due to
+the fact that there are only three observations. Additional data for
+group two would be needed to determine whether the groups are actually
+different.
 </p>
 </div>
 <p>A continuación presentamos algunas opciones gráficas que surgen de la combinación de medidas de posición y de dispersión.</p>
@@ -494,7 +511,7 @@ The full data may suggest different conclusions from the summary statistics. The
 </ul>
 <p><strong>2 - Rectangular</strong></p>
 <p>Todo set de datos tiene sus dimensiones específicas: n filas - n columnas.
-Si se perdió alguna parcela/planta por algún motivo extra-tratamiento simplemente es un NA, y así deben definir esa observación, no poner “muerta” o “perdida.”</p>
+Si se perdió alguna parcela/planta por algún motivo extra-tratamiento simplemente es un NA, y así deben definir esa observación, no poner “muerta” o “perdida”.</p>
 <p><strong>3 - Cero es un dato!</strong></p>
 <p>Cero no significa ausencia de observación, en este caso podemos dejar en blanco (si se usa .xls)</p>
 <p><strong>4 - Planilla plana -&gt; DATOS CRUDOS</strong></p>

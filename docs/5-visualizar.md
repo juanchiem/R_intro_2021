@@ -160,8 +160,25 @@ Los gráficos de barra, ampliamente usados en publicaciones científicas, son ca
 ![](fig/plos_bars.png)
 
 <div class="rmdnote">
-<p>De <span class="citation">[@doi:10.1111/j.1476-5381.2011.01251.x]</span>: Fig 1. Many different datasets can lead to the same bar graph.</p>
-<p>The full data may suggest different conclusions from the summary statistics. The means and SEs for the four example datasets shown in Panels B–E are all within 0.5 units of the means and SEs shown in the bar graph (Panel A). p-values were calculated in R (version 3.0.3) using an unpaired t-test, an unpaired t-test with Welch’s correction for unequal variances, or a Wilcoxon rank sum test. - In Panel B, the distribution in both groups appears symmetric. Although the data suggest a small difference between groups, there is substantial overlap between groups. - In Panel C, the apparent difference between groups is driven by an outlier. - Panel D suggests a possible bimodal distribution. Additional data are needed to confirm that the distribution is bimodal and to determine whether this effect is explained by a covariate. - In Panel E, the smaller range of values in group two may simply be due to the fact that there are only three observations. Additional data for group two would be needed to determine whether the groups are actually different.</p>
+<p>De <span
+class="citation">[@doi:10.1111/j.1476-5381.2011.01251.x]</span>: Fig 1.
+Many different datasets can lead to the same bar graph.</p>
+<p>The full data may suggest different conclusions from the summary
+statistics. The means and SEs for the four example datasets shown in
+Panels B–E are all within 0.5 units of the means and SEs shown in the
+bar graph (Panel A). p-values were calculated in R (version 3.0.3) using
+an unpaired t-test, an unpaired t-test with Welch’s correction for
+unequal variances, or a Wilcoxon rank sum test. - In Panel B, the
+distribution in both groups appears symmetric. Although the data suggest
+a small difference between groups, there is substantial overlap between
+groups. - In Panel C, the apparent difference between groups is driven
+by an outlier. - Panel D suggests a possible bimodal distribution.
+Additional data are needed to confirm that the distribution is bimodal
+and to determine whether this effect is explained by a covariate. - In
+Panel E, the smaller range of values in group two may simply be due to
+the fact that there are only three observations. Additional data for
+group two would be needed to determine whether the groups are actually
+different.</p>
 </div>
 
 A continuación presentamos algunas opciones gráficas que surgen de la  combinación de medidas de posición y de dispersión.

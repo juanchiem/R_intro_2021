@@ -1,5 +1,5 @@
 --- 
-title: "Exploración, manipulación y visualización de datos con R"
+title: "Exploración y manipulación de datos con R"
 author: ""
 output: bookdown::gitbook
 site: bookdown::bookdown_site
@@ -90,11 +90,3 @@ El curso pretende proveer herramientas de programación básicas para llevar ade
 </center>
 
 </br>
-
-<b>Autor</b>
-
-* Juan Pablo Edwards Molina: Investigador :: Fitopatología (INTA Balcarce).
-    + Email: [edwardsmolina@gmail.com](mailto:edwardsmolina@gmail.com)
-    + [Google scholar](https://scholar.google.com/citations?hl=en&view_op=list_works&gmla=AJsN-F5gLYB_brelSnzb1TTRxogsbxhyS6qVwhSaP-KHm-jeWxRpoHeH5iIj4ZTys10DUQLdH_3GLXxkLed9dzmZXLWtNu_gtg&user=RhjNQIsAAAAJ) 
-    + Twitter: [juanchiem](https://twitter.com/juanchiem)
-    + GitHub: <https://github.com/juanchiem>

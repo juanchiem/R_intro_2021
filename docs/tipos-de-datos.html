@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3 Tipos de datos | Exploración, manipulación y visualización de datos con R</title>
-  <meta name="description" content="3 Tipos de datos | Exploración, manipulación y visualización de datos con R" />
+  <title>3 Tipos de datos | Exploración y manipulación de datos con R</title>
+  <meta name="description" content="3 Tipos de datos | Exploración y manipulación de datos con R" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3 Tipos de datos | Exploración, manipulación y visualización de datos con R" />
+  <meta property="og:title" content="3 Tipos de datos | Exploración y manipulación de datos con R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="juanchiem/R_Intro" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3 Tipos de datos | Exploración, manipulación y visualización de datos con R" />
+  <meta name="twitter:title" content="3 Tipos de datos | Exploración y manipulación de datos con R" />
   
   
   
@@ -53,6 +53,7 @@
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -259,7 +260,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Exploración, manipulación y visualización de datos con R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Exploración y manipulación de datos con R</a>
           </h1>
         </div>
 
@@ -270,7 +271,7 @@ div.csl-indent {
 <div id="tipos-de-datos" class="section level1" number="3">
 <h1><span class="header-section-number">3</span> Tipos de datos</h1>
 <p>Para realizar un uso eficiente de R es preciso entender y aprender a manipular bien las distintas clases de objetos que maneja el programa. En esta sección nos vamos a ocupar particulamente de aquellos objetos que R utiliza para representar datos: valores, vectores y dataframes (hay más), y su naturaleza.</p>
-<p>Para un procesamiento correcto, un lenguaje de programación debe saber qué se puede y qué no se puede hacer con un valor en particular. Por ejemplo, no se puede sumar palabras “hola” y “mundo.”</p>
+<p>Para un procesamiento correcto, un lenguaje de programación debe saber qué se puede y qué no se puede hacer con un valor en particular. Por ejemplo, no se puede sumar palabras “hola” y “mundo”.</p>
 <p>Del mismo modo, no puede cambiar los números 1 y -34.5 de minúsculas a mayúsculas. Debido a esto, R tiene una característica llamada tipos de datos.</p>
 <p>R proporciona las funciones class () y typeof () para averiguar cuál es la clase y el tipo de cualquier variable. R tiene cinco tipos de datos que son:</p>
 <table class="table" style="font-size: 15px; width: auto !important; margin-left: auto; margin-right: auto;">
@@ -411,7 +412,7 @@ fecha
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="tipos-de-datos.html#cb24-1" aria-hidden="true" tabindex="-1"></a>fechas_vector <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">&quot;2007-06-22&quot;</span>, <span class="st">&quot;2004-02-13&quot;</span>))</span>
 <span id="cb24-2"><a href="tipos-de-datos.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(fechas_vector)</span></code></pre></div>
 <ul>
-<li>Pero nosostros comunmente usamos ‘dd/mm/yyyy,’ así que debemos convertir</li>
+<li>Pero nosostros comunmente usamos ‘dd/mm/yyyy’, así que debemos convertir</li>
 </ul>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="tipos-de-datos.html#cb25-1" aria-hidden="true" tabindex="-1"></a>fechas <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;01/06/2020&quot;</span>, <span class="st">&quot;31/12/2020&quot;</span>)</span>
 <span id="cb25-2"><a href="tipos-de-datos.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(fechas)</span>
@@ -425,7 +426,7 @@ fecha
 <li>Forzando las clases explícitamente</li>
 </ul>
 <p><code>as.character()</code>, <code>as.numeric()</code>, <code>as.integer()</code> y <code>as.logical()</code></p>
-<p>Si colocáramos dos o más clases diferentes dentro de un mismo vector, R va forzar a que todos los elementos pasen a pertenecer a una misma clase. El número 1.7 cambiaría a “1.7” si fuera creado junto con “a.”</p>
+<p>Si colocáramos dos o más clases diferentes dentro de un mismo vector, R va forzar a que todos los elementos pasen a pertenecer a una misma clase. El número 1.7 cambiaría a “1.7” si fuera creado junto con “a”.</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="tipos-de-datos.html#cb26-1" aria-hidden="true" tabindex="-1"></a>y1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.7</span>, <span class="st">&quot;a&quot;</span>)  <span class="do">## character</span></span>
 <span id="cb26-2"><a href="tipos-de-datos.html#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(y1)</span>
 <span id="cb26-3"><a href="tipos-de-datos.html#cb26-3" aria-hidden="true" tabindex="-1"></a></span>

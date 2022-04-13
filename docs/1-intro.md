@@ -91,7 +91,7 @@ Una forma práctica de administrar todos los objetos de una sesión es por medio
 
 ![](fig/workflow.jpg) 
 
-Una sugerencia es generar subcarpetas en nuestras máquinas, en preferencia dentro de dropbox / google drive. Esto no sólo mantendrá nuestro trabajo resguardado de posibles pérdidas (backup), retomarlo desde diferentes máquinas (trabajo/casa), sino que también le permitirá compartir en tiempo real sus avances con los colaboradores de su trabajo.
+Estructura típica de un proyecto de Rstudio. Es aconsejable ser consistente en la nomenclatura de todos los objetos generados en nuestras sesiones de trabajo (archivos, carpetas, etc.). 
 
 <center>
 ![](fig/folders.png) 
@@ -99,7 +99,20 @@ Una sugerencia es generar subcarpetas en nuestras máquinas, en preferencia dent
 
 > Crear una nuevo proyecto llamado "R_intro"
 
+
+```{=html}
+<div class="vembedr">
+<div>
+<iframe src="https://www.youtube.com/embed/5brYbPkzm4k" width="533" height="300" frameborder="0" allowfullscreen="" data-external="1"></iframe>
+</div>
+</div>
+```
+
 > Crear un script "dia_1"
+
+<center>
+![](fig/scripts.png) 
+</center>
 
 ¿Dónde se guardaría el siguiente gráfico?
 

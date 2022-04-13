@@ -101,7 +101,9 @@ Estructura típica de un proyecto de Rstudio. Es aconsejable ser consistente en 
 
 > Crear una nuevo proyecto llamado "R_intro"
 
-
+```{r, echo=FALSE, eval=TRUE}
+vembedr::embed_youtube("5brYbPkzm4k")
+```
 
 > Crear un script "dia_1"
 

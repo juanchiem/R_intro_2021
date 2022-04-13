@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>15 R Markdown | Exploración, manipulación y visualización de datos con R</title>
-  <meta name="description" content="15 R Markdown | Exploración, manipulación y visualización de datos con R" />
+  <title>15 R Markdown | Exploración y manipulación de datos con R</title>
+  <meta name="description" content="15 R Markdown | Exploración y manipulación de datos con R" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="15 R Markdown | Exploración, manipulación y visualización de datos con R" />
+  <meta property="og:title" content="15 R Markdown | Exploración y manipulación de datos con R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="juanchiem/R_Intro" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="15 R Markdown | Exploración, manipulación y visualización de datos con R" />
+  <meta name="twitter:title" content="15 R Markdown | Exploración y manipulación de datos con R" />
   
   
   
@@ -53,6 +53,7 @@
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -259,7 +260,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Exploración, manipulación y visualización de datos con R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Exploración y manipulación de datos con R</a>
           </h1>
         </div>
 
@@ -378,6 +379,15 @@ Tipeando manualmente los delimitadores de bloque ```{r} y ```.</code></pre>
 <p><code>error = TRUE</code> causa que el render continúe incluso si el código devuelve un error. Esto es algo que raramente quieres incluir en la versión final de tu reporte, pero puede ser muy útil si necesitas depurar exactamente qué ocurre dentro de tu .Rmd. Es también útil si estás enseñando R y quieres incluir deliberadamente un error. Por defecto, error = FALSE provoca que el knitting falle si hay incluso un error en el documento.</p>
 <p>La siguiente tabla resume qué tipos de output suprime cada opción:</p>
 <table>
+<colgroup>
+<col width="27%" />
+<col width="12%" />
+<col width="14%" />
+<col width="10%" />
+<col width="9%" />
+<col width="12%" />
+<col width="12%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th>Option</th>
