@@ -41,7 +41,7 @@ Se puede decir que hay diferencia de estilos al programar. Se deberia tener pres
 ```r
 4>3
 4 == 4
-4 == 4
+4 != 4
 4 != 3
 1 >= -9
 ```
@@ -149,16 +149,6 @@ plot(pressur e) # da error
 
 # grafico press vs temp
 plot(pressure)
-```
-
-Aprovechemos a ir describiendo los "argumentos" de las "funciones": 
-
-
-```r
-plot(pressure, # grafico press vs temp
-     pch = 19, # cambio el tipo de puntos vacios a puntos llenos 
-     col= "blue" # uso color azul para rellenarlos  
-     )
 ```
 
 4 - El punto y coma (;) actúa como separador de comandos aún en la misma línea del script!
@@ -379,6 +369,6 @@ No importa como lo adopten, pero es aconsejable ser consistente.
 </tbody>
 </table>
 
-* Ver todos los atajos en R Studio `Ctrl | Shift | k` 
+* Ver todos los atajos en R Studio: situandose en la consola >> `Ctrl | Shift | k` 
 
 ---

@@ -2,7 +2,7 @@
 
 ## ggplot {-}
 
-El paquete ggplot2 tiene una flexibilidad tal que permite generar rápidamente gráficos exploratorios así como crear figuras complejas, detalladas, de alta calidad (con fines de publicaciones científicas).
+El paquete ggplot2 tiene una flexibilidad tal que permite generar rápidamente gráficos exploratorios así como crear figuras complejas, detalladas, de alta calidad (con fines de publicaciones científicas, por ej).
 
 Tiene una gramática propia: **"suma de capas"**
 
@@ -16,7 +16,6 @@ Las capas básicas son:
 
 - data `ggplot`: inicializa un objeto grafico de `ggplot`
 
-
 - aesthetics `aes`: "Algo que se puede ver”
 Dentro de la capa `aes` debemos indicar que a que variable se atribuyen los diferentes atributos: 
   + mapeo de variables (ejes `x=` e `y=`) 
@@ -26,14 +25,11 @@ Dentro de la capa `aes` debemos indicar que a que variable se atribuyen los dife
   + tipo de línea(`linetype`)
   + tamaño de los puntos(`size`)
 
-
 - geometrias`geom_`: formas geométricas para representar las observaciones (dan el nombre al tipo de gráfico: grafico de dispersion, boxplot, histograma, etc...)
   + geom_point() 
   + geom_smooth() 
   + geom_boxplot()
   + [lista de "geoms"](https://ggplot2.tidyverse.org/reference/#section-layer-geoms)  
-
-
 - facetas`facet_`: "paneles de compartimentalización" de un mismo gráfico
   + facet_wrap(): paneles contiguos
   + facets_grid(): paneles tipo grilla
@@ -42,11 +38,11 @@ Dentro de la capa `aes` debemos indicar que a que variable se atribuyen los dife
 
 Ejemplo de visualización con `iris`
 
-## Ambas variables contínuas
-
 ```{r, eval=T}
 library(tidyverse)
 ```
+
+## Ambas variables contínuas
 
 ```{r, eval=T}
 iris %>% 
