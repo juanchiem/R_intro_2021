@@ -8,9 +8,8 @@ bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 github-repo: juanchiem/R_intro_2022
-css: style.css
+css: style2.css
 ---
-
 
 
 

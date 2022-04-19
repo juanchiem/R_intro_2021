@@ -48,7 +48,7 @@ h1.title {
   font-variant: small-caps;
 }
 .book .book-body .page-wrapper .page-inner section.normal strong {
-  font-weight: 600;
+  font-weight: 300;
 }
 
 .boxed {
