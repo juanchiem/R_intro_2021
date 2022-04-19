@@ -2,7 +2,7 @@
 
 ## ggplot {-}
 
-El paquete ggplot2 tiene una flexibilidad tal que permite generar rápidamente gráficos exploratorios así como crear figuras complejas, detalladas, de alta calidad (con fines de publicaciones científicas).
+El paquete ggplot2 tiene una flexibilidad tal que permite generar rápidamente gráficos exploratorios así como crear figuras complejas, detalladas, de alta calidad (con fines de publicaciones científicas, por ej).
 
 Tiene una gramática propia: **"suma de capas"**
 
@@ -16,7 +16,6 @@ Las capas básicas son:
 
 - data `ggplot`: inicializa un objeto grafico de `ggplot`
 
-
 - aesthetics `aes`: "Algo que se puede ver”
 Dentro de la capa `aes` debemos indicar que a que variable se atribuyen los diferentes atributos: 
   + mapeo de variables (ejes `x=` e `y=`) 
@@ -26,14 +25,11 @@ Dentro de la capa `aes` debemos indicar que a que variable se atribuyen los dife
   + tipo de línea(`linetype`)
   + tamaño de los puntos(`size`)
 
-
 - geometrias`geom_`: formas geométricas para representar las observaciones (dan el nombre al tipo de gráfico: grafico de dispersion, boxplot, histograma, etc...)
   + geom_point() 
   + geom_smooth() 
   + geom_boxplot()
   + [lista de "geoms"](https://ggplot2.tidyverse.org/reference/#section-layer-geoms)  
-
-
 - facetas`facet_`: "paneles de compartimentalización" de un mismo gráfico
   + facet_wrap(): paneles contiguos
   + facets_grid(): paneles tipo grilla
@@ -42,17 +38,17 @@ Dentro de la capa `aes` debemos indicar que a que variable se atribuyen los dife
 
 Ejemplo de visualización con `iris`
 
-## Ambas variables contínuas
-
 
 ```r
 library(tidyverse)
 ```
 
+## Ambas variables contínuas
+
 
 ```r
-iris %>% 
-  ggplot(aes(x = Sepal.Length, y = Petal.Length))
+ggplot(iris) +
+  aes(x = Sepal.Length, y = Petal.Length)
 ```
 
 <img src="5-visualizar_files/figure-html/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;" />
@@ -63,8 +59,8 @@ Objetos geométricos. Son la representación visual de las observaciones. En gen
 
 
 ```r
-iris %>% 
-  ggplot(aes(x=Sepal.Length, y=Petal.Length)) + 
+ggplot(iris) +
+  aes(x = Sepal.Length, y = Petal.Length)+
   geom_point()
 ```
 
@@ -72,8 +68,8 @@ iris %>%
 
 
 ```r
-iris %>% 
-  ggplot(aes(x=Sepal.Length, y=Petal.Length)) + 
+ggplot(iris) +
+  aes(x = Sepal.Length, y = Petal.Length)+
   geom_point(aes(color = Species))
 ```
 
@@ -81,8 +77,8 @@ iris %>%
 
 
 ```r
-iris %>% 
-  ggplot(aes(x=Sepal.Length, y=Petal.Length)) + 
+ggplot(iris) +
+  aes(x = Sepal.Length, y = Petal.Length)+
   geom_point(aes(color = Species))+ 
   geom_smooth()
 ```
@@ -91,9 +87,8 @@ iris %>%
 
 
 ```r
-iris %>% 
-  ggplot(aes(x = Sepal.Length, y = Petal.Length, 
-             color = Species)) + 
+ggplot(iris) +
+  aes(x = Sepal.Length, y = Petal.Length, color = Species) + 
   geom_point()+
   geom_smooth()
 ```
@@ -106,12 +101,11 @@ Las facetas o “facets” permiten dividir el mismo gráfico en múltiples pane
 
 
 ```r
-p <- iris %>% 
-  ggplot(aes(x = Sepal.Length, y = Petal.Length)) + 
+ggplot(iris) +
+  aes(x = Sepal.Length, y = Petal.Length)+
   geom_point()+
   geom_smooth(method = "lm")+
   facet_wrap(~Species)
-p
 ```
 
 <img src="5-visualizar_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" />
@@ -122,40 +116,27 @@ Los temas (theme) son un conjunto de opciones predefinidas sobre la apariencia d
 
 
 ```r
-p + theme_bw()
+ggplot(iris) +
+  aes(x = Sepal.Length, y = Petal.Length)+
+  geom_point()+
+  geom_smooth(method = "lm")+
+  facet_wrap(~Species) + 
+  theme_bw()
 ```
 
 <img src="5-visualizar_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" />
 
-Si deseamos explorar las distribuciones de las variables podemos optar por un histograma o por diagramas de densidad.
+### Como guardar los gráficos
 
 
 ```r
-cowplot::plot_grid(
-iris %>% 
-  ggplot(aes(Petal.Length, fill=Species)) +
-  geom_histogram()+
-  guides(fill=FALSE)
-,
-iris %>% 
-  ggplot(aes(Petal.Length, fill=Species)) +
-   geom_density(alpha=0.7)
-, 
-align="h"
-)
-```
-
-<img src="5-visualizar_files/figure-html/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" />
-
-
-```r
-ggsave(last_plot(), file="plots/iris_histogram_dens.tiff", w=80,
-       h=60, units="mm", dpi=300)
+ggsave(last_plot(), file="plots/iris_smooth.tiff", 
+       w=80, h=60, units="mm", dpi=300)
 ```
 
 ## Comparación de niveles de factores
 
-Los gráficos de barra, ampliamente usados en publicaciones científicas, son cada vez más criticados por "ocultar" la naturaleza de las observaciones [@doi:10.1111/j.1476-5381.2011.01251.x; @10.1371/journal.pbio.1002128] (Sugerencia: leer el box 1 del último paper).
+Los gráficos de barra, ampliamente usados en publicaciones científicas, son cada vez más criticados por "ocultar" la naturaleza de las observaciones [@doi:10.1111/j.1476-5381.2011.01251.x; @10.1371/journal.pbio.1002128] 
 
 ![](fig/plos_bars.png)
 
@@ -176,7 +157,7 @@ by an outlier. - Panel D suggests a possible bimodal distribution.
 Additional data are needed to confirm that the distribution is bimodal
 and to determine whether this effect is explained by a covariate. - In
 Panel E, the smaller range of values in group two may simply be due to
-the fact that there are only three observations. Additional data for
+the fact that there are only four observations. Additional data for
 group two would be needed to determine whether the groups are actually
 different.</p>
 </div>
@@ -184,20 +165,23 @@ different.</p>
 A continuación presentamos algunas opciones gráficas que surgen de la  combinación de medidas de posición y de dispersión.
 
 
-
 ```r
 #Aprovechamos para customizar el `theme` a nuestro gusto y agregar algunos detalles:
-p0 <- iris %>% 
-  ggplot(aes(x=Species, y=Sepal.Length)) +
+p0 <- 
+  ggplot(iris) +
+  aes(x = Species, y = Petal.Length)+
   labs(x = "Iris species", y ="Sepal length (cm)") + 
   theme_light(base_size = 10)
+p0
 ```
+
+<img src="5-visualizar_files/figure-html/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;" />
 
 ### Observaciones + media / mediana
 
 
 ```r
-p1 <-p0 + 
+p1 <- p0 + 
   geom_point(shape = 1, alpha=0.2)+
   stat_summary(fun= mean,  #median
                fun.min= mean,
@@ -205,16 +189,10 @@ p1 <-p0 +
                geom = "point", 
                size = 2)+
   ggtitle("Observaciones (points) & media")
-
 p1
-# geom_dotplot(aes(fill = Species),   # Use fill = Species here not in ggplot()
-#                  binaxis = "y",         # which axis to bin along
-#                  binwidth = 0.1,        # Minimal difference considered diffeerent
-#                  stackdir = "center"    # Centered
-#                  )
 ```
 
-<img src="5-visualizar_files/figure-html/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" />
+<img src="5-visualizar_files/figure-html/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" />
 
 
 ```r
@@ -229,7 +207,7 @@ p2 <- p0 +
 p2
 ```
 
-<img src="5-visualizar_files/figure-html/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;" />
+<img src="5-visualizar_files/figure-html/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" />
 
 
 ### Barplot + SE
@@ -246,7 +224,7 @@ ggtitle("Barplot & SEM")
 p3
 ```
 
-<img src="5-visualizar_files/figure-html/unnamed-chunk-15-1.png" width="672" style="display: block; margin: auto;" />
+<img src="5-visualizar_files/figure-html/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;" />
 
 ### Box-plot 
 
@@ -258,7 +236,7 @@ p4 <-p0 +
 p4
 ```
 
-<img src="5-visualizar_files/figure-html/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" />
+<img src="5-visualizar_files/figure-html/unnamed-chunk-15-1.png" width="672" style="display: block; margin: auto;" />
 
 ### Violin plot
 
@@ -270,7 +248,7 @@ p5 <-p0 +
 p5 
 ```
 
-<img src="5-visualizar_files/figure-html/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;" />
+<img src="5-visualizar_files/figure-html/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" />
 
 ### Media & dispersión
 
@@ -285,15 +263,36 @@ p6 <-p0 +
 p6
 ```
 
-<img src="5-visualizar_files/figure-html/unnamed-chunk-18-1.png" width="672" style="display: block; margin: auto;" />
+<img src="5-visualizar_files/figure-html/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;" />
 
 
 ```r
-cowplot::plot_grid(p1, p2, p3, p4, p5, p6, ncol = 3, nrow = 2)
+library(cowplot)
+plot_grid(p1, p2, p3, p4, p5, p6, ncol = 3, nrow = 2)
 ```
 
-<img src="5-visualizar_files/figure-html/unnamed-chunk-19-1.png" width="864" style="display: block; margin: auto;" />
+<img src="5-visualizar_files/figure-html/unnamed-chunk-18-1.png" width="864" style="display: block; margin: auto;" />
 
+
+Si deseamos explorar las distribuciones de las variables podemos optar por un histograma o por diagramas de densidad.
+
+
+```r
+cowplot::plot_grid(
+iris %>% 
+  ggplot(aes(Petal.Length, fill=Species)) +
+  geom_histogram()+
+  guides(fill=FALSE)
+,
+iris %>% 
+  ggplot(aes(Petal.Length, fill=Species)) +
+   geom_density(alpha=0.7)
+, 
+align="h"
+)
+```
+
+<img src="5-visualizar_files/figure-html/unnamed-chunk-19-1.png" width="672" style="display: block; margin: auto;" />
 
 :::{#box1 .blue-box}
   La gran comunidad de usuarios de R disponibiliza sus creaciones e incluso trabaja en extensiones que amplían la potencialidad de sus paquetes.
