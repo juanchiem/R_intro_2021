@@ -10,10 +10,10 @@ delete_merged_file: true
 rmd_files: [
 "index.Rmd",
 "1-intro.Rmd",
-"2-sintaxis.Rmd"
+"2-sintaxis.Rmd",
 "3-data_type.Rmd",
-# "4-data_str.Rmd",
-# "5-visualizar.Rmd",
+"4-data_str.Rmd",
+"5-visualizar.Rmd"
 # "6-importar.Rmd",
 # "7-reestructurar.Rmd",
 # "8-modificar.Rmd",

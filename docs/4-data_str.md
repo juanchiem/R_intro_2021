@@ -6,7 +6,7 @@
 
 ## Data frames {-} 
 
-Conjunto de variables (columnas), de cualquier tipo de datos (categóricas, lógicas, fechas.
+Conjunto de variables (columnas), de cualquier tipo de datos (categóricas, lógicas, fechas)
 
 Un dataframe es completo con dimensiones n_fila x p_columna, donde:
 
@@ -17,29 +17,6 @@ Un dataframe es completo con dimensiones n_fila x p_columna, donde:
 3- Cada celda debe tener su observación (en caso de faltar el dato será un NA) 
 
 ![](fig/tibbles.png) 
-
-
-```r
-x <- c("A", "B", "C")
-y <- c(1,3,5)
-
-dat <- data.frame(x,y)
-dat
-str(dat)
-
-dat$
-```
-
-
-```r
-library(tibble)
-dat <- tribble(
-      ~x, ~y,
-     "A",  1,
-     "B",  3,
-     "C",  5
-     )
-```
 
 Como hemos visto, hay data frames contenidos en paquetes de inico automático. Un ejemplo muy usado, que está en el paquete `base` es el dataset "iris".
 
@@ -55,20 +32,69 @@ str(iris)
 ![](fig/iris.png){width=400px}
 </center>
 
-> Explore el dataset iris con las siguientes funciones y anote sus resultados:  
+> Explore el dataset iris con las siguientes funciones y comente sus resultados:  
 dim(); head(); tail(); names(); str(); summary()
 
+
+```r
+str(iris)
+summary(iris)
+```
+
+
+```r
+dim(iris) 
+head(iris)
+tail(iris)
+names(iris)
+```
+
+Paquetes de exploracion rapida de datasets
+
+{skimr}
+
+
+```r
+library(skimr)
+skim(iris)
+```
+
 :::{#box1 .blue-box}
+
+Creacion de dataframes a partir de vectores
+
+
+```r
+x <- c("A", "B", "C")
+y <- c(1, 3, NA)
+
+dat <- data.frame(x,y)
+dat
+str(dat)
+
+dat$
+```
+
+
+```r
+library(tibble)
+dat <- tribble(
+      ~x, ~y,
+     "A",  1,
+     "B",  3,
+     "C",  NA
+     )
+```
 
 ### Otras estructuras de datos {-}
 
 * Listas
 
-Objetos que aceptan elementos de clases diferentes. 
+Son vectores de objetos de cualquier clase
 
 
 ```r
-x <- list(a = 1:5, b = c("a", "b"), c = TRUE)
+x <- list(a = 1:5, b = c("a", "b"), c = TRUE, d=dat)
 x
 ```
 
@@ -86,11 +112,12 @@ x["c"]     #
 
 * Matrices
 
-Indicamos el número de filas con el argumento `nrow` y con `ncol` el número de columnas; luego indicamos qué valores forman la matriz (del 1 al 9), y le hemos pedido a R que use esos valores para rellenar la matriz A por filas con `byrow=TRUE`. La matriz A así construida es:
+Admiten un unico tipo de dato y carecen de nombre de columna. Al igual que los dataframes tienen dimensiones fila x columna. Indicamos el número de filas con el argumento `nrow` y con `ncol` el número de columnas; luego indicamos qué valores forman la matriz (del 1 al 9), y le hemos pedido a R que use esos valores para rellenar la matriz A por filas con `byrow=TRUE`. La matriz A así construida es:
 
 
 ```r
 A <- matrix(nrow=3, ncol=3, c(1,2,3,4,5,6,7,8,9), byrow=TRUE)
+A
 ```
 
 :::

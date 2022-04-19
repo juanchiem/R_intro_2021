@@ -99,18 +99,9 @@ str(vec_fechas)
 vec_fechas - 1 
 ```
 
-## Datos faltantes
-
-Se representan con un `NA`, para cualquier tipo de tipo de datos
-
-```{r}
-vec_num <- c(1, 5, NA)
-str(vec_num)
-length(vec_num)
-```
-
 ::: {#box1 .blue-box}
--   Pero nosostros comunmente usamos 'dd/mm/yyyy'? debemos convertir
+
+- Nosotros comunmente usamos 'dd/mm/yyyy'? debemos convertir:
 
 ```{r}
 vec_fechas2 <- c("01/06/2020", "31/12/2020")
@@ -158,16 +149,21 @@ str(y3)
 ```
 :::
 
+## Datos faltantes
+
+Se representan con un `NA`, para cualquier tipo de datos
+
+```{r}
+vec_num <- c(1, 5, NA)
+str(vec_num)
+length(vec_num)
+```
+
 ## Factores
 
-En R las variables categóricas se almacenan como **factores** tanto sea para vectores que contienen caracteres o numéricos Uno de los usos más importantes de los factores es en el modelado estadístico, dado que éstos tendran un efecto diferente a las variables contínuas. Claro ejemplo de factores son los tratamientos, por ej: fungicidas, genotipos, bloques, etc.
+En R las variables categóricas se almacenan como **factores** tanto sea para vectores que contienen caracteres o numéros. Uno de los usos más importantes de los factores es en el modelado estadístico, asumiendo un rol de variable categorica, diferente de las variables contínuas. Claro ejemplo de factores son los tratamientos, por ej: genotipos, bloques, etc.
 
-Todo factor tiene sus atributos:
-
--   x: el vector input (de tipo numérico o caracter) que será transformado a factor.
--   Niveles (`levels`): es un set de valores únicos ordenados que aparecen en x.
-
-Podemos comprobar que la ordenación de los niveles es simplemente alfabética.
+A diferencia de los vectores vistos anteriormente, todo factor tiene sus niveles (`levels`), que por default se ordenan alfabéticamente.
 
 ```{r}
 geno <- c("control", "B35", "A12", "control", "A12", "B35", "A12", "B35", "control")

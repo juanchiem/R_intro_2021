@@ -1,6 +1,6 @@
 # Sintaxis
 
-## R Calculadora {-}
+## R Calculadora {.unnumbered}
 
 
 ```r
@@ -13,16 +13,15 @@
 (4 + 5 ) * 7 - (36/18)^3
 ```
 
-
-:::{#box1 .blue-box}
-Ver [tablas resumen](#tablas_resumen) de operadores aritméticos y lógicos (al final del capítulo) 
+::: {#box1 .blue-box}
+Ver [tablas resumen](#tablas_resumen) de operadores aritméticos y lógicos (al final del capítulo)
 :::
 
-> Reto matemático que se volvió viral en las redes sociales*
+> Reto matemático que se volvió viral en las redes sociales\*
 
 ![](fig/reto.jpeg)
 
-Existen dos soluciones, según método que se aplique: el PEMDAS = 1 (parenthesis < exponents < multiplicación < division < addition < subtraction) y el BODMAS = 16 (Brackets < Orders (Powers and Square Roots) < Division < Multiplication < Addition < Subtraction). 
+Existen dos soluciones, según método que se aplique: el PEMDAS = 1 (parenthesis \< exponents \< multiplicación \< division \< addition \< subtraction) y el BODMAS = 16 (Brackets \< Orders (Powers and Square Roots) \< Division \< Multiplication \< Addition \< Subtraction).
 
 > Cómo opera R?
 
@@ -35,7 +34,7 @@ Se puede decir que hay diferencia de estilos al programar. Se deberia tener pres
 3 + 5 * (2 ^ 2)   # si se olvidan algunas reglas, esto podría ayudar
 ```
 
-## Comparaciones lógicas {-}
+## Comparaciones lógicas {.unnumbered}
 
 
 ```r
@@ -48,7 +47,7 @@ Se puede decir que hay diferencia de estilos al programar. Se deberia tener pres
 
 </br>
 
-## Variables y asignaciones {-}
+## Variables y asignaciones {.unnumbered}
 
 Podemos almacenar valores en variables usando el operador de asignación `<-`, veamos un ejemplo:
 
@@ -63,8 +62,9 @@ Esta asignación no muestra el valor, sino que lo almacena para más adelante en
 ```r
 x
 ```
-:::{#box1 .blue-box}
-shortcut de "<-" : `Alt -`
+
+::: {#box1 .blue-box}
+shortcut de "\<-" : `Alt -`
 :::
 
 Chequear la pestaña Environment en uno de los paneles de RStudio. Nuestra variable x se puede usar en lugar de un número en cualquier cálculo que espere un número:
@@ -77,7 +77,6 @@ y <- x * 2
 
 El lado derecho de la asignación puede ser cualquier expresión de R válida. La expresión del lado derecho se evalúa por completo antes de que se realice la asignación.
 
-
 También es posible utilizar el operador = para la asignación
 
 
@@ -89,7 +88,7 @@ Esta forma es menos común entre los usuarios R (se recomienda usar `<-`).
 
 </br>
 
-## Funciones {-}
+## Funciones {.unnumbered}
 
 Como dijimos, los paquetes son básicamente un conjunto de funciones generadas por los autores de los mismos pero el usuario puede crear sus propias funciones.
 
@@ -97,12 +96,11 @@ Componentes de las funciones:
 
 nombre_funcion(argumentos)
 
-* *Nombre*: Generalmente, el nombre es intuitivo, por ejemplo, `mean` es la función que calcula la media, `round` es la funión que redondea un número.(Como habrán notado R está en inglés) 
+-   *Nombre*: Generalmente, el nombre es intuitivo, por ejemplo, `mean` es la función que calcula la media, `round` es la funión que redondea un número.(Como habrán notado R está en inglés)
 
-* *Argumentos*: Un argumento es un marcador de posición. Cuando se invoca una función, se debe indicar valores a los argumentos. Los argumentos son opcionales; es decir, una función puede no contener argumentos. También los argumentos pueden tener valores por defecto.
+-   *Argumentos*: Un argumento es un marcador de posición. Cuando se invoca una función, se debe indicar valores a los argumentos. Los argumentos son opcionales; es decir, una función puede no contener argumentos. También los argumentos pueden tener valores por defecto.
 
-Algunos cálculos basados en funciones matemáticas. Son las mas simples, y no esta funcion no contienen argumentos.
-[para chequear la info de la función, solo basta con seleccionar todos sus caracteres + F1]
+Algunos cálculos basados en funciones matemáticas. Son las mas simples, y no esta funcion no contienen argumentos. [para chequear la info de la función, solo basta con seleccionar todos sus caracteres + F1]
 
 
 ```r
@@ -116,7 +114,7 @@ exp(2.302585)
 
 Funciones básicas pero con argumentos
 
-* Redondeo 
+-   Redondeo
 
 
 ```r
@@ -124,7 +122,7 @@ round(4.3478)
 round(4.3478, digits=3)  
 ```
 
-## Tips {-}
+## Tips {.unnumbered}
 
 1 - No se tienen en cuenta los espacios en blanco entre palabras: podemos o no dejar espacios para que el código se pueda ordenar de forma adecuada y poder entenderse.
 
@@ -134,14 +132,14 @@ plot( pressure )
 plot(pressur e)
 ```
 
-2 - Se distinguen las mayúsculas y minúsculas (“case sensitive”): para variables en el código, podemos crear diferentes variables con nombres iguales pero alternando mayúsculas y minúsculas.
+2 - Se distinguen las mayúsculas y minúsculas ("case sensitive"): para variables en el código, podemos crear diferentes variables con nombres iguales pero alternando mayúsculas y minúsculas.
 
 
 ```r
 Plot(pressure)
 ```
 
-3 - Se pueden incluir comentarios: como vimos anteriormente los comentarios se utilizan para añadir información en el código. De paso observamos que 
+3 - Se pueden incluir comentarios: como vimos anteriormente los comentarios se utilizan para añadir información en el código. De paso observamos que
 
 
 ```r
@@ -158,37 +156,36 @@ plot(pressure)
 pressure; plot(pressure)
 ```
 
-5 - Los nombres de las variables pueden contener letras, números, guiones bajos y puntos, pero *NO PUEDEN*: 
+5 - Los nombres de las variables pueden contener letras, números, guiones bajos y puntos, pero *NO PUEDEN*:
 
-+ comenzar con un número 
-+ contener espacios en absoluto 
+-   comenzar con un número
+-   contener espacios en absoluto
 
 Cada uno adopta su propia forma para nombres largos de variables, por ej:
 
-- puntos.entre.palabras
-- guiones_bajos_entre_palabras
-- MayúsculasMinúsculasParaSepararPalabras
+-   puntos.entre.palabras
+-   guiones_bajos_entre_palabras
+-   MayúsculasMinúsculasParaSepararPalabras
 
 No importa como lo adopten, pero es aconsejable ser consistente.
 
-## S.O.S. {-}
+## S.O.S. {.unnumbered}
 
-- En el mismo R: `?sd`;  `??sd`; F1 sobre la función 
+-   En el mismo R: `?sd`; `??sd`; F1 sobre la función
 
-> Googlear: *r generate a sequence of uppercase letters* 
+> Googlear: *r generate a sequence of uppercase letters*
 
-- [Stack Overflow en inglés](https://stackoverflow.com/) / [Stack Overflow en español](https://es.stackoverflow.com) / 
-[RStudio](https://community.rstudio.com/): comunidades altamente activas por los usuarios de R y otros lenguajes de programación.
+-   [Stack Overflow en inglés](https://stackoverflow.com/) / [Stack Overflow en español](https://es.stackoverflow.com) / [RStudio](https://community.rstudio.com/): comunidades altamente activas por los usuarios de R y otros lenguajes de programación.
 
-- [R Mailing Lists](https://www.r-project.org/mail.html): especificas de cada área de la ciencia. 
+-   [R Mailing Lists](https://www.r-project.org/mail.html): especificas de cada área de la ciencia.
 
 **¿Cómo hacer una buena pregunta en las comunidades?**
 
-- Ser conciso pero gentil...
+-   Ser conciso pero gentil...
 
-- Ser reproducible: su código debe correr en cualquier máquina. La comunidad no irá a ayudarle si no pueden reproducir su error (detallar paquetes y versión de R en caso necesario) 
+-   Ser reproducible: su código debe correr en cualquier máquina. La comunidad no irá a ayudarle si no pueden reproducir su error (detallar paquetes y versión de R en caso necesario)
 
-## Tablas resumen { - #tablas_resumen}
+## Tablas resumen {#tablas_resumen .unnumbered}
 
 
 
@@ -236,7 +233,6 @@ No importa como lo adopten, pero es aconsejable ser consistente.
 
 
 
-
 <table class="table" style="font-size: 15px; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">(\#tab:op-logi)Operadores lógicos</caption>
  <thead>
@@ -273,9 +269,7 @@ No importa como lo adopten, pero es aconsejable ser consistente.
 </tbody>
 </table>
 
-<br>
-<br>
-
+<br> <br>
 
 
 
@@ -319,9 +313,7 @@ No importa como lo adopten, pero es aconsejable ser consistente.
 </tbody>
 </table>
 
-<br>
-<br>
-
+<br> <br>
 
 
 
@@ -369,6 +361,6 @@ No importa como lo adopten, pero es aconsejable ser consistente.
 </tbody>
 </table>
 
-* Ver todos los atajos en R Studio: situandose en la consola >> `Ctrl | Shift | k` 
+-   Ver todos los atajos en R Studio: situandose en la consola tipear simultanemante `Ctrl | Shift | k`
 
----
+------------------------------------------------------------------------

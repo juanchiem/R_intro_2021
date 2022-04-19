@@ -13,7 +13,7 @@
   
   
   
-  <meta name="github-repo" content="juanchiem/R_Intro" />
+  <meta name="github-repo" content="juanchiem/R_intro_2022" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="4 Estructura de datos | Exploración y manipulación de datos con R" />
@@ -144,6 +144,7 @@ div.csl-indent {
 }
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -156,10 +157,8 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Motivación</a>
-<ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#objetivos"><i class="fa fa-check"></i>Objetivos</a></li>
-</ul></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Motivación</a></li>
+<li class="chapter" data-level="" data-path="objetivos.html"><a href="objetivos.html"><i class="fa fa-check"></i>Objetivos</a></li>
 <li class="chapter" data-level="1" data-path="config.html"><a href="config.html"><i class="fa fa-check"></i><b>1</b> Configuraciones básicas</a>
 <ul>
 <li class="chapter" data-level="" data-path="config.html"><a href="config.html#paquetes-de-r"><i class="fa fa-check"></i>Paquetes de R</a></li>
@@ -178,19 +177,19 @@ div.csl-indent {
 <li class="chapter" data-level="3" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html"><i class="fa fa-check"></i><b>3</b> Tipos de datos</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#vectores"><i class="fa fa-check"></i><b>3.1</b> Vectores</a></li>
-<li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#numéricos"><i class="fa fa-check"></i>Numéricos</a></li>
-<li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#lógicos"><i class="fa fa-check"></i>Lógicos</a></li>
 <li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#caracter"><i class="fa fa-check"></i>Caracter</a></li>
+<li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#lógicos"><i class="fa fa-check"></i>Lógicos</a></li>
 <li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#fechas"><i class="fa fa-check"></i>Fechas</a></li>
-<li class="chapter" data-level="3.2" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#secuencias"><i class="fa fa-check"></i><b>3.2</b> Secuencias</a>
+<li class="chapter" data-level="3.2" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#datos-faltantes"><i class="fa fa-check"></i><b>3.2</b> Datos faltantes</a></li>
+<li class="chapter" data-level="3.3" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#factores"><i class="fa fa-check"></i><b>3.3</b> Factores</a></li>
+<li class="chapter" data-level="3.4" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#secuencias"><i class="fa fa-check"></i><b>3.4</b> Secuencias</a>
 <ul>
 <li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#numéricas"><i class="fa fa-check"></i>Numéricas</a></li>
 <li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#letras"><i class="fa fa-check"></i>Letras</a></li>
 <li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#fechas-1"><i class="fa fa-check"></i>Fechas</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#números-aleatorios"><i class="fa fa-check"></i><b>3.3</b> Números aleatorios</a></li>
-<li class="chapter" data-level="3.4" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#valores-especiales"><i class="fa fa-check"></i><b>3.4</b> Valores especiales</a></li>
-<li class="chapter" data-level="3.5" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#factores"><i class="fa fa-check"></i><b>3.5</b> Factores</a></li>
+<li class="chapter" data-level="3.5" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#números-aleatorios"><i class="fa fa-check"></i><b>3.5</b> Números aleatorios</a></li>
+<li class="chapter" data-level="3.6" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#valores-especiales"><i class="fa fa-check"></i><b>3.6</b> Valores especiales</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="estructura-de-datos.html"><a href="estructura-de-datos.html"><i class="fa fa-check"></i><b>4</b> Estructura de datos</a>
 <ul>
@@ -199,7 +198,10 @@ div.csl-indent {
 <li class="chapter" data-level="5" data-path="visualización.html"><a href="visualización.html"><i class="fa fa-check"></i><b>5</b> Visualización</a>
 <ul>
 <li class="chapter" data-level="" data-path="visualización.html"><a href="visualización.html#ggplot"><i class="fa fa-check"></i>ggplot</a></li>
-<li class="chapter" data-level="5.1" data-path="visualización.html"><a href="visualización.html#ambas-variables-contínuas"><i class="fa fa-check"></i><b>5.1</b> Ambas variables contínuas</a></li>
+<li class="chapter" data-level="5.1" data-path="visualización.html"><a href="visualización.html#ambas-variables-contínuas"><i class="fa fa-check"></i><b>5.1</b> Ambas variables contínuas</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="visualización.html"><a href="visualización.html#como-guardar-los-gráficos"><i class="fa fa-check"></i><b>5.1.1</b> Como guardar los gráficos</a></li>
+</ul></li>
 <li class="chapter" data-level="5.2" data-path="visualización.html"><a href="visualización.html#comparación-de-niveles-de-factores"><i class="fa fa-check"></i><b>5.2</b> Comparación de niveles de factores</a>
 <ul>
 <li class="chapter" data-level="5.2.1" data-path="visualización.html"><a href="visualización.html#observaciones-media-mediana"><i class="fa fa-check"></i><b>5.2.1</b> Observaciones + media / mediana</a></li>
@@ -209,48 +211,6 @@ div.csl-indent {
 <li class="chapter" data-level="5.2.5" data-path="visualización.html"><a href="visualización.html#media-dispersión"><i class="fa fa-check"></i><b>5.2.5</b> Media &amp; dispersión</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="importación.html"><a href="importación.html"><i class="fa fa-check"></i><b>6</b> Importación</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="importación.html"><a href="importación.html#desde-pc"><i class="fa fa-check"></i><b>6.1</b> Desde PC</a></li>
-<li class="chapter" data-level="6.2" data-path="importación.html"><a href="importación.html#desde-googlesheets"><i class="fa fa-check"></i><b>6.2</b> Desde googlesheets</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="tidyverse.html"><a href="tidyverse.html"><i class="fa fa-check"></i>Tidyverse</a></li>
-<li class="chapter" data-level="7" data-path="re-estructuración.html"><a href="re-estructuración.html"><i class="fa fa-check"></i><b>7</b> Re-estructuración</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="re-estructuración.html"><a href="re-estructuración.html#unir-dataframes"><i class="fa fa-check"></i><b>7.1</b> Unir dataframes</a></li>
-<li class="chapter" data-level="7.2" data-path="re-estructuración.html"><a href="re-estructuración.html#reordenar-niveles-de-un-factor"><i class="fa fa-check"></i><b>7.2</b> Reordenar niveles de un factor</a></li>
-<li class="chapter" data-level="7.3" data-path="re-estructuración.html"><a href="re-estructuración.html#modificar-variables"><i class="fa fa-check"></i><b>7.3</b> Modificar variables</a></li>
-<li class="chapter" data-level="7.4" data-path="re-estructuración.html"><a href="re-estructuración.html#agregar-variables"><i class="fa fa-check"></i><b>7.4</b> Agregar variables</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="sumarización.html"><a href="sumarización.html"><i class="fa fa-check"></i><b>8</b> Sumarización</a></li>
-<li class="chapter" data-level="9" data-path="selección.html"><a href="selección.html"><i class="fa fa-check"></i><b>9</b> Selección</a></li>
-<li class="chapter" data-level="10" data-path="filtrado.html"><a href="filtrado.html"><i class="fa fa-check"></i><b>10</b> Filtrado</a></li>
-<li class="chapter" data-level="11" data-path="depuración.html"><a href="depuración.html"><i class="fa fa-check"></i><b>11</b> Depuración</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="depuración.html"><a href="depuración.html#separar---unir-columnas"><i class="fa fa-check"></i><b>11.1</b> Separar - unir columnas</a></li>
-<li class="chapter" data-level="11.2" data-path="depuración.html"><a href="depuración.html#depuración-de-variables-tipo-carácter"><i class="fa fa-check"></i><b>11.2</b> Depuración de variables tipo carácter</a></li>
-<li class="chapter" data-level="11.3" data-path="depuración.html"><a href="depuración.html#exploración-rápida-del-dataset"><i class="fa fa-check"></i><b>11.3</b> Exploración rápida del dataset</a></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="correlacion.html"><a href="correlacion.html"><i class="fa fa-check"></i><b>12</b> Correlacion</a></li>
-<li class="chapter" data-level="13" data-path="regresión-linear.html"><a href="regresión-linear.html"><i class="fa fa-check"></i><b>13</b> Regresión linear</a></li>
-<li class="chapter" data-level="14" data-path="anova.html"><a href="anova.html"><i class="fa fa-check"></i><b>14</b> Anova</a>
-<ul>
-<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#un-solo-factor"><i class="fa fa-check"></i>Un solo factor</a></li>
-<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#dos-factores"><i class="fa fa-check"></i>Dos factores</a></li>
-</ul></li>
-<li class="chapter" data-level="15" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>15</b> R Markdown</a>
-<ul>
-<li class="chapter" data-level="" data-path="r-markdown.html"><a href="r-markdown.html#elementos-básicos-de-r-markdown"><i class="fa fa-check"></i>Elementos básicos de R Markdown</a></li>
-<li class="chapter" data-level="" data-path="r-markdown.html"><a href="r-markdown.html#formateo-de-texto-con-markdown"><i class="fa fa-check"></i>Formateo de texto con Markdown</a></li>
-<li class="chapter" data-level="" data-path="r-markdown.html"><a href="r-markdown.html#encabezados"><i class="fa fa-check"></i>Encabezados</a></li>
-<li class="chapter" data-level="" data-path="r-markdown.html"><a href="r-markdown.html#listas"><i class="fa fa-check"></i>Listas</a></li>
-<li class="chapter" data-level="" data-path="r-markdown.html"><a href="r-markdown.html#enlaces-e-imágenes"><i class="fa fa-check"></i>Enlaces e imágenes</a></li>
-<li class="chapter" data-level="" data-path="r-markdown.html"><a href="r-markdown.html#tablas"><i class="fa fa-check"></i>Tablas</a></li>
-<li class="chapter" data-level="" data-path="r-markdown.html"><a href="r-markdown.html#bloques-de-código"><i class="fa fa-check"></i>Bloques de código</a></li>
-<li class="chapter" data-level="" data-path="r-markdown.html"><a href="r-markdown.html#tablas-1"><i class="fa fa-check"></i>Tablas</a></li>
-<li class="chapter" data-level="" data-path="r-markdown.html"><a href="r-markdown.html#opciones-globales"><i class="fa fa-check"></i>Opciones globales</a></li>
-</ul></li>
-<li class="chapter" data-level="16" data-path="trabajo-final-de-curso.html"><a href="trabajo-final-de-curso.html"><i class="fa fa-check"></i><b>16</b> Trabajo final de curso</a></li>
 </ul>
 
       </nav>
@@ -275,60 +235,72 @@ div.csl-indent {
 </center>
 <div id="data-frames" class="section level2 unnumbered">
 <h2>Data frames</h2>
-<p>Conjunto de variables (columnas), de cualquier tipo de datos (categóricas, lógicas, fechas.</p>
+<p>Conjunto de variables (columnas), de cualquier tipo de datos (categóricas, lógicas, fechas)</p>
 <p>Un dataframe es completo con dimensiones n_fila x p_columna, donde:</p>
 <p>1- Cada fila debe contener toda la info de la unidad experimental que se está evaluando</p>
 <p>2- Cada columna representa una variable (descriptiva o respuesta)</p>
 <p>3- Cada celda debe tener su observación (en caso de faltar el dato será un NA)</p>
 <p><img src="fig/tibbles.png" /></p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="estructura-de-datos.html#cb40-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>)</span>
-<span id="cb40-2"><a href="estructura-de-datos.html#cb40-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>)</span>
-<span id="cb40-3"><a href="estructura-de-datos.html#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-4"><a href="estructura-de-datos.html#cb40-4" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(x,y)</span>
-<span id="cb40-5"><a href="estructura-de-datos.html#cb40-5" aria-hidden="true" tabindex="-1"></a>dat</span>
-<span id="cb40-6"><a href="estructura-de-datos.html#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(dat)</span>
-<span id="cb40-7"><a href="estructura-de-datos.html#cb40-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-8"><a href="estructura-de-datos.html#cb40-8" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span></span></code></pre></div>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="estructura-de-datos.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
-<span id="cb41-2"><a href="estructura-de-datos.html#cb41-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
-<span id="cb41-3"><a href="estructura-de-datos.html#cb41-3" aria-hidden="true" tabindex="-1"></a>      <span class="sc">~</span>x, <span class="sc">~</span>y,</span>
-<span id="cb41-4"><a href="estructura-de-datos.html#cb41-4" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;A&quot;</span>,  <span class="dv">1</span>,</span>
-<span id="cb41-5"><a href="estructura-de-datos.html#cb41-5" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;B&quot;</span>,  <span class="dv">3</span>,</span>
-<span id="cb41-6"><a href="estructura-de-datos.html#cb41-6" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;C&quot;</span>,  <span class="dv">5</span></span>
-<span id="cb41-7"><a href="estructura-de-datos.html#cb41-7" aria-hidden="true" tabindex="-1"></a>     )</span></code></pre></div>
 <p>Como hemos visto, hay data frames contenidos en paquetes de inico automático. Un ejemplo muy usado, que está en el paquete <code>base</code> es el dataset “iris”.</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="estructura-de-datos.html#cb42-1" aria-hidden="true" tabindex="-1"></a>iris <span class="co"># ya activo desde inicio de sesión por default</span></span>
-<span id="cb42-2"><a href="estructura-de-datos.html#cb42-2" aria-hidden="true" tabindex="-1"></a>?iris <span class="co"># F1</span></span>
-<span id="cb42-3"><a href="estructura-de-datos.html#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(iris) <span class="co"># F2 </span></span>
-<span id="cb42-4"><a href="estructura-de-datos.html#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(iris)</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="estructura-de-datos.html#cb41-1" aria-hidden="true" tabindex="-1"></a>iris <span class="co"># ya activo desde inicio de sesión por default</span></span>
+<span id="cb41-2"><a href="estructura-de-datos.html#cb41-2" aria-hidden="true" tabindex="-1"></a>?iris <span class="co"># F1</span></span>
+<span id="cb41-3"><a href="estructura-de-datos.html#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(iris) <span class="co"># F2 </span></span>
+<span id="cb41-4"><a href="estructura-de-datos.html#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(iris)</span></code></pre></div>
 <center>
 <img src="fig/iris.png" width="400" />
 </center>
 <blockquote>
-<p>Explore el dataset iris con las siguientes funciones y anote sus resultados:<br />
+<p>Explore el dataset iris con las siguientes funciones y comente sus resultados:<br />
 dim(); head(); tail(); names(); str(); summary()</p>
 </blockquote>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="estructura-de-datos.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(iris)</span>
+<span id="cb42-2"><a href="estructura-de-datos.html#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(iris)</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="estructura-de-datos.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(iris) </span>
+<span id="cb43-2"><a href="estructura-de-datos.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(iris)</span>
+<span id="cb43-3"><a href="estructura-de-datos.html#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(iris)</span>
+<span id="cb43-4"><a href="estructura-de-datos.html#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(iris)</span></code></pre></div>
+<p>Paquetes de exploracion rapida de datasets</p>
+<p>{skimr}</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="estructura-de-datos.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb44-2"><a href="estructura-de-datos.html#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(iris)</span></code></pre></div>
 <div id="box1" class="blue-box">
+<p>Creacion de dataframes a partir de vectores</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="estructura-de-datos.html#cb45-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>)</span>
+<span id="cb45-2"><a href="estructura-de-datos.html#cb45-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="cn">NA</span>)</span>
+<span id="cb45-3"><a href="estructura-de-datos.html#cb45-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-4"><a href="estructura-de-datos.html#cb45-4" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(x,y)</span>
+<span id="cb45-5"><a href="estructura-de-datos.html#cb45-5" aria-hidden="true" tabindex="-1"></a>dat</span>
+<span id="cb45-6"><a href="estructura-de-datos.html#cb45-6" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(dat)</span>
+<span id="cb45-7"><a href="estructura-de-datos.html#cb45-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-8"><a href="estructura-de-datos.html#cb45-8" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span></span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="estructura-de-datos.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb46-2"><a href="estructura-de-datos.html#cb46-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb46-3"><a href="estructura-de-datos.html#cb46-3" aria-hidden="true" tabindex="-1"></a>      <span class="sc">~</span>x, <span class="sc">~</span>y,</span>
+<span id="cb46-4"><a href="estructura-de-datos.html#cb46-4" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;A&quot;</span>,  <span class="dv">1</span>,</span>
+<span id="cb46-5"><a href="estructura-de-datos.html#cb46-5" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;B&quot;</span>,  <span class="dv">3</span>,</span>
+<span id="cb46-6"><a href="estructura-de-datos.html#cb46-6" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;C&quot;</span>,  <span class="cn">NA</span></span>
+<span id="cb46-7"><a href="estructura-de-datos.html#cb46-7" aria-hidden="true" tabindex="-1"></a>     )</span></code></pre></div>
 <div id="otras-estructuras-de-datos" class="section level3 unnumbered">
 <h3>Otras estructuras de datos</h3>
 <ul>
 <li>Listas</li>
 </ul>
-<p>Objetos que aceptan elementos de clases diferentes.</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="estructura-de-datos.html#cb43-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">a =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">b =</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>), <span class="at">c =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb43-2"><a href="estructura-de-datos.html#cb43-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<p>Son vectores de objetos de cualquier clase</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="estructura-de-datos.html#cb47-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">a =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">b =</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>), <span class="at">c =</span> <span class="cn">TRUE</span>, <span class="at">d=</span>dat)</span>
+<span id="cb47-2"><a href="estructura-de-datos.html#cb47-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
 <p>(Más info de subsetting elementos de una lista <a href="https://bookdown.org/rdpeng/rprogdatascience/subsetting-r-objects.html#subsetting-lists">aquí</a>)</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="estructura-de-datos.html#cb44-1" aria-hidden="true" tabindex="-1"></a>x<span class="sc">$</span>a       <span class="co"># </span></span>
-<span id="cb44-2"><a href="estructura-de-datos.html#cb44-2" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">1</span>]       <span class="co"># </span></span>
-<span id="cb44-3"><a href="estructura-de-datos.html#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="co">#sum(x[1])</span></span>
-<span id="cb44-4"><a href="estructura-de-datos.html#cb44-4" aria-hidden="true" tabindex="-1"></a>x[[<span class="dv">1</span>]]     <span class="co"># </span></span>
-<span id="cb44-5"><a href="estructura-de-datos.html#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(x[[<span class="dv">1</span>]])</span>
-<span id="cb44-6"><a href="estructura-de-datos.html#cb44-6" aria-hidden="true" tabindex="-1"></a>x[<span class="st">&quot;c&quot;</span>]     <span class="co"># </span></span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="estructura-de-datos.html#cb48-1" aria-hidden="true" tabindex="-1"></a>x<span class="sc">$</span>a       <span class="co"># </span></span>
+<span id="cb48-2"><a href="estructura-de-datos.html#cb48-2" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">1</span>]       <span class="co"># </span></span>
+<span id="cb48-3"><a href="estructura-de-datos.html#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="co">#sum(x[1])</span></span>
+<span id="cb48-4"><a href="estructura-de-datos.html#cb48-4" aria-hidden="true" tabindex="-1"></a>x[[<span class="dv">1</span>]]     <span class="co"># </span></span>
+<span id="cb48-5"><a href="estructura-de-datos.html#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(x[[<span class="dv">1</span>]])</span>
+<span id="cb48-6"><a href="estructura-de-datos.html#cb48-6" aria-hidden="true" tabindex="-1"></a>x[<span class="st">&quot;c&quot;</span>]     <span class="co"># </span></span></code></pre></div>
 <ul>
 <li>Matrices</li>
 </ul>
-<p>Indicamos el número de filas con el argumento <code>nrow</code> y con <code>ncol</code> el número de columnas; luego indicamos qué valores forman la matriz (del 1 al 9), y le hemos pedido a R que use esos valores para rellenar la matriz A por filas con <code>byrow=TRUE</code>. La matriz A así construida es:</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="estructura-de-datos.html#cb45-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">nrow=</span><span class="dv">3</span>, <span class="at">ncol=</span><span class="dv">3</span>, <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>), <span class="at">byrow=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<p>Admiten un unico tipo de dato y carecen de nombre de columna. Al igual que los dataframes tienen dimensiones fila x columna. Indicamos el número de filas con el argumento <code>nrow</code> y con <code>ncol</code> el número de columnas; luego indicamos qué valores forman la matriz (del 1 al 9), y le hemos pedido a R que use esos valores para rellenar la matriz A por filas con <code>byrow=TRUE</code>. La matriz A así construida es:</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="estructura-de-datos.html#cb49-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">nrow=</span><span class="dv">3</span>, <span class="at">ncol=</span><span class="dv">3</span>, <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>), <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb49-2"><a href="estructura-de-datos.html#cb49-2" aria-hidden="true" tabindex="-1"></a>A</span></code></pre></div>
 </div>
 </div>
 
@@ -394,20 +366,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

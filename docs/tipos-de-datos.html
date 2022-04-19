@@ -13,7 +13,7 @@
   
   
   
-  <meta name="github-repo" content="juanchiem/R_Intro" />
+  <meta name="github-repo" content="juanchiem/R_intro_2022" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="3 Tipos de datos | Exploración y manipulación de datos con R" />
@@ -144,6 +144,7 @@ div.csl-indent {
 }
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -156,10 +157,8 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Motivación</a>
-<ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#objetivos"><i class="fa fa-check"></i>Objetivos</a></li>
-</ul></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Motivación</a></li>
+<li class="chapter" data-level="" data-path="objetivos.html"><a href="objetivos.html"><i class="fa fa-check"></i>Objetivos</a></li>
 <li class="chapter" data-level="1" data-path="config.html"><a href="config.html"><i class="fa fa-check"></i><b>1</b> Configuraciones básicas</a>
 <ul>
 <li class="chapter" data-level="" data-path="config.html"><a href="config.html#paquetes-de-r"><i class="fa fa-check"></i>Paquetes de R</a></li>
@@ -178,19 +177,19 @@ div.csl-indent {
 <li class="chapter" data-level="3" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html"><i class="fa fa-check"></i><b>3</b> Tipos de datos</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#vectores"><i class="fa fa-check"></i><b>3.1</b> Vectores</a></li>
-<li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#numéricos"><i class="fa fa-check"></i>Numéricos</a></li>
-<li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#lógicos"><i class="fa fa-check"></i>Lógicos</a></li>
 <li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#caracter"><i class="fa fa-check"></i>Caracter</a></li>
+<li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#lógicos"><i class="fa fa-check"></i>Lógicos</a></li>
 <li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#fechas"><i class="fa fa-check"></i>Fechas</a></li>
-<li class="chapter" data-level="3.2" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#secuencias"><i class="fa fa-check"></i><b>3.2</b> Secuencias</a>
+<li class="chapter" data-level="3.2" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#datos-faltantes"><i class="fa fa-check"></i><b>3.2</b> Datos faltantes</a></li>
+<li class="chapter" data-level="3.3" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#factores"><i class="fa fa-check"></i><b>3.3</b> Factores</a></li>
+<li class="chapter" data-level="3.4" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#secuencias"><i class="fa fa-check"></i><b>3.4</b> Secuencias</a>
 <ul>
 <li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#numéricas"><i class="fa fa-check"></i>Numéricas</a></li>
 <li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#letras"><i class="fa fa-check"></i>Letras</a></li>
 <li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#fechas-1"><i class="fa fa-check"></i>Fechas</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#números-aleatorios"><i class="fa fa-check"></i><b>3.3</b> Números aleatorios</a></li>
-<li class="chapter" data-level="3.4" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#valores-especiales"><i class="fa fa-check"></i><b>3.4</b> Valores especiales</a></li>
-<li class="chapter" data-level="3.5" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#factores"><i class="fa fa-check"></i><b>3.5</b> Factores</a></li>
+<li class="chapter" data-level="3.5" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#números-aleatorios"><i class="fa fa-check"></i><b>3.5</b> Números aleatorios</a></li>
+<li class="chapter" data-level="3.6" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#valores-especiales"><i class="fa fa-check"></i><b>3.6</b> Valores especiales</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="estructura-de-datos.html"><a href="estructura-de-datos.html"><i class="fa fa-check"></i><b>4</b> Estructura de datos</a>
 <ul>
@@ -199,7 +198,10 @@ div.csl-indent {
 <li class="chapter" data-level="5" data-path="visualización.html"><a href="visualización.html"><i class="fa fa-check"></i><b>5</b> Visualización</a>
 <ul>
 <li class="chapter" data-level="" data-path="visualización.html"><a href="visualización.html#ggplot"><i class="fa fa-check"></i>ggplot</a></li>
-<li class="chapter" data-level="5.1" data-path="visualización.html"><a href="visualización.html#ambas-variables-contínuas"><i class="fa fa-check"></i><b>5.1</b> Ambas variables contínuas</a></li>
+<li class="chapter" data-level="5.1" data-path="visualización.html"><a href="visualización.html#ambas-variables-contínuas"><i class="fa fa-check"></i><b>5.1</b> Ambas variables contínuas</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="visualización.html"><a href="visualización.html#como-guardar-los-gráficos"><i class="fa fa-check"></i><b>5.1.1</b> Como guardar los gráficos</a></li>
+</ul></li>
 <li class="chapter" data-level="5.2" data-path="visualización.html"><a href="visualización.html#comparación-de-niveles-de-factores"><i class="fa fa-check"></i><b>5.2</b> Comparación de niveles de factores</a>
 <ul>
 <li class="chapter" data-level="5.2.1" data-path="visualización.html"><a href="visualización.html#observaciones-media-mediana"><i class="fa fa-check"></i><b>5.2.1</b> Observaciones + media / mediana</a></li>
@@ -209,48 +211,6 @@ div.csl-indent {
 <li class="chapter" data-level="5.2.5" data-path="visualización.html"><a href="visualización.html#media-dispersión"><i class="fa fa-check"></i><b>5.2.5</b> Media &amp; dispersión</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="importación.html"><a href="importación.html"><i class="fa fa-check"></i><b>6</b> Importación</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="importación.html"><a href="importación.html#desde-pc"><i class="fa fa-check"></i><b>6.1</b> Desde PC</a></li>
-<li class="chapter" data-level="6.2" data-path="importación.html"><a href="importación.html#desde-googlesheets"><i class="fa fa-check"></i><b>6.2</b> Desde googlesheets</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="tidyverse.html"><a href="tidyverse.html"><i class="fa fa-check"></i>Tidyverse</a></li>
-<li class="chapter" data-level="7" data-path="re-estructuración.html"><a href="re-estructuración.html"><i class="fa fa-check"></i><b>7</b> Re-estructuración</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="re-estructuración.html"><a href="re-estructuración.html#unir-dataframes"><i class="fa fa-check"></i><b>7.1</b> Unir dataframes</a></li>
-<li class="chapter" data-level="7.2" data-path="re-estructuración.html"><a href="re-estructuración.html#reordenar-niveles-de-un-factor"><i class="fa fa-check"></i><b>7.2</b> Reordenar niveles de un factor</a></li>
-<li class="chapter" data-level="7.3" data-path="re-estructuración.html"><a href="re-estructuración.html#modificar-variables"><i class="fa fa-check"></i><b>7.3</b> Modificar variables</a></li>
-<li class="chapter" data-level="7.4" data-path="re-estructuración.html"><a href="re-estructuración.html#agregar-variables"><i class="fa fa-check"></i><b>7.4</b> Agregar variables</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="sumarización.html"><a href="sumarización.html"><i class="fa fa-check"></i><b>8</b> Sumarización</a></li>
-<li class="chapter" data-level="9" data-path="selección.html"><a href="selección.html"><i class="fa fa-check"></i><b>9</b> Selección</a></li>
-<li class="chapter" data-level="10" data-path="filtrado.html"><a href="filtrado.html"><i class="fa fa-check"></i><b>10</b> Filtrado</a></li>
-<li class="chapter" data-level="11" data-path="depuración.html"><a href="depuración.html"><i class="fa fa-check"></i><b>11</b> Depuración</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="depuración.html"><a href="depuración.html#separar---unir-columnas"><i class="fa fa-check"></i><b>11.1</b> Separar - unir columnas</a></li>
-<li class="chapter" data-level="11.2" data-path="depuración.html"><a href="depuración.html#depuración-de-variables-tipo-carácter"><i class="fa fa-check"></i><b>11.2</b> Depuración de variables tipo carácter</a></li>
-<li class="chapter" data-level="11.3" data-path="depuración.html"><a href="depuración.html#exploración-rápida-del-dataset"><i class="fa fa-check"></i><b>11.3</b> Exploración rápida del dataset</a></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="correlacion.html"><a href="correlacion.html"><i class="fa fa-check"></i><b>12</b> Correlacion</a></li>
-<li class="chapter" data-level="13" data-path="regresión-linear.html"><a href="regresión-linear.html"><i class="fa fa-check"></i><b>13</b> Regresión linear</a></li>
-<li class="chapter" data-level="14" data-path="anova.html"><a href="anova.html"><i class="fa fa-check"></i><b>14</b> Anova</a>
-<ul>
-<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#un-solo-factor"><i class="fa fa-check"></i>Un solo factor</a></li>
-<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#dos-factores"><i class="fa fa-check"></i>Dos factores</a></li>
-</ul></li>
-<li class="chapter" data-level="15" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>15</b> R Markdown</a>
-<ul>
-<li class="chapter" data-level="" data-path="r-markdown.html"><a href="r-markdown.html#elementos-básicos-de-r-markdown"><i class="fa fa-check"></i>Elementos básicos de R Markdown</a></li>
-<li class="chapter" data-level="" data-path="r-markdown.html"><a href="r-markdown.html#formateo-de-texto-con-markdown"><i class="fa fa-check"></i>Formateo de texto con Markdown</a></li>
-<li class="chapter" data-level="" data-path="r-markdown.html"><a href="r-markdown.html#encabezados"><i class="fa fa-check"></i>Encabezados</a></li>
-<li class="chapter" data-level="" data-path="r-markdown.html"><a href="r-markdown.html#listas"><i class="fa fa-check"></i>Listas</a></li>
-<li class="chapter" data-level="" data-path="r-markdown.html"><a href="r-markdown.html#enlaces-e-imágenes"><i class="fa fa-check"></i>Enlaces e imágenes</a></li>
-<li class="chapter" data-level="" data-path="r-markdown.html"><a href="r-markdown.html#tablas"><i class="fa fa-check"></i>Tablas</a></li>
-<li class="chapter" data-level="" data-path="r-markdown.html"><a href="r-markdown.html#bloques-de-código"><i class="fa fa-check"></i>Bloques de código</a></li>
-<li class="chapter" data-level="" data-path="r-markdown.html"><a href="r-markdown.html#tablas-1"><i class="fa fa-check"></i>Tablas</a></li>
-<li class="chapter" data-level="" data-path="r-markdown.html"><a href="r-markdown.html#opciones-globales"><i class="fa fa-check"></i>Opciones globales</a></li>
-</ul></li>
-<li class="chapter" data-level="16" data-path="trabajo-final-de-curso.html"><a href="trabajo-final-de-curso.html"><i class="fa fa-check"></i><b>16</b> Trabajo final de curso</a></li>
 </ul>
 
       </nav>
@@ -270,10 +230,10 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="tipos-de-datos" class="section level1" number="3">
 <h1><span class="header-section-number">3</span> Tipos de datos</h1>
-<p>Para realizar un uso eficiente de R es preciso entender y aprender a manipular bien las distintas clases de objetos que maneja el programa. En esta sección nos vamos a ocupar particulamente de aquellos objetos que R utiliza para representar datos: valores, vectores y dataframes (hay más), y su naturaleza.</p>
-<p>Para un procesamiento correcto, un lenguaje de programación debe saber qué se puede y qué no se puede hacer con un valor en particular. Por ejemplo, no se puede sumar palabras “hola” y “mundo”.</p>
-<p>Del mismo modo, no puede cambiar los números 1 y -34.5 de minúsculas a mayúsculas. Debido a esto, R tiene una característica llamada tipos de datos.</p>
-<p>R proporciona las funciones class () y typeof () para averiguar cuál es la clase y el tipo de cualquier variable. R tiene cinco tipos de datos que son:</p>
+<p>En términos genéricos, todos los elementos que maneja R se consideran objetos: un valor numérico, un vector, una función, una base de datos, un gráfico, todos son <em>objetos</em>.</p>
+<p>Uno de los típicos errores que se nos presenta al usar R es el mal uso de las distintas clases de objetos que manipulamos en nuestras sesiones de trabajo.</p>
+<p>Para un procesamiento correcto, un lenguaje de programación debe saber qué se puede y qué no se puede hacer con un valor en particular. Por ejemplo, no se pueden hacer operaciones matemáticas con las palabras “hola” y “mundo”. Del mismo modo, no puede cambiar los números 1 y -34.5 de minúsculas a mayúsculas. Debido a esto, R tiene una característica llamada tipos de datos.</p>
+<p>Principales tipos de datos que vamos a usar:</p>
 <table class="table" style="font-size: 15px; width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -288,10 +248,18 @@ Ejemplo
 <tbody>
 <tr>
 <td style="text-align:left;">
-numérica
+numérico
 </td>
 <td style="text-align:left;">
-12.3, 5, 999, …
+12.3, 5, 999
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+caracter
+</td>
+<td style="text-align:left;">
+hola, JUAN
 </td>
 </tr>
 <tr>
@@ -304,264 +272,185 @@ TRUE, FALSE
 </tr>
 <tr>
 <td style="text-align:left;">
-caracter
-</td>
-<td style="text-align:left;">
-hola, JUAN…
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
 fecha
 </td>
 <td style="text-align:left;">
-2021-05-06, 31/01/1965
+2021-05-06
 </td>
 </tr>
 </tbody>
 </table>
 <div id="vectores" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Vectores</h2>
-<p>En términos genéricos, todos los elementos que maneja R se consideran objetos: un valor numérico es un objeto, un vector es un objeto, una función es un objeto, una base de datos es un objeto, un gráfico es un objeto…</p>
 <p>La unidad básica de datos en R es un vector, los cuales pueden ser de diferentes clases. Los que más usaremos son las siguientes clases.</p>
 <p><code>vector &lt;- c(Concatenación, de, elementos, atómicos)</code></p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="tipos-de-datos.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># v0 &lt;- 8,9,11</span></span>
-<span id="cb16-2"><a href="tipos-de-datos.html#cb16-2" aria-hidden="true" tabindex="-1"></a>v0 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">11</span>)</span>
-<span id="cb16-3"><a href="tipos-de-datos.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># v00 &lt;- c(8)</span></span>
-<span id="cb16-4"><a href="tipos-de-datos.html#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(v0)</span>
-<span id="cb16-5"><a href="tipos-de-datos.html#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-6"><a href="tipos-de-datos.html#cb16-6" aria-hidden="true" tabindex="-1"></a>v01 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">11</span>)</span>
-<span id="cb16-7"><a href="tipos-de-datos.html#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(v01)</span>
-<span id="cb16-8"><a href="tipos-de-datos.html#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-9"><a href="tipos-de-datos.html#cb16-9" aria-hidden="true" tabindex="-1"></a>v0<span class="sc">+</span>v01</span></code></pre></div>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="tipos-de-datos.html#cb17-1" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">8</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">111</span>)</span>
-<span id="cb17-2"><a href="tipos-de-datos.html#cb17-2" aria-hidden="true" tabindex="-1"></a>v1</span>
-<span id="cb17-3"><a href="tipos-de-datos.html#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(v1)</span>
-<span id="cb17-4"><a href="tipos-de-datos.html#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(v1)</span>
-<span id="cb17-5"><a href="tipos-de-datos.html#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(v1) </span></code></pre></div>
-<blockquote>
-<p>Supongamos que v1 es una muestra de la variable largo de raiz de trigo en cm</p>
-</blockquote>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="tipos-de-datos.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(v1)</span>
-<span id="cb18-2"><a href="tipos-de-datos.html#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-3"><a href="tipos-de-datos.html#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">edit</span>(v1)</span>
-<span id="cb18-4"><a href="tipos-de-datos.html#cb18-4" aria-hidden="true" tabindex="-1"></a>v1</span>
-<span id="cb18-5"><a href="tipos-de-datos.html#cb18-5" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">edit</span>(v1) </span>
-<span id="cb18-6"><a href="tipos-de-datos.html#cb18-6" aria-hidden="true" tabindex="-1"></a>v1</span></code></pre></div>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="tipos-de-datos.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Medidas de posición</span></span>
-<span id="cb19-2"><a href="tipos-de-datos.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(v1) </span>
-<span id="cb19-3"><a href="tipos-de-datos.html#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(v1)</span>
-<span id="cb19-4"><a href="tipos-de-datos.html#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(v1, <span class="fl">0.25</span>)</span>
-<span id="cb19-5"><a href="tipos-de-datos.html#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-6"><a href="tipos-de-datos.html#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Medidas de dispersión</span></span>
-<span id="cb19-7"><a href="tipos-de-datos.html#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(v1)</span>
-<span id="cb19-8"><a href="tipos-de-datos.html#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(v1)</span>
-<span id="cb19-9"><a href="tipos-de-datos.html#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(v1)</span>
-<span id="cb19-10"><a href="tipos-de-datos.html#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(v1)</span>
-<span id="cb19-11"><a href="tipos-de-datos.html#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(v1)</span>
-<span id="cb19-12"><a href="tipos-de-datos.html#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">var</span>(v1))</span></code></pre></div>
-<ul>
-<li>Operaciones con vectores numéricos</li>
-</ul>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="tipos-de-datos.html#cb20-1" aria-hidden="true" tabindex="-1"></a>v1 <span class="sc">-</span> <span class="dv">1</span></span>
-<span id="cb20-2"><a href="tipos-de-datos.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(v1)</span>
-<span id="cb20-3"><a href="tipos-de-datos.html#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cumsum</span>(v1)</span></code></pre></div>
-</div>
-<div id="numéricos" class="section level2 unnumbered">
-<h2>Numéricos</h2>
-<p>Tipos: <code>integer</code> vs <code>double</code></p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="tipos-de-datos.html#cb21-1" aria-hidden="true" tabindex="-1"></a>num <span class="ot">&lt;-</span> <span class="dv">8</span></span>
-<span id="cb21-2"><a href="tipos-de-datos.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(num)</span>
-<span id="cb21-3"><a href="tipos-de-datos.html#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(num)</span>
-<span id="cb21-4"><a href="tipos-de-datos.html#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-5"><a href="tipos-de-datos.html#cb21-5" aria-hidden="true" tabindex="-1"></a>inte <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(num)</span>
-<span id="cb21-6"><a href="tipos-de-datos.html#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(inte)</span>
-<span id="cb21-7"><a href="tipos-de-datos.html#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(inte)</span>
-<span id="cb21-8"><a href="tipos-de-datos.html#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-9"><a href="tipos-de-datos.html#cb21-9" aria-hidden="true" tabindex="-1"></a>num <span class="sc">+</span> inte</span>
-<span id="cb21-10"><a href="tipos-de-datos.html#cb21-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-11"><a href="tipos-de-datos.html#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="co"># inte2 &lt;- 8L</span></span></code></pre></div>
-</div>
-<div id="lógicos" class="section level2 unnumbered">
-<h2>Lógicos</h2>
-<p>El tipo de dato lógico o booleano es en computación aquel que puede representar valores de lógica binaria, esto es 2 valores: falso o verdadero</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="tipos-de-datos.html#cb22-1" aria-hidden="true" tabindex="-1"></a>logi <span class="ot">&lt;-</span> <span class="cn">FALSE</span> <span class="co"># logi &lt;- false</span></span>
-<span id="cb22-2"><a href="tipos-de-datos.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(logi)</span>
-<span id="cb22-3"><a href="tipos-de-datos.html#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(logi)</span>
-<span id="cb22-4"><a href="tipos-de-datos.html#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-5"><a href="tipos-de-datos.html#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">as.logical</span>(<span class="dv">0</span>)</span>
-<span id="cb22-6"><a href="tipos-de-datos.html#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="fu">as.logical</span>(<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="tipos-de-datos.html#cb15-1" aria-hidden="true" tabindex="-1"></a>raices_largo <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">8.5</span>, <span class="dv">9</span>, <span class="dv">11</span>)</span></code></pre></div>
+<p>Hay muchas funciones que nos permiten inspeccionar los datos. Una muy versatil es <code>str()</code></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="tipos-de-datos.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(raices_largo)</span>
+<span id="cb16-2"><a href="tipos-de-datos.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(raices_largo)</span></code></pre></div>
+<p>Supongamos que “raices_largo” es una muestra de la variable largo de raiz de trigo en cm y nos interesaria algunas métricas</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="tipos-de-datos.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(raices_largo)</span></code></pre></div>
+<p>…descomponiendo ´summary´</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="tipos-de-datos.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Medidas de posición</span></span>
+<span id="cb18-2"><a href="tipos-de-datos.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(raices_largo)</span>
+<span id="cb18-3"><a href="tipos-de-datos.html#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(raices_largo)</span>
+<span id="cb18-4"><a href="tipos-de-datos.html#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(raices_largo, <span class="fl">0.25</span>)</span>
+<span id="cb18-5"><a href="tipos-de-datos.html#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="tipos-de-datos.html#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Medidas de dispersión</span></span>
+<span id="cb18-7"><a href="tipos-de-datos.html#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(raices_largo)</span>
+<span id="cb18-8"><a href="tipos-de-datos.html#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(raices_largo)</span>
+<span id="cb18-9"><a href="tipos-de-datos.html#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(raices_largo)</span></code></pre></div>
+<p>Al tratarse de números podemos hacer operaciones estadísticas o matemáticas como:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="tipos-de-datos.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(raices_largo)</span>
+<span id="cb19-2"><a href="tipos-de-datos.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(raices_largo)</span>
+<span id="cb19-3"><a href="tipos-de-datos.html#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">var</span>(raices_largo))</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="tipos-de-datos.html#cb20-1" aria-hidden="true" tabindex="-1"></a>raices_largo <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb20-2"><a href="tipos-de-datos.html#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="tipos-de-datos.html#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(raices_largo)</span>
+<span id="cb20-4"><a href="tipos-de-datos.html#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cumsum</span>(raices_largo)</span></code></pre></div>
 </div>
 <div id="caracter" class="section level2 unnumbered">
 <h2>Caracter</h2>
 <p>Almacena valores de “caracteres” o “cadenas” (en inglés “string”): pueden contener letras, números y símbolos. La forma más sencilla de indicar que un valor es de tipo carácter es colocar el valor entre comillas simples o dobles.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="tipos-de-datos.html#cb23-1" aria-hidden="true" tabindex="-1"></a>car <span class="ot">&lt;-</span> <span class="st">&quot;Hola mundo&quot;</span> <span class="co"># carac &lt;- &#39;hola mundo&#39; </span></span>
-<span id="cb23-2"><a href="tipos-de-datos.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(car)</span>
-<span id="cb23-3"><a href="tipos-de-datos.html#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(car)</span>
-<span id="cb23-4"><a href="tipos-de-datos.html#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-5"><a href="tipos-de-datos.html#cb23-5" aria-hidden="true" tabindex="-1"></a>car2 <span class="ot">&lt;-</span> <span class="fu">as.character</span>(<span class="st">&quot;Hola mundo&quot;</span>)</span>
-<span id="cb23-6"><a href="tipos-de-datos.html#cb23-6" aria-hidden="true" tabindex="-1"></a>car3 <span class="ot">&lt;-</span> <span class="fu">as.character</span>(num)</span>
-<span id="cb23-7"><a href="tipos-de-datos.html#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(car3)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="tipos-de-datos.html#cb21-1" aria-hidden="true" tabindex="-1"></a>vec_car <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Hola mundo&quot;</span>, <span class="st">&quot;2022-20-04&quot;</span>, <span class="st">&#39;2022&#39;</span>)   </span>
+<span id="cb21-2"><a href="tipos-de-datos.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(vec_car)</span></code></pre></div>
+</div>
+<div id="lógicos" class="section level2 unnumbered">
+<h2>Lógicos</h2>
+<p>El tipo de dato lógico o booleano es en computación aquel que puede representar valores de lógica binaria, esto es 2 valores: falso o verdadero</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="tipos-de-datos.html#cb22-1" aria-hidden="true" tabindex="-1"></a>vec_logi <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">FALSE</span>, <span class="cn">TRUE</span>, F, T) <span class="co"># logi &lt;- false</span></span>
+<span id="cb22-2"><a href="tipos-de-datos.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(vec_logi)</span></code></pre></div>
 </div>
 <div id="fechas" class="section level2 unnumbered">
 <h2>Fechas</h2>
-<p>Almacena valores de “caracteres” o “cadenas” (en inglés “string”): pueden contener letras, números y símbolos. La forma más sencilla de indicar que un valor es de tipo carácter es colocar el valor entre comillas simples o dobles.</p>
 <ul>
 <li>El formato default es yyyy-mm-dd</li>
 </ul>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="tipos-de-datos.html#cb24-1" aria-hidden="true" tabindex="-1"></a>fechas_vector <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">&quot;2007-06-22&quot;</span>, <span class="st">&quot;2004-02-13&quot;</span>))</span>
-<span id="cb24-2"><a href="tipos-de-datos.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(fechas_vector)</span></code></pre></div>
-<ul>
-<li>Pero nosostros comunmente usamos ‘dd/mm/yyyy’, así que debemos convertir</li>
-</ul>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="tipos-de-datos.html#cb25-1" aria-hidden="true" tabindex="-1"></a>fechas <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;01/06/2020&quot;</span>, <span class="st">&quot;31/12/2020&quot;</span>)</span>
-<span id="cb25-2"><a href="tipos-de-datos.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(fechas)</span>
-<span id="cb25-3"><a href="tipos-de-datos.html#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-4"><a href="tipos-de-datos.html#cb25-4" aria-hidden="true" tabindex="-1"></a>fechas_date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(fechas, <span class="st">&quot;%d/%m/%Y&quot;</span>) <span class="co"># con paquete base</span></span>
-<span id="cb25-5"><a href="tipos-de-datos.html#cb25-5" aria-hidden="true" tabindex="-1"></a>fechas_date <span class="ot">&lt;-</span> lubridate<span class="sc">::</span><span class="fu">dmy</span>(fechas) <span class="co"># con lubridate!</span></span>
-<span id="cb25-6"><a href="tipos-de-datos.html#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(fechas_date)</span>
-<span id="cb25-7"><a href="tipos-de-datos.html#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="fu">diff</span>(fechas_date)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="tipos-de-datos.html#cb23-1" aria-hidden="true" tabindex="-1"></a>vec_fechas <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">&quot;2007-06-22&quot;</span>, <span class="st">&quot;2004-02-13&quot;</span>))</span>
+<span id="cb23-2"><a href="tipos-de-datos.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(vec_fechas)</span>
+<span id="cb23-3"><a href="tipos-de-datos.html#cb23-3" aria-hidden="true" tabindex="-1"></a>vec_fechas <span class="sc">-</span> <span class="dv">1</span> </span></code></pre></div>
 <div id="box1" class="blue-box">
+<ul>
+<li>Nosotros comunmente usamos ‘dd/mm/yyyy’? debemos convertir:</li>
+</ul>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="tipos-de-datos.html#cb24-1" aria-hidden="true" tabindex="-1"></a>vec_fechas2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;01/06/2020&quot;</span>, <span class="st">&quot;31/12/2020&quot;</span>)</span>
+<span id="cb24-2"><a href="tipos-de-datos.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(vec_fechas2) <span class="co"># son caracteres!</span></span>
+<span id="cb24-3"><a href="tipos-de-datos.html#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="tipos-de-datos.html#cb24-4" aria-hidden="true" tabindex="-1"></a>vec_fechas3 <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(vec_fechas2, <span class="st">&quot;%d/%m/%Y&quot;</span>) <span class="co"># con paquete base</span></span>
+<span id="cb24-5"><a href="tipos-de-datos.html#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(vec_fechas3)</span>
+<span id="cb24-6"><a href="tipos-de-datos.html#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-7"><a href="tipos-de-datos.html#cb24-7" aria-hidden="true" tabindex="-1"></a>vec_fechas4 <span class="ot">&lt;-</span> lubridate<span class="sc">::</span><span class="fu">dmy</span>(vec_fechas2) <span class="co"># con lubridate!</span></span>
+<span id="cb24-8"><a href="tipos-de-datos.html#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(vec_fechas4)</span>
+<span id="cb24-9"><a href="tipos-de-datos.html#cb24-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-10"><a href="tipos-de-datos.html#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="fu">diff</span>(vec_fechas4)</span></code></pre></div>
+</div>
+<div class="blue-box">
 <ul>
 <li>Forzando las clases explícitamente</li>
 </ul>
-<p><code>as.character()</code>, <code>as.numeric()</code>, <code>as.integer()</code> y <code>as.logical()</code></p>
-<p>Si colocáramos dos o más clases diferentes dentro de un mismo vector, R va forzar a que todos los elementos pasen a pertenecer a una misma clase. El número 1.7 cambiaría a “1.7” si fuera creado junto con “a”.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="tipos-de-datos.html#cb26-1" aria-hidden="true" tabindex="-1"></a>y1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.7</span>, <span class="st">&quot;a&quot;</span>)  <span class="do">## character</span></span>
-<span id="cb26-2"><a href="tipos-de-datos.html#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(y1)</span>
-<span id="cb26-3"><a href="tipos-de-datos.html#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-4"><a href="tipos-de-datos.html#cb26-4" aria-hidden="true" tabindex="-1"></a>y2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="dv">0</span>, <span class="dv">10</span>)   <span class="do">## numeric</span></span>
-<span id="cb26-5"><a href="tipos-de-datos.html#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(y2)</span>
-<span id="cb26-6"><a href="tipos-de-datos.html#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-7"><a href="tipos-de-datos.html#cb26-7" aria-hidden="true" tabindex="-1"></a>y3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="st">&quot;a&quot;</span>) <span class="do">## character</span></span>
-<span id="cb26-8"><a href="tipos-de-datos.html#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(y3)</span>
-<span id="cb26-9"><a href="tipos-de-datos.html#cb26-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-10"><a href="tipos-de-datos.html#cb26-10" aria-hidden="true" tabindex="-1"></a>y4 <span class="ot">&lt;-</span> <span class="fu">c</span>(T, F)</span>
-<span id="cb26-11"><a href="tipos-de-datos.html#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(y4)</span>
-<span id="cb26-12"><a href="tipos-de-datos.html#cb26-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-13"><a href="tipos-de-datos.html#cb26-13" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(y1)</span>
-<span id="cb26-14"><a href="tipos-de-datos.html#cb26-14" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(y3)</span>
-<span id="cb26-15"><a href="tipos-de-datos.html#cb26-15" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(y4)</span>
-<span id="cb26-16"><a href="tipos-de-datos.html#cb26-16" aria-hidden="true" tabindex="-1"></a><span class="fu">as.logical</span>(y2)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="tipos-de-datos.html#cb25-1" aria-hidden="true" tabindex="-1"></a>raices_car <span class="ot">&lt;-</span> <span class="fu">as.character</span>(raices_largo)</span>
+<span id="cb25-2"><a href="tipos-de-datos.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(raices_car)</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="tipos-de-datos.html#cb26-1" aria-hidden="true" tabindex="-1"></a>vec_logi2 <span class="ot">&lt;-</span> <span class="fu">as.logical</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb26-2"><a href="tipos-de-datos.html#cb26-2" aria-hidden="true" tabindex="-1"></a>vec_logi2</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="tipos-de-datos.html#cb27-1" aria-hidden="true" tabindex="-1"></a>vec_logi_num <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(vec_logi)</span>
+<span id="cb27-2"><a href="tipos-de-datos.html#cb27-2" aria-hidden="true" tabindex="-1"></a>vec_logi_num</span></code></pre></div>
+<ul>
+<li>Existe una jerarquia a la hora de R tener que decidir de qué tipo de vector se trata (“piedra, papel o tijera”)</li>
+</ul>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="tipos-de-datos.html#cb28-1" aria-hidden="true" tabindex="-1"></a>y1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.7</span>, <span class="st">&quot;a&quot;</span>)  <span class="do">## character</span></span>
+<span id="cb28-2"><a href="tipos-de-datos.html#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(y1)</span>
+<span id="cb28-3"><a href="tipos-de-datos.html#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="tipos-de-datos.html#cb28-4" aria-hidden="true" tabindex="-1"></a>y2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="st">&quot;a&quot;</span>) <span class="do">## character</span></span>
+<span id="cb28-5"><a href="tipos-de-datos.html#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(y2)</span>
+<span id="cb28-6"><a href="tipos-de-datos.html#cb28-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-7"><a href="tipos-de-datos.html#cb28-7" aria-hidden="true" tabindex="-1"></a>y3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="dv">0</span>, <span class="dv">10</span>)   <span class="do">## numeric</span></span>
+<span id="cb28-8"><a href="tipos-de-datos.html#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(y3)</span></code></pre></div>
 </div>
 </div>
-<div id="secuencias" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Secuencias</h2>
+<div id="datos-faltantes" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Datos faltantes</h2>
+<p>Se representan con un <code>NA</code>, para cualquier tipo de datos</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="tipos-de-datos.html#cb29-1" aria-hidden="true" tabindex="-1"></a>vec_num <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="cn">NA</span>)</span>
+<span id="cb29-2"><a href="tipos-de-datos.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(vec_num)</span>
+<span id="cb29-3"><a href="tipos-de-datos.html#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(vec_num)</span></code></pre></div>
+</div>
+<div id="factores" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Factores</h2>
+<p>En R las variables categóricas se almacenan como <strong>factores</strong> tanto sea para vectores que contienen caracteres o numéros. Uno de los usos más importantes de los factores es en el modelado estadístico, asumiendo un rol de variable categorica, diferente de las variables contínuas. Claro ejemplo de factores son los tratamientos, por ej: genotipos, bloques, etc.</p>
+<p>A diferencia de los vectores vistos anteriormente, todo factor tiene sus niveles (<code>levels</code>), que por default se ordenan alfabéticamente.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="tipos-de-datos.html#cb30-1" aria-hidden="true" tabindex="-1"></a>geno <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;control&quot;</span>, <span class="st">&quot;B35&quot;</span>, <span class="st">&quot;A12&quot;</span>, <span class="st">&quot;control&quot;</span>, <span class="st">&quot;A12&quot;</span>, <span class="st">&quot;B35&quot;</span>, <span class="st">&quot;A12&quot;</span>, <span class="st">&quot;B35&quot;</span>, <span class="st">&quot;control&quot;</span>)</span>
+<span id="cb30-2"><a href="tipos-de-datos.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(geno)</span>
+<span id="cb30-3"><a href="tipos-de-datos.html#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(geno)</span>
+<span id="cb30-4"><a href="tipos-de-datos.html#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-5"><a href="tipos-de-datos.html#cb30-5" aria-hidden="true" tabindex="-1"></a>geno_f <span class="ot">&lt;-</span> <span class="fu">factor</span>(geno)</span>
+<span id="cb30-6"><a href="tipos-de-datos.html#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(geno_f)</span></code></pre></div>
+</div>
+<div id="secuencias" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Secuencias</h2>
 <div id="numéricas" class="section level3 unnumbered">
 <h3>Numéricas</h3>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="tipos-de-datos.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>  </span>
-<span id="cb27-2"><a href="tipos-de-datos.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">20</span>, <span class="co">#by=2) # </span></span>
-<span id="cb27-3"><a href="tipos-de-datos.html#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">length=</span><span class="dv">4</span>) </span>
-<span id="cb27-4"><a href="tipos-de-datos.html#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-5"><a href="tipos-de-datos.html#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">times=</span><span class="dv">3</span>) <span class="co">#  , each=3   </span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="tipos-de-datos.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>  </span>
+<span id="cb31-2"><a href="tipos-de-datos.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">20</span>, <span class="co">#by=2) # </span></span>
+<span id="cb31-3"><a href="tipos-de-datos.html#cb31-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">length=</span><span class="dv">4</span>) </span>
+<span id="cb31-4"><a href="tipos-de-datos.html#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-5"><a href="tipos-de-datos.html#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">times=</span><span class="dv">3</span>) <span class="co">#  , each=3   </span></span></code></pre></div>
 </div>
 <div id="letras" class="section level3 unnumbered">
 <h3>Letras</h3>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="tipos-de-datos.html#cb28-1" aria-hidden="true" tabindex="-1"></a>LETTERS  </span>
-<span id="cb28-2"><a href="tipos-de-datos.html#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>), <span class="at">times=</span><span class="dv">3</span>) <span class="co">#  , each=3   </span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="tipos-de-datos.html#cb32-1" aria-hidden="true" tabindex="-1"></a>LETTERS  </span>
+<span id="cb32-2"><a href="tipos-de-datos.html#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>), <span class="at">times=</span><span class="dv">3</span>) <span class="co">#  , each=3   </span></span></code></pre></div>
 </div>
 <div id="fechas-1" class="section level3 unnumbered">
 <h3>Fechas</h3>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="tipos-de-datos.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="fu">as.Date</span>(<span class="st">&quot;2015-01-15&quot;</span>), <span class="fu">as.Date</span>(<span class="st">&quot;2015-12-15&quot;</span>), <span class="st">&quot;1 month&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="tipos-de-datos.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="fu">as.Date</span>(<span class="st">&quot;2015-01-15&quot;</span>), <span class="fu">as.Date</span>(<span class="st">&quot;2015-12-15&quot;</span>), <span class="st">&quot;1 month&quot;</span>)</span></code></pre></div>
 </div>
 </div>
-<div id="números-aleatorios" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Números aleatorios</h2>
+<div id="números-aleatorios" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Números aleatorios</h2>
 <p>La generación de números aleatorios es en muchas ocasiones un requerimiento esencial en investigación científica. Proceder de este modo puede reducir cualquier sesgo generado por nuestra persona a la hora de seleccionar una muestra, o aplicar un tratamiento a una unidad experimental.</p>
 <ul>
 <li>Generar números enteros de modo aleatorio de una muestra determinada</li>
 </ul>
 <p><code>sample()</code></p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="tipos-de-datos.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb30-2"><a href="tipos-de-datos.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>, <span class="at">size=</span><span class="dv">10</span>, <span class="at">replace=</span>F) <span class="co">#sin reposición</span></span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="tipos-de-datos.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb34-2"><a href="tipos-de-datos.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>, <span class="at">size=</span><span class="dv">10</span>, <span class="at">replace=</span>F) <span class="co">#sin reposición</span></span></code></pre></div>
 <ul>
 <li>Generar números aleatorios de una distribución específica de parámetros conocidos:</li>
 </ul>
 <p><code>runif()</code> - números racionales aleatoriamente, uniformemente distribuidos en un intervalo</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="tipos-de-datos.html#cb31-1" aria-hidden="true" tabindex="-1"></a>num_unif <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">100</span>, <span class="at">min=</span><span class="dv">3</span>, <span class="at">max=</span><span class="dv">4</span>)</span>
-<span id="cb31-2"><a href="tipos-de-datos.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(num_unif)</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="tipos-de-datos.html#cb35-1" aria-hidden="true" tabindex="-1"></a>num_unif <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">100</span>, <span class="at">min=</span><span class="dv">3</span>, <span class="at">max=</span><span class="dv">4</span>)</span>
+<span id="cb35-2"><a href="tipos-de-datos.html#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(num_unif)</span></code></pre></div>
 <p><code>rnorm()</code> - números aleatorios, pertenecientes a una población con <a href="https://en.wikipedia.org/wiki/68%E2%80%9395%E2%80%9399.7_rule">distribución normal</a>, con parámetros μ y σ.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="tipos-de-datos.html#cb32-1" aria-hidden="true" tabindex="-1"></a>num_norm <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean=</span><span class="dv">70</span>, <span class="at">sd=</span><span class="dv">5</span>) </span>
-<span id="cb32-2"><a href="tipos-de-datos.html#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(num_norm)</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="tipos-de-datos.html#cb36-1" aria-hidden="true" tabindex="-1"></a>num_norm <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean=</span><span class="dv">70</span>, <span class="at">sd=</span><span class="dv">5</span>) </span>
+<span id="cb36-2"><a href="tipos-de-datos.html#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(num_norm)</span></code></pre></div>
 </div>
-<div id="valores-especiales" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> Valores especiales</h2>
+<div id="valores-especiales" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> Valores especiales</h2>
 <p>Existen valores reservados para representar datos faltantes, infinitos, e indefiniciones matemáticas.</p>
 <ul>
 <li>NA (Not Available) significa dato faltante/indisponible. El NA tiene una clase, o sea, pueden ser NA numeric, NA character, etc.</li>
 </ul>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="tipos-de-datos.html#cb33-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="cn">NA</span>, <span class="dv">6</span>)</span>
-<span id="cb33-2"><a href="tipos-de-datos.html#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(y)</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="tipos-de-datos.html#cb37-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="cn">NA</span>, <span class="dv">6</span>)</span>
+<span id="cb37-2"><a href="tipos-de-datos.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(y)</span></code></pre></div>
 <blockquote>
 <p>Calcule el promedio de y (use la ayuda de R en caso necesario)<code>mean(y)</code></p>
 </blockquote>
 <ul>
-<li>NaN (Not a Number) es el resultado de una operación matemática inválida, ej: 0/0 y log(-1).
-Un NaN es un NA, pero no recíprocamente.</li>
+<li>NaN (Not a Number) es el resultado de una operación matemática inválida, ej: 0/0 y log(-1). Un NaN es un NA, pero no recíprocamente.</li>
 </ul>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="tipos-de-datos.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="sc">/</span><span class="dv">0</span></span>
-<span id="cb34-2"><a href="tipos-de-datos.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.nan</span>(<span class="dv">0</span><span class="sc">/</span><span class="dv">0</span>)</span>
-<span id="cb34-3"><a href="tipos-de-datos.html#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(<span class="dv">0</span><span class="sc">/</span><span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="tipos-de-datos.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="sc">/</span><span class="dv">0</span></span>
+<span id="cb38-2"><a href="tipos-de-datos.html#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.nan</span>(<span class="dv">0</span><span class="sc">/</span><span class="dv">0</span>)</span>
+<span id="cb38-3"><a href="tipos-de-datos.html#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(<span class="dv">0</span><span class="sc">/</span><span class="dv">0</span>)</span></code></pre></div>
 <ul>
 <li><code>NULL</code> es el vacío de R. Es como si el objeto no existiese</li>
 </ul>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="tipos-de-datos.html#cb35-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">=</span> <span class="cn">NULL</span></span>
-<span id="cb35-2"><a href="tipos-de-datos.html#cb35-2" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="tipos-de-datos.html#cb39-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">=</span> <span class="cn">NULL</span></span>
+<span id="cb39-2"><a href="tipos-de-datos.html#cb39-2" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div>
 <ul>
 <li><code>Inf</code> (infinito). Es el resultado de operaciones matemáticas cuyo límite es infinito, es decir, es un número muy grande, por ejemplo, 1/0 o 10^310. Acepta signo negativo -Inf.</li>
 </ul>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="tipos-de-datos.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">/</span><span class="dv">0</span></span>
-<span id="cb36-2"><a href="tipos-de-datos.html#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">/</span><span class="cn">Inf</span></span></code></pre></div>
-</div>
-<div id="factores" class="section level2" number="3.5">
-<h2><span class="header-section-number">3.5</span> Factores</h2>
-<p>En R las variables categóricas se almacenan como <strong>factores</strong> tanto sea para vectores que contienen caracteres o enteros. Uno de los usos más importantes de los factores es en el modelado estadístico, dado que éstos tendran un efecto diferente a las variables contínuas. Claro ejemplo de factores son los tratamientos, por ej: fungicidas, genotipos, bloques, etc.</p>
-<p>Todo factor tiene sus atributos:</p>
-<ul>
-<li>x: el vector input (de tipo numérico o caracter) que será transformado a factor.</li>
-<li>Niveles (<code>levels</code>): es un set de valores únicos ordenados que aparecen en x.</li>
-</ul>
-<p>Podemos comprobar que la ordenación de los niveles es simplemente alfabética.</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="tipos-de-datos.html#cb37-1" aria-hidden="true" tabindex="-1"></a>geno <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;control&quot;</span>, <span class="st">&quot;B35&quot;</span>, <span class="st">&quot;A12&quot;</span>, <span class="st">&quot;T99&quot;</span>, <span class="st">&quot;control&quot;</span>, <span class="st">&quot;A12&quot;</span>, <span class="st">&quot;B35&quot;</span>, <span class="st">&quot;T99&quot;</span>, </span>
-<span id="cb37-2"><a href="tipos-de-datos.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;control&quot;</span>, <span class="st">&quot;A12&quot;</span>, <span class="st">&quot;B35&quot;</span>, <span class="st">&quot;T99&quot;</span>, <span class="st">&quot;control&quot;</span>)</span>
-<span id="cb37-3"><a href="tipos-de-datos.html#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(geno)</span>
-<span id="cb37-4"><a href="tipos-de-datos.html#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(geno)</span>
-<span id="cb37-5"><a href="tipos-de-datos.html#cb37-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-6"><a href="tipos-de-datos.html#cb37-6" aria-hidden="true" tabindex="-1"></a>geno_f <span class="ot">&lt;-</span> <span class="fu">factor</span>(geno)</span>
-<span id="cb37-7"><a href="tipos-de-datos.html#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(geno_f)</span>
-<span id="cb37-8"><a href="tipos-de-datos.html#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(geno_f)</span>
-<span id="cb37-9"><a href="tipos-de-datos.html#cb37-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-10"><a href="tipos-de-datos.html#cb37-10" aria-hidden="true" tabindex="-1"></a>geno_f1 <span class="ot">&lt;-</span> <span class="fu">factor</span>(geno, <span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;control&quot;</span>, <span class="st">&quot;A12&quot;</span>, <span class="st">&quot;B35&quot;</span>, <span class="st">&quot;T99&quot;</span>))</span>
-<span id="cb37-11"><a href="tipos-de-datos.html#cb37-11" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(geno_f1)</span></code></pre></div>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="tipos-de-datos.html#cb38-1" aria-hidden="true" tabindex="-1"></a>trat <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">7</span>,<span class="dv">5</span>)</span>
-<span id="cb38-2"><a href="tipos-de-datos.html#cb38-2" aria-hidden="true" tabindex="-1"></a>trat_f <span class="ot">&lt;-</span> <span class="fu">factor</span>(trat)</span>
-<span id="cb38-3"><a href="tipos-de-datos.html#cb38-3" aria-hidden="true" tabindex="-1"></a>trat_f</span>
-<span id="cb38-4"><a href="tipos-de-datos.html#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(trat_f)</span>
-<span id="cb38-5"><a href="tipos-de-datos.html#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(trat_f)</span></code></pre></div>
-<div id="box1" class="blue-box">
-<p>Las variables <strong>numéricas y de caracteres</strong> se pueden convertir en factores (factorizar), pero los niveles de un factor siempre serán valores de <strong>caracteres</strong>. Podremos verlo en el siguiente ejemplo:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="tipos-de-datos.html#cb39-1" aria-hidden="true" tabindex="-1"></a>vec_n <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">2</span>)</span>
-<span id="cb39-2"><a href="tipos-de-datos.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(vec_n)</span>
-<span id="cb39-3"><a href="tipos-de-datos.html#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-4"><a href="tipos-de-datos.html#cb39-4" aria-hidden="true" tabindex="-1"></a>vec_f <span class="ot">&lt;-</span> <span class="fu">factor</span>(vec_n)</span>
-<span id="cb39-5"><a href="tipos-de-datos.html#cb39-5" aria-hidden="true" tabindex="-1"></a>vec_f</span>
-<span id="cb39-6"><a href="tipos-de-datos.html#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(vec_f)</span>
-<span id="cb39-7"><a href="tipos-de-datos.html#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="fu">labels</span>(vec_f)</span>
-<span id="cb39-8"><a href="tipos-de-datos.html#cb39-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-9"><a href="tipos-de-datos.html#cb39-9" aria-hidden="true" tabindex="-1"></a>vec_fn  <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(vec_f)</span>
-<span id="cb39-10"><a href="tipos-de-datos.html#cb39-10" aria-hidden="true" tabindex="-1"></a>vec_fn; vec_n</span>
-<span id="cb39-11"><a href="tipos-de-datos.html#cb39-11" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(vec_fn, vec_n)</span>
-<span id="cb39-12"><a href="tipos-de-datos.html#cb39-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-13"><a href="tipos-de-datos.html#cb39-13" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(vec_n)</span>
-<span id="cb39-14"><a href="tipos-de-datos.html#cb39-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-15"><a href="tipos-de-datos.html#cb39-15" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿Cómo hizo la transformación R? Hemos recuperado los valores numéricos </span></span>
-<span id="cb39-16"><a href="tipos-de-datos.html#cb39-16" aria-hidden="true" tabindex="-1"></a><span class="co"># originales (`vec`)? que representan los números codificados por R </span></span>
-<span id="cb39-17"><a href="tipos-de-datos.html#cb39-17" aria-hidden="true" tabindex="-1"></a><span class="co"># en `vec_f`? </span></span>
-<span id="cb39-18"><a href="tipos-de-datos.html#cb39-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-19"><a href="tipos-de-datos.html#cb39-19" aria-hidden="true" tabindex="-1"></a>vec_fcn  <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(vec_f))</span>
-<span id="cb39-20"><a href="tipos-de-datos.html#cb39-20" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(vec_fcn)</span>
-<span id="cb39-21"><a href="tipos-de-datos.html#cb39-21" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(vec_n, vec_fcn)</span></code></pre></div>
-</div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="tipos-de-datos.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">/</span><span class="dv">0</span></span>
+<span id="cb40-2"><a href="tipos-de-datos.html#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">/</span><span class="cn">Inf</span></span></code></pre></div>
 
 </div>
 </div>
@@ -625,20 +514,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>
