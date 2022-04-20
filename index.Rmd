@@ -6,9 +6,8 @@ site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
-link-citations: yes
+link-citations: no
 github-repo: juanchiem/R_intro_2022
-css: style2.css
 ---
 
 ```{r include=FALSE}
@@ -49,83 +48,74 @@ opts_knit$set(width=75)
 
 # Motivación {-}
 
-<img src="fig/top.jpg" width="400" height="320" align="right" alt="Cover image" />
+<img src="fig/top1.png" width="400" height="400" align="right" alt="Cover image" />
 
 *"Una de las cosas más importantes que puedes hacer es dedicar un tiempo para aprender un lenguaje de programación. Aprender a programar es como aprender otro idioma: requiere tiempo y entrenamiento, y no hay resultados prácticos inmediatos. Pero si superas esa primera subida empinada de la curva de aprendizaje, las ganancias como científico son enormes. Programar no sólo te liberará de la camisa de fuerza de los softwares estadísticos cerrados, sino que también agudizará tus habilidades analíticas y ampliará los horizontes de modelado ecológico y estadístico.”*
-
 
 <div style="text-align: right">  ~ Adaptación de [@ellison2004primer] ~ </div>
 
 ---
 
-Podríamos resumir nuestro trabajo como científicos, desde la recolección de datos en el campo, hasta su divulgación a través del siguiente esquema:
+<div style="text-align: center">
+<b>¿Por qué R?</b> [@R-base]
+</div>
 
-![](fig/workflow.jpg) 
 
-<div style="text-align: right">  ~ Adaptación de "R for Data Science" [@wickham2016r] ~ </div>
+1. Software libre - multiplataforma
+<center>
+![](fig/installing.png){width=300px}
+</center>
 
-</br>
+
+
+2. Aprender un lenguaje de programación: ejercicio mental/lógica (Mayor aprovechamiento de otros cursos específicos)
+
+<center>
+![](fig/pregunta_respuesta.jpg){width=300px}
+</center>
+
+3. Amplia gama de paquetes específicos
+
+<center>
+![](fig/pckgs.jpg){width=300px}
+</center>
+
+4. Gran flexibilidad y elegancia de los gráficos
+
+ <center>
+![](fig/images.jpeg){width=300px}
+</center>
+
+5. Popularidad - Comunidad activa y creciente dispuesta a ayudar (aprendemos a usar terminos técnicos de data science en inglés)
+ 
+ <center>
+![](fig/door.jpeg){width=300px}
+</center>
+
+6. Programar ya no es sólo computación (CV/relevant skills) 
+ <center>
+![](fig/resume.png){width=300px}
+</center>
 
 ---
 
 # Objetivos {-}
 
-El curso pretende proveer herramientas de programación básicas para llevar adelante el proceso de investigación tomando como base el esquema de trabajo anterior. Para ello, usaremos datos (reales o simulados) típicos del área de Ciencias Agrarias. Importante: i) no es un curso de estadística; ii) entendemos la programación como un simple medio para optimizar nuestra labor cotidiana (no como un fin mismo), al final del día seguiremos siendo fitopatólogos, fisiólogos,  bioquímicos, etc.; iii) maximizaremos la adopción de la filosofía [tidyverse](https://www.tidyverse.org/); y iv) obtendrán mayor provecho aquellas personas que se inician en R, ya que los contenidos pretenden ser de baja complejidad, posibilitando profundizar el conocimiento por los propios medios del alumno. 
+* Acompañar la primer fase empinada de la curva de aprendizaje de un nuevo lenguaje, que a la larga redituará en multiples beneficios tanto profesionales como personales. 
 
-<hr>
+![](fig/learn.png){width=200px}
 
-<div style="text-align: center">
-<b>¿Por qué R?</b> [@R-base]
-</div>
-```{block, type='boxed', include=FALSE}
- 1. Software libre - multiplataforma
 
- 2. Aprender un lenguaje de programación: ejercicio mental/lógica (Aprender estadística resulta mucho más ameno)
+* Proveer herramientas que optimicen nuestra labor cotidiana como recolectores/analistas de datos a lo largo de todo el flujo de trabajo 
 
- 3. Software actualizado y con una amplia gama de paquetes específicos
+![](fig/workflow.jpg) 
 
- 4. Gran flexibilidad y elegancia de los gráficos
+<div style="text-align: right">  ~ Adaptación de "R for Data Science" [@wickham2016r] ~ </div>
 
- 5. Popularidad - Comunidad activa y creciente dispuesta a ayudar (aprendemos a usar terminos técnicos de data science en inglés)
- 
- 6. Programar ya no es sólo computación (CV/relevant skills) 
+**Importante:** 
 
-```
+i) no es un curso de estadística
 
-```{r, tidy=FALSE, eval=TRUE, echo = FALSE, results='asis'}
-library(kableExtra)
+ii) entendemos la programación como un simple medio para optimizar nuestra labor cotidiana (no como un fin mismo), al final del día seguiremos siendo fitopatólogos, fisiólogos,  bioquímicos, etc.
 
-x = data.frame(
-  x1 = cell_spec(1:6, "html", color = "white", align = "c", angle = 0, 
-                  background = c("#666666","#666666","#666666")),
-  
-  x2 = c(
-    "Software libre - multiplataforma",
-    "Aprender un lenguaje de programación: ejercicio mental/lógica (Aprender estadística resulta mucho mas ameno)",
-    "Software actualizado y con una amplia gama de paquetes específicos (drc, agricolae, epiphy…)",
-    "Gran flexibilidad y elegancia de los gráficos",
-    "Popularidad - Comunidad activa y creciente dispuesta a ayudar (aprendemos a usar terminos técnicos de ciencia de datos en inglés)",
-    "Programar ya no es sólo computación (CV/relevant skills)")) %>%
-  kable(format = "html", escape = F) %>%
-  kable_styling(bootstrap_options = 
-                  c("striped", "hover", "condensed", "responsive"),
-                font_size = 15,
-                full_width = F)
-
-gsub("<thead>.*</thead>", "", x) 
-
-```
-
-</br>
-
-<center>
-![](fig/pregunta_respuesta.jpg){width=400px}
-</center>
-
-</br>
-
-<center>
-![](fig/door.jpeg){width=400px}
-</center>
-
-</br>
+iii) maximizaremos la adopción de la filosofía [tidyverse](https://www.tidyverse.org/) 

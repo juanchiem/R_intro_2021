@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5.2 Comparación de niveles de factores | Exploración y manipulación de datos con R</title>
+  <meta name="description" content="5.2 Comparación de niveles de factores | Exploración y manipulación de datos con R" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5.2 Comparación de niveles de factores | Exploración y manipulación de datos con R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="juanchiem/R_intro_2022" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5.2 Comparación de niveles de factores | Exploración y manipulación de datos con R" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="ambas-variables-contínuas.html"/>
+
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet" />
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style2.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Inicio</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Motivación</a></li>
+<li class="chapter" data-level="" data-path="objetivos.html"><a href="objetivos.html"><i class="fa fa-check"></i>Objetivos</a></li>
+<li class="chapter" data-level="1" data-path="config.html"><a href="config.html"><i class="fa fa-check"></i><b>1</b> Configuraciones básicas</a>
+<ul>
+<li class="chapter" data-level="" data-path="paquetes-de-r.html"><a href="paquetes-de-r.html"><i class="fa fa-check"></i>Paquetes de R</a></li>
+<li class="chapter" data-level="" data-path="proyectos-de-rstudio.html"><a href="proyectos-de-rstudio.html"><i class="fa fa-check"></i>Proyectos de RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="sintaxis.html"><a href="sintaxis.html"><i class="fa fa-check"></i><b>2</b> Sintaxis</a>
+<ul>
+<li class="chapter" data-level="" data-path="r-calculadora.html"><a href="r-calculadora.html"><i class="fa fa-check"></i>R Calculadora</a></li>
+<li class="chapter" data-level="" data-path="comparaciones-lógicas.html"><a href="comparaciones-lógicas.html"><i class="fa fa-check"></i>Comparaciones lógicas</a></li>
+<li class="chapter" data-level="" data-path="variables-y-asignaciones.html"><a href="variables-y-asignaciones.html"><i class="fa fa-check"></i>Variables y asignaciones</a></li>
+<li class="chapter" data-level="" data-path="funciones.html"><a href="funciones.html"><i class="fa fa-check"></i>Funciones</a></li>
+<li class="chapter" data-level="" data-path="tips.html"><a href="tips.html"><i class="fa fa-check"></i>Tips</a></li>
+<li class="chapter" data-level="" data-path="s.o.s..html"><a href="s.o.s..html"><i class="fa fa-check"></i>S.O.S.</a></li>
+<li class="chapter" data-level="" data-path="tablas_resumen.html"><a href="tablas_resumen.html"><i class="fa fa-check"></i>Tablas resumen</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html"><i class="fa fa-check"></i><b>3</b> Tipos de datos</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="vectores.html"><a href="vectores.html"><i class="fa fa-check"></i><b>3.1</b> Vectores</a></li>
+<li class="chapter" data-level="" data-path="caracter.html"><a href="caracter.html"><i class="fa fa-check"></i>Caracter</a></li>
+<li class="chapter" data-level="" data-path="lógicos.html"><a href="lógicos.html"><i class="fa fa-check"></i>Lógicos</a></li>
+<li class="chapter" data-level="" data-path="fechas.html"><a href="fechas.html"><i class="fa fa-check"></i>Fechas</a></li>
+<li class="chapter" data-level="3.2" data-path="datos-faltantes.html"><a href="datos-faltantes.html"><i class="fa fa-check"></i><b>3.2</b> Datos faltantes</a></li>
+<li class="chapter" data-level="3.3" data-path="factores.html"><a href="factores.html"><i class="fa fa-check"></i><b>3.3</b> Factores</a></li>
+<li class="chapter" data-level="3.4" data-path="secuencias.html"><a href="secuencias.html"><i class="fa fa-check"></i><b>3.4</b> Secuencias</a>
+<ul>
+<li class="chapter" data-level="" data-path="secuencias.html"><a href="secuencias.html#numéricas"><i class="fa fa-check"></i>Numéricas</a></li>
+<li class="chapter" data-level="" data-path="secuencias.html"><a href="secuencias.html#letras"><i class="fa fa-check"></i>Letras</a></li>
+<li class="chapter" data-level="" data-path="secuencias.html"><a href="secuencias.html#fechas-1"><i class="fa fa-check"></i>Fechas</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="números-aleatorios.html"><a href="números-aleatorios.html"><i class="fa fa-check"></i><b>3.5</b> Números aleatorios</a></li>
+<li class="chapter" data-level="3.6" data-path="valores-especiales.html"><a href="valores-especiales.html"><i class="fa fa-check"></i><b>3.6</b> Valores especiales</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="estructura-de-datos.html"><a href="estructura-de-datos.html"><i class="fa fa-check"></i><b>4</b> Estructura de datos</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-frames.html"><a href="data-frames.html"><i class="fa fa-check"></i>Data frames</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="visualización.html"><a href="visualización.html"><i class="fa fa-check"></i><b>5</b> Visualización</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot.html"><a href="ggplot.html"><i class="fa fa-check"></i>ggplot</a></li>
+<li class="chapter" data-level="5.1" data-path="ambas-variables-contínuas.html"><a href="ambas-variables-contínuas.html"><i class="fa fa-check"></i><b>5.1</b> Ambas variables contínuas</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="ambas-variables-contínuas.html"><a href="ambas-variables-contínuas.html#como-guardar-los-gráficos"><i class="fa fa-check"></i><b>5.1.1</b> Como guardar los gráficos</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="comparación-de-niveles-de-factores.html"><a href="comparación-de-niveles-de-factores.html"><i class="fa fa-check"></i><b>5.2</b> Comparación de niveles de factores</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="comparación-de-niveles-de-factores.html"><a href="comparación-de-niveles-de-factores.html#observaciones-media-mediana"><i class="fa fa-check"></i><b>5.2.1</b> Observaciones + media / mediana</a></li>
+<li class="chapter" data-level="5.2.2" data-path="comparación-de-niveles-de-factores.html"><a href="comparación-de-niveles-de-factores.html#barplot-se"><i class="fa fa-check"></i><b>5.2.2</b> Barplot + SE</a></li>
+<li class="chapter" data-level="5.2.3" data-path="comparación-de-niveles-de-factores.html"><a href="comparación-de-niveles-de-factores.html#box-plot"><i class="fa fa-check"></i><b>5.2.3</b> Box-plot</a></li>
+<li class="chapter" data-level="5.2.4" data-path="comparación-de-niveles-de-factores.html"><a href="comparación-de-niveles-de-factores.html#violin-plot"><i class="fa fa-check"></i><b>5.2.4</b> Violin plot</a></li>
+<li class="chapter" data-level="5.2.5" data-path="comparación-de-niveles-de-factores.html"><a href="comparación-de-niveles-de-factores.html#media-dispersión"><i class="fa fa-check"></i><b>5.2.5</b> Media &amp; dispersión</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="_blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Exploración y manipulación de datos con R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="comparación-de-niveles-de-factores" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Comparación de niveles de factores</h2>
+<p>Los gráficos de barra, ampliamente usados en publicaciones científicas, son cada vez más criticados por “ocultar” la naturaleza de las observaciones <span class="citation">(Drummond and Vowler 2011; Weissgerber 2015)</span></p>
+<p><img src="fig/plos_bars.png" /></p>
+<div class="rmdnote">
+<p>
+De <span class="citation"><span class="citation">(Drummond and Vowler 2011)</span></span>: Fig 1.
+Many different datasets can lead to the same bar graph.
+</p>
+<p>
+The full data may suggest different conclusions from the summary
+statistics. The means and SEs for the four example datasets shown in
+Panels B–E are all within 0.5 units of the means and SEs shown in the
+bar graph (Panel A). p-values were calculated in R (version 3.0.3) using
+an unpaired t-test, an unpaired t-test with Welch’s correction for
+unequal variances, or a Wilcoxon rank sum test. - In Panel B, the
+distribution in both groups appears symmetric. Although the data suggest
+a small difference between groups, there is substantial overlap between
+groups. - In Panel C, the apparent difference between groups is driven
+by an outlier. - Panel D suggests a possible bimodal distribution.
+Additional data are needed to confirm that the distribution is bimodal
+and to determine whether this effect is explained by a covariate. - In
+Panel E, the smaller range of values in group two may simply be due to
+the fact that there are only four observations. Additional data for
+group two would be needed to determine whether the groups are actually
+different.
+</p>
+</div>
+<p>A continuación presentamos algunas opciones gráficas que surgen de la combinación de medidas de posición y de dispersión.</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="comparación-de-niveles-de-factores.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Aprovechamos para customizar el `theme` a nuestro gusto y agregar algunos detalles:</span></span>
+<span id="cb59-2"><a href="comparación-de-niveles-de-factores.html#cb59-2" aria-hidden="true" tabindex="-1"></a>p0 <span class="ot">&lt;-</span> </span>
+<span id="cb59-3"><a href="comparación-de-niveles-de-factores.html#cb59-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(iris) <span class="sc">+</span></span>
+<span id="cb59-4"><a href="comparación-de-niveles-de-factores.html#cb59-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Petal.Length)<span class="sc">+</span></span>
+<span id="cb59-5"><a href="comparación-de-niveles-de-factores.html#cb59-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Iris species&quot;</span>, <span class="at">y =</span><span class="st">&quot;Sepal length (cm)&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb59-6"><a href="comparación-de-niveles-de-factores.html#cb59-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>(<span class="at">base_size =</span> <span class="dv">10</span>)</span>
+<span id="cb59-7"><a href="comparación-de-niveles-de-factores.html#cb59-7" aria-hidden="true" tabindex="-1"></a>p0</span></code></pre></div>
+<p><img src="5-visualizar_files/figure-html/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div id="observaciones-media-mediana" class="section level3" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Observaciones + media / mediana</h3>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="comparación-de-niveles-de-factores.html#cb60-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> p0 <span class="sc">+</span> </span>
+<span id="cb60-2"><a href="comparación-de-niveles-de-factores.html#cb60-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>, <span class="at">alpha=</span><span class="fl">0.2</span>)<span class="sc">+</span></span>
+<span id="cb60-3"><a href="comparación-de-niveles-de-factores.html#cb60-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun=</span> mean,  <span class="co">#median</span></span>
+<span id="cb60-4"><a href="comparación-de-niveles-de-factores.html#cb60-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">fun.min=</span> mean,</span>
+<span id="cb60-5"><a href="comparación-de-niveles-de-factores.html#cb60-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">fun.max =</span> mean,</span>
+<span id="cb60-6"><a href="comparación-de-niveles-de-factores.html#cb60-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">geom =</span> <span class="st">&quot;point&quot;</span>, </span>
+<span id="cb60-7"><a href="comparación-de-niveles-de-factores.html#cb60-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">size =</span> <span class="dv">2</span>)<span class="sc">+</span></span>
+<span id="cb60-8"><a href="comparación-de-niveles-de-factores.html#cb60-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Observaciones (points) &amp; media&quot;</span>)</span>
+<span id="cb60-9"><a href="comparación-de-niveles-de-factores.html#cb60-9" aria-hidden="true" tabindex="-1"></a>p1</span></code></pre></div>
+<p><img src="5-visualizar_files/figure-html/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="comparación-de-niveles-de-factores.html#cb61-1" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> p0 <span class="sc">+</span> </span>
+<span id="cb61-2"><a href="comparación-de-niveles-de-factores.html#cb61-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">alpha=</span><span class="fl">0.2</span>)<span class="sc">+</span></span>
+<span id="cb61-3"><a href="comparación-de-niveles-de-factores.html#cb61-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean,  <span class="co">#median</span></span>
+<span id="cb61-4"><a href="comparación-de-niveles-de-factores.html#cb61-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">fun.min=</span> mean,</span>
+<span id="cb61-5"><a href="comparación-de-niveles-de-factores.html#cb61-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">fun.max =</span> mean,</span>
+<span id="cb61-6"><a href="comparación-de-niveles-de-factores.html#cb61-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">geom =</span> <span class="st">&quot;crossbar&quot;</span>, </span>
+<span id="cb61-7"><a href="comparación-de-niveles-de-factores.html#cb61-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">size =</span> <span class="fl">0.5</span>)<span class="sc">+</span></span>
+<span id="cb61-8"><a href="comparación-de-niveles-de-factores.html#cb61-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Observaciones (jitter) &amp; media&quot;</span>)</span>
+<span id="cb61-9"><a href="comparación-de-niveles-de-factores.html#cb61-9" aria-hidden="true" tabindex="-1"></a>p2</span></code></pre></div>
+<p><img src="5-visualizar_files/figure-html/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="barplot-se" class="section level3" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Barplot + SE</h3>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="comparación-de-niveles-de-factores.html#cb62-1" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span>p0 <span class="sc">+</span> </span>
+<span id="cb62-2"><a href="comparación-de-niveles-de-factores.html#cb62-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># geom_bar(stat=&quot;identity&quot;) +</span></span>
+<span id="cb62-3"><a href="comparación-de-niveles-de-factores.html#cb62-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun=</span>mean, <span class="at">position=</span><span class="fu">position_dodge</span>(<span class="at">width=</span><span class="fl">0.95</span>),<span class="at">geom=</span><span class="st">&quot;bar&quot;</span>,</span>
+<span id="cb62-4"><a href="comparación-de-niveles-de-factores.html#cb62-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">colour=</span><span class="st">&quot;black&quot;</span>,<span class="at">fill=</span><span class="st">&quot;grey90&quot;</span>)<span class="sc">+</span></span>
+<span id="cb62-5"><a href="comparación-de-niveles-de-factores.html#cb62-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data=</span>mean_cl_normal, <span class="at">geom=</span><span class="st">&quot;errorbar&quot;</span>, <span class="at">width=</span><span class="fl">0.2</span>) <span class="sc">+</span> </span>
+<span id="cb62-6"><a href="comparación-de-niveles-de-factores.html#cb62-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggtitle</span>(<span class="st">&quot;Barplot &amp; SEM&quot;</span>)</span>
+<span id="cb62-7"><a href="comparación-de-niveles-de-factores.html#cb62-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># geom_text(data= let, aes(label = M, x= trt, y=1, hjust=0.5),size = 4)</span></span>
+<span id="cb62-8"><a href="comparación-de-niveles-de-factores.html#cb62-8" aria-hidden="true" tabindex="-1"></a>p3</span></code></pre></div>
+<p><img src="5-visualizar_files/figure-html/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="box-plot" class="section level3" number="5.2.3">
+<h3><span class="header-section-number">5.2.3</span> Box-plot</h3>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="comparación-de-niveles-de-factores.html#cb63-1" aria-hidden="true" tabindex="-1"></a>p4 <span class="ot">&lt;-</span>p0 <span class="sc">+</span> </span>
+<span id="cb63-2"><a href="comparación-de-niveles-de-factores.html#cb63-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">&quot;grey90&quot;</span>) <span class="sc">+</span></span>
+<span id="cb63-3"><a href="comparación-de-niveles-de-factores.html#cb63-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Boxplot &amp; mean&quot;</span>) </span>
+<span id="cb63-4"><a href="comparación-de-niveles-de-factores.html#cb63-4" aria-hidden="true" tabindex="-1"></a>p4</span></code></pre></div>
+<p><img src="5-visualizar_files/figure-html/unnamed-chunk-15-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="violin-plot" class="section level3" number="5.2.4">
+<h3><span class="header-section-number">5.2.4</span> Violin plot</h3>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="comparación-de-niveles-de-factores.html#cb64-1" aria-hidden="true" tabindex="-1"></a>p5 <span class="ot">&lt;-</span>p0 <span class="sc">+</span> </span>
+<span id="cb64-2"><a href="comparación-de-niveles-de-factores.html#cb64-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="at">trim=</span><span class="cn">FALSE</span>,<span class="at">fill =</span> <span class="st">&quot;grey90&quot;</span>)<span class="sc">+</span></span>
+<span id="cb64-3"><a href="comparación-de-niveles-de-factores.html#cb64-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Violin plot&quot;</span>)</span>
+<span id="cb64-4"><a href="comparación-de-niveles-de-factores.html#cb64-4" aria-hidden="true" tabindex="-1"></a>p5 </span></code></pre></div>
+<p><img src="5-visualizar_files/figure-html/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="media-dispersión" class="section level3" number="5.2.5">
+<h3><span class="header-section-number">5.2.5</span> Media &amp; dispersión</h3>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="comparación-de-niveles-de-factores.html#cb65-1" aria-hidden="true" tabindex="-1"></a>p6 <span class="ot">&lt;-</span>p0 <span class="sc">+</span> </span>
+<span id="cb65-2"><a href="comparación-de-niveles-de-factores.html#cb65-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun=</span><span class="st">&quot;mean&quot;</span>, <span class="at">geom=</span><span class="st">&quot;point&quot;</span>, <span class="at">size=</span><span class="dv">2</span>)<span class="sc">+</span></span>
+<span id="cb65-3"><a href="comparación-de-niveles-de-factores.html#cb65-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_se, <span class="at">geom =</span> <span class="st">&quot;errorbar&quot;</span>, <span class="at">width=</span><span class="fl">0.2</span>)<span class="sc">+</span></span>
+<span id="cb65-4"><a href="comparación-de-niveles-de-factores.html#cb65-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data=</span> mean_sdl, <span class="at">geom =</span> <span class="st">&quot;errorbar&quot;</span>, <span class="at">color=</span><span class="st">&quot;red&quot;</span>, <span class="at">width=</span><span class="fl">0.2</span>)<span class="sc">+</span></span>
+<span id="cb65-5"><a href="comparación-de-niveles-de-factores.html#cb65-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_cl_boot, <span class="at">geom =</span> <span class="st">&quot;errorbar&quot;</span>, <span class="at">color=</span><span class="st">&quot;blue&quot;</span>, <span class="at">width=</span><span class="fl">0.2</span>)<span class="sc">+</span></span>
+<span id="cb65-6"><a href="comparación-de-niveles-de-factores.html#cb65-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Media + SE (negro) / SD (rojo) / 95% CI (negro)&quot;</span>)</span>
+<span id="cb65-7"><a href="comparación-de-niveles-de-factores.html#cb65-7" aria-hidden="true" tabindex="-1"></a>p6</span></code></pre></div>
+<p><img src="5-visualizar_files/figure-html/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="comparación-de-niveles-de-factores.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cowplot)</span>
+<span id="cb66-2"><a href="comparación-de-niveles-de-factores.html#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_grid</span>(p1, p2, p3, p4, p5, p6, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">nrow =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="5-visualizar_files/figure-html/unnamed-chunk-18-1.png" width="864" style="display: block; margin: auto;" /></p>
+<p>Si deseamos explorar las distribuciones de las variables podemos optar por un histograma o por diagramas de densidad.</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="comparación-de-niveles-de-factores.html#cb67-1" aria-hidden="true" tabindex="-1"></a>cowplot<span class="sc">::</span><span class="fu">plot_grid</span>(</span>
+<span id="cb67-2"><a href="comparación-de-niveles-de-factores.html#cb67-2" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
+<span id="cb67-3"><a href="comparación-de-niveles-de-factores.html#cb67-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Petal.Length, <span class="at">fill=</span>Species)) <span class="sc">+</span></span>
+<span id="cb67-4"><a href="comparación-de-niveles-de-factores.html#cb67-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()<span class="sc">+</span></span>
+<span id="cb67-5"><a href="comparación-de-niveles-de-factores.html#cb67-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">fill=</span><span class="cn">FALSE</span>)</span>
+<span id="cb67-6"><a href="comparación-de-niveles-de-factores.html#cb67-6" aria-hidden="true" tabindex="-1"></a>,</span>
+<span id="cb67-7"><a href="comparación-de-niveles-de-factores.html#cb67-7" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
+<span id="cb67-8"><a href="comparación-de-niveles-de-factores.html#cb67-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Petal.Length, <span class="at">fill=</span>Species)) <span class="sc">+</span></span>
+<span id="cb67-9"><a href="comparación-de-niveles-de-factores.html#cb67-9" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.7</span>)</span>
+<span id="cb67-10"><a href="comparación-de-niveles-de-factores.html#cb67-10" aria-hidden="true" tabindex="-1"></a>, </span>
+<span id="cb67-11"><a href="comparación-de-niveles-de-factores.html#cb67-11" aria-hidden="true" tabindex="-1"></a><span class="at">align=</span><span class="st">&quot;h&quot;</span></span>
+<span id="cb67-12"><a href="comparación-de-niveles-de-factores.html#cb67-12" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="5-visualizar_files/figure-html/unnamed-chunk-19-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div id="box1" class="blue-box">
+<p>La gran comunidad de usuarios de R disponibiliza sus creaciones e incluso trabaja en extensiones que amplían la potencialidad de sus paquetes.</p>
+<p>Se podría afirmar que no hay límites para la creación. Digamos, que no importa el “<strong>¿cómo?</strong>” si no el “<strong>¿qué?</strong>”</p>
+<p>Algunas pruebas de ello son los siguientes links:</p>
+<ul>
+<li><a href="https://www.r-graph-gallery.com/">The R Graph Gallery</a></li>
+<li><a href="http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html">Top 50 plots</a></li>
+<li><a href="http://www.ggplot2-exts.org/gallery/">Extensiones de ggplot</a></li>
+<li><a href="https://serialmentor.com/dataviz/">Fundamentals of Data Visualization</a></li>
+</ul>
+</div>
+
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div class="csl-entry">
+Drummond, GB, and SL Vowler. 2011. <span>“Show the Data, Don’t Conceal Them.”</span> <em>British Journal of Pharmacology</em> 163 (2): 208–10. <a href="https://doi.org/10.1111/j.1476-5381.2011.01251.x">https://doi.org/10.1111/j.1476-5381.2011.01251.x</a>.
+</div>
+<div class="csl-entry">
+Ellison, GN, and NJ Gotelli. 2004. <span>“A Primer of Ecological Statistics.”</span> <em>Sinauer, Sunderland, Massachusetts, USA</em>.
+</div>
+<div class="csl-entry">
+R Core Team. 2017. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+<div class="csl-entry">
+Weissgerber, Natasa M. AND Winham, Tracey L. AND Milic. 2015. <span>“Beyond Bar and Line Graphs: Time for a New Data Presentation Paradigm.”</span> <em>PLOS Biology</em> 13 (4): 1–10. <a href="https://doi.org/10.1371/journal.pbio.1002128">https://doi.org/10.1371/journal.pbio.1002128</a>.
+</div>
+<div class="csl-entry">
+Wickham, Hadley, and Garrett Grolemund. 2016. <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>. " O’Reilly Media, Inc.". <a href="http://r4ds.had.co.nz/">http://r4ds.had.co.nz/</a>.
+</div>
+</div>
+</div>
+</div>
+<!-- </div> -->
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ambas-variables-contínuas.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "none"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

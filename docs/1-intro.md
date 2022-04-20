@@ -73,10 +73,9 @@ Una vez instalado, hay que cargar los paquetes que contienen las funciones que v
 
 ![](fig/bulb.jpeg)
 
-
 > instale el paquete `pacman` y activelo
 
-## Workflow componentes {-}
+## Proyectos de RStudio{-}
 
 Varios tipos de archivos serán creados y usados durante una sesión de R: 
 
@@ -85,7 +84,11 @@ Varios tipos de archivos serán creados y usados durante una sesión de R:
 * gráficos
 * reportes de resultados
 
-Una análisis debe poder ser retomado en cualquier momento pudiendo darse por concluída cuando el trabajo es publicado. Hasta entonces debemos tener rápido acceso a todos los objetos creados en *sesiones* anteriores. Para ello debemos manejarnos siempre bajo *buenas prácticas* de trabajo. Esto nos permitirá entender qué quisimos hacer tiempo atrás, seremos intuitivos para encontrar archivos/objetos, y finalmente crearemos trabajos *reproducibles*...   
+![](fig/workflow_completo.png) 
+
+
+Una análisis debe poder ser retomado en cualquier momento pudiendo darse por concluída cuando el trabajo es publicado. Hasta entonces debemos tener rápido acceso a todos los objetos creados en *sesiones* anteriores. Para ello debemos manejarnos siempre bajo *buenas prácticas* de trabajo. Esto nos permitirá entender qué quisimos hacer tiempo atrás, seremos intuitivos para encontrar archivos/objetos, y finalmente crearemos trabajos *reproducibles*...  
+
 Una forma práctica de administrar todos los objetos de una sesión es por medio del uso de "proyectos" de R Studio. 
 
 Estructura típica de un proyecto de Rstudio. Es aconsejable ser consistente en la nomenclatura de todos los objetos generados en nuestras sesiones de trabajo (archivos, carpetas, etc.). 
@@ -96,6 +99,9 @@ Estructura típica de un proyecto de Rstudio. Es aconsejable ser consistente en 
 
 > Crear una nuevo proyecto llamado "R_intro"
 
+> Crear un script "dia_1"
+
+
 
 ```{=html}
 <div class="vembedr">
@@ -104,8 +110,6 @@ Estructura típica de un proyecto de Rstudio. Es aconsejable ser consistente en 
 </div>
 </div>
 ```
-
-> Crear un script "dia_1"
 
 <center>
 ![](fig/scripts.png) 

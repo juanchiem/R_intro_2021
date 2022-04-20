@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2 Sintaxis | Exploración y manipulación de datos con R</title>
-  <meta name="description" content="2 Sintaxis | Exploración y manipulación de datos con R" />
+  <title>3.4 Secuencias | Exploración y manipulación de datos con R</title>
+  <meta name="description" content="3.4 Secuencias | Exploración y manipulación de datos con R" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2 Sintaxis | Exploración y manipulación de datos con R" />
+  <meta property="og:title" content="3.4 Secuencias | Exploración y manipulación de datos con R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="juanchiem/R_intro_2022" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2 Sintaxis | Exploración y manipulación de datos con R" />
+  <meta name="twitter:title" content="3.4 Secuencias | Exploración y manipulación de datos con R" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="proyectos-de-rstudio.html"/>
-<link rel="next" href="r-calculadora.html"/>
+<link rel="prev" href="factores.html"/>
+<link rel="next" href="números-aleatorios.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -234,16 +234,33 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="sintaxis" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> Sintaxis</h1>
+<div id="secuencias" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Secuencias</h2>
+<div id="numéricas" class="section level3 unnumbered">
+<h3>Numéricas</h3>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="secuencias.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>  </span>
+<span id="cb31-2"><a href="secuencias.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">20</span>, <span class="co">#by=2) # </span></span>
+<span id="cb31-3"><a href="secuencias.html#cb31-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">length=</span><span class="dv">4</span>) </span>
+<span id="cb31-4"><a href="secuencias.html#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-5"><a href="secuencias.html#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">times=</span><span class="dv">3</span>) <span class="co">#  , each=3   </span></span></code></pre></div>
+</div>
+<div id="letras" class="section level3 unnumbered">
+<h3>Letras</h3>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="secuencias.html#cb32-1" aria-hidden="true" tabindex="-1"></a>LETTERS  </span>
+<span id="cb32-2"><a href="secuencias.html#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>), <span class="at">times=</span><span class="dv">3</span>) <span class="co">#  , each=3   </span></span></code></pre></div>
+</div>
+<div id="fechas-1" class="section level3 unnumbered">
+<h3>Fechas</h3>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="secuencias.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="fu">as.Date</span>(<span class="st">&quot;2015-01-15&quot;</span>), <span class="fu">as.Date</span>(<span class="st">&quot;2015-12-15&quot;</span>), <span class="st">&quot;1 month&quot;</span>)</span></code></pre></div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="proyectos-de-rstudio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="r-calculadora.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="factores.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="números-aleatorios.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

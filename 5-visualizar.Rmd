@@ -242,8 +242,7 @@ align="h"
   - [The R Graph Gallery](https://www.r-graph-gallery.com/)
   - [Top 50 plots](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html)
   - [Extensiones de ggplot](http://www.ggplot2-exts.org/gallery/)
-
   - [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/)
 
-  El paquete [ggplot2](http://r4ds.had.co.nz/data-visualisation.html) tiene una flexibilidad tal que permite generar rápidamente gráficos exploratorios así como crear figuras complejas, detalladas, de alta calidad (con fines de publicaciones científicas).
 :::
+

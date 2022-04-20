@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2 Sintaxis | Exploración y manipulación de datos con R</title>
-  <meta name="description" content="2 Sintaxis | Exploración y manipulación de datos con R" />
+  <title>3.5 Números aleatorios | Exploración y manipulación de datos con R</title>
+  <meta name="description" content="3.5 Números aleatorios | Exploración y manipulación de datos con R" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2 Sintaxis | Exploración y manipulación de datos con R" />
+  <meta property="og:title" content="3.5 Números aleatorios | Exploración y manipulación de datos con R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="juanchiem/R_intro_2022" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2 Sintaxis | Exploración y manipulación de datos con R" />
+  <meta name="twitter:title" content="3.5 Números aleatorios | Exploración y manipulación de datos con R" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="proyectos-de-rstudio.html"/>
-<link rel="next" href="r-calculadora.html"/>
+<link rel="prev" href="secuencias.html"/>
+<link rel="next" href="valores-especiales.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -234,16 +234,32 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="sintaxis" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> Sintaxis</h1>
+<div id="números-aleatorios" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Números aleatorios</h2>
+<p>La generación de números aleatorios es en muchas ocasiones un requerimiento esencial en investigación científica. Proceder de este modo puede reducir cualquier sesgo generado por nuestra persona a la hora de seleccionar una muestra, o aplicar un tratamiento a una unidad experimental.</p>
+<ul>
+<li>Generar números enteros de modo aleatorio de una muestra determinada</li>
+</ul>
+<p><code>sample()</code></p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="números-aleatorios.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb34-2"><a href="números-aleatorios.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>, <span class="at">size=</span><span class="dv">10</span>, <span class="at">replace=</span>F) <span class="co">#sin reposición</span></span></code></pre></div>
+<ul>
+<li>Generar números aleatorios de una distribución específica de parámetros conocidos:</li>
+</ul>
+<p><code>runif()</code> - números racionales aleatoriamente, uniformemente distribuidos en un intervalo</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="números-aleatorios.html#cb35-1" aria-hidden="true" tabindex="-1"></a>num_unif <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">100</span>, <span class="at">min=</span><span class="dv">3</span>, <span class="at">max=</span><span class="dv">4</span>)</span>
+<span id="cb35-2"><a href="números-aleatorios.html#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(num_unif)</span></code></pre></div>
+<p><code>rnorm()</code> - números aleatorios, pertenecientes a una población con <a href="https://en.wikipedia.org/wiki/68%E2%80%9395%E2%80%9399.7_rule">distribución normal</a>, con parámetros μ y σ.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="números-aleatorios.html#cb36-1" aria-hidden="true" tabindex="-1"></a>num_norm <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean=</span><span class="dv">70</span>, <span class="at">sd=</span><span class="dv">5</span>) </span>
+<span id="cb36-2"><a href="números-aleatorios.html#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(num_norm)</span></code></pre></div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="proyectos-de-rstudio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="r-calculadora.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="secuencias.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="valores-especiales.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

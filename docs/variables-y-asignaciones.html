@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2 Sintaxis | Exploración y manipulación de datos con R</title>
-  <meta name="description" content="2 Sintaxis | Exploración y manipulación de datos con R" />
+  <title>Variables y asignaciones | Exploración y manipulación de datos con R</title>
+  <meta name="description" content="Variables y asignaciones | Exploración y manipulación de datos con R" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2 Sintaxis | Exploración y manipulación de datos con R" />
+  <meta property="og:title" content="Variables y asignaciones | Exploración y manipulación de datos con R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="juanchiem/R_intro_2022" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2 Sintaxis | Exploración y manipulación de datos con R" />
+  <meta name="twitter:title" content="Variables y asignaciones | Exploración y manipulación de datos con R" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="proyectos-de-rstudio.html"/>
-<link rel="next" href="r-calculadora.html"/>
+<link rel="prev" href="comparaciones-lógicas.html"/>
+<link rel="next" href="funciones.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -234,16 +234,31 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="sintaxis" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> Sintaxis</h1>
+<div id="variables-y-asignaciones" class="section level2 unnumbered">
+<h2>Variables y asignaciones</h2>
+<p>Podemos almacenar valores en variables usando el operador de asignación <code>&lt;-</code>, veamos un ejemplo:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="variables-y-asignaciones.html#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">40</span></span></code></pre></div>
+<p>Esta asignación no muestra el valor, sino que lo almacena para más adelante en algo llamado “variable”. Que contiene x?</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="variables-y-asignaciones.html#cb6-1" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<div id="box1" class="blue-box">
+<p>shortcut de “&lt;-” : <code>Alt -</code></p>
+</div>
+<p>Chequear la pestaña Environment en uno de los paneles de RStudio. Nuestra variable x se puede usar en lugar de un número en cualquier cálculo que espere un número:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="variables-y-asignaciones.html#cb7-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">1</span> <span class="co"># observen cómo RStudio actualiza/sobrescribe x en la pestaña superior derecha</span></span>
+<span id="cb7-2"><a href="variables-y-asignaciones.html#cb7-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div>
+<p>El lado derecho de la asignación puede ser cualquier expresión de R válida. La expresión del lado derecho se evalúa por completo antes de que se realice la asignación.</p>
+<p>También es posible utilizar el operador = para la asignación</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="variables-y-asignaciones.html#cb8-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">40</span></span></code></pre></div>
+<p>Esta forma es menos común entre los usuarios R (se recomienda usar <code>&lt;-</code>).</p>
+<p></br></p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="proyectos-de-rstudio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="r-calculadora.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="comparaciones-lógicas.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="funciones.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

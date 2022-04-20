@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="objetivos.html"/>
-<link rel="next" href="sintaxis.html"/>
+<link rel="next" href="paquetes-de-r.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -51,9 +51,9 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet" />
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
-<link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -157,60 +157,66 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">Inicio</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Motivación</a></li>
 <li class="chapter" data-level="" data-path="objetivos.html"><a href="objetivos.html"><i class="fa fa-check"></i>Objetivos</a></li>
 <li class="chapter" data-level="1" data-path="config.html"><a href="config.html"><i class="fa fa-check"></i><b>1</b> Configuraciones básicas</a>
 <ul>
-<li class="chapter" data-level="" data-path="config.html"><a href="config.html#paquetes-de-r"><i class="fa fa-check"></i>Paquetes de R</a></li>
-<li class="chapter" data-level="" data-path="config.html"><a href="config.html#workflow-componentes"><i class="fa fa-check"></i>Workflow componentes</a></li>
+<li class="chapter" data-level="" data-path="paquetes-de-r.html"><a href="paquetes-de-r.html"><i class="fa fa-check"></i>Paquetes de R</a></li>
+<li class="chapter" data-level="" data-path="proyectos-de-rstudio.html"><a href="proyectos-de-rstudio.html"><i class="fa fa-check"></i>Proyectos de RStudio</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="sintaxis.html"><a href="sintaxis.html"><i class="fa fa-check"></i><b>2</b> Sintaxis</a>
 <ul>
-<li class="chapter" data-level="" data-path="sintaxis.html"><a href="sintaxis.html#r-calculadora"><i class="fa fa-check"></i>R Calculadora</a></li>
-<li class="chapter" data-level="" data-path="sintaxis.html"><a href="sintaxis.html#comparaciones-lógicas"><i class="fa fa-check"></i>Comparaciones lógicas</a></li>
-<li class="chapter" data-level="" data-path="sintaxis.html"><a href="sintaxis.html#variables-y-asignaciones"><i class="fa fa-check"></i>Variables y asignaciones</a></li>
-<li class="chapter" data-level="" data-path="sintaxis.html"><a href="sintaxis.html#funciones"><i class="fa fa-check"></i>Funciones</a></li>
-<li class="chapter" data-level="" data-path="sintaxis.html"><a href="sintaxis.html#tips"><i class="fa fa-check"></i>Tips</a></li>
-<li class="chapter" data-level="" data-path="sintaxis.html"><a href="sintaxis.html#s.o.s."><i class="fa fa-check"></i>S.O.S.</a></li>
-<li class="chapter" data-level="" data-path="sintaxis.html"><a href="sintaxis.html#tablas_resumen"><i class="fa fa-check"></i>Tablas resumen</a></li>
+<li class="chapter" data-level="" data-path="r-calculadora.html"><a href="r-calculadora.html"><i class="fa fa-check"></i>R Calculadora</a></li>
+<li class="chapter" data-level="" data-path="comparaciones-lógicas.html"><a href="comparaciones-lógicas.html"><i class="fa fa-check"></i>Comparaciones lógicas</a></li>
+<li class="chapter" data-level="" data-path="variables-y-asignaciones.html"><a href="variables-y-asignaciones.html"><i class="fa fa-check"></i>Variables y asignaciones</a></li>
+<li class="chapter" data-level="" data-path="funciones.html"><a href="funciones.html"><i class="fa fa-check"></i>Funciones</a></li>
+<li class="chapter" data-level="" data-path="tips.html"><a href="tips.html"><i class="fa fa-check"></i>Tips</a></li>
+<li class="chapter" data-level="" data-path="s.o.s..html"><a href="s.o.s..html"><i class="fa fa-check"></i>S.O.S.</a></li>
+<li class="chapter" data-level="" data-path="tablas_resumen.html"><a href="tablas_resumen.html"><i class="fa fa-check"></i>Tablas resumen</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html"><i class="fa fa-check"></i><b>3</b> Tipos de datos</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#vectores"><i class="fa fa-check"></i><b>3.1</b> Vectores</a></li>
-<li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#caracter"><i class="fa fa-check"></i>Caracter</a></li>
-<li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#lógicos"><i class="fa fa-check"></i>Lógicos</a></li>
-<li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#fechas"><i class="fa fa-check"></i>Fechas</a></li>
-<li class="chapter" data-level="3.2" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#datos-faltantes"><i class="fa fa-check"></i><b>3.2</b> Datos faltantes</a></li>
-<li class="chapter" data-level="3.3" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#factores"><i class="fa fa-check"></i><b>3.3</b> Factores</a></li>
-<li class="chapter" data-level="3.4" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#secuencias"><i class="fa fa-check"></i><b>3.4</b> Secuencias</a>
+<li class="chapter" data-level="3.1" data-path="vectores.html"><a href="vectores.html"><i class="fa fa-check"></i><b>3.1</b> Vectores</a></li>
+<li class="chapter" data-level="" data-path="caracter.html"><a href="caracter.html"><i class="fa fa-check"></i>Caracter</a></li>
+<li class="chapter" data-level="" data-path="lógicos.html"><a href="lógicos.html"><i class="fa fa-check"></i>Lógicos</a></li>
+<li class="chapter" data-level="" data-path="fechas.html"><a href="fechas.html"><i class="fa fa-check"></i>Fechas</a></li>
+<li class="chapter" data-level="3.2" data-path="datos-faltantes.html"><a href="datos-faltantes.html"><i class="fa fa-check"></i><b>3.2</b> Datos faltantes</a></li>
+<li class="chapter" data-level="3.3" data-path="factores.html"><a href="factores.html"><i class="fa fa-check"></i><b>3.3</b> Factores</a></li>
+<li class="chapter" data-level="3.4" data-path="secuencias.html"><a href="secuencias.html"><i class="fa fa-check"></i><b>3.4</b> Secuencias</a>
 <ul>
-<li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#numéricas"><i class="fa fa-check"></i>Numéricas</a></li>
-<li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#letras"><i class="fa fa-check"></i>Letras</a></li>
-<li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#fechas-1"><i class="fa fa-check"></i>Fechas</a></li>
+<li class="chapter" data-level="" data-path="secuencias.html"><a href="secuencias.html#numéricas"><i class="fa fa-check"></i>Numéricas</a></li>
+<li class="chapter" data-level="" data-path="secuencias.html"><a href="secuencias.html#letras"><i class="fa fa-check"></i>Letras</a></li>
+<li class="chapter" data-level="" data-path="secuencias.html"><a href="secuencias.html#fechas-1"><i class="fa fa-check"></i>Fechas</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#números-aleatorios"><i class="fa fa-check"></i><b>3.5</b> Números aleatorios</a></li>
-<li class="chapter" data-level="3.6" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#valores-especiales"><i class="fa fa-check"></i><b>3.6</b> Valores especiales</a></li>
+<li class="chapter" data-level="3.5" data-path="números-aleatorios.html"><a href="números-aleatorios.html"><i class="fa fa-check"></i><b>3.5</b> Números aleatorios</a></li>
+<li class="chapter" data-level="3.6" data-path="valores-especiales.html"><a href="valores-especiales.html"><i class="fa fa-check"></i><b>3.6</b> Valores especiales</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="estructura-de-datos.html"><a href="estructura-de-datos.html"><i class="fa fa-check"></i><b>4</b> Estructura de datos</a>
 <ul>
-<li class="chapter" data-level="" data-path="estructura-de-datos.html"><a href="estructura-de-datos.html#data-frames"><i class="fa fa-check"></i>Data frames</a></li>
+<li class="chapter" data-level="" data-path="data-frames.html"><a href="data-frames.html"><i class="fa fa-check"></i>Data frames</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="visualización.html"><a href="visualización.html"><i class="fa fa-check"></i><b>5</b> Visualización</a>
 <ul>
-<li class="chapter" data-level="" data-path="visualización.html"><a href="visualización.html#ggplot"><i class="fa fa-check"></i>ggplot</a></li>
-<li class="chapter" data-level="5.1" data-path="visualización.html"><a href="visualización.html#ambas-variables-contínuas"><i class="fa fa-check"></i><b>5.1</b> Ambas variables contínuas</a>
+<li class="chapter" data-level="" data-path="ggplot.html"><a href="ggplot.html"><i class="fa fa-check"></i>ggplot</a></li>
+<li class="chapter" data-level="5.1" data-path="ambas-variables-contínuas.html"><a href="ambas-variables-contínuas.html"><i class="fa fa-check"></i><b>5.1</b> Ambas variables contínuas</a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="visualización.html"><a href="visualización.html#como-guardar-los-gráficos"><i class="fa fa-check"></i><b>5.1.1</b> Como guardar los gráficos</a></li>
+<li class="chapter" data-level="5.1.1" data-path="ambas-variables-contínuas.html"><a href="ambas-variables-contínuas.html#como-guardar-los-gráficos"><i class="fa fa-check"></i><b>5.1.1</b> Como guardar los gráficos</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="visualización.html"><a href="visualización.html#comparación-de-niveles-de-factores"><i class="fa fa-check"></i><b>5.2</b> Comparación de niveles de factores</a>
+<li class="chapter" data-level="5.2" data-path="comparación-de-niveles-de-factores.html"><a href="comparación-de-niveles-de-factores.html"><i class="fa fa-check"></i><b>5.2</b> Comparación de niveles de factores</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="visualización.html"><a href="visualización.html#observaciones-media-mediana"><i class="fa fa-check"></i><b>5.2.1</b> Observaciones + media / mediana</a></li>
-<li class="chapter" data-level="5.2.2" data-path="visualización.html"><a href="visualización.html#barplot-se"><i class="fa fa-check"></i><b>5.2.2</b> Barplot + SE</a></li>
-<li class="chapter" data-level="5.2.3" data-path="visualización.html"><a href="visualización.html#box-plot"><i class="fa fa-check"></i><b>5.2.3</b> Box-plot</a></li>
-<li class="chapter" data-level="5.2.4" data-path="visualización.html"><a href="visualización.html#violin-plot"><i class="fa fa-check"></i><b>5.2.4</b> Violin plot</a></li>
-<li class="chapter" data-level="5.2.5" data-path="visualización.html"><a href="visualización.html#media-dispersión"><i class="fa fa-check"></i><b>5.2.5</b> Media &amp; dispersión</a></li>
+<li class="chapter" data-level="5.2.1" data-path="comparación-de-niveles-de-factores.html"><a href="comparación-de-niveles-de-factores.html#observaciones-media-mediana"><i class="fa fa-check"></i><b>5.2.1</b> Observaciones + media / mediana</a></li>
+<li class="chapter" data-level="5.2.2" data-path="comparación-de-niveles-de-factores.html"><a href="comparación-de-niveles-de-factores.html#barplot-se"><i class="fa fa-check"></i><b>5.2.2</b> Barplot + SE</a></li>
+<li class="chapter" data-level="5.2.3" data-path="comparación-de-niveles-de-factores.html"><a href="comparación-de-niveles-de-factores.html#box-plot"><i class="fa fa-check"></i><b>5.2.3</b> Box-plot</a></li>
+<li class="chapter" data-level="5.2.4" data-path="comparación-de-niveles-de-factores.html"><a href="comparación-de-niveles-de-factores.html#violin-plot"><i class="fa fa-check"></i><b>5.2.4</b> Violin plot</a></li>
+<li class="chapter" data-level="5.2.5" data-path="comparación-de-niveles-de-factores.html"><a href="comparación-de-niveles-de-factores.html#media-dispersión"><i class="fa fa-check"></i><b>5.2.5</b> Media &amp; dispersión</a></li>
 </ul></li>
 </ul></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="_blank">Published with bookdown</a></li>
+
 </ul>
 
       </nav>
@@ -239,81 +245,6 @@ div.csl-indent {
 <center>
 <p><img src="fig/rstudio_config1.png" /></p>
 </center>
-<div id="paquetes-de-r" class="section level2 unnumbered">
-<h2>Paquetes de R</h2>
-<p>Un paquete es una colección de funciones, datos y código R que se almacenan en una carpeta conforme a una estructura bien definida, fácilmente accesible para R.</p>
-<p>Un repositorio es un lugar donde se alojan los paquetes para que pueda instalarlos desde él. Los repositorios mas populares son:</p>
-<p><a href="https://cran.r-project.org/">CRAN</a>: repositorio oficial. Es una red de servidores web mantenida por la comunidad R en todo el mundo. El Core Team de R lo coordina, y para que un paquete se publique aquí, debe pasar varias pruebas que aseguren el cumplimiento de las políticas de CRAN.</p>
-<p><a href="https://github.com/">GITHUB</a>: probablemente el repositorio más popular para proyectos particulares de código abierto. No es específico de R (sin proceso de revisión asociado).</p>
-<p><a href="https://www.bioconductor.org/">Bioconductor</a>: repositorio destinado a software de código abierto para bioinformática. Como CRAN, tiene sus propios procesos de presentación y revisión, y su comunidad es muy activa y tiene varias conferencias y reuniones al año.</p>
-<p>La simple instalación de R trae consigo múltiples paquetes que permiten un funcionamiento básico de importación de datos, ajuste y evaluación de modelos estadísticos y representaciones gráficas. Sin embargo, la enorme potencia de R deriva de su capacidad de incorporar nuevas funciones generadas por su gran comunidad de usuarios</p>
-<p>En la web de R se puede consultar la <a href="https://cran.r-project.org/web/packages/available_packages_by_date.html">lista de paquetes disponibles</a>, y en la sección <a href="https://cran.r-project.org/web/views/">Task Views</a> se puede consultar los mismos ordenados por áreas de aplicación.</p>
-<div id="box1" class="blue-box">
-<p>Links para exploración o chequeo de novedades de paquetes:</p>
-<ul>
-<li><p><a href="https://www.rdocumentation.org">Rdocumentation</a></p></li>
-<li><p><a href="https://www.r-pkg.org/">METACRAN</a></p></li>
-<li><p><a href="https://rweekly.org/">r weekly</a></p></li>
-<li><p><a href="https://www.r-bloggers.com/">r-bloggers</a></p></li>
-<li><p><a href="https://blog.revolutionanalytics.com/">revolution analytics</a></p></li>
-<li><p><a href="https://blog.rstudio.com/categories/packages">RStudio blog</a></p></li>
-</ul>
-</div>
-<p>Existen varias vias de instalación de paquetes:</p>
-<p></br></p>
-<center>
-<img src="fig/install.packages.png" />
-</center>
-<p></br></p>
-<ul>
-<li>Via consola: <code>install.packages("nombre_del_paquete")</code> O simplemente en el panel de paquetes.</li>
-</ul>
-<p></br></p>
-<div id="box1" class="blue-box">
-<p>Una vez instalado, hay que cargar los paquetes que contienen las funciones que vayamos a usar en cada sesión</p>
-</div>
-<p><code>library(nombre-del-paquete)</code></p>
-<p><img src="fig/bulb.jpeg" /></p>
-<blockquote>
-<p>instale el paquete <code>pacman</code> y activelo</p>
-</blockquote>
-</div>
-<div id="workflow-componentes" class="section level2 unnumbered">
-<h2>Workflow componentes</h2>
-<p>Varios tipos de archivos serán creados y usados durante una sesión de R:</p>
-<ul>
-<li>datos crudos (hojas de cálculo) - datos manipulados</li>
-<li>scripts</li>
-<li>gráficos</li>
-<li>reportes de resultados</li>
-</ul>
-<p>Una análisis debe poder ser retomado en cualquier momento pudiendo darse por concluída cuando el trabajo es publicado. Hasta entonces debemos tener rápido acceso a todos los objetos creados en <em>sesiones</em> anteriores. Para ello debemos manejarnos siempre bajo <em>buenas prácticas</em> de trabajo. Esto nos permitirá entender qué quisimos hacer tiempo atrás, seremos intuitivos para encontrar archivos/objetos, y finalmente crearemos trabajos <em>reproducibles</em>…<br />
-Una forma práctica de administrar todos los objetos de una sesión es por medio del uso de “proyectos” de R Studio.</p>
-<p>Estructura típica de un proyecto de Rstudio. Es aconsejable ser consistente en la nomenclatura de todos los objetos generados en nuestras sesiones de trabajo (archivos, carpetas, etc.).</p>
-<center>
-<img src="fig/folders.png" />
-</center>
-<blockquote>
-<p>Crear una nuevo proyecto llamado “R_intro”</p>
-</blockquote>
-<div class="vembedr">
-<div>
-<iframe src="https://www.youtube.com/embed/5brYbPkzm4k" width="533" height="300" frameborder="0" allowfullscreen="" data-external="1"></iframe>
-</div>
-</div>
-<blockquote>
-<p>Crear un script “dia_1”</p>
-</blockquote>
-<center>
-<img src="fig/scripts.png" />
-</center>
-<p>¿Dónde se guardaría el siguiente gráfico?</p>
-<blockquote>
-<p>En este ejemplo, usaremos una función “plot()” y un dataset “pressure” prediseñados en paquetes de carga automática al iniciar R.</p>
-</blockquote>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="config.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pressure)</span></code></pre></div>
-
-</div>
 </div>
             </section>
 
@@ -321,7 +252,7 @@ Una forma práctica de administrar todos los objetos de una sesión es por medio
         </div>
       </div>
 <a href="objetivos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="sintaxis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="paquetes-de-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -336,8 +267,8 @@ Una forma práctica de administrar todos los objetos de una sesión es por medio
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": false,
-"facebook": true,
+"github": true,
+"facebook": false,
 "twitter": true,
 "linkedin": false,
 "weibo": false,
@@ -351,10 +282,7 @@ gitbook.start({
 "family": "sans",
 "size": 2
 },
-"edit": {
-"link": null,
-"text": null
-},
+"edit": null,
 "history": {
 "link": null,
 "text": null
@@ -369,7 +297,7 @@ gitbook.start({
 "options": null
 },
 "toc": {
-"collapse": "subsection"
+"collapse": "none"
 }
 });
 });

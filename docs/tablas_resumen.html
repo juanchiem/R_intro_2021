@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2 Sintaxis | Exploración y manipulación de datos con R</title>
-  <meta name="description" content="2 Sintaxis | Exploración y manipulación de datos con R" />
+  <title>Tablas resumen | Exploración y manipulación de datos con R</title>
+  <meta name="description" content="Tablas resumen | Exploración y manipulación de datos con R" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2 Sintaxis | Exploración y manipulación de datos con R" />
+  <meta property="og:title" content="Tablas resumen | Exploración y manipulación de datos con R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="juanchiem/R_intro_2022" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2 Sintaxis | Exploración y manipulación de datos con R" />
+  <meta name="twitter:title" content="Tablas resumen | Exploración y manipulación de datos con R" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="proyectos-de-rstudio.html"/>
-<link rel="next" href="r-calculadora.html"/>
+<link rel="prev" href="s.o.s..html"/>
+<link rel="next" href="tipos-de-datos.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -234,16 +234,317 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="sintaxis" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> Sintaxis</h1>
+<div id="tablas_resumen" class="section level2 unnumbered">
+<h2>Tablas resumen</h2>
+<table class="table" style="font-size: 15px; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:op-arit">Table 2.1: </span>Operadores aritméticos
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Operador
+</th>
+<th style="text-align:left;">
+Detalle
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<code>x + y</code>
+</td>
+<td style="text-align:left;">
+Suma de x e y
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>x - y</code>
+</td>
+<td style="text-align:left;">
+Resta de x menos y
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>x * y</code>
+</td>
+<td style="text-align:left;">
+Multiplicación
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>x / y</code>
+</td>
+<td style="text-align:left;">
+División de x por y
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>x %/% y</code>
+</td>
+<td style="text-align:left;">
+Parte entera de la división de x por y
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>x %% y</code>
+</td>
+<td style="text-align:left;">
+Resto de la división de x por y
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>x ^ y</code>
+</td>
+<td style="text-align:left;">
+x elevado a y-ésima potencia (equivalente a **)
+</td>
+</tr>
+</tbody>
+</table>
+<p><br><br></p>
+<table class="table" style="font-size: 15px; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:op-logi">Table 2.2: </span>Operadores lógicos
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Operador
+</th>
+<th style="text-align:left;">
+Prueba.lógica
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+x &lt; y
+</td>
+<td style="text-align:left;">
+x menor que y?
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+x &lt;= y
+</td>
+<td style="text-align:left;">
+x menor o igual que y?
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+x &gt; y
+</td>
+<td style="text-align:left;">
+x mayor que y?
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+x &gt;= y
+</td>
+<td style="text-align:left;">
+x mayor o igual que y?
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+x == y
+</td>
+<td style="text-align:left;">
+x igual que y?
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+x != y
+</td>
+<td style="text-align:left;">
+x diferente que y?
+</td>
+</tr>
+</tbody>
+</table>
+<p><br> <br></p>
+<table class="table" style="font-size: 15px; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:matem">Table 2.3: </span>Funciones matemáticas
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Operador
+</th>
+<th style="text-align:left;">
+Detalle
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<code>sqrt(x)</code>
+</td>
+<td style="text-align:left;">
+raiz de x
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>exp(y)</code>
+</td>
+<td style="text-align:left;">
+exponencial de y
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>log(x)</code>
+</td>
+<td style="text-align:left;">
+logaritmo natural de x = ln
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>log10(x)</code>
+</td>
+<td style="text-align:left;">
+logaritmo base 10 de x
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>sum(x)</code>
+</td>
+<td style="text-align:left;">
+suma todos los elementos de x
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>prod(x)</code>
+</td>
+<td style="text-align:left;">
+producto de todos los elementos de x
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>round(x, n)</code>
+</td>
+<td style="text-align:left;">
+redondea x a n-digitos
+</td>
+</tr>
+</tbody>
+</table>
+<p><br> <br></p>
+<table class="table" style="font-size: 15px; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:shortcuts">Table 2.4: </span>Algunos atajos comúnmente usados
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Teclas
+</th>
+<th style="text-align:left;">
+Detalle
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Alt+Shift+K
+</td>
+<td style="text-align:left;">
+panel de todos los atajos
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ctrl+Z / Ctrl+Shift+Z
+</td>
+<td style="text-align:left;">
+undo/redo
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Alt+ -
+</td>
+<td style="text-align:left;">
+&lt;-
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ctrl+r
+</td>
+<td style="text-align:left;">
+corre la línea/bloque completa de código
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ctrl+l
+</td>
+<td style="text-align:left;">
+limpia la consola
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ctrl+Shift+c
+</td>
+<td style="text-align:left;">
+silencia la línea de código
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ctrl+Shift+d
+</td>
+<td style="text-align:left;">
+duplica la línea de código
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ctrl+i
+</td>
+<td style="text-align:left;">
+indexa el bloque de código
+</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Ver todos los atajos en R Studio: situandose en la consola tipear simultanemante <code>Ctrl | Shift | k</code></li>
+</ul>
+<hr />
+
 </div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="proyectos-de-rstudio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="r-calculadora.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="s.o.s..html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tipos-de-datos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

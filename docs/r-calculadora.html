@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2 Sintaxis | Exploración y manipulación de datos con R</title>
-  <meta name="description" content="2 Sintaxis | Exploración y manipulación de datos con R" />
+  <title>R Calculadora | Exploración y manipulación de datos con R</title>
+  <meta name="description" content="R Calculadora | Exploración y manipulación de datos con R" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2 Sintaxis | Exploración y manipulación de datos con R" />
+  <meta property="og:title" content="R Calculadora | Exploración y manipulación de datos con R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="juanchiem/R_intro_2022" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2 Sintaxis | Exploración y manipulación de datos con R" />
+  <meta name="twitter:title" content="R Calculadora | Exploración y manipulación de datos con R" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="proyectos-de-rstudio.html"/>
-<link rel="next" href="r-calculadora.html"/>
+<link rel="prev" href="sintaxis.html"/>
+<link rel="next" href="comparaciones-lógicas.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -234,16 +234,38 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="sintaxis" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> Sintaxis</h1>
+<div id="r-calculadora" class="section level2 unnumbered">
+<h2>R Calculadora</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="r-calculadora.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="sc">+</span> <span class="dv">9</span></span>
+<span id="cb2-2"><a href="r-calculadora.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="sc">-</span> </span>
+<span id="cb2-3"><a href="r-calculadora.html#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">3</span> <span class="sc">*</span></span>
+<span id="cb2-4"><a href="r-calculadora.html#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span></span>
+<span id="cb2-5"><a href="r-calculadora.html#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#4%1</span></span>
+<span id="cb2-6"><a href="r-calculadora.html#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="r-calculadora.html#cb2-7" aria-hidden="true" tabindex="-1"></a>(<span class="dv">4</span> <span class="sc">+</span> <span class="dv">5</span> ) <span class="sc">*</span> <span class="dv">7</span> <span class="sc">-</span> (<span class="dv">36</span><span class="sc">/</span><span class="dv">18</span>)<span class="sc">^</span><span class="dv">3</span></span></code></pre></div>
+<div id="box1" class="blue-box">
+<p>Ver <a href="tablas_resumen.html#tablas_resumen">tablas resumen</a> de operadores aritméticos y lógicos (al final del capítulo)</p>
+</div>
+<blockquote>
+<p>Reto matemático que se volvió viral en las redes sociales*</p>
+</blockquote>
+<p><img src="fig/reto.jpeg" /></p>
+<p>Existen dos soluciones, según método que se aplique: el PEMDAS = 1 (parenthesis &lt; exponents &lt; multiplicación &lt; division &lt; addition &lt; subtraction) y el BODMAS = 16 (Brackets &lt; Orders (Powers and Square Roots) &lt; Division &lt; Multiplication &lt; Addition &lt; Subtraction).</p>
+<blockquote>
+<p>Cómo opera R?</p>
+</blockquote>
+<p>Se puede decir que hay diferencia de estilos al programar. Se deberia tener presente que otros pueden leer tu código (optar por buenas prácticas)</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="r-calculadora.html#cb3-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">3</span><span class="sc">+</span>(<span class="dv">5</span><span class="sc">*</span>(<span class="dv">2</span><span class="sc">^</span><span class="dv">2</span>))) <span class="co"># difícil de leer</span></span>
+<span id="cb3-2"><a href="r-calculadora.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="sc">+</span> <span class="dv">5</span> <span class="sc">*</span> <span class="dv">2</span> <span class="sc">^</span> <span class="dv">2</span>   <span class="co"># si se recuerdan las reglas, todo bien</span></span>
+<span id="cb3-3"><a href="r-calculadora.html#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="sc">+</span> <span class="dv">5</span> <span class="sc">*</span> (<span class="dv">2</span> <span class="sc">^</span> <span class="dv">2</span>)   <span class="co"># si se olvidan algunas reglas, esto podría ayudar</span></span></code></pre></div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="proyectos-de-rstudio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="r-calculadora.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="sintaxis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="comparaciones-lógicas.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2 Sintaxis | Exploración y manipulación de datos con R</title>
-  <meta name="description" content="2 Sintaxis | Exploración y manipulación de datos con R" />
+  <title>Funciones | Exploración y manipulación de datos con R</title>
+  <meta name="description" content="Funciones | Exploración y manipulación de datos con R" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2 Sintaxis | Exploración y manipulación de datos con R" />
+  <meta property="og:title" content="Funciones | Exploración y manipulación de datos con R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="juanchiem/R_intro_2022" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2 Sintaxis | Exploración y manipulación de datos con R" />
+  <meta name="twitter:title" content="Funciones | Exploración y manipulación de datos con R" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="proyectos-de-rstudio.html"/>
-<link rel="next" href="r-calculadora.html"/>
+<link rel="prev" href="variables-y-asignaciones.html"/>
+<link rel="next" href="tips.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -234,16 +234,36 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="sintaxis" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> Sintaxis</h1>
+<div id="funciones" class="section level2 unnumbered">
+<h2>Funciones</h2>
+<p>Como dijimos, los paquetes son básicamente un conjunto de funciones generadas por los autores de los mismos pero el usuario puede crear sus propias funciones.</p>
+<p>Componentes de las funciones:</p>
+<p>nombre_funcion(argumentos)</p>
+<ul>
+<li><p><em>Nombre</em>: Generalmente, el nombre es intuitivo, por ejemplo, <code>mean</code> es la función que calcula la media, <code>round</code> es la funión que redondea un número.(Como habrán notado R está en inglés)</p></li>
+<li><p><em>Argumentos</em>: Un argumento es un marcador de posición. Cuando se invoca una función, se debe indicar valores a los argumentos. Los argumentos son opcionales; es decir, una función puede no contener argumentos. También los argumentos pueden tener valores por defecto.</p></li>
+</ul>
+<p>Algunos cálculos basados en funciones matemáticas. Son las mas simples, y no esta funcion no contienen argumentos. [para chequear la info de la función, solo basta con seleccionar todos sus caracteres + F1]</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="funciones.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">3</span>) </span>
+<span id="cb9-2"><a href="funciones.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 3^0.5 </span></span>
+<span id="cb9-3"><a href="funciones.html#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 3^(1/2)</span></span>
+<span id="cb9-4"><a href="funciones.html#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">10</span>) <span class="co"># logaritmo natural</span></span>
+<span id="cb9-5"><a href="funciones.html#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fl">2.302585</span>)</span>
+<span id="cb9-6"><a href="funciones.html#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># log(10, base=10)</span></span></code></pre></div>
+<p>Funciones básicas pero con argumentos</p>
+<ul>
+<li>Redondeo</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="funciones.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">4.3478</span>)  </span>
+<span id="cb10-2"><a href="funciones.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">4.3478</span>, <span class="at">digits=</span><span class="dv">3</span>)  </span></code></pre></div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="proyectos-de-rstudio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="r-calculadora.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="variables-y-asignaciones.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tips.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
