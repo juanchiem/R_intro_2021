@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Objetivos | Exploración y manipulación de datos con R</title>
-  <meta name="description" content="Objetivos | Exploración y manipulación de datos con R" />
+  <title>3.2 Datos faltantes | Exploración y manipulación de datos con R</title>
+  <meta name="description" content="3.2 Datos faltantes | Exploración y manipulación de datos con R" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Objetivos | Exploración y manipulación de datos con R" />
+  <meta property="og:title" content="3.2 Datos faltantes | Exploración y manipulación de datos con R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="juanchiem/R_intro_2022" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Objetivos | Exploración y manipulación de datos con R" />
+  <meta name="twitter:title" content="3.2 Datos faltantes | Exploración y manipulación de datos con R" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="config.html"/>
+<link rel="prev" href="fechas.html"/>
+<link rel="next" href="factores.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -234,34 +234,20 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="objetivos" class="section level1 unnumbered">
-<h1>Objetivos</h1>
-<ul>
-<li>Acompañar la primer fase empinada de la curva de aprendizaje de un nuevo lenguaje, que a la larga redituará en multiples beneficios tanto profesionales como personales.</li>
-</ul>
-<p><img src="fig/learn.png" width="200" /></p>
-<ul>
-<li>Proveer herramientas que optimicen nuestra labor cotidiana como recolectores/analistas de datos a lo largo de todo el flujo de trabajo</li>
-</ul>
-<p><img src="fig/workflow.jpg" /></p>
-<div style="text-align: right">
-~ Adaptación de “R for Data Science” <span class="citation">(Wickham and Grolemund 2016)</span> ~
-</div>
-<p><strong>Importante:</strong></p>
-<ol style="list-style-type: lower-roman">
-<li><p>no es un curso de estadística</p></li>
-<li><p>entendemos la programación como un simple medio para optimizar nuestra labor cotidiana (no como un fin mismo), al final del día seguiremos siendo fitopatólogos, fisiólogos, bioquímicos, etc.</p></li>
-<li><p>maximizaremos la adopción de la filosofía <a href="https://www.tidyverse.org/">tidyverse</a></p></li>
-</ol>
-
+<div id="datos-faltantes" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Datos faltantes</h2>
+<p>Se representan con un <code>NA</code>, para cualquier tipo de datos</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="datos-faltantes.html#cb29-1" aria-hidden="true" tabindex="-1"></a>vec_num <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="cn">NA</span>)</span>
+<span id="cb29-2"><a href="datos-faltantes.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(vec_num)</span>
+<span id="cb29-3"><a href="datos-faltantes.html#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(vec_num)</span></code></pre></div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="config.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="fechas.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="factores.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

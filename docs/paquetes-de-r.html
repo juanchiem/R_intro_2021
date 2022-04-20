@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Objetivos | Exploración y manipulación de datos con R</title>
-  <meta name="description" content="Objetivos | Exploración y manipulación de datos con R" />
+  <title>Paquetes de R | Exploración y manipulación de datos con R</title>
+  <meta name="description" content="Paquetes de R | Exploración y manipulación de datos con R" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Objetivos | Exploración y manipulación de datos con R" />
+  <meta property="og:title" content="Paquetes de R | Exploración y manipulación de datos con R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="juanchiem/R_intro_2022" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Objetivos | Exploración y manipulación de datos con R" />
+  <meta name="twitter:title" content="Paquetes de R | Exploración y manipulación de datos con R" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="config.html"/>
+<link rel="prev" href="config.html"/>
+<link rel="next" href="workflow-componentes.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -234,34 +234,52 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="objetivos" class="section level1 unnumbered">
-<h1>Objetivos</h1>
+<div id="paquetes-de-r" class="section level2 unnumbered">
+<h2>Paquetes de R</h2>
+<p>Un paquete es una colección de funciones, datos y código R que se almacenan en una carpeta conforme a una estructura bien definida, fácilmente accesible para R.</p>
+<p>Un repositorio es un lugar donde se alojan los paquetes para que pueda instalarlos desde él. Los repositorios mas populares son:</p>
+<p><a href="https://cran.r-project.org/">CRAN</a>: repositorio oficial. Es una red de servidores web mantenida por la comunidad R en todo el mundo. El Core Team de R lo coordina, y para que un paquete se publique aquí, debe pasar varias pruebas que aseguren el cumplimiento de las políticas de CRAN.</p>
+<p><a href="https://github.com/">GITHUB</a>: probablemente el repositorio más popular para proyectos particulares de código abierto. No es específico de R (sin proceso de revisión asociado).</p>
+<p><a href="https://www.bioconductor.org/">Bioconductor</a>: repositorio destinado a software de código abierto para bioinformática. Como CRAN, tiene sus propios procesos de presentación y revisión, y su comunidad es muy activa y tiene varias conferencias y reuniones al año.</p>
+<p>La simple instalación de R trae consigo múltiples paquetes que permiten un funcionamiento básico de importación de datos, ajuste y evaluación de modelos estadísticos y representaciones gráficas. Sin embargo, la enorme potencia de R deriva de su capacidad de incorporar nuevas funciones generadas por su gran comunidad de usuarios</p>
+<p>En la web de R se puede consultar la <a href="https://cran.r-project.org/web/packages/available_packages_by_date.html">lista de paquetes disponibles</a>, y en la sección <a href="https://cran.r-project.org/web/views/">Task Views</a> se puede consultar los mismos ordenados por áreas de aplicación.</p>
+<div id="box1" class="blue-box">
+<p>Links para exploración o chequeo de novedades de paquetes:</p>
 <ul>
-<li>Acompañar la primer fase empinada de la curva de aprendizaje de un nuevo lenguaje, que a la larga redituará en multiples beneficios tanto profesionales como personales.</li>
+<li><p><a href="https://www.rdocumentation.org">Rdocumentation</a></p></li>
+<li><p><a href="https://www.r-pkg.org/">METACRAN</a></p></li>
+<li><p><a href="https://rweekly.org/">r weekly</a></p></li>
+<li><p><a href="https://www.r-bloggers.com/">r-bloggers</a></p></li>
+<li><p><a href="https://blog.revolutionanalytics.com/">revolution analytics</a></p></li>
+<li><p><a href="https://blog.rstudio.com/categories/packages">RStudio blog</a></p></li>
 </ul>
-<p><img src="fig/learn.png" width="200" /></p>
-<ul>
-<li>Proveer herramientas que optimicen nuestra labor cotidiana como recolectores/analistas de datos a lo largo de todo el flujo de trabajo</li>
-</ul>
-<p><img src="fig/workflow.jpg" /></p>
-<div style="text-align: right">
-~ Adaptación de “R for Data Science” <span class="citation">(Wickham and Grolemund 2016)</span> ~
 </div>
-<p><strong>Importante:</strong></p>
-<ol style="list-style-type: lower-roman">
-<li><p>no es un curso de estadística</p></li>
-<li><p>entendemos la programación como un simple medio para optimizar nuestra labor cotidiana (no como un fin mismo), al final del día seguiremos siendo fitopatólogos, fisiólogos, bioquímicos, etc.</p></li>
-<li><p>maximizaremos la adopción de la filosofía <a href="https://www.tidyverse.org/">tidyverse</a></p></li>
-</ol>
-
+<p>Existen varias vias de instalación de paquetes:</p>
+<p></br></p>
+<center>
+<img src="fig/install.packages.png" />
+</center>
+<p></br></p>
+<ul>
+<li>Via consola: <code>install.packages("nombre_del_paquete")</code> O simplemente en el panel de paquetes.</li>
+</ul>
+<p></br></p>
+<div id="box1" class="blue-box">
+<p>Una vez instalado, hay que cargar los paquetes que contienen las funciones que vayamos a usar en cada sesión</p>
+</div>
+<p><code>library(nombre-del-paquete)</code></p>
+<p><img src="fig/bulb.jpeg" /></p>
+<blockquote>
+<p>instale el paquete <code>pacman</code> y activelo</p>
+</blockquote>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="config.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="config.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="workflow-componentes.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

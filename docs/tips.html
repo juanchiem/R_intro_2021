@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Objetivos | Exploración y manipulación de datos con R</title>
-  <meta name="description" content="Objetivos | Exploración y manipulación de datos con R" />
+  <title>Tips | Exploración y manipulación de datos con R</title>
+  <meta name="description" content="Tips | Exploración y manipulación de datos con R" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Objetivos | Exploración y manipulación de datos con R" />
+  <meta property="og:title" content="Tips | Exploración y manipulación de datos con R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="juanchiem/R_intro_2022" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Objetivos | Exploración y manipulación de datos con R" />
+  <meta name="twitter:title" content="Tips | Exploración y manipulación de datos con R" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="config.html"/>
+<link rel="prev" href="funciones.html"/>
+<link rel="next" href="s.o.s..html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -234,34 +234,40 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="objetivos" class="section level1 unnumbered">
-<h1>Objetivos</h1>
+<div id="tips" class="section level2 unnumbered">
+<h2>Tips</h2>
+<p>1 - No se tienen en cuenta los espacios en blanco entre palabras: podemos o no dejar espacios para que el código se pueda ordenar de forma adecuada y poder entenderse.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="tips.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>( pressure )</span>
+<span id="cb11-2"><a href="tips.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pressur e)</span></code></pre></div>
+<p>2 - Se distinguen las mayúsculas y minúsculas (“case sensitive”): para variables en el código, podemos crear diferentes variables con nombres iguales pero alternando mayúsculas y minúsculas.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="tips.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Plot</span>(pressure)</span></code></pre></div>
+<p>3 - Se pueden incluir comentarios: como vimos anteriormente los comentarios se utilizan para añadir información en el código. De paso observamos que</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="tips.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pressur e) <span class="co"># da error</span></span>
+<span id="cb13-2"><a href="tips.html#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="tips.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># grafico press vs temp</span></span>
+<span id="cb13-4"><a href="tips.html#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pressure)</span></code></pre></div>
+<p>4 - El punto y coma (;) actúa como separador de comandos aún en la misma línea del script!</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="tips.html#cb14-1" aria-hidden="true" tabindex="-1"></a>pressure; <span class="fu">plot</span>(pressure)</span></code></pre></div>
+<p>5 - Los nombres de las variables pueden contener letras, números, guiones bajos y puntos, pero <em>NO PUEDEN</em>:</p>
 <ul>
-<li>Acompañar la primer fase empinada de la curva de aprendizaje de un nuevo lenguaje, que a la larga redituará en multiples beneficios tanto profesionales como personales.</li>
+<li>comenzar con un número</li>
+<li>contener espacios en absoluto</li>
 </ul>
-<p><img src="fig/learn.png" width="200" /></p>
+<p>Cada uno adopta su propia forma para nombres largos de variables, por ej:</p>
 <ul>
-<li>Proveer herramientas que optimicen nuestra labor cotidiana como recolectores/analistas de datos a lo largo de todo el flujo de trabajo</li>
+<li>puntos.entre.palabras</li>
+<li>guiones_bajos_entre_palabras</li>
+<li>MayúsculasMinúsculasParaSepararPalabras</li>
 </ul>
-<p><img src="fig/workflow.jpg" /></p>
-<div style="text-align: right">
-~ Adaptación de “R for Data Science” <span class="citation">(Wickham and Grolemund 2016)</span> ~
-</div>
-<p><strong>Importante:</strong></p>
-<ol style="list-style-type: lower-roman">
-<li><p>no es un curso de estadística</p></li>
-<li><p>entendemos la programación como un simple medio para optimizar nuestra labor cotidiana (no como un fin mismo), al final del día seguiremos siendo fitopatólogos, fisiólogos, bioquímicos, etc.</p></li>
-<li><p>maximizaremos la adopción de la filosofía <a href="https://www.tidyverse.org/">tidyverse</a></p></li>
-</ol>
-
+<p>No importa como lo adopten, pero es aconsejable ser consistente.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="config.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="funciones.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="s.o.s..html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

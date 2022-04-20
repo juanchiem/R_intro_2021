@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Objetivos | Exploración y manipulación de datos con R</title>
-  <meta name="description" content="Objetivos | Exploración y manipulación de datos con R" />
+  <title>ggplot | Exploración y manipulación de datos con R</title>
+  <meta name="description" content="ggplot | Exploración y manipulación de datos con R" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Objetivos | Exploración y manipulación de datos con R" />
+  <meta property="og:title" content="ggplot | Exploración y manipulación de datos con R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="juanchiem/R_intro_2022" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Objetivos | Exploración y manipulación de datos con R" />
+  <meta name="twitter:title" content="ggplot | Exploración y manipulación de datos con R" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="config.html"/>
+<link rel="prev" href="visualización.html"/>
+<link rel="next" href="ambas-variables-contínuas.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -234,34 +234,53 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="objetivos" class="section level1 unnumbered">
-<h1>Objetivos</h1>
+<div id="ggplot" class="section level2 unnumbered">
+<h2>ggplot</h2>
+<p>El paquete ggplot2 tiene una flexibilidad tal que permite generar rápidamente gráficos exploratorios así como crear figuras complejas, detalladas, de alta calidad (con fines de publicaciones científicas, por ej).</p>
+<p>Tiene una gramática propia: <strong>“suma de capas”</strong></p>
 <ul>
-<li>Acompañar la primer fase empinada de la curva de aprendizaje de un nuevo lenguaje, que a la larga redituará en multiples beneficios tanto profesionales como personales.</li>
+<li><p>Las capas no tienen un orden estricto salvo la primera que debe ser <code>ggplot()</code>.</p></li>
+<li><p>Un mismo gráfico acepta tomar información de distintos datasets</p></li>
+<li><p>Las capas se van agregando con un simbolo <code>+</code></p></li>
 </ul>
-<p><img src="fig/learn.png" width="200" /></p>
+<p>Las capas básicas son:</p>
 <ul>
-<li>Proveer herramientas que optimicen nuestra labor cotidiana como recolectores/analistas de datos a lo largo de todo el flujo de trabajo</li>
+<li><p>data <code>ggplot</code>: inicializa un objeto grafico de <code>ggplot</code></p></li>
+<li><p>aesthetics <code>aes</code>: “Algo que se puede ver”
+Dentro de la capa <code>aes</code> debemos indicar que a que variable se atribuyen los diferentes atributos:</p>
+<ul>
+<li>mapeo de variables (ejes <code>x=</code> e <code>y=</code>)</li>
+<li>color exterior de los objetos o de las líneas (<code>col</code>)</li>
+<li>color de relleno (<code>fill</code>)</li>
+<li>forma de los puntos (<code>shape</code>)</li>
+<li>tipo de línea (<code>linetype</code>)</li>
+<li>tamaño de los puntos (<code>size</code>)</li>
+</ul></li>
+<li><p>geometrias<code>geom_</code>: formas geométricas para representar las observaciones (dan el nombre al tipo de gráfico: grafico de dispersion, boxplot, histograma, etc…)</p>
+<ul>
+<li>geom_point()</li>
+<li>geom_smooth()</li>
+<li>geom_boxplot()</li>
+<li><a href="https://ggplot2.tidyverse.org/reference/#section-layer-geoms">lista de “geoms”</a><br />
+</li>
+</ul></li>
+<li><p>facetas<code>facet_</code>: “paneles de compartimentalización” de un mismo gráfico</p>
+<ul>
+<li>facet_wrap(): paneles contiguos</li>
+<li>facets_grid(): paneles tipo grilla</li>
+</ul></li>
 </ul>
-<p><img src="fig/workflow.jpg" /></p>
-<div style="text-align: right">
-~ Adaptación de “R for Data Science” <span class="citation">(Wickham and Grolemund 2016)</span> ~
-</div>
-<p><strong>Importante:</strong></p>
-<ol style="list-style-type: lower-roman">
-<li><p>no es un curso de estadística</p></li>
-<li><p>entendemos la programación como un simple medio para optimizar nuestra labor cotidiana (no como un fin mismo), al final del día seguiremos siendo fitopatólogos, fisiólogos, bioquímicos, etc.</p></li>
-<li><p>maximizaremos la adopción de la filosofía <a href="https://www.tidyverse.org/">tidyverse</a></p></li>
-</ol>
-
+<p><img src="fig/ggplot.png" width="400" /></p>
+<p>Ejemplo de visualización con <code>iris</code></p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="ggplot.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="config.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="visualización.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ambas-variables-contínuas.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

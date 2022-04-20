@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Objetivos | Exploración y manipulación de datos con R</title>
-  <meta name="description" content="Objetivos | Exploración y manipulación de datos con R" />
+  <title>Fechas | Exploración y manipulación de datos con R</title>
+  <meta name="description" content="Fechas | Exploración y manipulación de datos con R" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Objetivos | Exploración y manipulación de datos con R" />
+  <meta property="og:title" content="Fechas | Exploración y manipulación de datos con R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="juanchiem/R_intro_2022" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Objetivos | Exploración y manipulación de datos con R" />
+  <meta name="twitter:title" content="Fechas | Exploración y manipulación de datos con R" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="config.html"/>
+<link rel="prev" href="lógicos.html"/>
+<link rel="next" href="datos-faltantes.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -234,34 +234,59 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="objetivos" class="section level1 unnumbered">
-<h1>Objetivos</h1>
+<div id="fechas" class="section level2 unnumbered">
+<h2>Fechas</h2>
 <ul>
-<li>Acompañar la primer fase empinada de la curva de aprendizaje de un nuevo lenguaje, que a la larga redituará en multiples beneficios tanto profesionales como personales.</li>
+<li>El formato default es yyyy-mm-dd</li>
 </ul>
-<p><img src="fig/learn.png" width="200" /></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="fechas.html#cb23-1" aria-hidden="true" tabindex="-1"></a>vec_fechas <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">&quot;2007-06-22&quot;</span>, <span class="st">&quot;2004-02-13&quot;</span>))</span>
+<span id="cb23-2"><a href="fechas.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(vec_fechas)</span>
+<span id="cb23-3"><a href="fechas.html#cb23-3" aria-hidden="true" tabindex="-1"></a>vec_fechas <span class="sc">-</span> <span class="dv">1</span> </span></code></pre></div>
+<div id="box1" class="blue-box">
 <ul>
-<li>Proveer herramientas que optimicen nuestra labor cotidiana como recolectores/analistas de datos a lo largo de todo el flujo de trabajo</li>
+<li>Nosotros comunmente usamos ‘dd/mm/yyyy’? debemos convertir:</li>
 </ul>
-<p><img src="fig/workflow.jpg" /></p>
-<div style="text-align: right">
-~ Adaptación de “R for Data Science” <span class="citation">(Wickham and Grolemund 2016)</span> ~
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="fechas.html#cb24-1" aria-hidden="true" tabindex="-1"></a>vec_fechas2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;01/06/2020&quot;</span>, <span class="st">&quot;31/12/2020&quot;</span>)</span>
+<span id="cb24-2"><a href="fechas.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(vec_fechas2) <span class="co"># son caracteres!</span></span>
+<span id="cb24-3"><a href="fechas.html#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="fechas.html#cb24-4" aria-hidden="true" tabindex="-1"></a>vec_fechas3 <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(vec_fechas2, <span class="st">&quot;%d/%m/%Y&quot;</span>) <span class="co"># con paquete base</span></span>
+<span id="cb24-5"><a href="fechas.html#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(vec_fechas3)</span>
+<span id="cb24-6"><a href="fechas.html#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-7"><a href="fechas.html#cb24-7" aria-hidden="true" tabindex="-1"></a>vec_fechas4 <span class="ot">&lt;-</span> lubridate<span class="sc">::</span><span class="fu">dmy</span>(vec_fechas2) <span class="co"># con lubridate!</span></span>
+<span id="cb24-8"><a href="fechas.html#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(vec_fechas4)</span>
+<span id="cb24-9"><a href="fechas.html#cb24-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-10"><a href="fechas.html#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="fu">diff</span>(vec_fechas4)</span></code></pre></div>
 </div>
-<p><strong>Importante:</strong></p>
-<ol style="list-style-type: lower-roman">
-<li><p>no es un curso de estadística</p></li>
-<li><p>entendemos la programación como un simple medio para optimizar nuestra labor cotidiana (no como un fin mismo), al final del día seguiremos siendo fitopatólogos, fisiólogos, bioquímicos, etc.</p></li>
-<li><p>maximizaremos la adopción de la filosofía <a href="https://www.tidyverse.org/">tidyverse</a></p></li>
-</ol>
-
+<div class="blue-box">
+<ul>
+<li>Forzando las clases explícitamente</li>
+</ul>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="fechas.html#cb25-1" aria-hidden="true" tabindex="-1"></a>raices_car <span class="ot">&lt;-</span> <span class="fu">as.character</span>(raices_largo)</span>
+<span id="cb25-2"><a href="fechas.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(raices_car)</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="fechas.html#cb26-1" aria-hidden="true" tabindex="-1"></a>vec_logi2 <span class="ot">&lt;-</span> <span class="fu">as.logical</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb26-2"><a href="fechas.html#cb26-2" aria-hidden="true" tabindex="-1"></a>vec_logi2</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="fechas.html#cb27-1" aria-hidden="true" tabindex="-1"></a>vec_logi_num <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(vec_logi)</span>
+<span id="cb27-2"><a href="fechas.html#cb27-2" aria-hidden="true" tabindex="-1"></a>vec_logi_num</span></code></pre></div>
+<ul>
+<li>Existe una jerarquia a la hora de R tener que decidir de qué tipo de vector se trata (“piedra, papel o tijera”)</li>
+</ul>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="fechas.html#cb28-1" aria-hidden="true" tabindex="-1"></a>y1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.7</span>, <span class="st">&quot;a&quot;</span>)  <span class="do">## character</span></span>
+<span id="cb28-2"><a href="fechas.html#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(y1)</span>
+<span id="cb28-3"><a href="fechas.html#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="fechas.html#cb28-4" aria-hidden="true" tabindex="-1"></a>y2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="st">&quot;a&quot;</span>) <span class="do">## character</span></span>
+<span id="cb28-5"><a href="fechas.html#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(y2)</span>
+<span id="cb28-6"><a href="fechas.html#cb28-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-7"><a href="fechas.html#cb28-7" aria-hidden="true" tabindex="-1"></a>y3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="dv">0</span>, <span class="dv">10</span>)   <span class="do">## numeric</span></span>
+<span id="cb28-8"><a href="fechas.html#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(y3)</span></code></pre></div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="config.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="lógicos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="datos-faltantes.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

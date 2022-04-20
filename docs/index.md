@@ -6,9 +6,8 @@ site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
-link-citations: yes
+link-citations: no
 github-repo: juanchiem/R_intro_2022
-css: style2.css
 ---
 
 
@@ -17,76 +16,66 @@ css: style2.css
 
 # Motivación {-}
 
-<img src="fig/top.jpg" width="400" height="320" align="right" alt="Cover image" />
+<img src="fig/top1.png" width="400" height="400" align="right" alt="Cover image" />
 
 *"Una de las cosas más importantes que puedes hacer es dedicar un tiempo para aprender un lenguaje de programación. Aprender a programar es como aprender otro idioma: requiere tiempo y entrenamiento, y no hay resultados prácticos inmediatos. Pero si superas esa primera subida empinada de la curva de aprendizaje, las ganancias como científico son enormes. Programar no sólo te liberará de la camisa de fuerza de los softwares estadísticos cerrados, sino que también agudizará tus habilidades analíticas y ampliará los horizontes de modelado ecológico y estadístico.”*
-
 
 <div style="text-align: right">  ~ Adaptación de [@ellison2004primer] ~ </div>
 
 ---
-
-Podríamos resumir nuestro trabajo como científicos, desde la recolección de datos en el campo, hasta su divulgación a través del siguiente esquema:
-
-![](fig/workflow.jpg) 
-
-<div style="text-align: right">  ~ Adaptación de "R for Data Science" [@wickham2016r] ~ </div>
-
-</br>
-
----
-
-# Objetivos {-}
-
-El curso pretende proveer herramientas de programación básicas para llevar adelante el proceso de investigación tomando como base el esquema de trabajo anterior. Para ello, usaremos datos (reales o simulados) típicos del área de Ciencias Agrarias. Importante: i) no es un curso de estadística; ii) entendemos la programación como un simple medio para optimizar nuestra labor cotidiana (no como un fin mismo), al final del día seguiremos siendo fitopatólogos, fisiólogos,  bioquímicos, etc.; iii) maximizaremos la adopción de la filosofía [tidyverse](https://www.tidyverse.org/); y iv) obtendrán mayor provecho aquellas personas que se inician en R, ya que los contenidos pretenden ser de baja complejidad, posibilitando profundizar el conocimiento por los propios medios del alumno. 
-
-<hr>
 
 <div style="text-align: center">
 <b>¿Por qué R?</b> [@R-base]
 </div>
 
 
-<table class="table table-striped table-hover table-condensed table-responsive" style="font-size: 15px; width: auto !important; margin-left: auto; margin-right: auto;">
- 
-<tbody>
-  <tr>
-   <td style="text-align:left;"> <span style="-webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); -ms-transform: rotate(0deg); -o-transform: rotate(0deg); transform: rotate(0deg); display: inline-block; "><span style="     color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #666666 !important;text-align: c;">1</span></span> </td>
-   <td style="text-align:left;"> Software libre - multiplataforma </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> <span style="-webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); -ms-transform: rotate(0deg); -o-transform: rotate(0deg); transform: rotate(0deg); display: inline-block; "><span style="     color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #666666 !important;text-align: c;">2</span></span> </td>
-   <td style="text-align:left;"> Aprender un lenguaje de programación: ejercicio mental/lógica (Aprender estadística resulta mucho mas ameno) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> <span style="-webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); -ms-transform: rotate(0deg); -o-transform: rotate(0deg); transform: rotate(0deg); display: inline-block; "><span style="     color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #666666 !important;text-align: c;">3</span></span> </td>
-   <td style="text-align:left;"> Software actualizado y con una amplia gama de paquetes específicos (drc, agricolae, epiphy…) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> <span style="-webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); -ms-transform: rotate(0deg); -o-transform: rotate(0deg); transform: rotate(0deg); display: inline-block; "><span style="     color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #666666 !important;text-align: c;">4</span></span> </td>
-   <td style="text-align:left;"> Gran flexibilidad y elegancia de los gráficos </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> <span style="-webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); -ms-transform: rotate(0deg); -o-transform: rotate(0deg); transform: rotate(0deg); display: inline-block; "><span style="     color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #666666 !important;text-align: c;">5</span></span> </td>
-   <td style="text-align:left;"> Popularidad - Comunidad activa y creciente dispuesta a ayudar (aprendemos a usar terminos técnicos de ciencia de datos en inglés) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> <span style="-webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); -ms-transform: rotate(0deg); -o-transform: rotate(0deg); transform: rotate(0deg); display: inline-block; "><span style="     color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #666666 !important;text-align: c;">6</span></span> </td>
-   <td style="text-align:left;"> Programar ya no es sólo computación (CV/relevant skills) </td>
-  </tr>
-</tbody>
-</table>
+1. Software libre - multiplataforma
 
-</br>
+2. Aprender un lenguaje de programación: ejercicio mental/lógica (Aprender estadística resulta mucho más ameno)
 
 <center>
 ![](fig/pregunta_respuesta.jpg){width=400px}
 </center>
 
-</br>
+3. Amplia gama de paquetes específicos
 
 <center>
+![](fig/pckgs.jpg){width=400px}
+</center>
+
+4. Gran flexibilidad y elegancia de los gráficos
+
+ <center>
+![](fig/images.jpeg){width=300px}
+</center>
+
+5. Popularidad - Comunidad activa y creciente dispuesta a ayudar (aprendemos a usar terminos técnicos de data science en inglés)
+ 
+ <center>
 ![](fig/door.jpeg){width=400px}
 </center>
 
-</br>
+6. Programar ya no es sólo computación (CV/relevant skills) 
+
+---
+
+# Objetivos {-}
+
+* Acompañar la primer fase empinada de la curva de aprendizaje de un nuevo lenguaje, que a la larga redituará en multiples beneficios tanto profesionales como personales. 
+
+![](fig/learn.png){width=200px}
+
+
+* Proveer herramientas que optimicen nuestra labor cotidiana como recolectores/analistas de datos a lo largo de todo el flujo de trabajo 
+
+![](fig/workflow.jpg) 
+
+<div style="text-align: right">  ~ Adaptación de "R for Data Science" [@wickham2016r] ~ </div>
+
+**Importante:** 
+
+i) no es un curso de estadística
+
+ii) entendemos la programación como un simple medio para optimizar nuestra labor cotidiana (no como un fin mismo), al final del día seguiremos siendo fitopatólogos, fisiólogos,  bioquímicos, etc.
+
+iii) maximizaremos la adopción de la filosofía [tidyverse](https://www.tidyverse.org/) 

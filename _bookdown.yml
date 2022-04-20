@@ -1,5 +1,5 @@
 new_session: true
-book_filename: "R-Intro_2021"
+book_filename: "R_Intro_2022"
 output_dir: "docs"
 language:
   ui:

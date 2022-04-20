@@ -42,8 +42,10 @@ pacman::p_load(jtools, report)
 ```
 
 ```{r}
-model <- iris %>%
-  lm(formula = Sepal.Length ~ Petal.Width)
+model <- lm(formula = Sepal.Length ~ Petal.Width, data = iris)
+# show the theoretical model
+equatiomatic::extract_eq(model)
+```
 
 # R base
 anova(model)
