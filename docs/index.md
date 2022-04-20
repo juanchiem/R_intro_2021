@@ -34,8 +34,6 @@ github-repo: juanchiem/R_intro_2022
 ![](fig/installing.png){width=300px}
 </center>
 
-
-
 2. Aprender un lenguaje de programación: ejercicio mental/lógica (Mayor aprovechamiento de otros cursos específicos)
 
 <center>
@@ -61,7 +59,8 @@ github-repo: juanchiem/R_intro_2022
 </center>
 
 6. Programar ya no es sólo computación (CV/relevant skills) 
- <center>
+
+<center>
 ![](fig/resume.png){width=300px}
 </center>
 
