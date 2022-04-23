@@ -1,3 +1,11 @@
+# Tidyverse {-}
+
+<center>
+
+![](fig/tidy.png){width="600px"}
+
+</center>
+
 # Visualización 
 
 ## ggplot {-}
@@ -126,7 +134,7 @@ ggplot(iris) +
 
 <img src="5-visualizar_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" />
 
-### Como guardar los gráficos
+## ggsave
 
 
 ```r

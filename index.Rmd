@@ -117,4 +117,4 @@ i) no es un curso de estadística
 
 ii) entendemos la programación como un simple medio para optimizar nuestra labor cotidiana (no como un fin mismo), al final del día seguiremos siendo fitopatólogos, fisiólogos,  bioquímicos, etc.
 
-iii) maximizaremos la adopción de la filosofía [tidyverse](https://www.tidyverse.org/) 
+iii) maximizaremos la adopción de la sintaxis [tidyverse](https://www.tidyverse.org/) 

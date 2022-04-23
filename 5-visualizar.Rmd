@@ -1,3 +1,11 @@
+# Tidyverse {-}
+
+<center>
+
+![](fig/tidy.png){width="600px"}
+
+</center>
+
 # Visualización 
 
 ## ggplot {-}
@@ -104,7 +112,7 @@ ggplot(iris) +
   theme_bw()
 ```
 
-### Como guardar los gráficos
+## ggsave
 
 ```{r}
 ggsave(last_plot(), file="plots/iris_smooth.tiff", 

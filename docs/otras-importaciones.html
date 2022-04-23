@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Exploración y manipulación de datos con R</title>
-  <meta name="description" content="Exploración y manipulación de datos con R" />
+  <title>8 Otras importaciones | Exploración y manipulación de datos con R</title>
+  <meta name="description" content="8 Otras importaciones | Exploración y manipulación de datos con R" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Exploración y manipulación de datos con R" />
+  <meta property="og:title" content="8 Otras importaciones | Exploración y manipulación de datos con R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="juanchiem/R_intro_2022" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Exploración y manipulación de datos con R" />
+  <meta name="twitter:title" content="8 Otras importaciones | Exploración y manipulación de datos con R" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="tidyr.html"/>
 
-<link rel="next" href="objetivos.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -222,6 +222,19 @@ div.csl-indent {
 <li class="chapter" data-level="6.5" data-path="dplyr.html"><a href="dplyr.html#summarise"><i class="fa fa-check"></i><b>6.5</b> <code>summarise()</code></a></li>
 <li class="chapter" data-level="6.6" data-path="dplyr.html"><a href="dplyr.html#arrange"><i class="fa fa-check"></i><b>6.6</b> <code>arrange()</code></a></li>
 <li class="chapter" data-level="6.7" data-path="dplyr.html"><a href="dplyr.html#forcats"><i class="fa fa-check"></i><b>6.7</b> {forcats}</a></li>
+<li class="chapter" data-level="6.8" data-path="dplyr.html"><a href="dplyr.html#join"><i class="fa fa-check"></i><b>6.8</b> <code>join()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="tidyr.html"><a href="tidyr.html"><i class="fa fa-check"></i><b>7</b> {tidyr}</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="tidyr.html"><a href="tidyr.html#pivot_longer"><i class="fa fa-check"></i><b>7.1</b> <code>pivot_longer()</code></a></li>
+<li class="chapter" data-level="7.2" data-path="tidyr.html"><a href="tidyr.html#unite"><i class="fa fa-check"></i><b>7.2</b> <code>unite()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="otras-importaciones.html"><a href="otras-importaciones.html"><i class="fa fa-check"></i><b>8</b> Otras importaciones</a>
+<ul>
+<li class="chapter" data-level="8.0.1" data-path="otras-importaciones.html"><a href="otras-importaciones.html#importación-multiple-con-rio"><i class="fa fa-check"></i><b>8.0.1</b> Importación multiple con {rio}</a></li>
+<li class="chapter" data-level="8.0.2" data-path="otras-importaciones.html"><a href="otras-importaciones.html#desde-googlesheets"><i class="fa fa-check"></i><b>8.0.2</b> Desde googlesheets</a></li>
+<li class="chapter" data-level="8.0.3" data-path="otras-importaciones.html"><a href="otras-importaciones.html#api-de-nasapower"><i class="fa fa-check"></i><b>8.0.3</b> API de Nasapower</a></li>
+<li class="chapter" data-level="8.1" data-path="otras-importaciones.html"><a href="otras-importaciones.html#exportar"><i class="fa fa-check"></i><b>8.1</b> Exportar</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="_blank">Published with bookdown</a></li>
@@ -243,64 +256,80 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Exploración y manipulación de datos con R</h1>
-<p class="author"><em></em></p>
+<div id="otras-importaciones" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> Otras importaciones</h1>
+<div id="importación-multiple-con-rio" class="section level3" number="8.0.1">
+<h3><span class="header-section-number">8.0.1</span> Importación multiple con {rio}</h3>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="otras-importaciones.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
+<span id="cb105-2"><a href="otras-importaciones.html#cb105-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-3"><a href="otras-importaciones.html#cb105-3" aria-hidden="true" tabindex="-1"></a>bce_serie <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<span id="cb105-4"><a href="otras-importaciones.html#cb105-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">import_list</span>(<span class="at">file=</span> <span class="st">&quot;data/eea_serie.xls&quot;</span>),</span>
+<span id="cb105-5"><a href="otras-importaciones.html#cb105-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">.id =</span> <span class="st">&quot;year&quot;</span>)</span>
+<span id="cb105-6"><a href="otras-importaciones.html#cb105-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-7"><a href="otras-importaciones.html#cb105-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(bce_serie)</span></code></pre></div>
 </div>
-<div id="motivación" class="section level1 unnumbered">
-<h1>Motivación</h1>
-<p><img src="fig/top1.png" width="400" height="400" align="right" alt="Cover image" /></p>
-<p><em>“Una de las cosas más importantes que puedes hacer es dedicar un tiempo para aprender un lenguaje de programación. Aprender a programar es como aprender otro idioma: requiere tiempo y entrenamiento, y no hay resultados prácticos inmediatos. Pero si superas esa primera subida empinada de la curva de aprendizaje, las ganancias como científico son enormes. Programar no sólo te liberará de la camisa de fuerza de los softwares estadísticos cerrados, sino que también agudizará tus habilidades analíticas y ampliará los horizontes de modelado ecológico y estadístico.”</em></p>
-<div style="text-align: right">
-~ Adaptación de <span class="citation">(Ellison and Gotelli 2004)</span> ~
+<div id="desde-googlesheets" class="section level3" number="8.0.2">
+<h3><span class="header-section-number">8.0.2</span> Desde googlesheets</h3>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="otras-importaciones.html#cb106-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(gsheet, janitor)</span></code></pre></div>
+<p>Importemos “soja”</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="otras-importaciones.html#cb107-1" aria-hidden="true" tabindex="-1"></a>url_soja <span class="ot">&lt;-</span> <span class="st">&quot;https://docs.google.com/spreadsheets/d/1c_FXVNkkj4LD8hVUForaaI24UhRauh_tWsy7sFRSM2k/edit#gid=1579441844&quot;</span></span>
+<span id="cb107-2"><a href="otras-importaciones.html#cb107-2" aria-hidden="true" tabindex="-1"></a><span class="fu">browseURL</span>(url_data)</span>
+<span id="cb107-3"><a href="otras-importaciones.html#cb107-3" aria-hidden="true" tabindex="-1"></a>soja <span class="ot">&lt;-</span> <span class="fu">gsheet2tbl</span>(url_soja) <span class="sc">%&gt;%</span> </span>
+<span id="cb107-4"><a href="otras-importaciones.html#cb107-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
+<span id="cb107-5"><a href="otras-importaciones.html#cb107-5" aria-hidden="true" tabindex="-1"></a>soja</span></code></pre></div>
 </div>
-<hr />
-<div style="text-align: center">
-<p><b>¿Por qué R?</b> <span class="citation">(R Core Team 2017)</span></p>
+<div id="api-de-nasapower" class="section level3" number="8.0.3">
+<h3><span class="header-section-number">8.0.3</span> API de Nasapower</h3>
+<p>Meteo de Balcarce durante 2020</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="otras-importaciones.html#cb108-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(nasapower, lubridate)</span>
+<span id="cb108-2"><a href="otras-importaciones.html#cb108-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-3"><a href="otras-importaciones.html#cb108-3" aria-hidden="true" tabindex="-1"></a>bce_wea_2020 <span class="ot">&lt;-</span> <span class="fu">get_power</span>(</span>
+<span id="cb108-4"><a href="otras-importaciones.html#cb108-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">community =</span> <span class="st">&quot;AG&quot;</span>,</span>
+<span id="cb108-5"><a href="otras-importaciones.html#cb108-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">lonlat =</span>  <span class="fu">c</span>(<span class="sc">-</span><span class="fl">58.3</span>, <span class="sc">-</span><span class="fl">37.75</span>),</span>
+<span id="cb108-6"><a href="otras-importaciones.html#cb108-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">&quot;ALLSKY_SFC_SW_DWN&quot;</span>),</span>
+<span id="cb108-7"><a href="otras-importaciones.html#cb108-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">dates =</span> <span class="fu">c</span>(<span class="st">&quot;1-6-2020&quot;</span>, <span class="st">&quot;15-6-2020&quot;</span>),</span>
+<span id="cb108-8"><a href="otras-importaciones.html#cb108-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">temporal_api =</span> <span class="st">&quot;daily&quot;</span></span>
+<span id="cb108-9"><a href="otras-importaciones.html#cb108-9" aria-hidden="true" tabindex="-1"></a>) </span>
+<span id="cb108-10"><a href="otras-importaciones.html#cb108-10" aria-hidden="true" tabindex="-1"></a>bce_wea_2020</span></code></pre></div>
+<p>Clima de Balcarce</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="otras-importaciones.html#cb109-1" aria-hidden="true" tabindex="-1"></a>bce_clima <span class="ot">&lt;-</span> <span class="fu">get_power</span>(</span>
+<span id="cb109-2"><a href="otras-importaciones.html#cb109-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">community =</span> <span class="st">&quot;ag&quot;</span>,</span>
+<span id="cb109-3"><a href="otras-importaciones.html#cb109-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">&quot;RH2M&quot;</span>, <span class="st">&quot;T2M&quot;</span>, <span class="st">&quot;ALLSKY_SFC_SW_DWN&quot;</span>),</span>
+<span id="cb109-4"><a href="otras-importaciones.html#cb109-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">lonlat =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">58.3</span>, <span class="sc">-</span><span class="fl">37.75</span>),</span>
+<span id="cb109-5"><a href="otras-importaciones.html#cb109-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">temporal_api =</span> <span class="st">&quot;climatology&quot;</span></span>
+<span id="cb109-6"><a href="otras-importaciones.html#cb109-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb109-7"><a href="otras-importaciones.html#cb109-7" aria-hidden="true" tabindex="-1"></a>bce_temp</span></code></pre></div>
 </div>
-<ol style="list-style-type: decimal">
-<li>Software libre - multiplataforma
-<center>
-<img src="fig/installing.png" width="300" />
-</center></li>
-<li>Aprender un lenguaje de programación: ejercicio mental/lógica (Mayor aprovechamiento de otros cursos específicos)</li>
-</ol>
-<center>
-<img src="fig/pregunta_respuesta.jpg" width="300" />
-</center>
-<ol start="3" style="list-style-type: decimal">
-<li>Amplia gama de paquetes específicos</li>
-</ol>
-<center>
-<img src="fig/pckgs.jpg" width="300" />
-</center>
-<ol start="4" style="list-style-type: decimal">
-<li>Gran flexibilidad y elegancia de los gráficos</li>
-</ol>
-<center>
-<img src="fig/images.jpeg" width="300" />
-</center>
-<ol start="5" style="list-style-type: decimal">
-<li>Popularidad - Comunidad activa y creciente dispuesta a ayudar (aprendemos a usar terminos técnicos de data science en inglés)</li>
-</ol>
-<center>
-<img src="fig/door.jpeg" width="300" />
-</center>
-<ol start="6" style="list-style-type: decimal">
-<li>Programar ya no es sólo computación (CV/relevant skills)</li>
-</ol>
-<center>
-<img src="fig/resume.png" width="300" />
-</center>
-<hr />
+<div id="exportar" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> Exportar</h2>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="otras-importaciones.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="fu">export</span>(bce_wea_2020, <span class="at">file=</span><span class="st">&quot;data/bce_wea_2020.xlsx&quot;</span>)</span></code></pre></div>
+
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div class="csl-entry">
+Drummond, GB, and SL Vowler. 2011. <span>“Show the Data, Don’t Conceal Them.”</span> <em>British Journal of Pharmacology</em> 163 (2): 208–10. <a href="https://doi.org/10.1111/j.1476-5381.2011.01251.x">https://doi.org/10.1111/j.1476-5381.2011.01251.x</a>.
+</div>
+<div class="csl-entry">
+Ellison, GN, and NJ Gotelli. 2004. <span>“A Primer of Ecological Statistics.”</span> <em>Sinauer, Sunderland, Massachusetts, USA</em>.
+</div>
+<div class="csl-entry">
+R Core Team. 2017. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+<div class="csl-entry">
+Weissgerber, Natasa M. AND Winham, Tracey L. AND Milic. 2015. <span>“Beyond Bar and Line Graphs: Time for a New Data Presentation Paradigm.”</span> <em>PLOS Biology</em> 13 (4): 1–10. <a href="https://doi.org/10.1371/journal.pbio.1002128">https://doi.org/10.1371/journal.pbio.1002128</a>.
+</div>
+<div class="csl-entry">
+Wickham, Hadley, and Garrett Grolemund. 2016. <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>. " O’Reilly Media, Inc.". <a href="http://r4ds.had.co.nz/">http://r4ds.had.co.nz/</a>.
+</div>
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
+<a href="tidyr.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="objetivos.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

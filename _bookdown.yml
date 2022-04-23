@@ -13,9 +13,9 @@ rmd_files: [
 "2-sintaxis.Rmd",
 "3-data_type.Rmd",
 "4-data_str.Rmd",
-"5-visualizar.Rmd"
-# "6-importar.Rmd",
-# "7-reestructurar.Rmd",
+"5-visualizar.Rmd",
+"6-dplyr.Rmd"
+# "7-restruct.Rmd"
 # "8-modificar.Rmd",
 # "9-depurar.Rmd",
 # "10-modelar1.Rmd",

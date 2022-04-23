@@ -208,7 +208,7 @@ str(geno_f)
 
 ## Secuencias
 
-### Numéricas {.unnumbered}
+### Numéricas {-}
 
 
 ```r
@@ -219,7 +219,7 @@ seq(from = 0, to = 20, #by=2) #
 rep(1:3, times=3) #  , each=3   
 ```
 
-### Letras {.unnumbered}
+### Letras {-}
 
 
 ```r
@@ -227,14 +227,14 @@ LETTERS
 rep(c("a","b", "c"), times=3) #  , each=3   
 ```
 
-### Fechas {.unnumbered}
+### Fechas {-}
 
 
 ```r
 seq(as.Date("2015-01-15"), as.Date("2015-12-15"), "1 month")
 ```
 
-## Números aleatorios
+## Números aleatorios 
 
 La generación de números aleatorios es en muchas ocasiones un requerimiento esencial en investigación científica. Proceder de este modo puede reducir cualquier sesgo generado por nuestra persona a la hora de seleccionar una muestra, o aplicar un tratamiento a una unidad experimental.
 

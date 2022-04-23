@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Exploración y manipulación de datos con R</title>
-  <meta name="description" content="Exploración y manipulación de datos con R" />
+  <title>6 {forcats} | Exploración y manipulación de datos con R</title>
+  <meta name="description" content="6 {forcats} | Exploración y manipulación de datos con R" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Exploración y manipulación de datos con R" />
+  <meta property="og:title" content="6 {forcats} | Exploración y manipulación de datos con R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="juanchiem/R_intro_2022" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Exploración y manipulación de datos con R" />
+  <meta name="twitter:title" content="6 {forcats} | Exploración y manipulación de datos con R" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="tidyverse.html"/>
 
-<link rel="next" href="objetivos.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -198,31 +198,24 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="" data-path="estructura-de-datos.html"><a href="estructura-de-datos.html#data-frames"><i class="fa fa-check"></i>Data frames</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="tidyverse.html"><a href="tidyverse.html"><i class="fa fa-check"></i>Tidyverse</a></li>
 <li class="chapter" data-level="5" data-path="visualización.html"><a href="visualización.html"><i class="fa fa-check"></i><b>5</b> Visualización</a>
 <ul>
 <li class="chapter" data-level="" data-path="visualización.html"><a href="visualización.html#ggplot"><i class="fa fa-check"></i>ggplot</a></li>
-<li class="chapter" data-level="5.1" data-path="visualización.html"><a href="visualización.html#ambas-variables-contínuas"><i class="fa fa-check"></i><b>5.1</b> Ambas variables contínuas</a></li>
-<li class="chapter" data-level="5.2" data-path="visualización.html"><a href="visualización.html#ggsave"><i class="fa fa-check"></i><b>5.2</b> ggsave</a></li>
-<li class="chapter" data-level="5.3" data-path="visualización.html"><a href="visualización.html#comparación-de-niveles-de-factores"><i class="fa fa-check"></i><b>5.3</b> Comparación de niveles de factores</a>
+<li class="chapter" data-level="5.1" data-path="visualización.html"><a href="visualización.html#ambas-variables-contínuas"><i class="fa fa-check"></i><b>5.1</b> Ambas variables contínuas</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="visualización.html"><a href="visualización.html#observaciones-media-mediana"><i class="fa fa-check"></i><b>5.3.1</b> Observaciones + media / mediana</a></li>
-<li class="chapter" data-level="5.3.2" data-path="visualización.html"><a href="visualización.html#barplot-se"><i class="fa fa-check"></i><b>5.3.2</b> Barplot + SE</a></li>
-<li class="chapter" data-level="5.3.3" data-path="visualización.html"><a href="visualización.html#box-plot"><i class="fa fa-check"></i><b>5.3.3</b> Box-plot</a></li>
-<li class="chapter" data-level="5.3.4" data-path="visualización.html"><a href="visualización.html#violin-plot"><i class="fa fa-check"></i><b>5.3.4</b> Violin plot</a></li>
-<li class="chapter" data-level="5.3.5" data-path="visualización.html"><a href="visualización.html#media-dispersión"><i class="fa fa-check"></i><b>5.3.5</b> Media &amp; dispersión</a></li>
+<li class="chapter" data-level="5.1.1" data-path="visualización.html"><a href="visualización.html#como-guardar-los-gráficos"><i class="fa fa-check"></i><b>5.1.1</b> Como guardar los gráficos</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>6</b> {dplyr}</a>
+<li class="chapter" data-level="5.2" data-path="visualización.html"><a href="visualización.html#comparación-de-niveles-de-factores"><i class="fa fa-check"></i><b>5.2</b> Comparación de niveles de factores</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="dplyr.html"><a href="dplyr.html#mutate"><i class="fa fa-check"></i><b>6.1</b> <code>mutate()</code></a></li>
-<li class="chapter" data-level="6.2" data-path="dplyr.html"><a href="dplyr.html#select"><i class="fa fa-check"></i><b>6.2</b> <code>select()</code></a></li>
-<li class="chapter" data-level="6.3" data-path="dplyr.html"><a href="dplyr.html#filter"><i class="fa fa-check"></i><b>6.3</b> <code>filter()</code></a></li>
-<li class="chapter" data-level="6.4" data-path="dplyr.html"><a href="dplyr.html#count"><i class="fa fa-check"></i><b>6.4</b> <code>count()</code></a></li>
-<li class="chapter" data-level="6.5" data-path="dplyr.html"><a href="dplyr.html#summarise"><i class="fa fa-check"></i><b>6.5</b> <code>summarise()</code></a></li>
-<li class="chapter" data-level="6.6" data-path="dplyr.html"><a href="dplyr.html#arrange"><i class="fa fa-check"></i><b>6.6</b> <code>arrange()</code></a></li>
-<li class="chapter" data-level="6.7" data-path="dplyr.html"><a href="dplyr.html#forcats"><i class="fa fa-check"></i><b>6.7</b> {forcats}</a></li>
+<li class="chapter" data-level="5.2.1" data-path="visualización.html"><a href="visualización.html#observaciones-media-mediana"><i class="fa fa-check"></i><b>5.2.1</b> Observaciones + media / mediana</a></li>
+<li class="chapter" data-level="5.2.2" data-path="visualización.html"><a href="visualización.html#barplot-se"><i class="fa fa-check"></i><b>5.2.2</b> Barplot + SE</a></li>
+<li class="chapter" data-level="5.2.3" data-path="visualización.html"><a href="visualización.html#box-plot"><i class="fa fa-check"></i><b>5.2.3</b> Box-plot</a></li>
+<li class="chapter" data-level="5.2.4" data-path="visualización.html"><a href="visualización.html#violin-plot"><i class="fa fa-check"></i><b>5.2.4</b> Violin plot</a></li>
+<li class="chapter" data-level="5.2.5" data-path="visualización.html"><a href="visualización.html#media-dispersión"><i class="fa fa-check"></i><b>5.2.5</b> Media &amp; dispersión</a></li>
 </ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="tidyverse.html"><a href="tidyverse.html"><i class="fa fa-check"></i>Tidyverse</a></li>
+<li class="chapter" data-level="6" data-path="forcats.html"><a href="forcats.html"><i class="fa fa-check"></i><b>6</b> {forcats}</a></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="_blank">Published with bookdown</a></li>
 
@@ -243,64 +236,71 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Exploración y manipulación de datos con R</h1>
-<p class="author"><em></em></p>
+<div id="forcats" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> {forcats}</h1>
+<p>El paquete <code>{forcats}</code> hace un aporte clave para la manipulación de los niveles de un factor. Retomemos un ejemplo de tipico de visualización con <code>iris</code></p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="forcats.html#cb87-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
+<span id="cb87-2"><a href="forcats.html#cb87-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb87-3"><a href="forcats.html#cb87-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>Species, <span class="at">y=</span>Sepal.Length)<span class="sc">+</span></span>
+<span id="cb87-4"><a href="forcats.html#cb87-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill=</span><span class="st">&quot;gray90&quot;</span>)<span class="sc">+</span></span>
+<span id="cb87-5"><a href="forcats.html#cb87-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>()<span class="sc">+</span></span>
+<span id="cb87-6"><a href="forcats.html#cb87-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span> <span class="st">&quot;Species&quot;</span>, <span class="at">y=</span><span class="st">&quot;Sepal length (cm)&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb87-7"><a href="forcats.html#cb87-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<blockquote>
+<p>Reordenar niveles de un factor</p>
+</blockquote>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="forcats.html#cb88-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
+<span id="cb88-2"><a href="forcats.html#cb88-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb88-3"><a href="forcats.html#cb88-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Species=</span> <span class="fu">fct_relevel</span>(Species,<span class="st">&quot;virginica&quot;</span>)</span>
+<span id="cb88-4"><a href="forcats.html#cb88-4" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb88-5"><a href="forcats.html#cb88-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb88-6"><a href="forcats.html#cb88-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>Species, <span class="at">y=</span>Sepal.Length)<span class="sc">+</span></span>
+<span id="cb88-7"><a href="forcats.html#cb88-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill=</span><span class="st">&quot;gray90&quot;</span>)<span class="sc">+</span></span>
+<span id="cb88-8"><a href="forcats.html#cb88-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>()<span class="sc">+</span></span>
+<span id="cb88-9"><a href="forcats.html#cb88-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span> <span class="st">&quot;Species&quot;</span>, <span class="at">y=</span><span class="st">&quot;Sepal length (cm)&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb88-10"><a href="forcats.html#cb88-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<blockquote>
+<p>Renombrar niveles de un factor</p>
+</blockquote>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="forcats.html#cb89-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
+<span id="cb89-2"><a href="forcats.html#cb89-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb89-3"><a href="forcats.html#cb89-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Species=</span> <span class="fu">fct_recode</span>(Species,</span>
+<span id="cb89-4"><a href="forcats.html#cb89-4" aria-hidden="true" tabindex="-1"></a>                        <span class="st">&quot;Setosa&quot;</span><span class="ot">=</span><span class="st">&quot;setosa&quot;</span>, </span>
+<span id="cb89-5"><a href="forcats.html#cb89-5" aria-hidden="true" tabindex="-1"></a>                        <span class="st">&quot;Versicolor&quot;</span><span class="ot">=</span><span class="st">&quot;versicolor&quot;</span>, </span>
+<span id="cb89-6"><a href="forcats.html#cb89-6" aria-hidden="true" tabindex="-1"></a>                        <span class="st">&quot;Virginica&quot;</span><span class="ot">=</span><span class="st">&quot;virginica&quot;</span>)</span>
+<span id="cb89-7"><a href="forcats.html#cb89-7" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb89-8"><a href="forcats.html#cb89-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb89-9"><a href="forcats.html#cb89-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>Species, <span class="at">y=</span>Sepal.Length)<span class="sc">+</span></span>
+<span id="cb89-10"><a href="forcats.html#cb89-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill=</span><span class="st">&quot;gray90&quot;</span>)<span class="sc">+</span></span>
+<span id="cb89-11"><a href="forcats.html#cb89-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>()<span class="sc">+</span></span>
+<span id="cb89-12"><a href="forcats.html#cb89-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span> <span class="st">&quot;Species&quot;</span>, <span class="at">y=</span><span class="st">&quot;Sepal length (cm)&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb89-13"><a href="forcats.html#cb89-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div class="csl-entry">
+Drummond, GB, and SL Vowler. 2011. <span>“Show the Data, Don’t Conceal Them.”</span> <em>British Journal of Pharmacology</em> 163 (2): 208–10. <a href="https://doi.org/10.1111/j.1476-5381.2011.01251.x">https://doi.org/10.1111/j.1476-5381.2011.01251.x</a>.
 </div>
-<div id="motivación" class="section level1 unnumbered">
-<h1>Motivación</h1>
-<p><img src="fig/top1.png" width="400" height="400" align="right" alt="Cover image" /></p>
-<p><em>“Una de las cosas más importantes que puedes hacer es dedicar un tiempo para aprender un lenguaje de programación. Aprender a programar es como aprender otro idioma: requiere tiempo y entrenamiento, y no hay resultados prácticos inmediatos. Pero si superas esa primera subida empinada de la curva de aprendizaje, las ganancias como científico son enormes. Programar no sólo te liberará de la camisa de fuerza de los softwares estadísticos cerrados, sino que también agudizará tus habilidades analíticas y ampliará los horizontes de modelado ecológico y estadístico.”</em></p>
-<div style="text-align: right">
-~ Adaptación de <span class="citation">(Ellison and Gotelli 2004)</span> ~
+<div class="csl-entry">
+Ellison, GN, and NJ Gotelli. 2004. <span>“A Primer of Ecological Statistics.”</span> <em>Sinauer, Sunderland, Massachusetts, USA</em>.
 </div>
-<hr />
-<div style="text-align: center">
-<p><b>¿Por qué R?</b> <span class="citation">(R Core Team 2017)</span></p>
+<div class="csl-entry">
+R Core Team. 2017. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
 </div>
-<ol style="list-style-type: decimal">
-<li>Software libre - multiplataforma
-<center>
-<img src="fig/installing.png" width="300" />
-</center></li>
-<li>Aprender un lenguaje de programación: ejercicio mental/lógica (Mayor aprovechamiento de otros cursos específicos)</li>
-</ol>
-<center>
-<img src="fig/pregunta_respuesta.jpg" width="300" />
-</center>
-<ol start="3" style="list-style-type: decimal">
-<li>Amplia gama de paquetes específicos</li>
-</ol>
-<center>
-<img src="fig/pckgs.jpg" width="300" />
-</center>
-<ol start="4" style="list-style-type: decimal">
-<li>Gran flexibilidad y elegancia de los gráficos</li>
-</ol>
-<center>
-<img src="fig/images.jpeg" width="300" />
-</center>
-<ol start="5" style="list-style-type: decimal">
-<li>Popularidad - Comunidad activa y creciente dispuesta a ayudar (aprendemos a usar terminos técnicos de data science en inglés)</li>
-</ol>
-<center>
-<img src="fig/door.jpeg" width="300" />
-</center>
-<ol start="6" style="list-style-type: decimal">
-<li>Programar ya no es sólo computación (CV/relevant skills)</li>
-</ol>
-<center>
-<img src="fig/resume.png" width="300" />
-</center>
-<hr />
+<div class="csl-entry">
+Weissgerber, Natasa M. AND Winham, Tracey L. AND Milic. 2015. <span>“Beyond Bar and Line Graphs: Time for a New Data Presentation Paradigm.”</span> <em>PLOS Biology</em> 13 (4): 1–10. <a href="https://doi.org/10.1371/journal.pbio.1002128">https://doi.org/10.1371/journal.pbio.1002128</a>.
+</div>
+<div class="csl-entry">
+Wickham, Hadley, and Garrett Grolemund. 2016. <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>. " O’Reilly Media, Inc.". <a href="http://r4ds.had.co.nz/">http://r4ds.had.co.nz/</a>.
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
+<a href="tidyverse.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="objetivos.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
