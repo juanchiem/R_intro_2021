@@ -231,10 +231,10 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="8" data-path="otras-importaciones.html"><a href="otras-importaciones.html"><i class="fa fa-check"></i><b>8</b> Otras importaciones</a>
 <ul>
-<li class="chapter" data-level="8.0.1" data-path="otras-importaciones.html"><a href="otras-importaciones.html#importación-multiple-con-rio"><i class="fa fa-check"></i><b>8.0.1</b> Importación multiple con {rio}</a></li>
-<li class="chapter" data-level="8.0.2" data-path="otras-importaciones.html"><a href="otras-importaciones.html#desde-googlesheets"><i class="fa fa-check"></i><b>8.0.2</b> Desde googlesheets</a></li>
-<li class="chapter" data-level="8.0.3" data-path="otras-importaciones.html"><a href="otras-importaciones.html#api-de-nasapower"><i class="fa fa-check"></i><b>8.0.3</b> API de Nasapower</a></li>
-<li class="chapter" data-level="8.1" data-path="otras-importaciones.html"><a href="otras-importaciones.html#exportar"><i class="fa fa-check"></i><b>8.1</b> Exportar</a></li>
+<li class="chapter" data-level="8.1" data-path="otras-importaciones.html"><a href="otras-importaciones.html#importación-multiple-con-rio"><i class="fa fa-check"></i><b>8.1</b> Importación multiple con {rio}</a></li>
+<li class="chapter" data-level="8.2" data-path="otras-importaciones.html"><a href="otras-importaciones.html#desde-googlesheets"><i class="fa fa-check"></i><b>8.2</b> Desde googlesheets</a></li>
+<li class="chapter" data-level="8.3" data-path="otras-importaciones.html"><a href="otras-importaciones.html#api-de-nasapower"><i class="fa fa-check"></i><b>8.3</b> API de Nasapower</a></li>
+<li class="chapter" data-level="8.4" data-path="otras-importaciones.html"><a href="otras-importaciones.html#exportar"><i class="fa fa-check"></i><b>8.4</b> Exportar</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="_blank">Published with bookdown</a></li>
@@ -270,7 +270,7 @@ div.csl-indent {
 <span id="cb97-2"><a href="tidyr.html#cb97-2" aria-hidden="true" tabindex="-1"></a>soja</span></code></pre></div>
 <p>En este caso necesitamos generar una columna <code>bk</code> y <code>yield</code>, o sea, tornar soja de “wide” a “long”:</p>
 <div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="tidyr.html#cb98-1" aria-hidden="true" tabindex="-1"></a>soja <span class="sc">%&gt;%</span> </span>
-<span id="cb98-2"><a href="tidyr.html#cb98-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols=</span><span class="fu">contains</span>(<span class="st">&quot;_&quot;</span>), </span>
+<span id="cb98-2"><a href="tidyr.html#cb98-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols=</span><span class="fu">c</span>(bk_1, bk_2, bk_3, bk_4), <span class="co"># contains(&quot;_&quot;) # bk_1:bk_4</span></span>
 <span id="cb98-3"><a href="tidyr.html#cb98-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&quot;bk&quot;</span>, </span>
 <span id="cb98-4"><a href="tidyr.html#cb98-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;yield&quot;</span>, </span>
 <span id="cb98-5"><a href="tidyr.html#cb98-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_prefix =</span> <span class="st">&quot;bk_&quot;</span>) <span class="ot">-&gt;</span> soja_long </span></code></pre></div>
@@ -286,7 +286,7 @@ div.csl-indent {
 <span id="cb100-7"><a href="tidyr.html#cb100-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb100-8"><a href="tidyr.html#cb100-8" aria-hidden="true" tabindex="-1"></a>can_long</span>
 <span id="cb100-9"><a href="tidyr.html#cb100-9" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(can_long)</span></code></pre></div>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="tidyr.html#cb101-1" aria-hidden="true" tabindex="-1"></a>can_long2 <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="tidyr.html#cb101-1" aria-hidden="true" tabindex="-1"></a>can_long <span class="sc">%&gt;%</span> </span>
 <span id="cb101-2"><a href="tidyr.html#cb101-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="st">&quot;tt&quot;</span>, as.numeric) <span class="sc">%&gt;%</span> </span>
 <span id="cb101-3"><a href="tidyr.html#cb101-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb101-4"><a href="tidyr.html#cb101-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>tt, <span class="at">y=</span>inc, <span class="at">group=</span><span class="dv">1</span>)<span class="sc">+</span></span>

@@ -29,3 +29,12 @@ count
 summarise
 arrange
 forcats
+join
+tidyr
+pivot_longer
+unite
+otras-importaciones
+importación-multiple-con-rio
+desde-googlesheets
+api-de-nasapower
+exportar

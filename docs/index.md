@@ -40,6 +40,12 @@ github-repo: juanchiem/R_intro_2022
 ![](fig/pregunta_respuesta.jpg){width=300px}
 </center>
 
+<center>
+![](fig/steve_jobs.png){width=300px}
+</center>
+
+(Si quieren aprender a fondo matemática, aprendan programación, si quieren aprender a fondo biología, aprendan programación)
+
 3. Amplia gama de paquetes específicos
 
 <center>
@@ -58,6 +64,12 @@ github-repo: juanchiem/R_intro_2022
 ![](fig/door.jpeg){width=300px}
 </center>
 
+ <center>
+![](fig/tren.png){width=300px}
+
+</center>
+
+
 6. Programar ya no es sólo computación (CV/relevant skills) 
 
 <center>
@@ -73,7 +85,9 @@ github-repo: juanchiem/R_intro_2022
 ![](fig/learn.png){width=200px}
 
 
-* Proveer herramientas que optimicen nuestra labor cotidiana como recolectores/analistas de datos a lo largo de todo el flujo de trabajo 
+* Proveer herramientas que optimicen nuestra labor cotidiana como recolectores/analistas de datos a lo largo de todo el flujo de trabajo.
+
+
 
 ![](fig/workflow.jpg) 
 

@@ -181,6 +181,7 @@ bce_met2 %>%
 
 ##  `summarise()` 
 
+![](fig/dplyr_summarise.png){width=600px}
 Reduce multiples valores a valores resumenes. Generalmente combinado con `group_by()`
 
 > para cada mes: cuantos dias helaron y cual fue la temp media

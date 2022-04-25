@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="visualización.html"/>
-
+<link rel="next" href="tidyr.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -222,6 +222,19 @@ div.csl-indent {
 <li class="chapter" data-level="6.5" data-path="dplyr.html"><a href="dplyr.html#summarise"><i class="fa fa-check"></i><b>6.5</b> <code>summarise()</code></a></li>
 <li class="chapter" data-level="6.6" data-path="dplyr.html"><a href="dplyr.html#arrange"><i class="fa fa-check"></i><b>6.6</b> <code>arrange()</code></a></li>
 <li class="chapter" data-level="6.7" data-path="dplyr.html"><a href="dplyr.html#forcats"><i class="fa fa-check"></i><b>6.7</b> {forcats}</a></li>
+<li class="chapter" data-level="6.8" data-path="dplyr.html"><a href="dplyr.html#join"><i class="fa fa-check"></i><b>6.8</b> <code>join()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="tidyr.html"><a href="tidyr.html"><i class="fa fa-check"></i><b>7</b> {tidyr}</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="tidyr.html"><a href="tidyr.html#pivot_longer"><i class="fa fa-check"></i><b>7.1</b> <code>pivot_longer()</code></a></li>
+<li class="chapter" data-level="7.2" data-path="tidyr.html"><a href="tidyr.html#unite"><i class="fa fa-check"></i><b>7.2</b> <code>unite()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="otras-importaciones.html"><a href="otras-importaciones.html"><i class="fa fa-check"></i><b>8</b> Otras importaciones</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="otras-importaciones.html"><a href="otras-importaciones.html#importación-multiple-con-rio"><i class="fa fa-check"></i><b>8.1</b> Importación multiple con {rio}</a></li>
+<li class="chapter" data-level="8.2" data-path="otras-importaciones.html"><a href="otras-importaciones.html#desde-googlesheets"><i class="fa fa-check"></i><b>8.2</b> Desde googlesheets</a></li>
+<li class="chapter" data-level="8.3" data-path="otras-importaciones.html"><a href="otras-importaciones.html#api-de-nasapower"><i class="fa fa-check"></i><b>8.3</b> API de Nasapower</a></li>
+<li class="chapter" data-level="8.4" data-path="otras-importaciones.html"><a href="otras-importaciones.html#exportar"><i class="fa fa-check"></i><b>8.4</b> Exportar</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="_blank">Published with bookdown</a></li>
@@ -355,7 +368,8 @@ div.csl-indent {
 </div>
 <div id="summarise" class="section level2" number="6.5">
 <h2><span class="header-section-number">6.5</span> <code>summarise()</code></h2>
-<p>Reduce multiples valores a valores resumenes. Generalmente combinado con <code>group_by()</code></p>
+<p><img src="fig/dplyr_summarise.png" width="600" />
+Reduce multiples valores a valores resumenes. Generalmente combinado con <code>group_by()</code></p>
 <blockquote>
 <p>para cada mes: cuantos dias helaron y cual fue la temp media</p>
 </blockquote>
@@ -443,23 +457,46 @@ div.csl-indent {
 <span id="cb90-12"><a href="dplyr.html#cb90-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span> <span class="st">&quot;Species&quot;</span>, <span class="at">y=</span><span class="st">&quot;Sepal length (cm)&quot;</span>) <span class="sc">+</span> </span>
 <span id="cb90-13"><a href="dplyr.html#cb90-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div class="csl-entry">
-Drummond, GB, and SL Vowler. 2011. <span>“Show the Data, Don’t Conceal Them.”</span> <em>British Journal of Pharmacology</em> 163 (2): 208–10. <a href="https://doi.org/10.1111/j.1476-5381.2011.01251.x">https://doi.org/10.1111/j.1476-5381.2011.01251.x</a>.
 </div>
-<div class="csl-entry">
-Ellison, GN, and NJ Gotelli. 2004. <span>“A Primer of Ecological Statistics.”</span> <em>Sinauer, Sunderland, Massachusetts, USA</em>.
-</div>
-<div class="csl-entry">
-R Core Team. 2017. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
-</div>
-<div class="csl-entry">
-Weissgerber, Natasa M. AND Winham, Tracey L. AND Milic. 2015. <span>“Beyond Bar and Line Graphs: Time for a New Data Presentation Paradigm.”</span> <em>PLOS Biology</em> 13 (4): 1–10. <a href="https://doi.org/10.1371/journal.pbio.1002128">https://doi.org/10.1371/journal.pbio.1002128</a>.
-</div>
-<div class="csl-entry">
-Wickham, Hadley, and Garrett Grolemund. 2016. <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>. " O’Reilly Media, Inc.". <a href="http://r4ds.had.co.nz/">http://r4ds.had.co.nz/</a>.
-</div>
-</div>
+<div id="join" class="section level2" number="6.8">
+<h2><span class="header-section-number">6.8</span> <code>join()</code></h2>
+<p>Retomemos los datos de bce_met2 que por suerte los tenemos guardados como .Rdata para un rapido retome (nos ahorramos los pasos anteriores)</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="dplyr.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="co"># paquetes que iremos a usar en esta sesion</span></span>
+<span id="cb91-2"><a href="dplyr.html#cb91-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, lubridate, rio, janitor, nasapower)</span>
+<span id="cb91-3"><a href="dplyr.html#cb91-3" aria-hidden="true" tabindex="-1"></a><span class="co"># datos guardados en la sesion previa</span></span>
+<span id="cb91-4"><a href="dplyr.html#cb91-4" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;data/datos_curso.Rdata&quot;</span>)</span></code></pre></div>
+<p>Nos acaban de pasar los datos de lluvias de Balcarce en 2018</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="dplyr.html#cb92-1" aria-hidden="true" tabindex="-1"></a>bce_lluvias_raw  <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">&quot;data/datos_curso.xls&quot;</span>, <span class="at">sheet =</span><span class="st">&quot;bce_lluvias&quot;</span>)</span></code></pre></div>
+<p>seria interesante poder acoplar a nuestro dataset <code>bce_met2</code></p>
+<p><img src="fig/joins.png" width="300" /></p>
+<p>Veamos los datos meteorologicos de Balcarce:</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="dplyr.html#cb93-1" aria-hidden="true" tabindex="-1"></a>bce_met2</span>
+<span id="cb93-2"><a href="dplyr.html#cb93-2" aria-hidden="true" tabindex="-1"></a>bce_lluvias_raw </span></code></pre></div>
+<p>Si hacemos la misma conversion fecha a date tendriamos una columna en comun</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="dplyr.html#cb94-1" aria-hidden="true" tabindex="-1"></a>bce_lluvias <span class="ot">&lt;-</span> bce_lluvias_raw <span class="sc">%&gt;%</span> </span>
+<span id="cb94-2"><a href="dplyr.html#cb94-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">dmy</span>(fecha)) <span class="sc">%&gt;%</span> </span>
+<span id="cb94-3"><a href="dplyr.html#cb94-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>fecha)</span>
+<span id="cb94-4"><a href="dplyr.html#cb94-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb94-5"><a href="dplyr.html#cb94-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(bce_lluvias)</span></code></pre></div>
+<p>Ahora hagamos uso de <code>left_join()</code> para que matcheen las filas y se peguen la columna de lluvia a bce_met2</p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="dplyr.html#cb95-1" aria-hidden="true" tabindex="-1"></a>bce_full <span class="ot">&lt;-</span> bce_met2 <span class="sc">%&gt;%</span> </span>
+<span id="cb95-2"><a href="dplyr.html#cb95-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(bce_lluvias, <span class="at">by=</span><span class="st">&quot;date&quot;</span>) </span>
+<span id="cb95-3"><a href="dplyr.html#cb95-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb95-4"><a href="dplyr.html#cb95-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(bce_full)</span>
+<span id="cb95-5"><a href="dplyr.html#cb95-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb95-6"><a href="dplyr.html#cb95-6" aria-hidden="true" tabindex="-1"></a><span class="co"># veamos otra utilidad mas de mutate!</span></span>
+<span id="cb95-7"><a href="dplyr.html#cb95-7" aria-hidden="true" tabindex="-1"></a>bce_full <span class="ot">&lt;-</span> bce_met2 <span class="sc">%&gt;%</span> </span>
+<span id="cb95-8"><a href="dplyr.html#cb95-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(bce_lluvias, <span class="at">by=</span><span class="st">&quot;date&quot;</span>) </span>
+<span id="cb95-9"><a href="dplyr.html#cb95-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pp =</span> <span class="fu">replace_na</span>(pp, <span class="dv">0</span>))</span>
+<span id="cb95-10"><a href="dplyr.html#cb95-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb95-11"><a href="dplyr.html#cb95-11" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(bce_full)</span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="dplyr.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bce_full) <span class="sc">+</span> </span>
+<span id="cb96-2"><a href="dplyr.html#cb96-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>date)<span class="sc">+</span></span>
+<span id="cb96-3"><a href="dplyr.html#cb96-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">y =</span> pp)) <span class="sc">+</span> </span>
+<span id="cb96-4"><a href="dplyr.html#cb96-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
+<span id="cb96-5"><a href="dplyr.html#cb96-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">&quot;1 month&quot;</span>, <span class="at">date_labels =</span> <span class="st">&quot;%b&quot;</span>,</span>
+<span id="cb96-6"><a href="dplyr.html#cb96-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">limits =</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">&quot;2018-06-01&quot;</span>, <span class="st">&quot;2018-31-12&quot;</span>)))<span class="sc">+</span></span>
+<span id="cb96-7"><a href="dplyr.html#cb96-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle=</span><span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div>
 </div>
 </div>
             </section>
@@ -467,8 +504,8 @@ Wickham, Hadley, and Garrett Grolemund. 2016. <em>R for Data Science: Import, Ti
           </div>
         </div>
       </div>
-<a href="visualización.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="visualización.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tidyr.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

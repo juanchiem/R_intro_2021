@@ -1,9 +1,17 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: inline
+---
 ## `join()`
 
 Retomemos los datos de bce_met2 que por suerte los tenemos guardados como .Rdata para un rapido retome (nos ahorramos los pasos anteriores)
 
 
 ```r
+# paquetes que iremos a usar en esta sesion
+pacman::p_load(tidyverse, lubridate, rio, janitor, nasapower)
+# datos guardados en la sesion previa
 load("data/datos_curso.Rdata")
 ```
 
@@ -34,17 +42,22 @@ bce_lluvias <- bce_lluvias_raw %>%
   mutate(date = dmy(fecha)) %>% 
   select(-fecha)
 
-str(bce_lluvias1)
+str(bce_lluvias)
 ```
-
 Ahora hagamos uso de `left_join()` para que matcheen las filas y se peguen la columna de lluvia a bce_met2
 
 
 ```r
 bce_full <- bce_met2 %>% 
-  left_join(bce_lluvias, by="date") %>%
-  # veamos otra utilidad mas de mutate!
+  left_join(bce_lluvias, by="date") 
+
+str(bce_full)
+
+# veamos otra utilidad mas de mutate!
+bce_full <- bce_met2 %>% 
+  left_join(bce_lluvias, by="date") 
   mutate(pp = replace_na(pp, 0))
+
 str(bce_full)
 ```
 
@@ -87,7 +100,7 @@ En este caso necesitamos generar una columna `bk` y `yield`, o sea, tornar soja 
 
 ```r
 soja %>% 
-  pivot_longer(cols=contains("_"), 
+  pivot_longer(cols=c(bk_1, bk_2, bk_3, bk_4), # contains("_") # bk_1:bk_4
                names_to = "bk", 
                values_to = "yield", 
                names_prefix = "bk_") -> soja_long 
@@ -116,7 +129,7 @@ str(can_long)
 
 
 ```r
-can_long2 %>% 
+can_long %>% 
   mutate_at("tt", as.numeric) %>% 
   ggplot()+
   aes(x=tt, y=inc, group=1)+
@@ -175,7 +188,7 @@ ggplot(bce_full_long) +
 
 # Otras importaciones 
 
-### Importación multiple con {rio}
+## Importación multiple con {rio}
 
 
 ```r
@@ -185,15 +198,10 @@ bce_serie <- bind_rows(
   import_list(file= "data/eea_serie.xls"),
   .id = "year")
 
-head(bce_serie)
+bce_serie
 ```
 
-### Desde googlesheets
-
-
-```r
-pacman::p_load(gsheet, janitor)
-```
+## Desde googlesheets
 
 Importemos "soja"
 
@@ -201,27 +209,28 @@ Importemos "soja"
 ```r
 url_soja <- "https://docs.google.com/spreadsheets/d/1c_FXVNkkj4LD8hVUForaaI24UhRauh_tWsy7sFRSM2k/edit#gid=1579441844"
 browseURL(url_data)
-soja <- gsheet2tbl(url_soja) %>% 
+
+soja <- rio::import(url_soja) %>% 
   clean_names()
 soja
 ```
 
-### API de Nasapower
+## API de Nasapower
 
 Meteo de Balcarce durante 2020
 
 
 ```r
-pacman::p_load(nasapower, lubridate)
+pacman::p_load(nasapower)
 
-bce_wea_2020 <- get_power(
+bce_rad_2018 <- get_power(
   community = "AG",
   lonlat =  c(-58.3, -37.75),
   pars = c("ALLSKY_SFC_SW_DWN"),
-  dates = c("1-6-2020", "15-6-2020"),
+  dates = c("2018-1-1", "2018-12-30"),
   temporal_api = "daily"
 ) 
-bce_wea_2020
+bce_rad_2018
 ```
 
 Clima de Balcarce
@@ -234,13 +243,33 @@ bce_clima <- get_power(
   lonlat = c(-58.3, -37.75),
   temporal_api = "climatology"
 )
-bce_temp
+bce_clima
 ```
+
+Comparamos la estacion meteorologica de la EEA con los datos de nasapower
+
+
+```r
+bce_full %>% 
+  left_join(bce_rad_2018, 
+            by = c("date" = "YYYYMMDD")) -> bce_full_nasa
+```
+
+
+
+```r
+bce_full_nasa %>% 
+  ggplot() + 
+  aes(x=rad, y=ALLSKY_SFC_SW_DWN) + 
+  geom_point() + 
+  geom_smooth(method="lm")
+```
+
 
 ## Exportar
 
 
 ```r
-export(bce_wea_2020, file="data/bce_wea_2020.xlsx")
+export(bce_full_nasa, file="data/bce_wea_2018.xlsx")
 ```
 
