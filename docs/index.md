@@ -1,4 +1,4 @@
---- 
+---
 title: "Exploración y manipulación de datos con R"
 author: ""
 output: bookdown::gitbook
@@ -14,89 +14,112 @@ github-repo: juanchiem/R_intro_2022
 
 
 
-# Motivación {-}
+# Motivación {.unnumbered}
 
-<img src="fig/top1.png" width="400" height="400" align="right" alt="Cover image" />
+<img src="fig/top1.png" alt="Cover image" width="400" height="400" align="right"/>
 
-*"Una de las cosas más importantes que puedes hacer es dedicar un tiempo para aprender un lenguaje de programación. Aprender a programar es como aprender otro idioma: requiere tiempo y entrenamiento, y no hay resultados prácticos inmediatos. Pero si superas esa primera subida empinada de la curva de aprendizaje, las ganancias como científico son enormes. Programar no sólo te liberará de la camisa de fuerza de los softwares estadísticos cerrados, sino que también agudizará tus habilidades analíticas y ampliará los horizontes de modelado ecológico y estadístico.”*
+*"Una de las cosas más importantes que puedes hacer es dedicar un tiempo para aprender un lenguaje de programación. Aprender a programar es como aprender otro idioma: requiere tiempo y entrenamiento, y no hay resultados prácticos inmediatos. Pero si superas esa primera subida empinada de la curva de aprendizaje, las ganancias como científico son enormes. Programar no sólo te liberará de la camisa de fuerza de los softwares estadísticos cerrados, sino que también agudizará tus habilidades analíticas y ampliará los horizontes de modelado ecológico y estadístico."*
 
-<div style="text-align: right">  ~ Adaptación de [@ellison2004primer] ~ </div>
+::: {style="text-align: right"}
+\~ Adaptación de [@ellison2004primer] \~
+:::
 
----
+------------------------------------------------------------------------
 
-<div style="text-align: center">
+::: {style="text-align: center"}
 <b>¿Por qué R?</b> [@R-base]
-</div>
+:::
 
+1.  Software libre - multiplataforma
 
-1. Software libre - multiplataforma
-<center>
-![](fig/installing.png){width=300px}
-</center>
+    <center>
 
-2. Aprender un lenguaje de programación: ejercicio mental/lógica (Mayor aprovechamiento de otros cursos específicos)
+    ![](fig/installing.png){width="300px"}
 
-<center>
-![](fig/pregunta_respuesta.jpg){width=300px}
-</center>
+    </center>
+
+2.  Aprender un lenguaje de programación: ejercicio mental/lógica (Mayor aprovechamiento de otros cursos específicos)
 
 <center>
-![](fig/steve_jobs.png){width=300px}
+
+![](fig/pregunta_respuesta.jpg){width="300px"}
+
 </center>
-
-(Si quieren aprender a fondo matemática, aprendan programación, si quieren aprender a fondo biología, aprendan programación)
-
-3. Amplia gama de paquetes específicos
 
 <center>
-![](fig/pckgs.jpg){width=300px}
-</center>
 
-4. Gran flexibilidad y elegancia de los gráficos
+(Si quieren aprender a fondo matemática, aprendan programación, si quieren aprender a fondo biología, aprendan programación...)
 
- <center>
-![](fig/images.jpeg){width=300px}
-</center>
-
-5. Popularidad - Comunidad activa y creciente dispuesta a ayudar (aprendemos a usar terminos técnicos de data science en inglés)
- 
- <center>
-![](fig/door.jpeg){width=300px}
-</center>
-
- <center>
-![](fig/tren.png){width=300px}
+![](fig/steve_jobs.png){width="300px"}
 
 </center>
 
-
-6. Programar ya no es sólo computación (CV/relevant skills) 
+3.  Amplia gama de paquetes específicos
 
 <center>
-![](fig/resume.png){width=300px}
+
+![](fig/pckgs.jpg){width="300px"}
+
 </center>
 
----
+4.  Gran flexibilidad y elegancia de los gráficos
 
-# Objetivos {-}
+<center>
 
-* Acompañar la primer fase empinada de la curva de aprendizaje de un nuevo lenguaje, que a la larga redituará en multiples beneficios tanto profesionales como personales. 
+![](fig/images.jpeg){width="300px"}
 
-![](fig/learn.png){width=200px}
+</center>
 
+5.  Popularidad - Comunidad activa y creciente dispuesta a ayudar (aprendemos a usar terminos técnicos de data science en inglés)
 
-* Proveer herramientas que optimicen nuestra labor cotidiana como recolectores/analistas de datos a lo largo de todo el flujo de trabajo.
+<center>
 
+![](fig/door.jpeg){width="300px"}
 
+</center>
 
-![](fig/workflow.jpg) 
+6.  Programar ya no es sólo computación (CV/relevant skills)
 
-<div style="text-align: right">  ~ Adaptación de "R for Data Science" [@wickham2016r] ~ </div>
+<center>
 
-**Importante:** 
+![](fig/resume.png){width="300px"}
 
-i) no es un curso de estadística
+</center>
 
-ii) entendemos la programación como un simple medio para optimizar nuestra labor cotidiana (no como un fin mismo), al final del día seguiremos siendo fitopatólogos, fisiólogos,  bioquímicos, etc.
+------------------------------------------------------------------------
 
-iii) maximizaremos la adopción de la sintaxis [tidyverse](https://www.tidyverse.org/) 
+# Objetivos {.unnumbered}
+
+-   Proveer en *3 semanas* de curso un pantallazo de las herramientas que pueden optimizar la labor cotidiana *a lo largo de la vida* como recolector/analista de datos.
+
+</center>
+
+![](fig/workflow.jpg)
+
+::: {style="text-align: right"}
+\~ Adaptación de "R for Data Science" [@wickham2016r] \~
+:::
+
+-   Acompañar la primer fase empinada de la curva de aprendizaje de un nuevo lenguaje, que a la larga redituará en multiples beneficios tanto profesionales como personales.
+
+<center>
+
+![](fig/learn.png){width="200px"}
+
+</center>
+
+-   Brindar un sistema flexible de aprendizaje en cuanto a los horarios de cada uno y, en caso de ser necesario, un soporte personalizado para llegar a la meta de que "todos salgan andando con R".
+
+<center>
+
+![](fig/tren.png){width="300px"}
+
+</center>
+
+**Importante:**
+
+i)  no es un curso de estadística
+
+ii) entendemos la programación como un simple medio para optimizar nuestra labor cotidiana (no como un fin mismo), al final del día seguimos siendo fitopatólogos, veterinarios, bioquímicos, etc.
+
+iii) maximizaremos la adopción de la sintaxis [tidyverse](https://www.tidyverse.org/)

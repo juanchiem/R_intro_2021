@@ -1,12 +1,12 @@
 bookdown::gitbook:
-  css: style2.css
+  css: style.css
   config:
     toc:
       collapse: none
       before: |
         <li><a href="./">Inicio</a></li>
       after: |
-        <li><a href="https://bookdown.org" target="_blank">Published with bookdown</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1feJyun5DJ8TaldUELQvh-prY3o6fGN6H?usp=sharing" target="_blank">Datasets</a></li>
     download:
     edit:
     sharing:
