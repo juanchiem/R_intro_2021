@@ -72,8 +72,7 @@ Acoplemos a `lubridate`
 ```r
 library(lubridate)
 
-bce_met1 <- bce_met0 %>% 
-  mutate(date = dmy(fecha))
+bce_met1 <- bce_met0 %>% mutate(date = dmy(fecha))
 
 head(bce_met1)
 ```
@@ -88,7 +87,7 @@ bce_met1 <- bce_met1 %>%
 head(bce_met1)
 ```
 
-> creamos una nueva columna en base a una condición
+> creamos una nueva columna en base a una condición binaria
 
 `if_else`
 
@@ -97,6 +96,23 @@ head(bce_met1)
 bce_met1 <- bce_met1 %>% 
   mutate(frost = if_else(tmin<=0, TRUE, FALSE))
 head(bce_met1)
+```
+
+> creamos una nueva columna en base a una condición multiple
+
+`case_when`
+
+
+```r
+bce_met2 <- bce_met1 %>% 
+  mutate(
+    ambiente = case_when(
+      tmean < 10  ~ "fresco", 
+      tmean > 10 & tmean < 20  ~ "templado",
+      tmean > 20  ~ "calido")
+  )
+
+bce_met2
 ```
 
 ## `select()` 
