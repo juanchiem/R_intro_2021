@@ -1,27 +1,56 @@
-# Correlacion
+---
+output: html_document
+editor_options: 
+  chunk_output_type: inline
+---
+
+# Correlacion simple
 
 ```{r}
-library(tidyverse)
+pacman::p_load(tidyverse, GGally, correlation, ggcorrplot, see)
 ```
 
+## `GGally`
 
 ```{r}
-pacman::p_load(GGally, correlation, report)
-```
-
-```{r}
-# GGally
 iris %>% 
   ggpairs()
 ```
 
-Paquete [correlation]("https://easystats.github.io/correlation/articles/types.html") (del ecosistema [easystats]("https://easystats.github.io/easystats/"))
+Paquete [correlation](%22https://easystats.github.io/correlation/articles/types.html%22) (del ecosistema [easystats](%22https://easystats.github.io/easystats/%22))
+
+## `correlation`
 
 ```{r}
-# correlation
-iris %>% 
+iris_corr <- iris %>% 
   correlation(method = "pearson") #spearman
+iris_corr
 ```
+
+```{r}
+iris_corr %>%  
+  ggplot(aes(x=fct_relevel(Parameter1, "Sepal.Length", after = 2), 
+             y=fct_relevel(Parameter2, "Petal.Width"), 
+             fill= r)) + 
+  geom_tile() + 
+  scale_fill_viridis(discrete=FALSE, direction = -1) + 
+  labs(x="", y="") + 
+  geom_text(aes(label=r %>% round(2)), col="white") +
+  coord_flip()+
+  theme_minimal()
+```
+
+## `ggcorrplot`
+
+```{r}
+iris %>% 
+  select_if(is.numeric) %>% 
+  cor() %>% 
+  round(2) %>%
+  ggcorrplot(hc.order = TRUE, type = "lower", lab = TRUE)
+```
+
+# Correlacion multi-level
 
 ```{r}
 iris %>% 
@@ -29,42 +58,160 @@ iris %>%
 ```
 
 ```{r}
-iris %>%
-   dplyr::select(Species, Sepal.Length, Sepal.Width, Petal.Width) %>%
+iris_corr_sp <- iris %>%
   group_by(Species) %>%
+  correlation() # %>% 
+
+iris_corr_sp # %>% knitr::kable()
+```
+
+```{r}
+library(ggraph) # needs to be loaded
+
+iris %>%
+  correlation(partial = TRUE) %>%
+  plot()
+```
+
+```{r}
+simpson <- simulate_simpson(n = 100, groups = 10)
+simpson
+
+simpson %>% 
+ggplot()+ 
+  aes(x = V1, y = V2) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE)
+```
+
+```{r}
+correlation(simpson)
+```
+
+```{r}
+simpson %>% 
+  ggplot() +
+  aes(x = V1, y = V2, col = Group) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  geom_smooth(colour = "black", method = "lm", se = FALSE)
+```
+
+Mmh, interesting. It seems like, for each subject, the relationship is different. The (global) negative trend seems to be an artifact of differences between the groups and could be spurious!
+
+Multilevel (as in multi-group) correlations allow us to account for differences between groups. It is based on a partialization of the group, entered as a random effect in a mixed linear regression.
+
+You can compute them with the correlations package by setting the multilevel argument to TRUE.
+
+```{r}
+simpson %>% 
+  group_by(Group) %>% 
   correlation()
-```
 
-# Regresión linear 
-
-```{r}
-pacman::p_load(jtools, report)
+simpson %>% correlation(multilevel = TRUE)
 ```
 
 ```{r}
-model <- lm(formula = Sepal.Length ~ Petal.Width, data = iris)
+data(anscombe)
+anscombe
+```
+
+```{r}
+anscombe_long <- anscombe %>%
+  pivot_longer(
+    cols = everything(),
+    # apilar solo el valor en la columna "set"
+    names_to = c(".value", "set"),
+    # indico que las columnas que estoy apilando tienen su primer digito con el nombre de una variable y el segundo digito con el nro de set
+    names_pattern = "(.)(.)"
+  ) %>% 
+  arrange(set, x)
+```
+
+```{r}
+anscombe_long %>% 
+  group_by(set) %>% 
+  summarise(x_mean = mean(x), 
+            y_mean = mean(y), 
+            x_sd = sd(x), 
+            y_sd = sd(y))
+```
+
+```{r}
+anscombe_long %>% 
+  group_by(set) %>% 
+  correlation(method = "pearson")
+```
+
+```{r}
+anscombe_long %>% 
+  ggplot() + 
+  aes(x, y) + 
+  geom_point() + 
+  geom_smooth(method="lm")+ 
+  facet_wrap("set")
+```
+
+# Regresión linear
+
+```{r}
+library(broom)  
+
+lm_ans_coef <- anscombe_long %>% 
+  group_by(set) %>%
+  do(tidy(lm(data = ., formula = y ~ x)))
+
+lm_ans_coef
+```
+
+```{r}
+lm_ans_stats <- anscombe_long %>% 
+  group_by(set) %>%
+  do(glance(
+    lm(data = ., formula = y ~ x))
+    )
+lm_ans_stats
+```
+
+> Conclusion: ALWAYS plot your data! And always do model diagnostics by plotting the residuals.
+
+```{r fig.height=10}
+lm1 = lm(y~x, data=anscombe_long %>% filter(set==1))
+lm2 = lm(y~x, data=anscombe_long %>% filter(set==2))
+lm3 = lm(y~x, data=anscombe_long %>% filter(set==3))
+lm4 = lm(y~x, data=anscombe_long %>% filter(set==4))
+
+library(performance)
+check_model(lm1)
+check_model(lm2)
+check_model(lm3)
+check_model(lm4)
+
+check_outliers(lm1)
+check_outliers(lm2)
+check_outliers(lm3)
+check_outliers(lm4)
+```
+
+```{r}
+model <- lm(Sepal.Length ~ Petal.Width, data = iris)
 # show the theoretical model
 equatiomatic::extract_eq(model)
 ```
 
-# R base
+```{r}
 anova(model)
 summary(model)
-
-# jtools
-summ(model)
 ```
 
 ```{r}
-library(ggfortify)
-autoplot(model)
+library(ggResidpanel)
+resid_panel(model)
 ```
 
-
-Paquete [report](https://easystats.github.io/report/)
-
 ```{r}
-report(model)
+library(performance)
+check_model(model)
 ```
 
 Agregar formula y R2
@@ -78,9 +225,8 @@ ggplot(iris, aes(x=Petal.Width, y=Sepal.Length))+
   geom_smooth(method="lm")+
   stat_poly_eq(formula = formu,
                aes(label = paste(..eq.label.., ..rr.label.., sep = "~~~")),
-               parse = TRUE) 
-  # geom_abline(slope = coef(model)[[2]], intercept = coef(model)[[1]])
-  # geom_line(data = fortify(model), aes(x=Petal.Width, y = .fitted))
+               parse = TRUE) +  
+  geom_line(data = fortify(model), aes(x=Petal.Width, y = .fitted))
 ```
 
 Paquete [jtools](https://jtools.jacob-long.com/)
@@ -131,4 +277,3 @@ ggplot(cars, aes(x=speed, y=dist) ) +
   geom_point() +
   stat_smooth(method = lm, formula = y ~ poly(x, 2, raw = TRUE))
 ```
-

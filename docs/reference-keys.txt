@@ -38,3 +38,10 @@ importación-multiple-con-rio
 desde-googlesheets
 api-de-nasapower
 exportar
+correlacion
+simple
+multi-level
+regresión-linear
+simple-1
+regresión-polinomial
+regresion-multiple
