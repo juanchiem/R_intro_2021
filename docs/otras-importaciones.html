@@ -162,6 +162,7 @@ div.csl-indent {
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Motivación</a></li>
 <li class="chapter" data-level="" data-path="objetivos.html"><a href="objetivos.html"><i class="fa fa-check"></i>Objetivos</a></li>
+<li class="chapter" data-level="" data-path="sobre-el-curso.html"><a href="sobre-el-curso.html"><i class="fa fa-check"></i>Sobre el curso</a></li>
 <li class="chapter" data-level="1" data-path="config.html"><a href="config.html"><i class="fa fa-check"></i><b>1</b> Configuraciones básicas</a>
 <ul>
 <li class="chapter" data-level="" data-path="config.html"><a href="config.html#paquetes-de-r"><i class="fa fa-check"></i>Paquetes de R</a></li>
@@ -247,6 +248,31 @@ div.csl-indent {
 <li class="chapter" data-level="10.2" data-path="regresión-linear.html"><a href="regresión-linear.html#regresión-polinomial"><i class="fa fa-check"></i><b>10.2</b> Regresión polinomial</a></li>
 <li class="chapter" data-level="10.3" data-path="regresión-linear.html"><a href="regresión-linear.html#regresion-multiple"><i class="fa fa-check"></i><b>10.3</b> Regresion multiple</a></li>
 </ul></li>
+<li class="chapter" data-level="11" data-path="anova.html"><a href="anova.html"><i class="fa fa-check"></i><b>11</b> Anova</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="anova.html"><a href="anova.html#un-solo-factor"><i class="fa fa-check"></i><b>11.1</b> Un solo factor</a>
+<ul>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#exploración-numérica"><i class="fa fa-check"></i>Exploración numérica</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#exploración-visual"><i class="fa fa-check"></i>Exploración visual</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#ajuste-del-modelo-lineal"><i class="fa fa-check"></i>Ajuste del modelo lineal</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#diagnósticos"><i class="fa fa-check"></i>Diagnósticos</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#estaidisticas"><i class="fa fa-check"></i>Estaidisticas</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#comparaciones-múltiples"><i class="fa fa-check"></i>Comparaciones múltiples</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#grafico-final"><i class="fa fa-check"></i>Grafico final</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="anova.html"><a href="anova.html#dos-factores"><i class="fa fa-check"></i><b>11.2</b> Dos factores</a>
+<ul>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#exploracion"><i class="fa fa-check"></i>Exploracion</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#ajuste"><i class="fa fa-check"></i>Ajuste</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#diagnósticos-1"><i class="fa fa-check"></i>Diagnósticos</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#transformación"><i class="fa fa-check"></i>Transformación</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#reajuste-de-modelo"><i class="fa fa-check"></i>Reajuste de modelo</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#estadisticas-del-modelo"><i class="fa fa-check"></i>Estadisticas del modelo</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#medias-estimadas-por-el-modelo"><i class="fa fa-check"></i>Medias estimadas por el modelo</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#comparaciones-multiples"><i class="fa fa-check"></i>Comparaciones multiples</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#grafico-final-1"><i class="fa fa-check"></i>Grafico final</a></li>
+</ul></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://drive.google.com/drive/folders/1feJyun5DJ8TaldUELQvh-prY3o6fGN6H?usp=sharing" target="_blank">Datasets</a></li>
 
@@ -271,58 +297,58 @@ div.csl-indent {
 <h1><span class="header-section-number">8</span> Otras importaciones</h1>
 <div id="importación-multiple-con-rio" class="section level2" number="8.1">
 <h2><span class="header-section-number">8.1</span> Importación multiple con {rio}</h2>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="otras-importaciones.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
-<span id="cb106-2"><a href="otras-importaciones.html#cb106-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb106-3"><a href="otras-importaciones.html#cb106-3" aria-hidden="true" tabindex="-1"></a>bce_serie <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
-<span id="cb106-4"><a href="otras-importaciones.html#cb106-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">import_list</span>(<span class="at">file=</span> <span class="st">&quot;data/eea_serie.xls&quot;</span>),</span>
-<span id="cb106-5"><a href="otras-importaciones.html#cb106-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">.id =</span> <span class="st">&quot;year&quot;</span>)</span>
-<span id="cb106-6"><a href="otras-importaciones.html#cb106-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb106-7"><a href="otras-importaciones.html#cb106-7" aria-hidden="true" tabindex="-1"></a>bce_serie</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="otras-importaciones.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
+<span id="cb107-2"><a href="otras-importaciones.html#cb107-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb107-3"><a href="otras-importaciones.html#cb107-3" aria-hidden="true" tabindex="-1"></a>bce_serie <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<span id="cb107-4"><a href="otras-importaciones.html#cb107-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">import_list</span>(<span class="at">file=</span> <span class="st">&quot;data/eea_serie.xls&quot;</span>),</span>
+<span id="cb107-5"><a href="otras-importaciones.html#cb107-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">.id =</span> <span class="st">&quot;year&quot;</span>)</span>
+<span id="cb107-6"><a href="otras-importaciones.html#cb107-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb107-7"><a href="otras-importaciones.html#cb107-7" aria-hidden="true" tabindex="-1"></a>bce_serie</span></code></pre></div>
 </div>
 <div id="desde-googlesheets" class="section level2" number="8.2">
 <h2><span class="header-section-number">8.2</span> Desde googlesheets</h2>
 <p>Importemos “soja”</p>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="otras-importaciones.html#cb107-1" aria-hidden="true" tabindex="-1"></a>url_soja <span class="ot">&lt;-</span> <span class="st">&quot;https://docs.google.com/spreadsheets/d/1c_FXVNkkj4LD8hVUForaaI24UhRauh_tWsy7sFRSM2k/edit#gid=1579441844&quot;</span></span>
-<span id="cb107-2"><a href="otras-importaciones.html#cb107-2" aria-hidden="true" tabindex="-1"></a><span class="fu">browseURL</span>(url_data)</span>
-<span id="cb107-3"><a href="otras-importaciones.html#cb107-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb107-4"><a href="otras-importaciones.html#cb107-4" aria-hidden="true" tabindex="-1"></a>soja <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(url_soja) <span class="sc">%&gt;%</span> </span>
-<span id="cb107-5"><a href="otras-importaciones.html#cb107-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
-<span id="cb107-6"><a href="otras-importaciones.html#cb107-6" aria-hidden="true" tabindex="-1"></a>soja</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="otras-importaciones.html#cb108-1" aria-hidden="true" tabindex="-1"></a>url_soja <span class="ot">&lt;-</span> <span class="st">&quot;https://docs.google.com/spreadsheets/d/1c_FXVNkkj4LD8hVUForaaI24UhRauh_tWsy7sFRSM2k/edit#gid=1579441844&quot;</span></span>
+<span id="cb108-2"><a href="otras-importaciones.html#cb108-2" aria-hidden="true" tabindex="-1"></a><span class="fu">browseURL</span>(url_data)</span>
+<span id="cb108-3"><a href="otras-importaciones.html#cb108-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-4"><a href="otras-importaciones.html#cb108-4" aria-hidden="true" tabindex="-1"></a>soja <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(url_soja) <span class="sc">%&gt;%</span> </span>
+<span id="cb108-5"><a href="otras-importaciones.html#cb108-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
+<span id="cb108-6"><a href="otras-importaciones.html#cb108-6" aria-hidden="true" tabindex="-1"></a>soja</span></code></pre></div>
 </div>
 <div id="api-de-nasapower" class="section level2" number="8.3">
 <h2><span class="header-section-number">8.3</span> API de Nasapower</h2>
 <p>Meteo de Balcarce durante 2020</p>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="otras-importaciones.html#cb108-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(nasapower)</span>
-<span id="cb108-2"><a href="otras-importaciones.html#cb108-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb108-3"><a href="otras-importaciones.html#cb108-3" aria-hidden="true" tabindex="-1"></a>bce_rad_2018 <span class="ot">&lt;-</span> <span class="fu">get_power</span>(</span>
-<span id="cb108-4"><a href="otras-importaciones.html#cb108-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">community =</span> <span class="st">&quot;AG&quot;</span>,</span>
-<span id="cb108-5"><a href="otras-importaciones.html#cb108-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">lonlat =</span>  <span class="fu">c</span>(<span class="sc">-</span><span class="fl">58.3</span>, <span class="sc">-</span><span class="fl">37.75</span>),</span>
-<span id="cb108-6"><a href="otras-importaciones.html#cb108-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">&quot;ALLSKY_SFC_SW_DWN&quot;</span>),</span>
-<span id="cb108-7"><a href="otras-importaciones.html#cb108-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">dates =</span> <span class="fu">c</span>(<span class="st">&quot;2018-1-1&quot;</span>, <span class="st">&quot;2018-12-30&quot;</span>),</span>
-<span id="cb108-8"><a href="otras-importaciones.html#cb108-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">temporal_api =</span> <span class="st">&quot;daily&quot;</span></span>
-<span id="cb108-9"><a href="otras-importaciones.html#cb108-9" aria-hidden="true" tabindex="-1"></a>) </span>
-<span id="cb108-10"><a href="otras-importaciones.html#cb108-10" aria-hidden="true" tabindex="-1"></a>bce_rad_2018</span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="otras-importaciones.html#cb109-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(nasapower)</span>
+<span id="cb109-2"><a href="otras-importaciones.html#cb109-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-3"><a href="otras-importaciones.html#cb109-3" aria-hidden="true" tabindex="-1"></a>bce_rad_2018 <span class="ot">&lt;-</span> <span class="fu">get_power</span>(</span>
+<span id="cb109-4"><a href="otras-importaciones.html#cb109-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">community =</span> <span class="st">&quot;AG&quot;</span>,</span>
+<span id="cb109-5"><a href="otras-importaciones.html#cb109-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">lonlat =</span>  <span class="fu">c</span>(<span class="sc">-</span><span class="fl">58.3</span>, <span class="sc">-</span><span class="fl">37.75</span>),</span>
+<span id="cb109-6"><a href="otras-importaciones.html#cb109-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">&quot;ALLSKY_SFC_SW_DWN&quot;</span>),</span>
+<span id="cb109-7"><a href="otras-importaciones.html#cb109-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">dates =</span> <span class="fu">c</span>(<span class="st">&quot;2018-1-1&quot;</span>, <span class="st">&quot;2018-12-30&quot;</span>),</span>
+<span id="cb109-8"><a href="otras-importaciones.html#cb109-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">temporal_api =</span> <span class="st">&quot;daily&quot;</span></span>
+<span id="cb109-9"><a href="otras-importaciones.html#cb109-9" aria-hidden="true" tabindex="-1"></a>) </span>
+<span id="cb109-10"><a href="otras-importaciones.html#cb109-10" aria-hidden="true" tabindex="-1"></a>bce_rad_2018</span></code></pre></div>
 <p>Clima de Balcarce</p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="otras-importaciones.html#cb109-1" aria-hidden="true" tabindex="-1"></a>bce_clima <span class="ot">&lt;-</span> <span class="fu">get_power</span>(</span>
-<span id="cb109-2"><a href="otras-importaciones.html#cb109-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">community =</span> <span class="st">&quot;ag&quot;</span>,</span>
-<span id="cb109-3"><a href="otras-importaciones.html#cb109-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">&quot;RH2M&quot;</span>, <span class="st">&quot;T2M&quot;</span>, <span class="st">&quot;ALLSKY_SFC_SW_DWN&quot;</span>),</span>
-<span id="cb109-4"><a href="otras-importaciones.html#cb109-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">lonlat =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">58.3</span>, <span class="sc">-</span><span class="fl">37.75</span>),</span>
-<span id="cb109-5"><a href="otras-importaciones.html#cb109-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">temporal_api =</span> <span class="st">&quot;climatology&quot;</span></span>
-<span id="cb109-6"><a href="otras-importaciones.html#cb109-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb109-7"><a href="otras-importaciones.html#cb109-7" aria-hidden="true" tabindex="-1"></a>bce_clima</span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="otras-importaciones.html#cb110-1" aria-hidden="true" tabindex="-1"></a>bce_clima <span class="ot">&lt;-</span> <span class="fu">get_power</span>(</span>
+<span id="cb110-2"><a href="otras-importaciones.html#cb110-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">community =</span> <span class="st">&quot;ag&quot;</span>,</span>
+<span id="cb110-3"><a href="otras-importaciones.html#cb110-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">&quot;RH2M&quot;</span>, <span class="st">&quot;T2M&quot;</span>, <span class="st">&quot;ALLSKY_SFC_SW_DWN&quot;</span>),</span>
+<span id="cb110-4"><a href="otras-importaciones.html#cb110-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">lonlat =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">58.3</span>, <span class="sc">-</span><span class="fl">37.75</span>),</span>
+<span id="cb110-5"><a href="otras-importaciones.html#cb110-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">temporal_api =</span> <span class="st">&quot;climatology&quot;</span></span>
+<span id="cb110-6"><a href="otras-importaciones.html#cb110-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb110-7"><a href="otras-importaciones.html#cb110-7" aria-hidden="true" tabindex="-1"></a>bce_clima</span></code></pre></div>
 <p>Comparamos la estacion meteorologica de la EEA con los datos de nasapower</p>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="otras-importaciones.html#cb110-1" aria-hidden="true" tabindex="-1"></a>bce_full <span class="sc">%&gt;%</span> </span>
-<span id="cb110-2"><a href="otras-importaciones.html#cb110-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(bce_rad_2018, </span>
-<span id="cb110-3"><a href="otras-importaciones.html#cb110-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;date&quot;</span> <span class="ot">=</span> <span class="st">&quot;YYYYMMDD&quot;</span>)) <span class="ot">-&gt;</span> bce_full_nasa</span></code></pre></div>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="otras-importaciones.html#cb111-1" aria-hidden="true" tabindex="-1"></a>bce_full_nasa <span class="sc">%&gt;%</span> </span>
-<span id="cb111-2"><a href="otras-importaciones.html#cb111-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb111-3"><a href="otras-importaciones.html#cb111-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>rad, <span class="at">y=</span>ALLSKY_SFC_SW_DWN) <span class="sc">+</span> </span>
-<span id="cb111-4"><a href="otras-importaciones.html#cb111-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb111-5"><a href="otras-importaciones.html#cb111-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="otras-importaciones.html#cb111-1" aria-hidden="true" tabindex="-1"></a>bce_full <span class="sc">%&gt;%</span> </span>
+<span id="cb111-2"><a href="otras-importaciones.html#cb111-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(bce_rad_2018, </span>
+<span id="cb111-3"><a href="otras-importaciones.html#cb111-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;date&quot;</span> <span class="ot">=</span> <span class="st">&quot;YYYYMMDD&quot;</span>)) <span class="ot">-&gt;</span> bce_full_nasa</span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="otras-importaciones.html#cb112-1" aria-hidden="true" tabindex="-1"></a>bce_full_nasa <span class="sc">%&gt;%</span> </span>
+<span id="cb112-2"><a href="otras-importaciones.html#cb112-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb112-3"><a href="otras-importaciones.html#cb112-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>rad, <span class="at">y=</span>ALLSKY_SFC_SW_DWN) <span class="sc">+</span> </span>
+<span id="cb112-4"><a href="otras-importaciones.html#cb112-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb112-5"><a href="otras-importaciones.html#cb112-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>)</span></code></pre></div>
 </div>
 <div id="exportar" class="section level2" number="8.4">
 <h2><span class="header-section-number">8.4</span> Exportar</h2>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="otras-importaciones.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="fu">export</span>(bce_full_nasa, <span class="at">file=</span><span class="st">&quot;data/bce_wea_2018.xlsx&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="otras-importaciones.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">export</span>(bce_full_nasa, <span class="at">file=</span><span class="st">&quot;data/bce_wea_2018.xlsx&quot;</span>)</span></code></pre></div>
 
 </div>
 </div>
@@ -383,6 +409,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

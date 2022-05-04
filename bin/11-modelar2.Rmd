@@ -29,11 +29,7 @@ Exploración numérica
 ```{r}
 pg %>% 
   group_by(group) %>% 
-  summarise(
-    n= sum(!is.na(weight)), 
-    mean = mean(weight),
-    sd = sd(weight), 
-    se = sd(weight)/sqrt(n))
+  skimr::skim()
 ```
 
 Exploración gŕafica

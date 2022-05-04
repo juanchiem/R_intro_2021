@@ -155,3 +155,14 @@ i)  no es un curso de estadística
 ii) entendemos la programación como un simple medio para optimizar nuestra labor cotidiana (no como un fin mismo), al final del día seguimos siendo fitopatólogos, veterinarios, bioquímicos, etc.
 
 iii) maximizaremos la adopción de la sintaxis [tidyverse](https://www.tidyverse.org/)
+
+
+# Sobre el curso {.unnumbered}
+
+```{r, echo=TRUE, eval=FALSE}
+Se disponibiliza de este manual web con los códigos que se irán reproduciendo en las clases teoricas para la reproducibilidad en las computadoras personales. Para ello debe cliquearse el icono en el angulo superior derecho de los bloques grises y asi se copia todo su contenido. 
+```
+
+:::{#box1 .blue-box}
+Códigos en marcos azules son material suplementario para quienes quieran profundizar en horario extra-clase. 
+:::

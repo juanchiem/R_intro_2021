@@ -45,3 +45,6 @@ regresión-linear
 simple-1
 regresión-polinomial
 regresion-multiple
+anova
+un-solo-factor
+dos-factores

@@ -162,6 +162,7 @@ div.csl-indent {
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Motivación</a></li>
 <li class="chapter" data-level="" data-path="objetivos.html"><a href="objetivos.html"><i class="fa fa-check"></i>Objetivos</a></li>
+<li class="chapter" data-level="" data-path="sobre-el-curso.html"><a href="sobre-el-curso.html"><i class="fa fa-check"></i>Sobre el curso</a></li>
 <li class="chapter" data-level="1" data-path="config.html"><a href="config.html"><i class="fa fa-check"></i><b>1</b> Configuraciones básicas</a>
 <ul>
 <li class="chapter" data-level="" data-path="config.html"><a href="config.html#paquetes-de-r"><i class="fa fa-check"></i>Paquetes de R</a></li>
@@ -247,6 +248,31 @@ div.csl-indent {
 <li class="chapter" data-level="10.2" data-path="regresión-linear.html"><a href="regresión-linear.html#regresión-polinomial"><i class="fa fa-check"></i><b>10.2</b> Regresión polinomial</a></li>
 <li class="chapter" data-level="10.3" data-path="regresión-linear.html"><a href="regresión-linear.html#regresion-multiple"><i class="fa fa-check"></i><b>10.3</b> Regresion multiple</a></li>
 </ul></li>
+<li class="chapter" data-level="11" data-path="anova.html"><a href="anova.html"><i class="fa fa-check"></i><b>11</b> Anova</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="anova.html"><a href="anova.html#un-solo-factor"><i class="fa fa-check"></i><b>11.1</b> Un solo factor</a>
+<ul>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#exploración-numérica"><i class="fa fa-check"></i>Exploración numérica</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#exploración-visual"><i class="fa fa-check"></i>Exploración visual</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#ajuste-del-modelo-lineal"><i class="fa fa-check"></i>Ajuste del modelo lineal</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#diagnósticos"><i class="fa fa-check"></i>Diagnósticos</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#estaidisticas"><i class="fa fa-check"></i>Estaidisticas</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#comparaciones-múltiples"><i class="fa fa-check"></i>Comparaciones múltiples</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#grafico-final"><i class="fa fa-check"></i>Grafico final</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="anova.html"><a href="anova.html#dos-factores"><i class="fa fa-check"></i><b>11.2</b> Dos factores</a>
+<ul>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#exploracion"><i class="fa fa-check"></i>Exploracion</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#ajuste"><i class="fa fa-check"></i>Ajuste</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#diagnósticos-1"><i class="fa fa-check"></i>Diagnósticos</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#transformación"><i class="fa fa-check"></i>Transformación</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#reajuste-de-modelo"><i class="fa fa-check"></i>Reajuste de modelo</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#estadisticas-del-modelo"><i class="fa fa-check"></i>Estadisticas del modelo</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#medias-estimadas-por-el-modelo"><i class="fa fa-check"></i>Medias estimadas por el modelo</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#comparaciones-multiples"><i class="fa fa-check"></i>Comparaciones multiples</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#grafico-final-1"><i class="fa fa-check"></i>Grafico final</a></li>
+</ul></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://drive.google.com/drive/folders/1feJyun5DJ8TaldUELQvh-prY3o6fGN6H?usp=sharing" target="_blank">Datasets</a></li>
 
@@ -271,107 +297,107 @@ div.csl-indent {
 <h1><span class="header-section-number">9</span> Correlacion</h1>
 <div id="simple" class="section level2" number="9.1">
 <h2><span class="header-section-number">9.1</span> Simple</h2>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="correlacion.html#cb113-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, GGally, correlation, ggcorrplot, viridis)</span></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="correlacion.html#cb114-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, GGally, correlation, ggcorrplot, viridis)</span></code></pre></div>
 <p><code>GGally</code></p>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="correlacion.html#cb114-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
-<span id="cb114-2"><a href="correlacion.html#cb114-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggpairs</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="correlacion.html#cb115-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
+<span id="cb115-2"><a href="correlacion.html#cb115-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggpairs</span>()</span></code></pre></div>
 <p><code>correlation</code></p>
 <p><a href="%22https://easystats.github.io/correlation/articles/types.html%22">correlation</a> (del ecosistema <a href="%22https://easystats.github.io/easystats/%22">easystats</a>)</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="correlacion.html#cb115-1" aria-hidden="true" tabindex="-1"></a>iris_corr <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> </span>
-<span id="cb115-2"><a href="correlacion.html#cb115-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">correlation</span>(<span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>) <span class="co">#spearman</span></span>
-<span id="cb115-3"><a href="correlacion.html#cb115-3" aria-hidden="true" tabindex="-1"></a>iris_corr</span></code></pre></div>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="correlacion.html#cb116-1" aria-hidden="true" tabindex="-1"></a>iris_corr <span class="sc">%&gt;%</span>  </span>
-<span id="cb116-2"><a href="correlacion.html#cb116-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb116-3"><a href="correlacion.html#cb116-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>Parameter1, Parameter2, <span class="at">fill=</span> r)<span class="sc">+</span></span>
-<span id="cb116-4"><a href="correlacion.html#cb116-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="correlacion.html#cb116-1" aria-hidden="true" tabindex="-1"></a>iris_corr <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> </span>
+<span id="cb116-2"><a href="correlacion.html#cb116-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">correlation</span>(<span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>) <span class="co">#spearman</span></span>
+<span id="cb116-3"><a href="correlacion.html#cb116-3" aria-hidden="true" tabindex="-1"></a>iris_corr</span></code></pre></div>
 <div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="correlacion.html#cb117-1" aria-hidden="true" tabindex="-1"></a>iris_corr <span class="sc">%&gt;%</span>  </span>
-<span id="cb117-2"><a href="correlacion.html#cb117-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="fu">fct_relevel</span>(Parameter1, <span class="st">&quot;Sepal.Length&quot;</span>, <span class="at">after =</span> <span class="dv">2</span>), </span>
-<span id="cb117-3"><a href="correlacion.html#cb117-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">y=</span><span class="fu">fct_relevel</span>(Parameter2, <span class="st">&quot;Petal.Width&quot;</span>), </span>
-<span id="cb117-4"><a href="correlacion.html#cb117-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">fill=</span> r)) <span class="sc">+</span> </span>
-<span id="cb117-5"><a href="correlacion.html#cb117-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>() <span class="sc">+</span> </span>
-<span id="cb117-6"><a href="correlacion.html#cb117-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis</span>(<span class="at">discrete=</span><span class="cn">FALSE</span>, <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>) <span class="sc">+</span> </span>
-<span id="cb117-7"><a href="correlacion.html#cb117-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;&quot;</span>, <span class="at">y=</span><span class="st">&quot;&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb117-8"><a href="correlacion.html#cb117-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>r <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">2</span>)), <span class="at">col=</span><span class="st">&quot;white&quot;</span>) <span class="sc">+</span></span>
-<span id="cb117-9"><a href="correlacion.html#cb117-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()<span class="sc">+</span></span>
-<span id="cb117-10"><a href="correlacion.html#cb117-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<span id="cb117-2"><a href="correlacion.html#cb117-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb117-3"><a href="correlacion.html#cb117-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>Parameter1, Parameter2, <span class="at">fill=</span> r)<span class="sc">+</span></span>
+<span id="cb117-4"><a href="correlacion.html#cb117-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="correlacion.html#cb118-1" aria-hidden="true" tabindex="-1"></a>iris_corr <span class="sc">%&gt;%</span>  </span>
+<span id="cb118-2"><a href="correlacion.html#cb118-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="fu">fct_relevel</span>(Parameter1, <span class="st">&quot;Sepal.Length&quot;</span>, <span class="at">after =</span> <span class="dv">2</span>), </span>
+<span id="cb118-3"><a href="correlacion.html#cb118-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">y=</span><span class="fu">fct_relevel</span>(Parameter2, <span class="st">&quot;Petal.Width&quot;</span>), </span>
+<span id="cb118-4"><a href="correlacion.html#cb118-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">fill=</span> r)) <span class="sc">+</span> </span>
+<span id="cb118-5"><a href="correlacion.html#cb118-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>() <span class="sc">+</span> </span>
+<span id="cb118-6"><a href="correlacion.html#cb118-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis</span>(<span class="at">discrete=</span><span class="cn">FALSE</span>, <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb118-7"><a href="correlacion.html#cb118-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;&quot;</span>, <span class="at">y=</span><span class="st">&quot;&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb118-8"><a href="correlacion.html#cb118-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>r <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">2</span>)), <span class="at">col=</span><span class="st">&quot;white&quot;</span>) <span class="sc">+</span></span>
+<span id="cb118-9"><a href="correlacion.html#cb118-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()<span class="sc">+</span></span>
+<span id="cb118-10"><a href="correlacion.html#cb118-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
 <p><code>ggcorrplot</code></p>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="correlacion.html#cb118-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
-<span id="cb118-2"><a href="correlacion.html#cb118-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select_if</span>(is.numeric) <span class="sc">%&gt;%</span> </span>
-<span id="cb118-3"><a href="correlacion.html#cb118-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb118-4"><a href="correlacion.html#cb118-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb118-5"><a href="correlacion.html#cb118-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggcorrplot</span>(<span class="at">hc.order =</span> <span class="cn">TRUE</span>, <span class="at">type =</span> <span class="st">&quot;lower&quot;</span>, <span class="at">lab =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="correlacion.html#cb119-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
+<span id="cb119-2"><a href="correlacion.html#cb119-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select_if</span>(is.numeric) <span class="sc">%&gt;%</span> </span>
+<span id="cb119-3"><a href="correlacion.html#cb119-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb119-4"><a href="correlacion.html#cb119-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb119-5"><a href="correlacion.html#cb119-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggcorrplot</span>(<span class="at">hc.order =</span> <span class="cn">TRUE</span>, <span class="at">type =</span> <span class="st">&quot;lower&quot;</span>, <span class="at">lab =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 </div>
 <div id="multi-level" class="section level2" number="9.2">
 <h2><span class="header-section-number">9.2</span> Multi-level</h2>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="correlacion.html#cb119-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
-<span id="cb119-2"><a href="correlacion.html#cb119-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggpairs</span>(<span class="fu">aes</span>(<span class="at">color =</span> Species))</span></code></pre></div>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="correlacion.html#cb120-1" aria-hidden="true" tabindex="-1"></a>iris_corr_sp <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span></span>
-<span id="cb120-2"><a href="correlacion.html#cb120-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>
-<span id="cb120-3"><a href="correlacion.html#cb120-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">correlation</span>() <span class="co"># %&gt;% </span></span>
-<span id="cb120-4"><a href="correlacion.html#cb120-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-5"><a href="correlacion.html#cb120-5" aria-hidden="true" tabindex="-1"></a>iris_corr_sp <span class="co"># %&gt;% knitr::kable()</span></span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="correlacion.html#cb120-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
+<span id="cb120-2"><a href="correlacion.html#cb120-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggpairs</span>(<span class="fu">aes</span>(<span class="at">color =</span> Species))</span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="correlacion.html#cb121-1" aria-hidden="true" tabindex="-1"></a>iris_corr_sp <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span></span>
+<span id="cb121-2"><a href="correlacion.html#cb121-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>
+<span id="cb121-3"><a href="correlacion.html#cb121-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">correlation</span>() <span class="co"># %&gt;% </span></span>
+<span id="cb121-4"><a href="correlacion.html#cb121-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-5"><a href="correlacion.html#cb121-5" aria-hidden="true" tabindex="-1"></a>iris_corr_sp <span class="co"># %&gt;% knitr::kable()</span></span></code></pre></div>
 <blockquote>
 <p>Es aqui donde pasa el investigador al frente del analista a interpretar los patrones</p>
 </blockquote>
 <p>Veamos un ejemplo clasico multi-level: Simpson’s paradox</p>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="correlacion.html#cb121-1" aria-hidden="true" tabindex="-1"></a>simpson <span class="ot">&lt;-</span> <span class="fu">simulate_simpson</span>(<span class="at">n =</span> <span class="dv">100</span>, <span class="at">groups =</span> <span class="dv">10</span>)</span>
-<span id="cb121-2"><a href="correlacion.html#cb121-2" aria-hidden="true" tabindex="-1"></a>simpson</span>
-<span id="cb121-3"><a href="correlacion.html#cb121-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb121-4"><a href="correlacion.html#cb121-4" aria-hidden="true" tabindex="-1"></a>simpson <span class="sc">%&gt;%</span> </span>
-<span id="cb121-5"><a href="correlacion.html#cb121-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span> </span>
-<span id="cb121-6"><a href="correlacion.html#cb121-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> V1, <span class="at">y =</span> V2) <span class="sc">+</span></span>
-<span id="cb121-7"><a href="correlacion.html#cb121-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb121-8"><a href="correlacion.html#cb121-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="correlacion.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">correlation</span>(simpson)</span></code></pre></div>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="correlacion.html#cb123-1" aria-hidden="true" tabindex="-1"></a>simpson <span class="sc">%&gt;%</span> </span>
-<span id="cb123-2"><a href="correlacion.html#cb123-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb123-3"><a href="correlacion.html#cb123-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> V1, <span class="at">y =</span> V2, <span class="at">col =</span> Group) <span class="sc">+</span></span>
-<span id="cb123-4"><a href="correlacion.html#cb123-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb123-5"><a href="correlacion.html#cb123-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb123-6"><a href="correlacion.html#cb123-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="correlacion.html#cb122-1" aria-hidden="true" tabindex="-1"></a>simpson <span class="ot">&lt;-</span> <span class="fu">simulate_simpson</span>(<span class="at">n =</span> <span class="dv">100</span>, <span class="at">groups =</span> <span class="dv">10</span>)</span>
+<span id="cb122-2"><a href="correlacion.html#cb122-2" aria-hidden="true" tabindex="-1"></a>simpson</span>
+<span id="cb122-3"><a href="correlacion.html#cb122-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb122-4"><a href="correlacion.html#cb122-4" aria-hidden="true" tabindex="-1"></a>simpson <span class="sc">%&gt;%</span> </span>
+<span id="cb122-5"><a href="correlacion.html#cb122-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span> </span>
+<span id="cb122-6"><a href="correlacion.html#cb122-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> V1, <span class="at">y =</span> V2) <span class="sc">+</span></span>
+<span id="cb122-7"><a href="correlacion.html#cb122-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb122-8"><a href="correlacion.html#cb122-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="correlacion.html#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="fu">correlation</span>(simpson)</span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="correlacion.html#cb124-1" aria-hidden="true" tabindex="-1"></a>simpson <span class="sc">%&gt;%</span> </span>
+<span id="cb124-2"><a href="correlacion.html#cb124-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb124-3"><a href="correlacion.html#cb124-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> V1, <span class="at">y =</span> V2, <span class="at">col =</span> Group) <span class="sc">+</span></span>
+<span id="cb124-4"><a href="correlacion.html#cb124-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb124-5"><a href="correlacion.html#cb124-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb124-6"><a href="correlacion.html#cb124-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <p>Parece que, para cada sujeto, la relación es diferente. La tendencia negativa (global) parece ser un producto de las diferencias entre los grupos y podría ser espuria</p>
 <p>Las correlaciones multinivel (como en multigrupo) nos permiten dar cuenta de las diferencias entre grupos. Se basa en una parcialización del grupo, ingresada como efecto aleatorio en una regresión lineal mixta.</p>
 <p>Puede calcularlos con el paquete de correlaciones configurando el argumento multinivel en VERDADERO.</p>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="correlacion.html#cb124-1" aria-hidden="true" tabindex="-1"></a>simpson <span class="sc">%&gt;%</span> </span>
-<span id="cb124-2"><a href="correlacion.html#cb124-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Group) <span class="sc">%&gt;%</span> </span>
-<span id="cb124-3"><a href="correlacion.html#cb124-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">correlation</span>()</span>
-<span id="cb124-4"><a href="correlacion.html#cb124-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-5"><a href="correlacion.html#cb124-5" aria-hidden="true" tabindex="-1"></a>simpson <span class="sc">%&gt;%</span> </span>
-<span id="cb124-6"><a href="correlacion.html#cb124-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">correlation</span>(<span class="at">multilevel =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="correlacion.html#cb125-1" aria-hidden="true" tabindex="-1"></a>simpson <span class="sc">%&gt;%</span> </span>
+<span id="cb125-2"><a href="correlacion.html#cb125-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Group) <span class="sc">%&gt;%</span> </span>
+<span id="cb125-3"><a href="correlacion.html#cb125-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">correlation</span>()</span>
+<span id="cb125-4"><a href="correlacion.html#cb125-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb125-5"><a href="correlacion.html#cb125-5" aria-hidden="true" tabindex="-1"></a>simpson <span class="sc">%&gt;%</span> </span>
+<span id="cb125-6"><a href="correlacion.html#cb125-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">correlation</span>(<span class="at">multilevel =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p>Ojo con las correlaciones!</p>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="correlacion.html#cb125-1" aria-hidden="true" tabindex="-1"></a>anscombe_long <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">&#39;https://docs.google.com/spreadsheets/d/1c_FXVNkkj4LD8hVUForaaI24UhRauh_tWsy7sFRSM2k/edit#gid=1709959158&#39;</span>)</span>
-<span id="cb125-2"><a href="correlacion.html#cb125-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb125-3"><a href="correlacion.html#cb125-3" aria-hidden="true" tabindex="-1"></a>anscombe_long <span class="sc">%&gt;%</span> </span>
-<span id="cb125-4"><a href="correlacion.html#cb125-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(set) <span class="sc">%&gt;%</span> </span>
-<span id="cb125-5"><a href="correlacion.html#cb125-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">x_mean =</span> <span class="fu">mean</span>(x), </span>
-<span id="cb125-6"><a href="correlacion.html#cb125-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">y_mean =</span> <span class="fu">mean</span>(y), </span>
-<span id="cb125-7"><a href="correlacion.html#cb125-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">x_sd =</span> <span class="fu">sd</span>(x), </span>
-<span id="cb125-8"><a href="correlacion.html#cb125-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">y_sd =</span> <span class="fu">sd</span>(y))</span></code></pre></div>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="correlacion.html#cb126-1" aria-hidden="true" tabindex="-1"></a>anscombe_long <span class="sc">%&gt;%</span> </span>
-<span id="cb126-2"><a href="correlacion.html#cb126-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(set) <span class="sc">%&gt;%</span> </span>
-<span id="cb126-3"><a href="correlacion.html#cb126-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">correlation</span>(<span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="correlacion.html#cb126-1" aria-hidden="true" tabindex="-1"></a>anscombe_long <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">&#39;https://docs.google.com/spreadsheets/d/1c_FXVNkkj4LD8hVUForaaI24UhRauh_tWsy7sFRSM2k/edit#gid=1709959158&#39;</span>)</span>
+<span id="cb126-2"><a href="correlacion.html#cb126-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb126-3"><a href="correlacion.html#cb126-3" aria-hidden="true" tabindex="-1"></a>anscombe_long <span class="sc">%&gt;%</span> </span>
+<span id="cb126-4"><a href="correlacion.html#cb126-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(set) <span class="sc">%&gt;%</span> </span>
+<span id="cb126-5"><a href="correlacion.html#cb126-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">x_mean =</span> <span class="fu">mean</span>(x), </span>
+<span id="cb126-6"><a href="correlacion.html#cb126-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">y_mean =</span> <span class="fu">mean</span>(y), </span>
+<span id="cb126-7"><a href="correlacion.html#cb126-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">x_sd =</span> <span class="fu">sd</span>(x), </span>
+<span id="cb126-8"><a href="correlacion.html#cb126-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">y_sd =</span> <span class="fu">sd</span>(y))</span></code></pre></div>
 <div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="correlacion.html#cb127-1" aria-hidden="true" tabindex="-1"></a>anscombe_long <span class="sc">%&gt;%</span> </span>
-<span id="cb127-2"><a href="correlacion.html#cb127-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb127-3"><a href="correlacion.html#cb127-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(x, y) <span class="sc">+</span> </span>
-<span id="cb127-4"><a href="correlacion.html#cb127-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb127-5"><a href="correlacion.html#cb127-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>)<span class="sc">+</span> </span>
-<span id="cb127-6"><a href="correlacion.html#cb127-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="st">&quot;set&quot;</span>)</span></code></pre></div>
+<span id="cb127-2"><a href="correlacion.html#cb127-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(set) <span class="sc">%&gt;%</span> </span>
+<span id="cb127-3"><a href="correlacion.html#cb127-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">correlation</span>(<span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="correlacion.html#cb128-1" aria-hidden="true" tabindex="-1"></a>anscombe_long <span class="sc">%&gt;%</span> </span>
+<span id="cb128-2"><a href="correlacion.html#cb128-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb128-3"><a href="correlacion.html#cb128-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(x, y) <span class="sc">+</span> </span>
+<span id="cb128-4"><a href="correlacion.html#cb128-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb128-5"><a href="correlacion.html#cb128-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>)<span class="sc">+</span> </span>
+<span id="cb128-6"><a href="correlacion.html#cb128-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="st">&quot;set&quot;</span>)</span></code></pre></div>
 <blockquote>
 <p>Conclusion: SIEMPRE plotear los datos crudos y los residuos</p>
 </blockquote>
 <div id="box1" class="blue-box">
 <p>Como pasar “anscombe” de wide a long</p>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="correlacion.html#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(anscombe)</span>
-<span id="cb128-2"><a href="correlacion.html#cb128-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb128-3"><a href="correlacion.html#cb128-3" aria-hidden="true" tabindex="-1"></a>anscombe_long <span class="ot">&lt;-</span> anscombe <span class="sc">%&gt;%</span></span>
-<span id="cb128-4"><a href="correlacion.html#cb128-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb128-5"><a href="correlacion.html#cb128-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">everything</span>(),</span>
-<span id="cb128-6"><a href="correlacion.html#cb128-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># apilar solo el valor en la columna &quot;set&quot;</span></span>
-<span id="cb128-7"><a href="correlacion.html#cb128-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">&quot;.value&quot;</span>, <span class="st">&quot;set&quot;</span>),</span>
-<span id="cb128-8"><a href="correlacion.html#cb128-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># indico que las columnas que estoy apilando tienen su primer digito con el nombre de una variable y el segundo digito con el nro de set</span></span>
-<span id="cb128-9"><a href="correlacion.html#cb128-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_pattern =</span> <span class="st">&quot;(.)(.)&quot;</span></span>
-<span id="cb128-10"><a href="correlacion.html#cb128-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb128-11"><a href="correlacion.html#cb128-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(set, x)</span></code></pre></div>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="correlacion.html#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(anscombe)</span>
+<span id="cb129-2"><a href="correlacion.html#cb129-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb129-3"><a href="correlacion.html#cb129-3" aria-hidden="true" tabindex="-1"></a>anscombe_long <span class="ot">&lt;-</span> anscombe <span class="sc">%&gt;%</span></span>
+<span id="cb129-4"><a href="correlacion.html#cb129-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb129-5"><a href="correlacion.html#cb129-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">everything</span>(),</span>
+<span id="cb129-6"><a href="correlacion.html#cb129-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># apilar solo el valor en la columna &quot;set&quot;</span></span>
+<span id="cb129-7"><a href="correlacion.html#cb129-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">&quot;.value&quot;</span>, <span class="st">&quot;set&quot;</span>),</span>
+<span id="cb129-8"><a href="correlacion.html#cb129-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># indico que las columnas que estoy apilando tienen su primer digito con el nombre de una variable y el segundo digito con el nro de set</span></span>
+<span id="cb129-9"><a href="correlacion.html#cb129-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_pattern =</span> <span class="st">&quot;(.)(.)&quot;</span></span>
+<span id="cb129-10"><a href="correlacion.html#cb129-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb129-11"><a href="correlacion.html#cb129-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(set, x)</span></code></pre></div>
 </div>
 </div>
 </div>
@@ -432,6 +458,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

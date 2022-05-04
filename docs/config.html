@@ -29,7 +29,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="objetivos.html"/>
+<link rel="prev" href="sobre-el-curso.html"/>
 <link rel="next" href="sintaxis.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -162,6 +162,7 @@ div.csl-indent {
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Motivación</a></li>
 <li class="chapter" data-level="" data-path="objetivos.html"><a href="objetivos.html"><i class="fa fa-check"></i>Objetivos</a></li>
+<li class="chapter" data-level="" data-path="sobre-el-curso.html"><a href="sobre-el-curso.html"><i class="fa fa-check"></i>Sobre el curso</a></li>
 <li class="chapter" data-level="1" data-path="config.html"><a href="config.html"><i class="fa fa-check"></i><b>1</b> Configuraciones básicas</a>
 <ul>
 <li class="chapter" data-level="" data-path="config.html"><a href="config.html#paquetes-de-r"><i class="fa fa-check"></i>Paquetes de R</a></li>
@@ -246,6 +247,31 @@ div.csl-indent {
 <li class="chapter" data-level="10.1" data-path="regresión-linear.html"><a href="regresión-linear.html#simple-1"><i class="fa fa-check"></i><b>10.1</b> Simple</a></li>
 <li class="chapter" data-level="10.2" data-path="regresión-linear.html"><a href="regresión-linear.html#regresión-polinomial"><i class="fa fa-check"></i><b>10.2</b> Regresión polinomial</a></li>
 <li class="chapter" data-level="10.3" data-path="regresión-linear.html"><a href="regresión-linear.html#regresion-multiple"><i class="fa fa-check"></i><b>10.3</b> Regresion multiple</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="anova.html"><a href="anova.html"><i class="fa fa-check"></i><b>11</b> Anova</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="anova.html"><a href="anova.html#un-solo-factor"><i class="fa fa-check"></i><b>11.1</b> Un solo factor</a>
+<ul>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#exploración-numérica"><i class="fa fa-check"></i>Exploración numérica</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#exploración-visual"><i class="fa fa-check"></i>Exploración visual</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#ajuste-del-modelo-lineal"><i class="fa fa-check"></i>Ajuste del modelo lineal</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#diagnósticos"><i class="fa fa-check"></i>Diagnósticos</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#estaidisticas"><i class="fa fa-check"></i>Estaidisticas</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#comparaciones-múltiples"><i class="fa fa-check"></i>Comparaciones múltiples</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#grafico-final"><i class="fa fa-check"></i>Grafico final</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="anova.html"><a href="anova.html#dos-factores"><i class="fa fa-check"></i><b>11.2</b> Dos factores</a>
+<ul>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#exploracion"><i class="fa fa-check"></i>Exploracion</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#ajuste"><i class="fa fa-check"></i>Ajuste</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#diagnósticos-1"><i class="fa fa-check"></i>Diagnósticos</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#transformación"><i class="fa fa-check"></i>Transformación</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#reajuste-de-modelo"><i class="fa fa-check"></i>Reajuste de modelo</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#estadisticas-del-modelo"><i class="fa fa-check"></i>Estadisticas del modelo</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#medias-estimadas-por-el-modelo"><i class="fa fa-check"></i>Medias estimadas por el modelo</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#comparaciones-multiples"><i class="fa fa-check"></i>Comparaciones multiples</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#grafico-final-1"><i class="fa fa-check"></i>Grafico final</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://drive.google.com/drive/folders/1feJyun5DJ8TaldUELQvh-prY3o6fGN6H?usp=sharing" target="_blank">Datasets</a></li>
@@ -351,7 +377,7 @@ div.csl-indent {
 <blockquote>
 <p>En este ejemplo, usaremos una función “plot()” y un dataset “pressure” prediseñados en paquetes de carga automática al iniciar R.</p>
 </blockquote>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="config.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pressure)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="config.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pressure)</span></code></pre></div>
 
 </div>
 </div>
@@ -360,7 +386,7 @@ div.csl-indent {
           </div>
         </div>
       </div>
-<a href="objetivos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sobre-el-curso.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="sintaxis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
@@ -412,6 +438,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

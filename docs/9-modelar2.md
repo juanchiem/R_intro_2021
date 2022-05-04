@@ -1,20 +1,22 @@
 # Anova 
 
-```{r}
+
+```r
 pacman::p_load(
- tidyverse,  
- skimr,       # exploración numérica de los datos
- performance, # evaluar performance de los modelos
- emmeans,     # medias estimadas por el modelo y comparación multiple 
- multcomp     # comparación multiple - display de letras
- )
+  tidyverse,
+  skimr,       # exploracion numerica de los datos
+  performance, # evaluar performance de los modelos
+  emmeans,     # medias estimadas por el modelo  
+  multcomp     # comparar las medias entre si - tukey
+  )
 ```
 
 ## Un solo factor 
 
 Experimento DCA: dataset `PlantGrowth`
 
-```{r}
+
+```r
 pg <- PlantGrowth # simplificamos el nombre del dataset
 pg
 ```
@@ -25,17 +27,20 @@ pg
 
 ### Exploración numérica  {-}
 
-```{r}
+
+```r
 str(pg) # tipo de variables
 ```
 
-```{r}
+
+```r
 pg %>%   
   group_by(group) %>%
   skimr::skim() # exploración numérica
 ```
 
-```{r}
+
+```r
 pg %>% 
   group_by(group) %>% 
   summarise(
@@ -46,7 +51,8 @@ pg %>%
 
 ### Exploración visual  {-}
 
-```{r}
+
+```r
 pg %>% 
   ggplot()+ 
   aes(x=group, y=weight) + 
@@ -56,7 +62,8 @@ pg %>%
 
 ### Ajuste del modelo lineal  {-}
 
-```{r}
+
+```r
 mod1 <- lm(weight ~ group, data = pg)  
 ```
 
@@ -68,7 +75,8 @@ $$N \sim (\sigma^2, 0)$$
 
 ¿Las varianzas (entre niveles del factor) son homogéneas? 
 
-```{r}
+
+```r
 check_heteroscedasticity(mod1) %>% plot
 # plot(mod1, which = 1)
 # car::leveneTest(mod1)
@@ -76,7 +84,8 @@ check_heteroscedasticity(mod1) %>% plot
 
 ¿Los residuos se distribuyen normales?
 
-```{r}
+
+```r
 check_normality(mod1) %>% plot
 # plot(mod1, which = 2)
 # shapiro.test(rstandard(mod1))
@@ -85,7 +94,8 @@ check_normality(mod1) %>% plot
 
 ### Estaidisticas  {-}
 
-```{r}
+
+```r
 anova(mod1)# caso balanceado
 summary(mod1)
 # car::Anova(mod1)# caso desbalanceado
@@ -97,7 +107,8 @@ Paquete [emmeans](https://cran.r-project.org/web/packages/emmeans/vignettes/vign
 
 Medias e intervalos de confianza estimadas por el modelo
 
-```{r}
+
+```r
 em <- emmeans(mod1, ~ group, type="response")
 em # %>% knitr::kable()
 class(em)
@@ -105,7 +116,8 @@ class(em)
 
 Test de Tukey 
 
-```{r}
+
+```r
 res  <- cld(em, 
             Letters = letters, 
             reverse = TRUE, 
@@ -113,19 +125,22 @@ res  <- cld(em,
 res
 ```
 
-```{r}
+
+```r
 ?pwpm
 pwpm(em, adjust = "none")
 ```
 
-```{r}
+
+```r
 res <- res %>% 
   mutate(letras=str_squish(.group))  
 ```
 
 ### Grafico final  {-}
 
-```{r}
+
+```r
 res %>%  
   ggplot() +
   aes(x=group, y=emmean)+
@@ -139,7 +154,8 @@ res %>%
 
 Comparación de medias de los trat vs testigo (Dunnet)
 
-```{r}
+
+```r
 contrast(em, "trt.vs.ctrl1")
 ```
 
@@ -147,7 +163,8 @@ contrast(em, "trt.vs.ctrl1")
 
 Comparación de medias por LSD
 
-```{r}
+
+```r
 library(agricolae)
 
 res_lsd <- LSD.test(y = mod1, 
@@ -172,7 +189,8 @@ Datos `festuca`
 > Las plantas tienen un pH del suelo óptimo para el crecimiento, y esto varía entre especies. En consecuencia, esperaríamos que si cultivamos dos plantas en competencia entre sí a diferentes valores de pH, el efecto de la competencia podría variar según el pH del suelo. En un estudio reciente se investigó el crecimiento de la gramínea Festuca ovina (Festuca de oveja) en competencia con el brezo Calluna vulgaris (Ling) en suelos con diferente pH. Calluna está bien adaptada para crecer en suelos muy ácidos, como en los pantanos de arena. Festuca crece en suelos con un rango mucho más amplio de pH. Podríamos suponer que Calluna será un mejor competidor de Festuca en suelos muy ácidos que en suelos moderadamente ácidos.
 Para probar esta hipótesis, se diseñó un experimento en el que se cultivaron plántulas de Festuca en macetas en todas las combinaciones de dos niveles de dos tipos diferentes de tratamiento
 
-```{r}
+
+```r
 festuca <- structure(list(weight = c(2.76, 2.39, 2.54, 3.11, 2.49, 4.1, 
 2.72, 2.28, 3.43, 3.31, 3.21, 4.1, 3.04, 4.13, 5.21, 5.92, 7.31, 
 6.1, 5.25, 8.45), ph = c("pH3.5", "pH3.5", "pH3.5", "pH3.5", 
@@ -186,7 +204,8 @@ festuca <- structure(list(weight = c(2.76, 2.39, 2.54, 3.11, 2.49, 4.1,
 ```
 
 
-```{r}
+
+```r
 # festuca <- rio::import("https://docs.google.com/spreadsheets/d/1c_FXVNkkj4LD8hVUForaaI24UhRauh_tWsy7sFRSM2k/edit#gid=477107180")
 
 festuca <- rio::import("data/datos_curso.xls", sheet ="festuca")
@@ -194,13 +213,15 @@ festuca <- rio::import("data/datos_curso.xls", sheet ="festuca")
 
 ### Exploracion  {-}
 
-```{r}
+
+```r
 festuca %>% skim()
 festuca <- festuca %>% mutate_if(is.character, as.factor)
 festuca %>% skim()
 ```
 
-```{r}
+
+```r
 dodge <- position_dodge(width=0.5)
 
 festuca %>% 
@@ -213,12 +234,14 @@ festuca %>%
 
 ### Ajuste  {-} 
 
-```{r}
+
+```r
 fest_fit <- lm(weight ~ ph * Calluna, data = festuca)
 ```
 
 
-```{r}
+
+```r
 fest_fit_log
 ```
 
@@ -226,13 +249,15 @@ fest_fit_log
 
 ¿Las varianzas (entre niveles del factor) son homogéneas? 
 
-```{r}
+
+```r
 check_heteroscedasticity(fest_fit) # %>% plot
 ```
 
 ¿Los residuos se distribuyen normales?
 
-```{r}
+
+```r
 check_normality(fest_fit) # %>% plot
 ```
 
@@ -255,12 +280,14 @@ Por ello es adicionada una constante a la variable original (0.5, por ej.).
 
 En el caso que la transformacion optima sea lambda = 0.2, el modelo resultaría: 
 
-```{r}
+
+```r
 lm((y+0.5)^0.2 ~ trt ...)
 ```
 :::
 
-```{r}
+
+```r
 boxcox(fest_fit)
 ```
 
@@ -270,19 +297,22 @@ boxcox(fest_fit)
 
 ...con variable respuesta transformada
 
-```{r}
+
+```r
 fest_fit_log <- lm(log(weight) ~  Calluna * ph, data = festuca)
 ```
 
 Nuevamente se diagnostica la estabilizacion de la varianza
 
-```{r}
+
+```r
 check_heteroscedasticity(fest_fit_log) %>% plot
 ```
 
 ### Estadisticas del modelo  {-}
 
-```{r}
+
+```r
 anova(fest_fit_log)
 ```
 
@@ -291,27 +321,31 @@ anova(fest_fit_log)
 
 ... y su dispersion
 
-```{r}
+
+```r
 fest_em <- emmeans(fest_fit_log, ~ Calluna | ph, type = "response")
 fest_em
 ```
 
 ### Comparaciones multiples  {-}
 
-```{r}
+
+```r
 res_festuca <- cld(fest_em, alpha=.05, Letters=letters)
 res_festuca
 ```
 
 ### Grafico final  {-}
 
-```{r}
+
+```r
 res_festuca <- res_festuca %>% 
   mutate(letras=str_squish(.group), 
          weight=response)  
 ```
 
-```{r}
+
+```r
 res_festuca %>%  
   ggplot() +
   aes(x=ph, y=weight, col=Calluna)+

@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>11 Anova | Exploración y manipulación de datos con R</title>
+  <meta name="description" content="11 Anova | Exploración y manipulación de datos con R" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="11 Anova | Exploración y manipulación de datos con R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="juanchiem/R_intro_2022" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="11 Anova | Exploración y manipulación de datos con R" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="regresión-linear.html"/>
+
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet" />
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Inicio</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Motivación</a></li>
+<li class="chapter" data-level="" data-path="objetivos.html"><a href="objetivos.html"><i class="fa fa-check"></i>Objetivos</a></li>
+<li class="chapter" data-level="" data-path="sobre-el-curso.html"><a href="sobre-el-curso.html"><i class="fa fa-check"></i>Sobre el curso</a></li>
+<li class="chapter" data-level="1" data-path="config.html"><a href="config.html"><i class="fa fa-check"></i><b>1</b> Configuraciones básicas</a>
+<ul>
+<li class="chapter" data-level="" data-path="config.html"><a href="config.html#paquetes-de-r"><i class="fa fa-check"></i>Paquetes de R</a></li>
+<li class="chapter" data-level="" data-path="config.html"><a href="config.html#proyectos-de-rstudio"><i class="fa fa-check"></i>Proyectos de RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="sintaxis.html"><a href="sintaxis.html"><i class="fa fa-check"></i><b>2</b> Sintaxis</a>
+<ul>
+<li class="chapter" data-level="" data-path="sintaxis.html"><a href="sintaxis.html#r-calculadora"><i class="fa fa-check"></i>R Calculadora</a></li>
+<li class="chapter" data-level="" data-path="sintaxis.html"><a href="sintaxis.html#comparaciones-lógicas"><i class="fa fa-check"></i>Comparaciones lógicas</a></li>
+<li class="chapter" data-level="" data-path="sintaxis.html"><a href="sintaxis.html#variables-y-asignaciones"><i class="fa fa-check"></i>Variables y asignaciones</a></li>
+<li class="chapter" data-level="" data-path="sintaxis.html"><a href="sintaxis.html#funciones"><i class="fa fa-check"></i>Funciones</a></li>
+<li class="chapter" data-level="" data-path="sintaxis.html"><a href="sintaxis.html#tips"><i class="fa fa-check"></i>Tips</a></li>
+<li class="chapter" data-level="" data-path="sintaxis.html"><a href="sintaxis.html#s.o.s."><i class="fa fa-check"></i>S.O.S.</a></li>
+<li class="chapter" data-level="" data-path="sintaxis.html"><a href="sintaxis.html#tablas_resumen"><i class="fa fa-check"></i>Tablas resumen</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html"><i class="fa fa-check"></i><b>3</b> Tipos de datos</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#vectores"><i class="fa fa-check"></i><b>3.1</b> Vectores</a></li>
+<li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#caracter"><i class="fa fa-check"></i>Caracter</a></li>
+<li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#lógicos"><i class="fa fa-check"></i>Lógicos</a></li>
+<li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#fechas"><i class="fa fa-check"></i>Fechas</a></li>
+<li class="chapter" data-level="3.2" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#datos-faltantes"><i class="fa fa-check"></i><b>3.2</b> Datos faltantes</a></li>
+<li class="chapter" data-level="3.3" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#factores"><i class="fa fa-check"></i><b>3.3</b> Factores</a></li>
+<li class="chapter" data-level="3.4" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#secuencias"><i class="fa fa-check"></i><b>3.4</b> Secuencias</a>
+<ul>
+<li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#numéricas"><i class="fa fa-check"></i>Numéricas</a></li>
+<li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#letras"><i class="fa fa-check"></i>Letras</a></li>
+<li class="chapter" data-level="" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#fechas-1"><i class="fa fa-check"></i>Fechas</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#números-aleatorios"><i class="fa fa-check"></i><b>3.5</b> Números aleatorios</a></li>
+<li class="chapter" data-level="3.6" data-path="tipos-de-datos.html"><a href="tipos-de-datos.html#valores-especiales"><i class="fa fa-check"></i><b>3.6</b> Valores especiales</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="estructura-de-datos.html"><a href="estructura-de-datos.html"><i class="fa fa-check"></i><b>4</b> Estructura de datos</a>
+<ul>
+<li class="chapter" data-level="" data-path="estructura-de-datos.html"><a href="estructura-de-datos.html#data-frames"><i class="fa fa-check"></i>Data frames</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="tidyverse.html"><a href="tidyverse.html"><i class="fa fa-check"></i>Tidyverse</a></li>
+<li class="chapter" data-level="5" data-path="visualización.html"><a href="visualización.html"><i class="fa fa-check"></i><b>5</b> Visualización</a>
+<ul>
+<li class="chapter" data-level="" data-path="visualización.html"><a href="visualización.html#ggplot"><i class="fa fa-check"></i>ggplot</a></li>
+<li class="chapter" data-level="5.1" data-path="visualización.html"><a href="visualización.html#ambas-variables-contínuas"><i class="fa fa-check"></i><b>5.1</b> Ambas variables contínuas</a></li>
+<li class="chapter" data-level="5.2" data-path="visualización.html"><a href="visualización.html#ggsave"><i class="fa fa-check"></i><b>5.2</b> ggsave</a></li>
+<li class="chapter" data-level="5.3" data-path="visualización.html"><a href="visualización.html#comparación-de-niveles-de-factores"><i class="fa fa-check"></i><b>5.3</b> Comparación de niveles de factores</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="visualización.html"><a href="visualización.html#observaciones-media-mediana"><i class="fa fa-check"></i><b>5.3.1</b> Observaciones + media / mediana</a></li>
+<li class="chapter" data-level="5.3.2" data-path="visualización.html"><a href="visualización.html#barplot-se"><i class="fa fa-check"></i><b>5.3.2</b> Barplot + SE</a></li>
+<li class="chapter" data-level="5.3.3" data-path="visualización.html"><a href="visualización.html#box-plot"><i class="fa fa-check"></i><b>5.3.3</b> Box-plot</a></li>
+<li class="chapter" data-level="5.3.4" data-path="visualización.html"><a href="visualización.html#violin-plot"><i class="fa fa-check"></i><b>5.3.4</b> Violin plot</a></li>
+<li class="chapter" data-level="5.3.5" data-path="visualización.html"><a href="visualización.html#media-dispersión"><i class="fa fa-check"></i><b>5.3.5</b> Media &amp; dispersión</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>6</b> {dplyr}</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="dplyr.html"><a href="dplyr.html#mutate"><i class="fa fa-check"></i><b>6.1</b> <code>mutate()</code></a></li>
+<li class="chapter" data-level="6.2" data-path="dplyr.html"><a href="dplyr.html#select"><i class="fa fa-check"></i><b>6.2</b> <code>select()</code></a></li>
+<li class="chapter" data-level="6.3" data-path="dplyr.html"><a href="dplyr.html#filter"><i class="fa fa-check"></i><b>6.3</b> <code>filter()</code></a></li>
+<li class="chapter" data-level="6.4" data-path="dplyr.html"><a href="dplyr.html#count"><i class="fa fa-check"></i><b>6.4</b> <code>count()</code></a></li>
+<li class="chapter" data-level="6.5" data-path="dplyr.html"><a href="dplyr.html#summarise"><i class="fa fa-check"></i><b>6.5</b> <code>summarise()</code></a></li>
+<li class="chapter" data-level="6.6" data-path="dplyr.html"><a href="dplyr.html#arrange"><i class="fa fa-check"></i><b>6.6</b> <code>arrange()</code></a></li>
+<li class="chapter" data-level="6.7" data-path="dplyr.html"><a href="dplyr.html#forcats"><i class="fa fa-check"></i><b>6.7</b> {forcats}</a></li>
+<li class="chapter" data-level="6.8" data-path="dplyr.html"><a href="dplyr.html#join"><i class="fa fa-check"></i><b>6.8</b> <code>join()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="tidyr.html"><a href="tidyr.html"><i class="fa fa-check"></i><b>7</b> {tidyr}</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="tidyr.html"><a href="tidyr.html#pivot_longer"><i class="fa fa-check"></i><b>7.1</b> <code>pivot_longer()</code></a></li>
+<li class="chapter" data-level="7.2" data-path="tidyr.html"><a href="tidyr.html#unite"><i class="fa fa-check"></i><b>7.2</b> <code>unite()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="otras-importaciones.html"><a href="otras-importaciones.html"><i class="fa fa-check"></i><b>8</b> Otras importaciones</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="otras-importaciones.html"><a href="otras-importaciones.html#importación-multiple-con-rio"><i class="fa fa-check"></i><b>8.1</b> Importación multiple con {rio}</a></li>
+<li class="chapter" data-level="8.2" data-path="otras-importaciones.html"><a href="otras-importaciones.html#desde-googlesheets"><i class="fa fa-check"></i><b>8.2</b> Desde googlesheets</a></li>
+<li class="chapter" data-level="8.3" data-path="otras-importaciones.html"><a href="otras-importaciones.html#api-de-nasapower"><i class="fa fa-check"></i><b>8.3</b> API de Nasapower</a></li>
+<li class="chapter" data-level="8.4" data-path="otras-importaciones.html"><a href="otras-importaciones.html#exportar"><i class="fa fa-check"></i><b>8.4</b> Exportar</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="correlacion.html"><a href="correlacion.html"><i class="fa fa-check"></i><b>9</b> Correlacion</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="correlacion.html"><a href="correlacion.html#simple"><i class="fa fa-check"></i><b>9.1</b> Simple</a></li>
+<li class="chapter" data-level="9.2" data-path="correlacion.html"><a href="correlacion.html#multi-level"><i class="fa fa-check"></i><b>9.2</b> Multi-level</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="regresión-linear.html"><a href="regresión-linear.html"><i class="fa fa-check"></i><b>10</b> Regresión linear</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="regresión-linear.html"><a href="regresión-linear.html#simple-1"><i class="fa fa-check"></i><b>10.1</b> Simple</a></li>
+<li class="chapter" data-level="10.2" data-path="regresión-linear.html"><a href="regresión-linear.html#regresión-polinomial"><i class="fa fa-check"></i><b>10.2</b> Regresión polinomial</a></li>
+<li class="chapter" data-level="10.3" data-path="regresión-linear.html"><a href="regresión-linear.html#regresion-multiple"><i class="fa fa-check"></i><b>10.3</b> Regresion multiple</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="anova.html"><a href="anova.html"><i class="fa fa-check"></i><b>11</b> Anova</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="anova.html"><a href="anova.html#un-solo-factor"><i class="fa fa-check"></i><b>11.1</b> Un solo factor</a>
+<ul>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#exploración-numérica"><i class="fa fa-check"></i>Exploración numérica</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#exploración-visual"><i class="fa fa-check"></i>Exploración visual</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#ajuste-del-modelo-lineal"><i class="fa fa-check"></i>Ajuste del modelo lineal</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#diagnósticos"><i class="fa fa-check"></i>Diagnósticos</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#estaidisticas"><i class="fa fa-check"></i>Estaidisticas</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#comparaciones-múltiples"><i class="fa fa-check"></i>Comparaciones múltiples</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#grafico-final"><i class="fa fa-check"></i>Grafico final</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="anova.html"><a href="anova.html#dos-factores"><i class="fa fa-check"></i><b>11.2</b> Dos factores</a>
+<ul>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#exploracion"><i class="fa fa-check"></i>Exploracion</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#ajuste"><i class="fa fa-check"></i>Ajuste</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#diagnósticos-1"><i class="fa fa-check"></i>Diagnósticos</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#transformación"><i class="fa fa-check"></i>Transformación</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#reajuste-de-modelo"><i class="fa fa-check"></i>Reajuste de modelo</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#estadisticas-del-modelo"><i class="fa fa-check"></i>Estadisticas del modelo</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#medias-estimadas-por-el-modelo"><i class="fa fa-check"></i>Medias estimadas por el modelo</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#comparaciones-multiples"><i class="fa fa-check"></i>Comparaciones multiples</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#grafico-final-1"><i class="fa fa-check"></i>Grafico final</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://drive.google.com/drive/folders/1feJyun5DJ8TaldUELQvh-prY3o6fGN6H?usp=sharing" target="_blank">Datasets</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Exploración y manipulación de datos con R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="anova" class="section level1" number="11">
+<h1><span class="header-section-number">11</span> Anova</h1>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="anova.html#cb145-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(</span>
+<span id="cb145-2"><a href="anova.html#cb145-2" aria-hidden="true" tabindex="-1"></a>  tidyverse,</span>
+<span id="cb145-3"><a href="anova.html#cb145-3" aria-hidden="true" tabindex="-1"></a>  skimr,       <span class="co"># exploracion numerica de los datos</span></span>
+<span id="cb145-4"><a href="anova.html#cb145-4" aria-hidden="true" tabindex="-1"></a>  performance, <span class="co"># evaluar performance de los modelos</span></span>
+<span id="cb145-5"><a href="anova.html#cb145-5" aria-hidden="true" tabindex="-1"></a>  emmeans,     <span class="co"># medias estimadas por el modelo  </span></span>
+<span id="cb145-6"><a href="anova.html#cb145-6" aria-hidden="true" tabindex="-1"></a>  multcomp     <span class="co"># comparar las medias entre si - tukey</span></span>
+<span id="cb145-7"><a href="anova.html#cb145-7" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<div id="un-solo-factor" class="section level2" number="11.1">
+<h2><span class="header-section-number">11.1</span> Un solo factor</h2>
+<p>Experimento DCA: dataset <code>PlantGrowth</code></p>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="anova.html#cb146-1" aria-hidden="true" tabindex="-1"></a>pg <span class="ot">&lt;-</span> PlantGrowth <span class="co"># simplificamos el nombre del dataset</span></span>
+<span id="cb146-2"><a href="anova.html#cb146-2" aria-hidden="true" tabindex="-1"></a>pg</span></code></pre></div>
+<p><code>PlantGrowth {datasets}</code></p>
+<blockquote>
+<p>Results from an experiment to compare yields (as measured by dried weight of plants) obtained under a control and two different treatment conditions.</p>
+</blockquote>
+<div id="exploración-numérica" class="section level3 unnumbered">
+<h3>Exploración numérica</h3>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="anova.html#cb147-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(pg) <span class="co"># tipo de variables</span></span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="anova.html#cb148-1" aria-hidden="true" tabindex="-1"></a>pg <span class="sc">%&gt;%</span>   </span>
+<span id="cb148-2"><a href="anova.html#cb148-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(group) <span class="sc">%&gt;%</span></span>
+<span id="cb148-3"><a href="anova.html#cb148-3" aria-hidden="true" tabindex="-1"></a>  skimr<span class="sc">::</span><span class="fu">skim</span>() <span class="co"># exploración numérica</span></span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="anova.html#cb149-1" aria-hidden="true" tabindex="-1"></a>pg <span class="sc">%&gt;%</span> </span>
+<span id="cb149-2"><a href="anova.html#cb149-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(group) <span class="sc">%&gt;%</span> </span>
+<span id="cb149-3"><a href="anova.html#cb149-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb149-4"><a href="anova.html#cb149-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(weight)), </span>
+<span id="cb149-5"><a href="anova.html#cb149-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean =</span> <span class="fu">mean</span>(weight),</span>
+<span id="cb149-6"><a href="anova.html#cb149-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd =</span> <span class="fu">sd</span>(weight))</span></code></pre></div>
+</div>
+<div id="exploración-visual" class="section level3 unnumbered">
+<h3>Exploración visual</h3>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="anova.html#cb150-1" aria-hidden="true" tabindex="-1"></a>pg <span class="sc">%&gt;%</span> </span>
+<span id="cb150-2"><a href="anova.html#cb150-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span> </span>
+<span id="cb150-3"><a href="anova.html#cb150-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>group, <span class="at">y=</span>weight) <span class="sc">+</span> </span>
+<span id="cb150-4"><a href="anova.html#cb150-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width=</span><span class="fl">0.2</span>)<span class="sc">+</span></span>
+<span id="cb150-5"><a href="anova.html#cb150-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">alpha=</span><span class="fl">0.2</span>, <span class="at">width=</span><span class="fl">0.2</span>)</span></code></pre></div>
+</div>
+<div id="ajuste-del-modelo-lineal" class="section level3 unnumbered">
+<h3>Ajuste del modelo lineal</h3>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="anova.html#cb151-1" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> group, <span class="at">data =</span> pg)  </span></code></pre></div>
+<p><span class="math display">\[y_{ij} = \mu + \alpha_i + e_{ij}; \:\:i = 1,..., k; \:j = 1,..., n\]</span>
+<span class="math display">\[N \sim (\sigma^2, 0)\]</span></p>
+</div>
+<div id="diagnósticos" class="section level3 unnumbered">
+<h3>Diagnósticos</h3>
+<p>¿Las varianzas (entre niveles del factor) son homogéneas?</p>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="anova.html#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_heteroscedasticity</span>(mod1) <span class="sc">%&gt;%</span> plot</span>
+<span id="cb152-2"><a href="anova.html#cb152-2" aria-hidden="true" tabindex="-1"></a><span class="co"># plot(mod1, which = 1)</span></span>
+<span id="cb152-3"><a href="anova.html#cb152-3" aria-hidden="true" tabindex="-1"></a><span class="co"># car::leveneTest(mod1)</span></span></code></pre></div>
+<p>¿Los residuos se distribuyen normales?</p>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="anova.html#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_normality</span>(mod1) <span class="sc">%&gt;%</span> plot</span>
+<span id="cb153-2"><a href="anova.html#cb153-2" aria-hidden="true" tabindex="-1"></a><span class="co"># plot(mod1, which = 2)</span></span>
+<span id="cb153-3"><a href="anova.html#cb153-3" aria-hidden="true" tabindex="-1"></a><span class="co"># shapiro.test(rstandard(mod1))</span></span></code></pre></div>
+</div>
+<div id="estaidisticas" class="section level3 unnumbered">
+<h3>Estaidisticas</h3>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="anova.html#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(mod1)<span class="co"># caso balanceado</span></span>
+<span id="cb154-2"><a href="anova.html#cb154-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod1)</span>
+<span id="cb154-3"><a href="anova.html#cb154-3" aria-hidden="true" tabindex="-1"></a><span class="co"># car::Anova(mod1)# caso desbalanceado</span></span></code></pre></div>
+</div>
+<div id="comparaciones-múltiples" class="section level3 unnumbered">
+<h3>Comparaciones múltiples</h3>
+<p>Paquete <a href="https://cran.r-project.org/web/packages/emmeans/vignettes/vignette-topics.html">emmeans</a></p>
+<p>Medias e intervalos de confianza estimadas por el modelo</p>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="anova.html#cb155-1" aria-hidden="true" tabindex="-1"></a>em <span class="ot">&lt;-</span> <span class="fu">emmeans</span>(mod1, <span class="sc">~</span> group, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
+<span id="cb155-2"><a href="anova.html#cb155-2" aria-hidden="true" tabindex="-1"></a>em <span class="co"># %&gt;% knitr::kable()</span></span>
+<span id="cb155-3"><a href="anova.html#cb155-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(em)</span></code></pre></div>
+<p>Test de Tukey</p>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="anova.html#cb156-1" aria-hidden="true" tabindex="-1"></a>res  <span class="ot">&lt;-</span> <span class="fu">cld</span>(em, </span>
+<span id="cb156-2"><a href="anova.html#cb156-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">Letters =</span> letters, </span>
+<span id="cb156-3"><a href="anova.html#cb156-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">reverse =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb156-4"><a href="anova.html#cb156-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">alpha =</span> .<span class="dv">05</span>)  </span>
+<span id="cb156-5"><a href="anova.html#cb156-5" aria-hidden="true" tabindex="-1"></a>res</span></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="anova.html#cb157-1" aria-hidden="true" tabindex="-1"></a>?pwpm</span>
+<span id="cb157-2"><a href="anova.html#cb157-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pwpm</span>(em, <span class="at">adjust =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="anova.html#cb158-1" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> res <span class="sc">%&gt;%</span> </span>
+<span id="cb158-2"><a href="anova.html#cb158-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">letras=</span><span class="fu">str_squish</span>(.group))  </span></code></pre></div>
+</div>
+<div id="grafico-final" class="section level3 unnumbered">
+<h3>Grafico final</h3>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="anova.html#cb159-1" aria-hidden="true" tabindex="-1"></a>res <span class="sc">%&gt;%</span>  </span>
+<span id="cb159-2"><a href="anova.html#cb159-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb159-3"><a href="anova.html#cb159-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>group, <span class="at">y=</span>emmean)<span class="sc">+</span></span>
+<span id="cb159-4"><a href="anova.html#cb159-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_pointrange</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> lower.CL, <span class="at">ymax =</span> upper.CL))<span class="sc">+</span></span>
+<span id="cb159-5"><a href="anova.html#cb159-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Tratamiento&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Peso (g)&quot;</span>)<span class="sc">+</span>  </span>
+<span id="cb159-6"><a href="anova.html#cb159-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">vjust=</span><span class="sc">-</span><span class="dv">1</span>, <span class="at">angle=</span><span class="dv">90</span>, <span class="fu">aes</span>(<span class="at">label =</span> letras))<span class="sc">+</span></span>
+<span id="cb159-7"><a href="anova.html#cb159-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">data =</span> pg <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">emmean =</span> weight), </span>
+<span id="cb159-8"><a href="anova.html#cb159-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">width =</span> .<span class="dv">1</span>, <span class="at">alpha=</span><span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb159-9"><a href="anova.html#cb159-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<p>Comparación de medias de los trat vs testigo (Dunnet)</p>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="anova.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contrast</span>(em, <span class="st">&quot;trt.vs.ctrl1&quot;</span>)</span></code></pre></div>
+<div id="box1" class="blue-box">
+<p>Comparación de medias por LSD</p>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="anova.html#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(agricolae)</span>
+<span id="cb161-2"><a href="anova.html#cb161-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb161-3"><a href="anova.html#cb161-3" aria-hidden="true" tabindex="-1"></a>res_lsd <span class="ot">&lt;-</span> <span class="fu">LSD.test</span>(<span class="at">y =</span> mod1, </span>
+<span id="cb161-4"><a href="anova.html#cb161-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">trt =</span> <span class="st">&quot;group&quot;</span>,</span>
+<span id="cb161-5"><a href="anova.html#cb161-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">group =</span> T, </span>
+<span id="cb161-6"><a href="anova.html#cb161-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">console =</span> T)</span>
+<span id="cb161-7"><a href="anova.html#cb161-7" aria-hidden="true" tabindex="-1"></a>res_lsd</span>
+<span id="cb161-8"><a href="anova.html#cb161-8" aria-hidden="true" tabindex="-1"></a><span class="fu">bar.group</span>(<span class="at">x =</span> res_lsd<span class="sc">$</span>groups, </span>
+<span id="cb161-9"><a href="anova.html#cb161-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">7</span>),</span>
+<span id="cb161-10"><a href="anova.html#cb161-10" aria-hidden="true" tabindex="-1"></a>          <span class="co"># main=&quot;Prueba de comparación de medias por medio del método LSD&quot;,</span></span>
+<span id="cb161-11"><a href="anova.html#cb161-11" aria-hidden="true" tabindex="-1"></a>          <span class="co"># xlab=&quot;Tipo de Mezcla&quot;,</span></span>
+<span id="cb161-12"><a href="anova.html#cb161-12" aria-hidden="true" tabindex="-1"></a>          <span class="co"># ylab=&quot;Rendimiento del proceso&quot;,</span></span>
+<span id="cb161-13"><a href="anova.html#cb161-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">col=</span><span class="st">&quot;steelblue&quot;</span>)</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="dos-factores" class="section level2" number="11.2">
+<h2><span class="header-section-number">11.2</span> Dos factores</h2>
+<p>Datos <code>festuca</code></p>
+<blockquote>
+<p>Las plantas tienen un pH del suelo óptimo para el crecimiento, y esto varía entre especies. En consecuencia, esperaríamos que si cultivamos dos plantas en competencia entre sí a diferentes valores de pH, el efecto de la competencia podría variar según el pH del suelo. En un estudio reciente se investigó el crecimiento de la gramínea Festuca ovina (Festuca de oveja) en competencia con el brezo Calluna vulgaris (Ling) en suelos con diferente pH. Calluna está bien adaptada para crecer en suelos muy ácidos, como en los pantanos de arena. Festuca crece en suelos con un rango mucho más amplio de pH. Podríamos suponer que Calluna será un mejor competidor de Festuca en suelos muy ácidos que en suelos moderadamente ácidos.
+Para probar esta hipótesis, se diseñó un experimento en el que se cultivaron plántulas de Festuca en macetas en todas las combinaciones de dos niveles de dos tipos diferentes de tratamiento</p>
+</blockquote>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="anova.html#cb162-1" aria-hidden="true" tabindex="-1"></a>festuca <span class="ot">&lt;-</span> <span class="fu">structure</span>(<span class="fu">list</span>(<span class="at">weight =</span> <span class="fu">c</span>(<span class="fl">2.76</span>, <span class="fl">2.39</span>, <span class="fl">2.54</span>, <span class="fl">3.11</span>, <span class="fl">2.49</span>, <span class="fl">4.1</span>, </span>
+<span id="cb162-2"><a href="anova.html#cb162-2" aria-hidden="true" tabindex="-1"></a><span class="fl">2.72</span>, <span class="fl">2.28</span>, <span class="fl">3.43</span>, <span class="fl">3.31</span>, <span class="fl">3.21</span>, <span class="fl">4.1</span>, <span class="fl">3.04</span>, <span class="fl">4.13</span>, <span class="fl">5.21</span>, <span class="fl">5.92</span>, <span class="fl">7.31</span>, </span>
+<span id="cb162-3"><a href="anova.html#cb162-3" aria-hidden="true" tabindex="-1"></a><span class="fl">6.1</span>, <span class="fl">5.25</span>, <span class="fl">8.45</span>), <span class="at">ph =</span> <span class="fu">c</span>(<span class="st">&quot;pH3.5&quot;</span>, <span class="st">&quot;pH3.5&quot;</span>, <span class="st">&quot;pH3.5&quot;</span>, <span class="st">&quot;pH3.5&quot;</span>, </span>
+<span id="cb162-4"><a href="anova.html#cb162-4" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;pH3.5&quot;</span>, <span class="st">&quot;pH3.5&quot;</span>, <span class="st">&quot;pH3.5&quot;</span>, <span class="st">&quot;pH3.5&quot;</span>, <span class="st">&quot;pH3.5&quot;</span>, <span class="st">&quot;pH3.5&quot;</span>, <span class="st">&quot;pH5.5&quot;</span>, </span>
+<span id="cb162-5"><a href="anova.html#cb162-5" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;pH5.5&quot;</span>, <span class="st">&quot;pH5.5&quot;</span>, <span class="st">&quot;pH5.5&quot;</span>, <span class="st">&quot;pH5.5&quot;</span>, <span class="st">&quot;pH5.5&quot;</span>, <span class="st">&quot;pH5.5&quot;</span>, <span class="st">&quot;pH5.5&quot;</span>, </span>
+<span id="cb162-6"><a href="anova.html#cb162-6" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;pH5.5&quot;</span>, <span class="st">&quot;pH5.5&quot;</span>), <span class="at">Calluna =</span> <span class="fu">c</span>(<span class="st">&quot;Present&quot;</span>, <span class="st">&quot;Present&quot;</span>, <span class="st">&quot;Present&quot;</span>, </span>
+<span id="cb162-7"><a href="anova.html#cb162-7" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Present&quot;</span>, <span class="st">&quot;Present&quot;</span>, <span class="st">&quot;Absent&quot;</span>, <span class="st">&quot;Absent&quot;</span>, <span class="st">&quot;Absent&quot;</span>, <span class="st">&quot;Absent&quot;</span>, </span>
+<span id="cb162-8"><a href="anova.html#cb162-8" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Absent&quot;</span>, <span class="st">&quot;Present&quot;</span>, <span class="st">&quot;Present&quot;</span>, <span class="st">&quot;Present&quot;</span>, <span class="st">&quot;Present&quot;</span>, <span class="st">&quot;Present&quot;</span>, </span>
+<span id="cb162-9"><a href="anova.html#cb162-9" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Absent&quot;</span>, <span class="st">&quot;Absent&quot;</span>, <span class="st">&quot;Absent&quot;</span>, <span class="st">&quot;Absent&quot;</span>, <span class="st">&quot;Absent&quot;</span>)), <span class="at">row.names =</span> <span class="fu">c</span>(<span class="cn">NA</span>, </span>
+<span id="cb162-10"><a href="anova.html#cb162-10" aria-hidden="true" tabindex="-1"></a>20L), <span class="at">class =</span> <span class="st">&quot;data.frame&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="anova.html#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="co"># festuca &lt;- rio::import(&quot;https://docs.google.com/spreadsheets/d/1c_FXVNkkj4LD8hVUForaaI24UhRauh_tWsy7sFRSM2k/edit#gid=477107180&quot;)</span></span>
+<span id="cb163-2"><a href="anova.html#cb163-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb163-3"><a href="anova.html#cb163-3" aria-hidden="true" tabindex="-1"></a>festuca <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">&quot;data/datos_curso.xls&quot;</span>, <span class="at">sheet =</span><span class="st">&quot;festuca&quot;</span>)</span></code></pre></div>
+<div id="exploracion" class="section level3 unnumbered">
+<h3>Exploracion</h3>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="anova.html#cb164-1" aria-hidden="true" tabindex="-1"></a>festuca <span class="sc">%&gt;%</span> <span class="fu">skim</span>()</span>
+<span id="cb164-2"><a href="anova.html#cb164-2" aria-hidden="true" tabindex="-1"></a>festuca <span class="ot">&lt;-</span> festuca <span class="sc">%&gt;%</span> <span class="fu">mutate_if</span>(is.character, as.factor)</span>
+<span id="cb164-3"><a href="anova.html#cb164-3" aria-hidden="true" tabindex="-1"></a>festuca <span class="sc">%&gt;%</span> <span class="fu">skim</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="anova.html#cb165-1" aria-hidden="true" tabindex="-1"></a>dodge <span class="ot">&lt;-</span> <span class="fu">position_dodge</span>(<span class="at">width=</span><span class="fl">0.5</span>)</span>
+<span id="cb165-2"><a href="anova.html#cb165-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb165-3"><a href="anova.html#cb165-3" aria-hidden="true" tabindex="-1"></a>festuca <span class="sc">%&gt;%</span> </span>
+<span id="cb165-4"><a href="anova.html#cb165-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()  <span class="sc">+</span></span>
+<span id="cb165-5"><a href="anova.html#cb165-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> ph, <span class="at">y =</span> weight, <span class="at">fill =</span> Calluna) <span class="sc">+</span> </span>
+<span id="cb165-6"><a href="anova.html#cb165-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">position =</span> dodge, <span class="at">alpha=</span>.<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb165-7"><a href="anova.html#cb165-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> dodge)</span>
+<span id="cb165-8"><a href="anova.html#cb165-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># geom_line(aes(group=supp), stat = &quot;summary&quot;, fun=mean) </span></span></code></pre></div>
+</div>
+<div id="ajuste" class="section level3 unnumbered">
+<h3>Ajuste</h3>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="anova.html#cb166-1" aria-hidden="true" tabindex="-1"></a>fest_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> ph <span class="sc">*</span> Calluna, <span class="at">data =</span> festuca)</span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="anova.html#cb167-1" aria-hidden="true" tabindex="-1"></a>fest_fit_log</span></code></pre></div>
+</div>
+<div id="diagnósticos-1" class="section level3 unnumbered">
+<h3>Diagnósticos</h3>
+<p>¿Las varianzas (entre niveles del factor) son homogéneas?</p>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="anova.html#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_heteroscedasticity</span>(fest_fit) <span class="co"># %&gt;% plot</span></span></code></pre></div>
+<p>¿Los residuos se distribuyen normales?</p>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="anova.html#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_normality</span>(fest_fit) <span class="co"># %&gt;% plot</span></span></code></pre></div>
+</div>
+<div id="transformación" class="section level3 unnumbered">
+<h3>Transformación</h3>
+<div id="box1" class="blue-box">
+<p><strong>Transformación potencia óptima de boxcox</strong></p>
+<p>Esta transformación sólo tiene un parámetro: lambda, graficado en el eje x. Si el valor de lambda es igual a cero, se lleva a cabo la transformación con el logaritmo natural, y si dicho valor es distinto a cero la transformación es potencial.</p>
+<p><img src="fig/boxcox.png" width="300" /></p>
+<p><img src="fig/boxcox_1.png" width="350" /><img src="fig/boxcox_02.png" width="350" /></p>
+<p>Si el parámetro lambda es igual a uno, no hace falta transformar la variable respuesta. Si el intervalo (líneas punteadas verticales) no contiene a 0 ni a 1, hay que transformar la variable elevando a la potencia del valor de lamba incluido en el intervalo.</p>
+<p>La utilización de la transformación Box-Cox requiere que todos los valores de la serie de entrada sean positivos y distintos a cero.
+Por ello es adicionada una constante a la variable original (0.5, por ej.).</p>
+<p>En el caso que la transformacion optima sea lambda = 0.2, el modelo resultaría:</p>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="anova.html#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>((y<span class="fl">+0.5</span>)<span class="sc">^</span><span class="fl">0.2</span> <span class="sc">~</span> trt ...)</span></code></pre></div>
+</div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="anova.html#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxcox</span>(fest_fit)</span></code></pre></div>
+<blockquote>
+<p>Se sugiere transformacion <code>log</code> ya que el lambda optimo contiene al 0</p>
+</blockquote>
+</div>
+<div id="reajuste-de-modelo" class="section level3 unnumbered">
+<h3>Reajuste de modelo</h3>
+<p>…con variable respuesta transformada</p>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="anova.html#cb172-1" aria-hidden="true" tabindex="-1"></a>fest_fit_log <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(weight) <span class="sc">~</span>  Calluna <span class="sc">*</span> ph, <span class="at">data =</span> festuca)</span></code></pre></div>
+<p>Nuevamente se diagnostica la estabilizacion de la varianza</p>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="anova.html#cb173-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_heteroscedasticity</span>(fest_fit_log) <span class="sc">%&gt;%</span> plot</span></code></pre></div>
+</div>
+<div id="estadisticas-del-modelo" class="section level3 unnumbered">
+<h3>Estadisticas del modelo</h3>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="anova.html#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fest_fit_log)</span></code></pre></div>
+</div>
+<div id="medias-estimadas-por-el-modelo" class="section level3 unnumbered">
+<h3>Medias estimadas por el modelo</h3>
+<p>… y su dispersion</p>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="anova.html#cb175-1" aria-hidden="true" tabindex="-1"></a>fest_em <span class="ot">&lt;-</span> <span class="fu">emmeans</span>(fest_fit_log, <span class="sc">~</span> Calluna <span class="sc">|</span> ph, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)</span>
+<span id="cb175-2"><a href="anova.html#cb175-2" aria-hidden="true" tabindex="-1"></a>fest_em</span></code></pre></div>
+</div>
+<div id="comparaciones-multiples" class="section level3 unnumbered">
+<h3>Comparaciones multiples</h3>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="anova.html#cb176-1" aria-hidden="true" tabindex="-1"></a>res_festuca <span class="ot">&lt;-</span> <span class="fu">cld</span>(fest_em, <span class="at">alpha=</span>.<span class="dv">05</span>, <span class="at">Letters=</span>letters)</span>
+<span id="cb176-2"><a href="anova.html#cb176-2" aria-hidden="true" tabindex="-1"></a>res_festuca</span></code></pre></div>
+</div>
+<div id="grafico-final-1" class="section level3 unnumbered">
+<h3>Grafico final</h3>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="anova.html#cb177-1" aria-hidden="true" tabindex="-1"></a>res_festuca <span class="ot">&lt;-</span> res_festuca <span class="sc">%&gt;%</span> </span>
+<span id="cb177-2"><a href="anova.html#cb177-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">letras=</span><span class="fu">str_squish</span>(.group), </span>
+<span id="cb177-3"><a href="anova.html#cb177-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">weight=</span>response)  </span></code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="anova.html#cb178-1" aria-hidden="true" tabindex="-1"></a>res_festuca <span class="sc">%&gt;%</span>  </span>
+<span id="cb178-2"><a href="anova.html#cb178-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb178-3"><a href="anova.html#cb178-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>ph, <span class="at">y=</span>weight, <span class="at">col=</span>Calluna)<span class="sc">+</span></span>
+<span id="cb178-4"><a href="anova.html#cb178-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_pointrange</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> lower.CL, <span class="at">ymax =</span> upper.CL), </span>
+<span id="cb178-5"><a href="anova.html#cb178-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">position =</span> dodge)<span class="sc">+</span></span>
+<span id="cb178-6"><a href="anova.html#cb178-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Weight (g)&quot;</span>)<span class="sc">+</span>  </span>
+<span id="cb178-7"><a href="anova.html#cb178-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">vjust=</span><span class="sc">-</span><span class="dv">1</span>, <span class="at">angle=</span><span class="dv">90</span>, <span class="fu">aes</span>(<span class="at">label =</span> letras), <span class="at">position =</span> dodge)<span class="sc">+</span></span>
+<span id="cb178-8"><a href="anova.html#cb178-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># geom_jitter(data = festuca, alpha=0.2, position = position_dodge(width=0.5)) +</span></span>
+<span id="cb178-9"><a href="anova.html#cb178-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<p><b>Lexturas recomendadas</b></p>
+<ul>
+<li><p><a href="https://dl.sciencesocieties.org/publications/aj/pdfs/107/2/748">Analysis and Interpretation of Interactions in Agricultural Research</a></p></li>
+<li><p><a href="https://dl.sciencesocieties.org/publications/aj/pdfs/107/2/763">Analysis of Combined Experiments Revisited</a></p></li>
+<li><p><a href="http://conjugateprior.org/2013/01/formulae-in-r-anova/">Model Syntax in R</a></p></li>
+<li><p><a href="https://stat.ethz.ch/~meier/teaching/anova/">ANOVA: A Short Intro Using R</a></p></li>
+<li><p><a href="https://bbolker.github.io/mixedmodels-misc/glmmFAQ.html">glmmFAQ</a></p></li>
+<li><p><a href="https://peerj.com/articles/4794/">A brief introduction to mixed effects modelling and multi-model inference in ecology</a></p></li>
+<li><p><a href="https://stats.idre.ucla.edu/other/dae/">Data Analysis Examples</a></p></li>
+<li><p><a href="https://datacarpentry.org/R-ecology-lesson/index.html">Data Analysis and Visualization in R for Ecologists</a></p></li>
+<li><p><a href="http://monashbioinformaticsplatform.github.io/RNAseq-DE-analysis-with-R/">RNAseq analysis with R</a></p></li>
+</ul>
+<p>:::</p>
+
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div class="csl-entry">
+Drummond, GB, and SL Vowler. 2011. <span>“Show the Data, Don’t Conceal Them.”</span> <em>British Journal of Pharmacology</em> 163 (2): 208–10. <a href="https://doi.org/10.1111/j.1476-5381.2011.01251.x">https://doi.org/10.1111/j.1476-5381.2011.01251.x</a>.
+</div>
+<div class="csl-entry">
+Ellison, GN, and NJ Gotelli. 2004. <span>“A Primer of Ecological Statistics.”</span> <em>Sinauer, Sunderland, Massachusetts, USA</em>.
+</div>
+<div class="csl-entry">
+R Core Team. 2017. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+<div class="csl-entry">
+Weissgerber, Natasa M. AND Winham, Tracey L. AND Milic. 2015. <span>“Beyond Bar and Line Graphs: Time for a New Data Presentation Paradigm.”</span> <em>PLOS Biology</em> 13 (4): 1–10. <a href="https://doi.org/10.1371/journal.pbio.1002128">https://doi.org/10.1371/journal.pbio.1002128</a>.
+</div>
+<div class="csl-entry">
+Wickham, Hadley, and Garrett Grolemund. 2016. <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>. " O’Reilly Media, Inc.". <a href="http://r4ds.had.co.nz/">http://r4ds.had.co.nz/</a>.
+</div>
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="regresión-linear.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "none"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

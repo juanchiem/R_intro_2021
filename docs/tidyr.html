@@ -162,6 +162,7 @@ div.csl-indent {
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Motivación</a></li>
 <li class="chapter" data-level="" data-path="objetivos.html"><a href="objetivos.html"><i class="fa fa-check"></i>Objetivos</a></li>
+<li class="chapter" data-level="" data-path="sobre-el-curso.html"><a href="sobre-el-curso.html"><i class="fa fa-check"></i>Sobre el curso</a></li>
 <li class="chapter" data-level="1" data-path="config.html"><a href="config.html"><i class="fa fa-check"></i><b>1</b> Configuraciones básicas</a>
 <ul>
 <li class="chapter" data-level="" data-path="config.html"><a href="config.html#paquetes-de-r"><i class="fa fa-check"></i>Paquetes de R</a></li>
@@ -247,6 +248,31 @@ div.csl-indent {
 <li class="chapter" data-level="10.2" data-path="regresión-linear.html"><a href="regresión-linear.html#regresión-polinomial"><i class="fa fa-check"></i><b>10.2</b> Regresión polinomial</a></li>
 <li class="chapter" data-level="10.3" data-path="regresión-linear.html"><a href="regresión-linear.html#regresion-multiple"><i class="fa fa-check"></i><b>10.3</b> Regresion multiple</a></li>
 </ul></li>
+<li class="chapter" data-level="11" data-path="anova.html"><a href="anova.html"><i class="fa fa-check"></i><b>11</b> Anova</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="anova.html"><a href="anova.html#un-solo-factor"><i class="fa fa-check"></i><b>11.1</b> Un solo factor</a>
+<ul>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#exploración-numérica"><i class="fa fa-check"></i>Exploración numérica</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#exploración-visual"><i class="fa fa-check"></i>Exploración visual</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#ajuste-del-modelo-lineal"><i class="fa fa-check"></i>Ajuste del modelo lineal</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#diagnósticos"><i class="fa fa-check"></i>Diagnósticos</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#estaidisticas"><i class="fa fa-check"></i>Estaidisticas</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#comparaciones-múltiples"><i class="fa fa-check"></i>Comparaciones múltiples</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#grafico-final"><i class="fa fa-check"></i>Grafico final</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="anova.html"><a href="anova.html#dos-factores"><i class="fa fa-check"></i><b>11.2</b> Dos factores</a>
+<ul>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#exploracion"><i class="fa fa-check"></i>Exploracion</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#ajuste"><i class="fa fa-check"></i>Ajuste</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#diagnósticos-1"><i class="fa fa-check"></i>Diagnósticos</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#transformación"><i class="fa fa-check"></i>Transformación</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#reajuste-de-modelo"><i class="fa fa-check"></i>Reajuste de modelo</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#estadisticas-del-modelo"><i class="fa fa-check"></i>Estadisticas del modelo</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#medias-estimadas-por-el-modelo"><i class="fa fa-check"></i>Medias estimadas por el modelo</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#comparaciones-multiples"><i class="fa fa-check"></i>Comparaciones multiples</a></li>
+<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#grafico-final-1"><i class="fa fa-check"></i>Grafico final</a></li>
+</ul></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://drive.google.com/drive/folders/1feJyun5DJ8TaldUELQvh-prY3o6fGN6H?usp=sharing" target="_blank">Datasets</a></li>
 
@@ -277,68 +303,68 @@ div.csl-indent {
 <p>En muchas ocasiones necesitamos (para graficar o modelar) que nuestros datos estén en formato <em>long</em>.</p>
 <p>La función <code>pivot_longer</code> apila las columnas que indiquemos, re-arregando los datos de un formato “wide” a “long”:</p>
 <p>Importemos <strong>soja</strong></p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="tidyr.html#cb98-1" aria-hidden="true" tabindex="-1"></a>soja  <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">&quot;data/datos_curso.xls&quot;</span>, <span class="at">sheet =</span><span class="st">&quot;soja&quot;</span>)</span>
-<span id="cb98-2"><a href="tidyr.html#cb98-2" aria-hidden="true" tabindex="-1"></a>soja</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="tidyr.html#cb99-1" aria-hidden="true" tabindex="-1"></a>soja  <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">&quot;data/datos_curso.xls&quot;</span>, <span class="at">sheet =</span><span class="st">&quot;soja&quot;</span>)</span>
+<span id="cb99-2"><a href="tidyr.html#cb99-2" aria-hidden="true" tabindex="-1"></a>soja</span></code></pre></div>
 <p>En este caso necesitamos generar una columna <code>bk</code> y <code>yield</code>, o sea, tornar soja de “wide” a “long”:</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="tidyr.html#cb99-1" aria-hidden="true" tabindex="-1"></a>soja <span class="sc">%&gt;%</span> </span>
-<span id="cb99-2"><a href="tidyr.html#cb99-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols=</span><span class="fu">c</span>(bk_1, bk_2, bk_3, bk_4), <span class="co"># contains(&quot;_&quot;) # bk_1:bk_4</span></span>
-<span id="cb99-3"><a href="tidyr.html#cb99-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&quot;bk&quot;</span>, </span>
-<span id="cb99-4"><a href="tidyr.html#cb99-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;yield&quot;</span>, </span>
-<span id="cb99-5"><a href="tidyr.html#cb99-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_prefix =</span> <span class="st">&quot;bk_&quot;</span>) <span class="ot">-&gt;</span> soja_long </span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="tidyr.html#cb100-1" aria-hidden="true" tabindex="-1"></a>soja <span class="sc">%&gt;%</span> </span>
+<span id="cb100-2"><a href="tidyr.html#cb100-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols=</span><span class="fu">c</span>(bk_1, bk_2, bk_3, bk_4), <span class="co"># contains(&quot;_&quot;) # bk_1:bk_4</span></span>
+<span id="cb100-3"><a href="tidyr.html#cb100-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&quot;bk&quot;</span>, </span>
+<span id="cb100-4"><a href="tidyr.html#cb100-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;yield&quot;</span>, </span>
+<span id="cb100-5"><a href="tidyr.html#cb100-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_prefix =</span> <span class="st">&quot;bk_&quot;</span>) <span class="ot">-&gt;</span> soja_long </span></code></pre></div>
 <p>Tambien es comun para medidas repetidas en el tiempo</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="tidyr.html#cb100-1" aria-hidden="true" tabindex="-1"></a>canola  <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">&quot;data/datos_curso.xls&quot;</span>, <span class="at">sheet =</span><span class="st">&quot;canola&quot;</span>)</span>
-<span id="cb100-2"><a href="tidyr.html#cb100-2" aria-hidden="true" tabindex="-1"></a>canola</span></code></pre></div>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="tidyr.html#cb101-1" aria-hidden="true" tabindex="-1"></a>canola <span class="sc">%&gt;%</span>  </span>
-<span id="cb101-2"><a href="tidyr.html#cb101-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb101-3"><a href="tidyr.html#cb101-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols=</span><span class="fu">contains</span>(<span class="st">&quot;_&quot;</span>),</span>
-<span id="cb101-4"><a href="tidyr.html#cb101-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">&quot;tt&quot;</span>,</span>
-<span id="cb101-5"><a href="tidyr.html#cb101-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">&quot;inc&quot;</span>, </span>
-<span id="cb101-6"><a href="tidyr.html#cb101-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_prefix =</span> <span class="st">&quot;inc_&quot;</span>)<span class="ot">-&gt;</span> can_long</span>
-<span id="cb101-7"><a href="tidyr.html#cb101-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb101-8"><a href="tidyr.html#cb101-8" aria-hidden="true" tabindex="-1"></a>can_long</span>
-<span id="cb101-9"><a href="tidyr.html#cb101-9" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(can_long)</span></code></pre></div>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="tidyr.html#cb102-1" aria-hidden="true" tabindex="-1"></a>can_long <span class="sc">%&gt;%</span> </span>
-<span id="cb102-2"><a href="tidyr.html#cb102-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="st">&quot;tt&quot;</span>, as.numeric) <span class="sc">%&gt;%</span> </span>
-<span id="cb102-3"><a href="tidyr.html#cb102-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
-<span id="cb102-4"><a href="tidyr.html#cb102-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>tt, <span class="at">y=</span>inc, <span class="at">group=</span><span class="dv">1</span>)<span class="sc">+</span></span>
-<span id="cb102-5"><a href="tidyr.html#cb102-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
-<span id="cb102-6"><a href="tidyr.html#cb102-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(bk <span class="sc">~</span> trt)</span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="tidyr.html#cb101-1" aria-hidden="true" tabindex="-1"></a>canola  <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">&quot;data/datos_curso.xls&quot;</span>, <span class="at">sheet =</span><span class="st">&quot;canola&quot;</span>)</span>
+<span id="cb101-2"><a href="tidyr.html#cb101-2" aria-hidden="true" tabindex="-1"></a>canola</span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="tidyr.html#cb102-1" aria-hidden="true" tabindex="-1"></a>canola <span class="sc">%&gt;%</span>  </span>
+<span id="cb102-2"><a href="tidyr.html#cb102-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb102-3"><a href="tidyr.html#cb102-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols=</span><span class="fu">contains</span>(<span class="st">&quot;_&quot;</span>),</span>
+<span id="cb102-4"><a href="tidyr.html#cb102-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">&quot;tt&quot;</span>,</span>
+<span id="cb102-5"><a href="tidyr.html#cb102-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">&quot;inc&quot;</span>, </span>
+<span id="cb102-6"><a href="tidyr.html#cb102-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_prefix =</span> <span class="st">&quot;inc_&quot;</span>)<span class="ot">-&gt;</span> can_long</span>
+<span id="cb102-7"><a href="tidyr.html#cb102-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-8"><a href="tidyr.html#cb102-8" aria-hidden="true" tabindex="-1"></a>can_long</span>
+<span id="cb102-9"><a href="tidyr.html#cb102-9" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(can_long)</span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="tidyr.html#cb103-1" aria-hidden="true" tabindex="-1"></a>can_long <span class="sc">%&gt;%</span> </span>
+<span id="cb103-2"><a href="tidyr.html#cb103-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="st">&quot;tt&quot;</span>, as.numeric) <span class="sc">%&gt;%</span> </span>
+<span id="cb103-3"><a href="tidyr.html#cb103-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb103-4"><a href="tidyr.html#cb103-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>tt, <span class="at">y=</span>inc, <span class="at">group=</span><span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb103-5"><a href="tidyr.html#cb103-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
+<span id="cb103-6"><a href="tidyr.html#cb103-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(bk <span class="sc">~</span> trt)</span></code></pre></div>
 </div>
 <div id="unite" class="section level2" number="7.2">
 <h2><span class="header-section-number">7.2</span> <code>unite()</code></h2>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="tidyr.html#cb103-1" aria-hidden="true" tabindex="-1"></a>can_long <span class="sc">%&gt;%</span> </span>
-<span id="cb103-2"><a href="tidyr.html#cb103-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unite</span>(<span class="at">col=</span><span class="st">&quot;par&quot;</span>, bk, trt, <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>, <span class="at">remove =</span> <span class="cn">FALSE</span>) <span class="ot">-&gt;</span> can_long2</span>
-<span id="cb103-3"><a href="tidyr.html#cb103-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb103-4"><a href="tidyr.html#cb103-4" aria-hidden="true" tabindex="-1"></a>can_long2 <span class="sc">%&gt;%</span> </span>
-<span id="cb103-5"><a href="tidyr.html#cb103-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="st">&quot;tt&quot;</span>, as.numeric) <span class="sc">%&gt;%</span> </span>
-<span id="cb103-6"><a href="tidyr.html#cb103-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
-<span id="cb103-7"><a href="tidyr.html#cb103-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>tt, <span class="at">y=</span>inc, <span class="at">group=</span><span class="dv">1</span>)<span class="sc">+</span></span>
-<span id="cb103-8"><a href="tidyr.html#cb103-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
-<span id="cb103-9"><a href="tidyr.html#cb103-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="st">&quot;par&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="tidyr.html#cb104-1" aria-hidden="true" tabindex="-1"></a>can_long <span class="sc">%&gt;%</span> </span>
+<span id="cb104-2"><a href="tidyr.html#cb104-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unite</span>(<span class="at">col=</span><span class="st">&quot;par&quot;</span>, bk, trt, <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>, <span class="at">remove =</span> <span class="cn">FALSE</span>) <span class="ot">-&gt;</span> can_long2</span>
+<span id="cb104-3"><a href="tidyr.html#cb104-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-4"><a href="tidyr.html#cb104-4" aria-hidden="true" tabindex="-1"></a>can_long2 <span class="sc">%&gt;%</span> </span>
+<span id="cb104-5"><a href="tidyr.html#cb104-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="st">&quot;tt&quot;</span>, as.numeric) <span class="sc">%&gt;%</span> </span>
+<span id="cb104-6"><a href="tidyr.html#cb104-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb104-7"><a href="tidyr.html#cb104-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>tt, <span class="at">y=</span>inc, <span class="at">group=</span><span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb104-8"><a href="tidyr.html#cb104-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
+<span id="cb104-9"><a href="tidyr.html#cb104-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="st">&quot;par&quot;</span>)</span></code></pre></div>
 <div id="box1" class="blue-box">
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="tidyr.html#cb104-1" aria-hidden="true" tabindex="-1"></a>bce_full <span class="sc">%&gt;%</span> </span>
-<span id="cb104-2"><a href="tidyr.html#cb104-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(date, tmean, rad, pp) <span class="sc">%&gt;%</span> </span>
-<span id="cb104-3"><a href="tidyr.html#cb104-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>date, </span>
-<span id="cb104-4"><a href="tidyr.html#cb104-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&quot;var&quot;</span>, </span>
-<span id="cb104-5"><a href="tidyr.html#cb104-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;val&quot;</span>) <span class="ot">-&gt;</span> bce_full_long </span>
-<span id="cb104-6"><a href="tidyr.html#cb104-6" aria-hidden="true" tabindex="-1"></a>bce_full_long </span></code></pre></div>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="tidyr.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="co"># bce_full_long %&gt;% </span></span>
-<span id="cb105-2"><a href="tidyr.html#cb105-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># mutate(</span></span>
-<span id="cb105-3"><a href="tidyr.html#cb105-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">#   var= fct_recode(var,</span></span>
-<span id="cb105-4"><a href="tidyr.html#cb105-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">#                       &quot;Radiation (Mj/m2)&quot; =&quot;rad&quot;, </span></span>
-<span id="cb105-5"><a href="tidyr.html#cb105-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">#                       &quot;Mean Temperature (ºC)&quot;=&quot;tmean&quot;, </span></span>
-<span id="cb105-6"><a href="tidyr.html#cb105-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">#                       &quot;Precipitation (mm)&quot;=&quot;pp&quot;) </span></span>
-<span id="cb105-7"><a href="tidyr.html#cb105-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ) %&gt;% </span></span>
-<span id="cb105-8"><a href="tidyr.html#cb105-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-9"><a href="tidyr.html#cb105-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bce_full_long) <span class="sc">+</span> </span>
-<span id="cb105-10"><a href="tidyr.html#cb105-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> val) <span class="sc">+</span>  </span>
-<span id="cb105-11"><a href="tidyr.html#cb105-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> <span class="fu">subset</span>(bce_full_long, var<span class="sc">!=</span><span class="st">&quot;pp&quot;</span>)) <span class="sc">+</span> </span>
-<span id="cb105-12"><a href="tidyr.html#cb105-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">data =</span> <span class="fu">subset</span>(bce_full_long, var<span class="sc">==</span><span class="st">&quot;pp&quot;</span>)) <span class="sc">+</span> </span>
-<span id="cb105-13"><a href="tidyr.html#cb105-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(var<span class="sc">~</span>., <span class="at">scales =</span> <span class="st">&quot;free&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb105-14"><a href="tidyr.html#cb105-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">&quot;1 month&quot;</span>, <span class="at">date_labels =</span> <span class="st">&quot;%b&quot;</span>)<span class="sc">+</span> </span>
-<span id="cb105-15"><a href="tidyr.html#cb105-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
-<span id="cb105-16"><a href="tidyr.html#cb105-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle=</span><span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))  <span class="sc">+</span> </span>
-<span id="cb105-17"><a href="tidyr.html#cb105-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;&quot;</span>, <span class="at">y=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="tidyr.html#cb105-1" aria-hidden="true" tabindex="-1"></a>bce_full <span class="sc">%&gt;%</span> </span>
+<span id="cb105-2"><a href="tidyr.html#cb105-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(date, tmean, rad, pp) <span class="sc">%&gt;%</span> </span>
+<span id="cb105-3"><a href="tidyr.html#cb105-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>date, </span>
+<span id="cb105-4"><a href="tidyr.html#cb105-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&quot;var&quot;</span>, </span>
+<span id="cb105-5"><a href="tidyr.html#cb105-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;val&quot;</span>) <span class="ot">-&gt;</span> bce_full_long </span>
+<span id="cb105-6"><a href="tidyr.html#cb105-6" aria-hidden="true" tabindex="-1"></a>bce_full_long </span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="tidyr.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="co"># bce_full_long %&gt;% </span></span>
+<span id="cb106-2"><a href="tidyr.html#cb106-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># mutate(</span></span>
+<span id="cb106-3"><a href="tidyr.html#cb106-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">#   var= fct_recode(var,</span></span>
+<span id="cb106-4"><a href="tidyr.html#cb106-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">#                       &quot;Radiation (Mj/m2)&quot; =&quot;rad&quot;, </span></span>
+<span id="cb106-5"><a href="tidyr.html#cb106-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">#                       &quot;Mean Temperature (ºC)&quot;=&quot;tmean&quot;, </span></span>
+<span id="cb106-6"><a href="tidyr.html#cb106-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">#                       &quot;Precipitation (mm)&quot;=&quot;pp&quot;) </span></span>
+<span id="cb106-7"><a href="tidyr.html#cb106-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ) %&gt;% </span></span>
+<span id="cb106-8"><a href="tidyr.html#cb106-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb106-9"><a href="tidyr.html#cb106-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bce_full_long) <span class="sc">+</span> </span>
+<span id="cb106-10"><a href="tidyr.html#cb106-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> val) <span class="sc">+</span>  </span>
+<span id="cb106-11"><a href="tidyr.html#cb106-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> <span class="fu">subset</span>(bce_full_long, var<span class="sc">!=</span><span class="st">&quot;pp&quot;</span>)) <span class="sc">+</span> </span>
+<span id="cb106-12"><a href="tidyr.html#cb106-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">data =</span> <span class="fu">subset</span>(bce_full_long, var<span class="sc">==</span><span class="st">&quot;pp&quot;</span>)) <span class="sc">+</span> </span>
+<span id="cb106-13"><a href="tidyr.html#cb106-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(var<span class="sc">~</span>., <span class="at">scales =</span> <span class="st">&quot;free&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb106-14"><a href="tidyr.html#cb106-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">&quot;1 month&quot;</span>, <span class="at">date_labels =</span> <span class="st">&quot;%b&quot;</span>)<span class="sc">+</span> </span>
+<span id="cb106-15"><a href="tidyr.html#cb106-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
+<span id="cb106-16"><a href="tidyr.html#cb106-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle=</span><span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))  <span class="sc">+</span> </span>
+<span id="cb106-17"><a href="tidyr.html#cb106-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;&quot;</span>, <span class="at">y=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
 </div>
 </div>
 </div>
@@ -399,6 +425,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

@@ -16,10 +16,8 @@ rmd_files: [
 "5-visualizar.Rmd",
 "6-dplyr.Rmd",
 "7-restruct.Rmd",
-"8-modelar1.Rmd"
-# "9-depurar.Rmd",
-# "10-modelar1.Rmd",
-# "11-modelar2.Rmd",
+"8-modelar1.Rmd",
+"9-modelar2.Rmd"
 # "12_comunicar.Rmd"
 ]
 
