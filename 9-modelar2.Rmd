@@ -1,13 +1,15 @@
 # Anova 
 
 ```{r}
+# install.packages("multcompView") # solo una vez y no hace falta cargarlo
+
 pacman::p_load(
- tidyverse,  
- skimr,       # exploración numérica de los datos
- performance, # evaluar performance de los modelos
- emmeans,     # medias estimadas por el modelo y comparación multiple 
- multcomp     # comparación multiple - display de letras
- )
+  tidyverse,
+  skimr,       # exploracion numerica de los datos
+  performance, # evaluar performance de los modelos
+  emmeans,     # medias estimadas por el modelo  
+  multcomp     # comparar las medias entre si - tukey
+  )
 ```
 
 ## Un solo factor 
@@ -120,7 +122,8 @@ pwpm(em, adjust = "none")
 
 ```{r}
 res <- res %>% 
-  mutate(letras=str_squish(.group))  
+  mutate(letras = str_squish(.group), 
+         weight = emmean)
 ```
 
 ### Grafico final  {-}
@@ -128,12 +131,11 @@ res <- res %>%
 ```{r}
 res %>%  
   ggplot() +
-  aes(x=group, y=emmean)+
+  aes(x=group, y=weight)+
   geom_pointrange(aes(ymin = lower.CL, ymax = upper.CL))+
   labs(x = "Tratamiento", y = "Peso (g)")+  
-  geom_text(vjust=-1, angle=90, aes(label = letras))+
-  geom_jitter(data = pg %>% rename(emmean = weight), 
-             width = .1, alpha=0.2) +
+  geom_text(aes(label = letras), angle=90, vjust=-1)+
+  geom_jitter(data = pg, width = .1, alpha=.5) +
   theme_bw()
 ```
 
@@ -193,6 +195,13 @@ festuca <- rio::import("data/datos_curso.xls", sheet ="festuca")
 ```
 
 ### Exploracion  {-}
+
+```{r}
+festuca %>% 
+  janitor::tabyl(ph, Calluna)
+```
+
+
 
 ```{r}
 festuca %>% skim()
