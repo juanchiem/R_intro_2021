@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="regresión-linear.html"/>
-
+<link rel="next" href="mapas.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -250,28 +250,14 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="11" data-path="anova.html"><a href="anova.html"><i class="fa fa-check"></i><b>11</b> Anova</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="anova.html"><a href="anova.html#un-solo-factor"><i class="fa fa-check"></i><b>11.1</b> Un solo factor</a>
-<ul>
-<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#exploración-numérica"><i class="fa fa-check"></i>Exploración numérica</a></li>
-<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#exploración-visual"><i class="fa fa-check"></i>Exploración visual</a></li>
-<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#ajuste-del-modelo-lineal"><i class="fa fa-check"></i>Ajuste del modelo lineal</a></li>
-<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#diagnósticos"><i class="fa fa-check"></i>Diagnósticos</a></li>
-<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#estaidisticas"><i class="fa fa-check"></i>Estaidisticas</a></li>
-<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#comparaciones-múltiples"><i class="fa fa-check"></i>Comparaciones múltiples</a></li>
-<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#grafico-final"><i class="fa fa-check"></i>Grafico final</a></li>
+<li class="chapter" data-level="11.1" data-path="anova.html"><a href="anova.html#un-solo-factor"><i class="fa fa-check"></i><b>11.1</b> Un solo factor</a></li>
+<li class="chapter" data-level="11.2" data-path="anova.html"><a href="anova.html#dos-factores"><i class="fa fa-check"></i><b>11.2</b> Dos factores</a></li>
 </ul></li>
-<li class="chapter" data-level="11.2" data-path="anova.html"><a href="anova.html#dos-factores"><i class="fa fa-check"></i><b>11.2</b> Dos factores</a>
+<li class="chapter" data-level="12" data-path="mapas.html"><a href="mapas.html"><i class="fa fa-check"></i><b>12</b> Mapas</a>
 <ul>
-<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#exploracion"><i class="fa fa-check"></i>Exploracion</a></li>
-<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#ajuste"><i class="fa fa-check"></i>Ajuste</a></li>
-<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#diagnósticos-1"><i class="fa fa-check"></i>Diagnósticos</a></li>
-<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#transformación"><i class="fa fa-check"></i>Transformación</a></li>
-<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#reajuste-de-modelo"><i class="fa fa-check"></i>Reajuste de modelo</a></li>
-<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#estadisticas-del-modelo"><i class="fa fa-check"></i>Estadisticas del modelo</a></li>
-<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#medias-estimadas-por-el-modelo"><i class="fa fa-check"></i>Medias estimadas por el modelo</a></li>
-<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#comparaciones-multiples"><i class="fa fa-check"></i>Comparaciones multiples</a></li>
-<li class="chapter" data-level="" data-path="anova.html"><a href="anova.html#grafico-final-1"><i class="fa fa-check"></i>Grafico final</a></li>
-</ul></li>
+<li class="chapter" data-level="12.1" data-path="mapas.html"><a href="mapas.html#paquete-sf"><i class="fa fa-check"></i><b>12.1</b> Paquete <code>sf</code></a></li>
+<li class="chapter" data-level="12.2" data-path="mapas.html"><a href="mapas.html#mapa-de-clima"><i class="fa fa-check"></i><b>12.2</b> Mapa de clima</a></li>
+<li class="chapter" data-level="12.3" data-path="mapas.html"><a href="mapas.html#mapa-de-muestreos"><i class="fa fa-check"></i><b>12.3</b> Mapa de Muestreos</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://drive.google.com/drive/folders/1feJyun5DJ8TaldUELQvh-prY3o6fGN6H?usp=sharing" target="_blank">Datasets</a></li>
@@ -295,13 +281,15 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="anova" class="section level1" number="11">
 <h1><span class="header-section-number">11</span> Anova</h1>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="anova.html#cb145-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(</span>
-<span id="cb145-2"><a href="anova.html#cb145-2" aria-hidden="true" tabindex="-1"></a>  tidyverse,</span>
-<span id="cb145-3"><a href="anova.html#cb145-3" aria-hidden="true" tabindex="-1"></a>  skimr,       <span class="co"># exploracion numerica de los datos</span></span>
-<span id="cb145-4"><a href="anova.html#cb145-4" aria-hidden="true" tabindex="-1"></a>  performance, <span class="co"># evaluar performance de los modelos</span></span>
-<span id="cb145-5"><a href="anova.html#cb145-5" aria-hidden="true" tabindex="-1"></a>  emmeans,     <span class="co"># medias estimadas por el modelo  </span></span>
-<span id="cb145-6"><a href="anova.html#cb145-6" aria-hidden="true" tabindex="-1"></a>  multcomp     <span class="co"># comparar las medias entre si - tukey</span></span>
-<span id="cb145-7"><a href="anova.html#cb145-7" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="anova.html#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;multcompView&quot;) # solo una vez y no hace falta cargarlo</span></span>
+<span id="cb145-2"><a href="anova.html#cb145-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-3"><a href="anova.html#cb145-3" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(</span>
+<span id="cb145-4"><a href="anova.html#cb145-4" aria-hidden="true" tabindex="-1"></a>  tidyverse,</span>
+<span id="cb145-5"><a href="anova.html#cb145-5" aria-hidden="true" tabindex="-1"></a>  skimr,       <span class="co"># exploracion numerica de los datos</span></span>
+<span id="cb145-6"><a href="anova.html#cb145-6" aria-hidden="true" tabindex="-1"></a>  performance, <span class="co"># evaluar performance de los modelos</span></span>
+<span id="cb145-7"><a href="anova.html#cb145-7" aria-hidden="true" tabindex="-1"></a>  emmeans,     <span class="co"># medias estimadas por el modelo  </span></span>
+<span id="cb145-8"><a href="anova.html#cb145-8" aria-hidden="true" tabindex="-1"></a>  multcomp     <span class="co"># comparar las medias entre si - tukey</span></span>
+<span id="cb145-9"><a href="anova.html#cb145-9" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <div id="un-solo-factor" class="section level2" number="11.1">
 <h2><span class="header-section-number">11.1</span> Un solo factor</h2>
 <p>Experimento DCA: dataset <code>PlantGrowth</code></p>
@@ -311,8 +299,7 @@ div.csl-indent {
 <blockquote>
 <p>Results from an experiment to compare yields (as measured by dried weight of plants) obtained under a control and two different treatment conditions.</p>
 </blockquote>
-<div id="exploración-numérica" class="section level3 unnumbered">
-<h3>Exploración numérica</h3>
+<p>1- Exploración numérica</p>
 <div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="anova.html#cb147-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(pg) <span class="co"># tipo de variables</span></span></code></pre></div>
 <div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="anova.html#cb148-1" aria-hidden="true" tabindex="-1"></a>pg <span class="sc">%&gt;%</span>   </span>
 <span id="cb148-2"><a href="anova.html#cb148-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(group) <span class="sc">%&gt;%</span></span>
@@ -323,23 +310,17 @@ div.csl-indent {
 <span id="cb149-4"><a href="anova.html#cb149-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(weight)), </span>
 <span id="cb149-5"><a href="anova.html#cb149-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean =</span> <span class="fu">mean</span>(weight),</span>
 <span id="cb149-6"><a href="anova.html#cb149-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd =</span> <span class="fu">sd</span>(weight))</span></code></pre></div>
-</div>
-<div id="exploración-visual" class="section level3 unnumbered">
-<h3>Exploración visual</h3>
+<p>2- Exploración visual</p>
 <div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="anova.html#cb150-1" aria-hidden="true" tabindex="-1"></a>pg <span class="sc">%&gt;%</span> </span>
 <span id="cb150-2"><a href="anova.html#cb150-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span> </span>
 <span id="cb150-3"><a href="anova.html#cb150-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>group, <span class="at">y=</span>weight) <span class="sc">+</span> </span>
 <span id="cb150-4"><a href="anova.html#cb150-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width=</span><span class="fl">0.2</span>)<span class="sc">+</span></span>
 <span id="cb150-5"><a href="anova.html#cb150-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">alpha=</span><span class="fl">0.2</span>, <span class="at">width=</span><span class="fl">0.2</span>)</span></code></pre></div>
-</div>
-<div id="ajuste-del-modelo-lineal" class="section level3 unnumbered">
-<h3>Ajuste del modelo lineal</h3>
+<p>3- Ajuste del modelo lineal</p>
 <div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="anova.html#cb151-1" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> group, <span class="at">data =</span> pg)  </span></code></pre></div>
 <p><span class="math display">\[y_{ij} = \mu + \alpha_i + e_{ij}; \:\:i = 1,..., k; \:j = 1,..., n\]</span>
 <span class="math display">\[N \sim (\sigma^2, 0)\]</span></p>
-</div>
-<div id="diagnósticos" class="section level3 unnumbered">
-<h3>Diagnósticos</h3>
+<p>5- Diagnósticos</p>
 <p>¿Las varianzas (entre niveles del factor) son homogéneas?</p>
 <div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="anova.html#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_heteroscedasticity</span>(mod1) <span class="sc">%&gt;%</span> plot</span>
 <span id="cb152-2"><a href="anova.html#cb152-2" aria-hidden="true" tabindex="-1"></a><span class="co"># plot(mod1, which = 1)</span></span>
@@ -348,15 +329,11 @@ div.csl-indent {
 <div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="anova.html#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_normality</span>(mod1) <span class="sc">%&gt;%</span> plot</span>
 <span id="cb153-2"><a href="anova.html#cb153-2" aria-hidden="true" tabindex="-1"></a><span class="co"># plot(mod1, which = 2)</span></span>
 <span id="cb153-3"><a href="anova.html#cb153-3" aria-hidden="true" tabindex="-1"></a><span class="co"># shapiro.test(rstandard(mod1))</span></span></code></pre></div>
-</div>
-<div id="estaidisticas" class="section level3 unnumbered">
-<h3>Estaidisticas</h3>
+<p>6- Estadisticas</p>
 <div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="anova.html#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(mod1)<span class="co"># caso balanceado</span></span>
 <span id="cb154-2"><a href="anova.html#cb154-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod1)</span>
 <span id="cb154-3"><a href="anova.html#cb154-3" aria-hidden="true" tabindex="-1"></a><span class="co"># car::Anova(mod1)# caso desbalanceado</span></span></code></pre></div>
-</div>
-<div id="comparaciones-múltiples" class="section level3 unnumbered">
-<h3>Comparaciones múltiples</h3>
+<p>7- Comparaciones múltiples {-}</p>
 <p>Paquete <a href="https://cran.r-project.org/web/packages/emmeans/vignettes/vignette-topics.html">emmeans</a></p>
 <p>Medias e intervalos de confianza estimadas por el modelo</p>
 <div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="anova.html#cb155-1" aria-hidden="true" tabindex="-1"></a>em <span class="ot">&lt;-</span> <span class="fu">emmeans</span>(mod1, <span class="sc">~</span> group, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
@@ -371,19 +348,17 @@ div.csl-indent {
 <div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="anova.html#cb157-1" aria-hidden="true" tabindex="-1"></a>?pwpm</span>
 <span id="cb157-2"><a href="anova.html#cb157-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pwpm</span>(em, <span class="at">adjust =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="anova.html#cb158-1" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> res <span class="sc">%&gt;%</span> </span>
-<span id="cb158-2"><a href="anova.html#cb158-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">letras=</span><span class="fu">str_squish</span>(.group))  </span></code></pre></div>
-</div>
-<div id="grafico-final" class="section level3 unnumbered">
-<h3>Grafico final</h3>
+<span id="cb158-2"><a href="anova.html#cb158-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">letras =</span> <span class="fu">str_squish</span>(.group), </span>
+<span id="cb158-3"><a href="anova.html#cb158-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">weight =</span> emmean)</span></code></pre></div>
+<p>8- Grafico final</p>
 <div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="anova.html#cb159-1" aria-hidden="true" tabindex="-1"></a>res <span class="sc">%&gt;%</span>  </span>
 <span id="cb159-2"><a href="anova.html#cb159-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb159-3"><a href="anova.html#cb159-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>group, <span class="at">y=</span>emmean)<span class="sc">+</span></span>
+<span id="cb159-3"><a href="anova.html#cb159-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>group, <span class="at">y=</span>weight)<span class="sc">+</span></span>
 <span id="cb159-4"><a href="anova.html#cb159-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_pointrange</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> lower.CL, <span class="at">ymax =</span> upper.CL))<span class="sc">+</span></span>
 <span id="cb159-5"><a href="anova.html#cb159-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Tratamiento&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Peso (g)&quot;</span>)<span class="sc">+</span>  </span>
-<span id="cb159-6"><a href="anova.html#cb159-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">vjust=</span><span class="sc">-</span><span class="dv">1</span>, <span class="at">angle=</span><span class="dv">90</span>, <span class="fu">aes</span>(<span class="at">label =</span> letras))<span class="sc">+</span></span>
-<span id="cb159-7"><a href="anova.html#cb159-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">data =</span> pg <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">emmean =</span> weight), </span>
-<span id="cb159-8"><a href="anova.html#cb159-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">width =</span> .<span class="dv">1</span>, <span class="at">alpha=</span><span class="fl">0.2</span>) <span class="sc">+</span></span>
-<span id="cb159-9"><a href="anova.html#cb159-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<span id="cb159-6"><a href="anova.html#cb159-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> letras), <span class="at">angle=</span><span class="dv">90</span>, <span class="at">vjust=</span><span class="sc">-</span><span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb159-7"><a href="anova.html#cb159-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">data =</span> pg, <span class="at">width =</span> .<span class="dv">1</span>, <span class="at">alpha=</span>.<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb159-8"><a href="anova.html#cb159-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <p>Comparación de medias de los trat vs testigo (Dunnet)</p>
 <div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="anova.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contrast</span>(em, <span class="st">&quot;trt.vs.ctrl1&quot;</span>)</span></code></pre></div>
 <div id="box1" class="blue-box">
@@ -401,7 +376,6 @@ div.csl-indent {
 <span id="cb161-11"><a href="anova.html#cb161-11" aria-hidden="true" tabindex="-1"></a>          <span class="co"># xlab=&quot;Tipo de Mezcla&quot;,</span></span>
 <span id="cb161-12"><a href="anova.html#cb161-12" aria-hidden="true" tabindex="-1"></a>          <span class="co"># ylab=&quot;Rendimiento del proceso&quot;,</span></span>
 <span id="cb161-13"><a href="anova.html#cb161-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">col=</span><span class="st">&quot;steelblue&quot;</span>)</span></code></pre></div>
-</div>
 </div>
 </div>
 <div id="dos-factores" class="section level2" number="11.2">
@@ -424,34 +398,37 @@ Para probar esta hipótesis, se diseñó un experimento en el que se cultivaron 
 <div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="anova.html#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="co"># festuca &lt;- rio::import(&quot;https://docs.google.com/spreadsheets/d/1c_FXVNkkj4LD8hVUForaaI24UhRauh_tWsy7sFRSM2k/edit#gid=477107180&quot;)</span></span>
 <span id="cb163-2"><a href="anova.html#cb163-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb163-3"><a href="anova.html#cb163-3" aria-hidden="true" tabindex="-1"></a>festuca <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">&quot;data/datos_curso.xls&quot;</span>, <span class="at">sheet =</span><span class="st">&quot;festuca&quot;</span>)</span></code></pre></div>
-<div id="exploracion" class="section level3 unnumbered">
-<h3>Exploracion</h3>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="anova.html#cb164-1" aria-hidden="true" tabindex="-1"></a>festuca <span class="sc">%&gt;%</span> <span class="fu">skim</span>()</span>
-<span id="cb164-2"><a href="anova.html#cb164-2" aria-hidden="true" tabindex="-1"></a>festuca <span class="ot">&lt;-</span> festuca <span class="sc">%&gt;%</span> <span class="fu">mutate_if</span>(is.character, as.factor)</span>
-<span id="cb164-3"><a href="anova.html#cb164-3" aria-hidden="true" tabindex="-1"></a>festuca <span class="sc">%&gt;%</span> <span class="fu">skim</span>()</span></code></pre></div>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="anova.html#cb165-1" aria-hidden="true" tabindex="-1"></a>dodge <span class="ot">&lt;-</span> <span class="fu">position_dodge</span>(<span class="at">width=</span><span class="fl">0.5</span>)</span>
-<span id="cb165-2"><a href="anova.html#cb165-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb165-3"><a href="anova.html#cb165-3" aria-hidden="true" tabindex="-1"></a>festuca <span class="sc">%&gt;%</span> </span>
-<span id="cb165-4"><a href="anova.html#cb165-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()  <span class="sc">+</span></span>
-<span id="cb165-5"><a href="anova.html#cb165-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> ph, <span class="at">y =</span> weight, <span class="at">fill =</span> Calluna) <span class="sc">+</span> </span>
-<span id="cb165-6"><a href="anova.html#cb165-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">position =</span> dodge, <span class="at">alpha=</span>.<span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb165-7"><a href="anova.html#cb165-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> dodge)</span>
-<span id="cb165-8"><a href="anova.html#cb165-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># geom_line(aes(group=supp), stat = &quot;summary&quot;, fun=mean) </span></span></code></pre></div>
-</div>
-<div id="ajuste" class="section level3 unnumbered">
-<h3>Ajuste</h3>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="anova.html#cb166-1" aria-hidden="true" tabindex="-1"></a>fest_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> ph <span class="sc">*</span> Calluna, <span class="at">data =</span> festuca)</span></code></pre></div>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="anova.html#cb167-1" aria-hidden="true" tabindex="-1"></a>fest_fit_log</span></code></pre></div>
-</div>
-<div id="diagnósticos-1" class="section level3 unnumbered">
-<h3>Diagnósticos</h3>
+<ul>
+<li>Exploracion {-}</li>
+</ul>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="anova.html#cb164-1" aria-hidden="true" tabindex="-1"></a>festuca <span class="sc">%&gt;%</span> </span>
+<span id="cb164-2"><a href="anova.html#cb164-2" aria-hidden="true" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">tabyl</span>(ph, Calluna)</span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="anova.html#cb165-1" aria-hidden="true" tabindex="-1"></a>festuca <span class="sc">%&gt;%</span> <span class="fu">skim</span>()</span>
+<span id="cb165-2"><a href="anova.html#cb165-2" aria-hidden="true" tabindex="-1"></a>festuca <span class="ot">&lt;-</span> festuca <span class="sc">%&gt;%</span> <span class="fu">mutate_if</span>(is.character, as.factor)</span>
+<span id="cb165-3"><a href="anova.html#cb165-3" aria-hidden="true" tabindex="-1"></a>festuca <span class="sc">%&gt;%</span> <span class="fu">skim</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="anova.html#cb166-1" aria-hidden="true" tabindex="-1"></a>dodge <span class="ot">&lt;-</span> <span class="fu">position_dodge</span>(<span class="at">width=</span><span class="fl">0.5</span>)</span>
+<span id="cb166-2"><a href="anova.html#cb166-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-3"><a href="anova.html#cb166-3" aria-hidden="true" tabindex="-1"></a>festuca <span class="sc">%&gt;%</span> </span>
+<span id="cb166-4"><a href="anova.html#cb166-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()  <span class="sc">+</span></span>
+<span id="cb166-5"><a href="anova.html#cb166-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> ph, <span class="at">y =</span> weight, <span class="at">fill =</span> Calluna) <span class="sc">+</span> </span>
+<span id="cb166-6"><a href="anova.html#cb166-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">position =</span> dodge, <span class="at">alpha=</span>.<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb166-7"><a href="anova.html#cb166-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> dodge)</span>
+<span id="cb166-8"><a href="anova.html#cb166-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># geom_line(aes(group=supp), stat = &quot;summary&quot;, fun=mean) </span></span></code></pre></div>
+<ul>
+<li>Ajuste {-}</li>
+</ul>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="anova.html#cb167-1" aria-hidden="true" tabindex="-1"></a>fest_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> ph <span class="sc">*</span> Calluna, <span class="at">data =</span> festuca)</span></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="anova.html#cb168-1" aria-hidden="true" tabindex="-1"></a>fest_fit_log</span></code></pre></div>
+<ul>
+<li>Diagnósticos {-}</li>
+</ul>
 <p>¿Las varianzas (entre niveles del factor) son homogéneas?</p>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="anova.html#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_heteroscedasticity</span>(fest_fit) <span class="co"># %&gt;% plot</span></span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="anova.html#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_heteroscedasticity</span>(fest_fit) <span class="co"># %&gt;% plot</span></span></code></pre></div>
 <p>¿Los residuos se distribuyen normales?</p>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="anova.html#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_normality</span>(fest_fit) <span class="co"># %&gt;% plot</span></span></code></pre></div>
-</div>
-<div id="transformación" class="section level3 unnumbered">
-<h3>Transformación</h3>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="anova.html#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_normality</span>(fest_fit) <span class="co"># %&gt;% plot</span></span></code></pre></div>
+<ul>
+<li>Transformación {-}</li>
+</ul>
 <div id="box1" class="blue-box">
 <p><strong>Transformación potencia óptima de boxcox</strong></p>
 <p>Esta transformación sólo tiene un parámetro: lambda, graficado en el eje x. Si el valor de lambda es igual a cero, se lleva a cabo la transformación con el logaritmo natural, y si dicho valor es distinto a cero la transformación es potencial.</p>
@@ -461,49 +438,49 @@ Para probar esta hipótesis, se diseñó un experimento en el que se cultivaron 
 <p>La utilización de la transformación Box-Cox requiere que todos los valores de la serie de entrada sean positivos y distintos a cero.
 Por ello es adicionada una constante a la variable original (0.5, por ej.).</p>
 <p>En el caso que la transformacion optima sea lambda = 0.2, el modelo resultaría:</p>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="anova.html#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>((y<span class="fl">+0.5</span>)<span class="sc">^</span><span class="fl">0.2</span> <span class="sc">~</span> trt ...)</span></code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="anova.html#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>((y<span class="fl">+0.5</span>)<span class="sc">^</span><span class="fl">0.2</span> <span class="sc">~</span> trt ...)</span></code></pre></div>
 </div>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="anova.html#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxcox</span>(fest_fit)</span></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="anova.html#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxcox</span>(fest_fit)</span></code></pre></div>
 <blockquote>
 <p>Se sugiere transformacion <code>log</code> ya que el lambda optimo contiene al 0</p>
 </blockquote>
-</div>
-<div id="reajuste-de-modelo" class="section level3 unnumbered">
-<h3>Reajuste de modelo</h3>
+<ul>
+<li>Reajuste de modelo {-}</li>
+</ul>
 <p>…con variable respuesta transformada</p>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="anova.html#cb172-1" aria-hidden="true" tabindex="-1"></a>fest_fit_log <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(weight) <span class="sc">~</span>  Calluna <span class="sc">*</span> ph, <span class="at">data =</span> festuca)</span></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="anova.html#cb173-1" aria-hidden="true" tabindex="-1"></a>fest_fit_log <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(weight) <span class="sc">~</span>  Calluna <span class="sc">*</span> ph, <span class="at">data =</span> festuca)</span></code></pre></div>
 <p>Nuevamente se diagnostica la estabilizacion de la varianza</p>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="anova.html#cb173-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_heteroscedasticity</span>(fest_fit_log) <span class="sc">%&gt;%</span> plot</span></code></pre></div>
-</div>
-<div id="estadisticas-del-modelo" class="section level3 unnumbered">
-<h3>Estadisticas del modelo</h3>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="anova.html#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fest_fit_log)</span></code></pre></div>
-</div>
-<div id="medias-estimadas-por-el-modelo" class="section level3 unnumbered">
-<h3>Medias estimadas por el modelo</h3>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="anova.html#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_heteroscedasticity</span>(fest_fit_log) <span class="sc">%&gt;%</span> plot</span></code></pre></div>
+<ul>
+<li>Estadisticas del modelo {-}</li>
+</ul>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="anova.html#cb175-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fest_fit_log)</span></code></pre></div>
+<ul>
+<li>Medias estimadas por el modelo {-}</li>
+</ul>
 <p>… y su dispersion</p>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="anova.html#cb175-1" aria-hidden="true" tabindex="-1"></a>fest_em <span class="ot">&lt;-</span> <span class="fu">emmeans</span>(fest_fit_log, <span class="sc">~</span> Calluna <span class="sc">|</span> ph, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)</span>
-<span id="cb175-2"><a href="anova.html#cb175-2" aria-hidden="true" tabindex="-1"></a>fest_em</span></code></pre></div>
-</div>
-<div id="comparaciones-multiples" class="section level3 unnumbered">
-<h3>Comparaciones multiples</h3>
-<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="anova.html#cb176-1" aria-hidden="true" tabindex="-1"></a>res_festuca <span class="ot">&lt;-</span> <span class="fu">cld</span>(fest_em, <span class="at">alpha=</span>.<span class="dv">05</span>, <span class="at">Letters=</span>letters)</span>
-<span id="cb176-2"><a href="anova.html#cb176-2" aria-hidden="true" tabindex="-1"></a>res_festuca</span></code></pre></div>
-</div>
-<div id="grafico-final-1" class="section level3 unnumbered">
-<h3>Grafico final</h3>
-<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="anova.html#cb177-1" aria-hidden="true" tabindex="-1"></a>res_festuca <span class="ot">&lt;-</span> res_festuca <span class="sc">%&gt;%</span> </span>
-<span id="cb177-2"><a href="anova.html#cb177-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">letras=</span><span class="fu">str_squish</span>(.group), </span>
-<span id="cb177-3"><a href="anova.html#cb177-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">weight=</span>response)  </span></code></pre></div>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="anova.html#cb178-1" aria-hidden="true" tabindex="-1"></a>res_festuca <span class="sc">%&gt;%</span>  </span>
-<span id="cb178-2"><a href="anova.html#cb178-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb178-3"><a href="anova.html#cb178-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>ph, <span class="at">y=</span>weight, <span class="at">col=</span>Calluna)<span class="sc">+</span></span>
-<span id="cb178-4"><a href="anova.html#cb178-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_pointrange</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> lower.CL, <span class="at">ymax =</span> upper.CL), </span>
-<span id="cb178-5"><a href="anova.html#cb178-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">position =</span> dodge)<span class="sc">+</span></span>
-<span id="cb178-6"><a href="anova.html#cb178-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Weight (g)&quot;</span>)<span class="sc">+</span>  </span>
-<span id="cb178-7"><a href="anova.html#cb178-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">vjust=</span><span class="sc">-</span><span class="dv">1</span>, <span class="at">angle=</span><span class="dv">90</span>, <span class="fu">aes</span>(<span class="at">label =</span> letras), <span class="at">position =</span> dodge)<span class="sc">+</span></span>
-<span id="cb178-8"><a href="anova.html#cb178-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># geom_jitter(data = festuca, alpha=0.2, position = position_dodge(width=0.5)) +</span></span>
-<span id="cb178-9"><a href="anova.html#cb178-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="anova.html#cb176-1" aria-hidden="true" tabindex="-1"></a>fest_em <span class="ot">&lt;-</span> <span class="fu">emmeans</span>(fest_fit_log, <span class="sc">~</span> Calluna <span class="sc">|</span> ph, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)</span>
+<span id="cb176-2"><a href="anova.html#cb176-2" aria-hidden="true" tabindex="-1"></a>fest_em</span></code></pre></div>
+<ul>
+<li>Comparaciones multiples {-}</li>
+</ul>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="anova.html#cb177-1" aria-hidden="true" tabindex="-1"></a>res_festuca <span class="ot">&lt;-</span> <span class="fu">cld</span>(fest_em, <span class="at">alpha=</span>.<span class="dv">05</span>, <span class="at">Letters=</span>letters)</span>
+<span id="cb177-2"><a href="anova.html#cb177-2" aria-hidden="true" tabindex="-1"></a>res_festuca</span></code></pre></div>
+<ul>
+<li>Grafico final {-}</li>
+</ul>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="anova.html#cb178-1" aria-hidden="true" tabindex="-1"></a>res_festuca <span class="ot">&lt;-</span> res_festuca <span class="sc">%&gt;%</span> </span>
+<span id="cb178-2"><a href="anova.html#cb178-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">letras=</span><span class="fu">str_squish</span>(.group), </span>
+<span id="cb178-3"><a href="anova.html#cb178-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">weight=</span>response)  </span></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="anova.html#cb179-1" aria-hidden="true" tabindex="-1"></a>res_festuca <span class="sc">%&gt;%</span>  </span>
+<span id="cb179-2"><a href="anova.html#cb179-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb179-3"><a href="anova.html#cb179-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>ph, <span class="at">y=</span>weight, <span class="at">col=</span>Calluna)<span class="sc">+</span></span>
+<span id="cb179-4"><a href="anova.html#cb179-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_pointrange</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> lower.CL, <span class="at">ymax =</span> upper.CL), </span>
+<span id="cb179-5"><a href="anova.html#cb179-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">position =</span> dodge)<span class="sc">+</span></span>
+<span id="cb179-6"><a href="anova.html#cb179-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Weight (g)&quot;</span>)<span class="sc">+</span>  </span>
+<span id="cb179-7"><a href="anova.html#cb179-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">vjust=</span><span class="sc">-</span><span class="dv">1</span>, <span class="at">angle=</span><span class="dv">90</span>, <span class="fu">aes</span>(<span class="at">label =</span> letras), <span class="at">position =</span> dodge)<span class="sc">+</span></span>
+<span id="cb179-8"><a href="anova.html#cb179-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># geom_jitter(data = festuca, alpha=0.2, position = position_dodge(width=0.5)) +</span></span>
+<span id="cb179-9"><a href="anova.html#cb179-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <p><b>Lexturas recomendadas</b></p>
 <ul>
 <li><p><a href="https://dl.sciencesocieties.org/publications/aj/pdfs/107/2/748">Analysis and Interpretation of Interactions in Agricultural Research</a></p></li>
@@ -518,24 +495,6 @@ Por ello es adicionada una constante a la variable original (0.5, por ej.).</p>
 </ul>
 <p>:::</p>
 
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div class="csl-entry">
-Drummond, GB, and SL Vowler. 2011. <span>“Show the Data, Don’t Conceal Them.”</span> <em>British Journal of Pharmacology</em> 163 (2): 208–10. <a href="https://doi.org/10.1111/j.1476-5381.2011.01251.x">https://doi.org/10.1111/j.1476-5381.2011.01251.x</a>.
-</div>
-<div class="csl-entry">
-Ellison, GN, and NJ Gotelli. 2004. <span>“A Primer of Ecological Statistics.”</span> <em>Sinauer, Sunderland, Massachusetts, USA</em>.
-</div>
-<div class="csl-entry">
-R Core Team. 2017. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
-</div>
-<div class="csl-entry">
-Weissgerber, Natasa M. AND Winham, Tracey L. AND Milic. 2015. <span>“Beyond Bar and Line Graphs: Time for a New Data Presentation Paradigm.”</span> <em>PLOS Biology</em> 13 (4): 1–10. <a href="https://doi.org/10.1371/journal.pbio.1002128">https://doi.org/10.1371/journal.pbio.1002128</a>.
-</div>
-<div class="csl-entry">
-Wickham, Hadley, and Garrett Grolemund. 2016. <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>. " O’Reilly Media, Inc.". <a href="http://r4ds.had.co.nz/">http://r4ds.had.co.nz/</a>.
-</div>
-</div>
-</div>
 </div>
 </div>
             </section>
@@ -543,8 +502,8 @@ Wickham, Hadley, and Garrett Grolemund. 2016. <em>R for Data Science: Import, Ti
           </div>
         </div>
       </div>
-<a href="regresión-linear.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="regresión-linear.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="mapas.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

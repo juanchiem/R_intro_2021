@@ -48,3 +48,7 @@ regresion-multiple
 anova
 un-solo-factor
 dos-factores
+mapas
+paquete-sf
+mapa-de-clima
+mapa-de-muestreos

@@ -17,8 +17,8 @@ rmd_files: [
 "6-dplyr.Rmd",
 "7-restruct.Rmd",
 "8-modelar1.Rmd",
-"9-modelar2.Rmd"
-# "12_comunicar.Rmd"
+"9-modelar2.Rmd",
+"10-mapas.Rmd"
 ]
 
 before_chapter_script: "_common.R"

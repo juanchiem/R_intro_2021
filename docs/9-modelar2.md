@@ -2,6 +2,8 @@
 
 
 ```r
+# install.packages("multcompView") # solo una vez y no hace falta cargarlo
+
 pacman::p_load(
   tidyverse,
   skimr,       # exploracion numerica de los datos
@@ -25,7 +27,7 @@ pg
 
 >  Results from an experiment to compare yields (as measured by dried weight of plants) obtained under a control and two different treatment conditions.
 
-### Exploración numérica  {-}
+1- Exploración numérica 
 
 
 ```r
@@ -49,7 +51,7 @@ pg %>%
     sd = sd(weight))
 ```
 
-### Exploración visual  {-}
+2- Exploración visual 
 
 
 ```r
@@ -60,7 +62,7 @@ pg %>%
   geom_jitter(alpha=0.2, width=0.2)
 ```
 
-### Ajuste del modelo lineal  {-}
+3- Ajuste del modelo lineal 
 
 
 ```r
@@ -71,7 +73,7 @@ mod1 <- lm(weight ~ group, data = pg)
 $$y_{ij} = \mu + \alpha_i + e_{ij}; \:\:i = 1,..., k; \:j = 1,..., n$$
 $$N \sim (\sigma^2, 0)$$
 
-### Diagnósticos  {-}
+5- Diagnósticos 
 
 ¿Las varianzas (entre niveles del factor) son homogéneas? 
 
@@ -92,7 +94,7 @@ check_normality(mod1) %>% plot
 ```
 
 
-### Estaidisticas  {-}
+6-  Estadisticas  
 
 
 ```r
@@ -101,7 +103,7 @@ summary(mod1)
 # car::Anova(mod1)# caso desbalanceado
 ```
 
-### Comparaciones múltiples  {-}
+7- Comparaciones múltiples  {-}
 
 Paquete [emmeans](https://cran.r-project.org/web/packages/emmeans/vignettes/vignette-topics.html)
 
@@ -134,21 +136,21 @@ pwpm(em, adjust = "none")
 
 ```r
 res <- res %>% 
-  mutate(letras=str_squish(.group))  
+  mutate(letras = str_squish(.group), 
+         weight = emmean)
 ```
 
-### Grafico final  {-}
+8- Grafico final
 
 
 ```r
 res %>%  
   ggplot() +
-  aes(x=group, y=emmean)+
+  aes(x=group, y=weight)+
   geom_pointrange(aes(ymin = lower.CL, ymax = upper.CL))+
   labs(x = "Tratamiento", y = "Peso (g)")+  
-  geom_text(vjust=-1, angle=90, aes(label = letras))+
-  geom_jitter(data = pg %>% rename(emmean = weight), 
-             width = .1, alpha=0.2) +
+  geom_text(aes(label = letras), angle=90, vjust=-1)+
+  geom_jitter(data = pg, width = .1, alpha=.5) +
   theme_bw()
 ```
 
@@ -211,7 +213,15 @@ festuca <- structure(list(weight = c(2.76, 2.39, 2.54, 3.11, 2.49, 4.1,
 festuca <- rio::import("data/datos_curso.xls", sheet ="festuca")
 ```
 
-### Exploracion  {-}
+- Exploracion  {-}
+
+
+```r
+festuca %>% 
+  janitor::tabyl(ph, Calluna)
+```
+
+
 
 
 ```r
@@ -232,7 +242,7 @@ festuca %>%
   # geom_line(aes(group=supp), stat = "summary", fun=mean) 
 ```
 
-### Ajuste  {-} 
+- Ajuste  {-} 
 
 
 ```r
@@ -245,7 +255,7 @@ fest_fit <- lm(weight ~ ph * Calluna, data = festuca)
 fest_fit_log
 ```
 
-### Diagnósticos  {-}
+- Diagnósticos  {-}
 
 ¿Las varianzas (entre niveles del factor) son homogéneas? 
 
@@ -261,7 +271,7 @@ check_heteroscedasticity(fest_fit) # %>% plot
 check_normality(fest_fit) # %>% plot
 ```
 
-### Transformación  {-} 
+- Transformación  {-} 
 
 :::{#box1 .blue-box}
 
@@ -293,7 +303,7 @@ boxcox(fest_fit)
 
 > Se sugiere transformacion `log` ya que el lambda optimo contiene al 0
 
-### Reajuste de modelo  {-}
+- Reajuste de modelo  {-}
 
 ...con variable respuesta transformada
 
@@ -309,7 +319,7 @@ Nuevamente se diagnostica la estabilizacion de la varianza
 check_heteroscedasticity(fest_fit_log) %>% plot
 ```
 
-### Estadisticas del modelo  {-}
+- Estadisticas del modelo  {-}
 
 
 ```r
@@ -317,7 +327,7 @@ anova(fest_fit_log)
 ```
 
 
-### Medias estimadas por el modelo  {-} 
+- Medias estimadas por el modelo  {-} 
 
 ... y su dispersion
 
@@ -327,7 +337,7 @@ fest_em <- emmeans(fest_fit_log, ~ Calluna | ph, type = "response")
 fest_em
 ```
 
-### Comparaciones multiples  {-}
+- Comparaciones multiples  {-}
 
 
 ```r
@@ -335,7 +345,7 @@ res_festuca <- cld(fest_em, alpha=.05, Letters=letters)
 res_festuca
 ```
 
-### Grafico final  {-}
+- Grafico final  {-}
 
 
 ```r
