@@ -1,7 +1,34 @@
 # Mapas
 
+Son muchos los paquetes relacionados a GIS en R con multiplicidad de funciones 
 
 
+```r
+library(tidyverse)
+library(viridis)
+```
+
+Obtención de datos georeferenciaodos
+
+
+```r
+# remotes::install_gitlab("dickoa/rgeoboundaries")  
+library(rgeoboundaries)
+library(raster)
+library(ggspatial)
+library(rnaturalearth)
+```
+
+Generacion de mapas con sintaxis acoplable a `ggplot`
+
+
+```r
+library(sf)
+library(leaflet)
+library(ggspatial)
+```
+
+Hay otros muy interesantes como `tmap`, `mapview` que pueden encontrar mucha informacion en internet
 
 ## Paquete `sf`
 
