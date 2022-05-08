@@ -1,6 +1,13 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: inline
+---
 # Mapas
 
 Son muchos los paquetes relacionados a GIS en R con multiplicidad de funciones 
+
+- https://rspatialdata.github.io/ 
 
 
 ```r
@@ -47,6 +54,24 @@ africa %>%
   ggplot()+
   geom_sf() 
 ```
+- https://docs.qgis.org/2.8/es/docs/gentle_gis_introduction/coordinate_reference_systems.html
+
+
+```r
+africa %>%  
+  ggplot()+
+  geom_sf() +
+  coord_sf(crs = st_crs("ESRI:54030"))   # Robinson
+```
+
+
+```r
+africa %>%  
+  ggplot()+
+  geom_sf() +
+  coord_sf(crs = st_crs("EPSG:3395"))   # Mercator
+```
+
 
 
 Manipualacion con `dplyr`
@@ -71,19 +96,31 @@ Una capa por dataframe
 africa %>%  
   ggplot()+
   geom_sf() + 
-  geom_sf(data=zambia, fill="black")
+  geom_sf(data=zambia, fill="gray50")
 ```
 
 Obtenemos limites provinciales con `rgeoboundaries`
 
 
 ```r
-zambia_boundaries <- geoboundaries(c("Zambia"), "adm1")
+zambia_adm1 <- geoboundaries(c("Zambia"), "adm1")
 ```
 
 
 ```r
-zambia_boundaries %>% 
+zambia_adm1 %>% 
+ggplot() +
+  geom_sf()
+```
+
+
+```r
+zambia_adm2 <- geoboundaries(c("Zambia"), "adm2")
+```
+
+
+```r
+zambia_adm2 %>% 
 ggplot() +
   geom_sf()
 ```
@@ -94,28 +131,34 @@ Veamos uno dinámico con `leaflet`
 
 
 ```r
-zambia_boundaries %>%
+zambia_adm2 %>%
   leaflet() %>%
   addTiles() %>%
-  addPolygons(label = zambia_boundaries$shapeName, weight=1)
+  addPolygons(label = zambia_adm1$shapeName, weight=1)
 ```
 
+## Choropleth maps
 
 Agreguemos una variable ficticia 
 
 
 ```r
-zambia_boundaries <- zambia_boundaries %>% 
+zambia_adm1 <- zambia_adm1 %>% 
   mutate(y=rnorm(10, 1000, 200))
 
-zambia_boundaries %>% 
+zambia_adm1 %>% 
   ggplot() +
   geom_sf(aes(fill=y)) +
   scale_fill_viridis(direction=-1) 
   # scale_fill_viridis(option = "plasma") 
 ```
+Por ejemplo, podemos practicar esto mismo con datos reales poblacionales con el paquete `wopr`
+
+- https://rspatialdata.github.io/population.html 
 
 ## Mapa de clima
+
+https://rspatialdata.github.io/temperature.html
 
 Descarguemos temperatura maxima mensual con `raster`
 
@@ -132,8 +175,8 @@ gain(tmax_data) <- 0.1
 tmax_mean <- mean(tmax_data)
 ```
 
-
 Extraemos los datos de zambia
+
 
 ```r
 tmax_mean_zam <- raster::mask(tmax_mean, as_Spatial(zambia_sf))
@@ -172,10 +215,14 @@ Supongamos que queremos plotear muestreos de especies realizados entre 2020 y 20
 
 
 ```r
+# arg_adm2 <- geoboundaries(c("Argentina"), "adm2")
+# arg_adm2
+
 mis_corr  <-  getData(country = "ARG", level = 2) %>% 
   st_as_sf() %>% 
   filter(NAME_1 %in% c("Misiones", "Corrientes")) %>% 
   st_transform(crs = 4326)
+mis_corr
 ```
 
 
@@ -302,8 +349,6 @@ Referencias
 
 - https://afrimapr.github.io/afrimapr.website/
 - https://afrimapr.github.io/afrilearnr/
-- https://rspatialdata.github.io/
-- https://rspatialdata.github.io/admin_boundaries.html
 - https://mgimond.github.io/Spatial/index.html
 - https://paleolimbot.github.io/ggspatial/articles/ggspatial.html#sample-data-1
 - https://docs.ropensci.org/rnaturalearth/
@@ -311,25 +356,22 @@ Referencias
 - https://luisdva.github.io/rstats/mapassf/
   
 
-
-
 ```r
 library(rgeoboundaries)
 # https://rspatialdata.github.io/admin_boundaries.html
 
-
 library(rnaturalearth)
 # https://docs.ropensci.org/rnaturalearth/articles/rnaturalearth.html
 
-pacman::p_load(sf)
+library(sf)
 # https://keen-swartz-3146c4.netlify.app/
 
-pacman::p_load(sf, ggspatial)
+library(ggspatial)
 # https://paleolimbot.github.io/ggspatial/
 
-pacman::p_load(rgeos, rworldmap)
+library(rworldmap)
 # https://bookdown.org/angelborrego/ciencia_datos/mapas.html#mapas-con-rworldmap
 
-pacman::p_load(pointdensityP)
+library(pointdensityP)
 # https://mgimond.github.io/Spatial/chp11_0.html
 ```
