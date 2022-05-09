@@ -289,15 +289,16 @@ div.csl-indent {
 <div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="mapas.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb180-2"><a href="mapas.html#cb180-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis)</span></code></pre></div>
 <p>Obtención de datos georeferenciaodos</p>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="mapas.html#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="co"># remotes::install_gitlab(&quot;dickoa/rgeoboundaries&quot;)  </span></span>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="mapas.html#cb181-1" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_gitlab</span>(<span class="st">&quot;dickoa/rgeoboundaries&quot;</span>)</span>
 <span id="cb181-2"><a href="mapas.html#cb181-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rgeoboundaries)</span>
 <span id="cb181-3"><a href="mapas.html#cb181-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(raster)</span>
-<span id="cb181-4"><a href="mapas.html#cb181-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggspatial)</span>
-<span id="cb181-5"><a href="mapas.html#cb181-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rnaturalearth)</span></code></pre></div>
+<span id="cb181-4"><a href="mapas.html#cb181-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rnaturalearth)</span>
+<span id="cb181-5"><a href="mapas.html#cb181-5" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;rnaturalearthdata&quot;)</span></span></code></pre></div>
 <p>Generacion de mapas con sintaxis acoplable a <code>ggplot</code></p>
 <div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="mapas.html#cb182-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
 <span id="cb182-2"><a href="mapas.html#cb182-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leaflet)</span>
-<span id="cb182-3"><a href="mapas.html#cb182-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggspatial)</span></code></pre></div>
+<span id="cb182-3"><a href="mapas.html#cb182-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(htmltools)</span>
+<span id="cb182-4"><a href="mapas.html#cb182-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggspatial)</span></code></pre></div>
 <p>Hay otros muy interesantes como <code>tmap</code>, <code>mapview</code> que pueden encontrar mucha informacion en internet</p>
 <div id="paquete-sf" class="section level2" number="12.1">
 <h2><span class="header-section-number">12.1</span> Paquete <code>sf</code></h2>
@@ -320,7 +321,8 @@ div.csl-indent {
 <span id="cb186-3"><a href="mapas.html#cb186-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>() <span class="sc">+</span></span>
 <span id="cb186-4"><a href="mapas.html#cb186-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_sf</span>(<span class="at">crs =</span> <span class="fu">st_crs</span>(<span class="st">&quot;EPSG:3395&quot;</span>))   <span class="co"># Mercator</span></span></code></pre></div>
 <p>Manipualacion con <code>dplyr</code></p>
-<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="mapas.html#cb187-1" aria-hidden="true" tabindex="-1"></a>zambia <span class="ot">&lt;-</span> africa <span class="sc">%&gt;%</span> <span class="fu">filter</span>(sovereignt<span class="sc">==</span><span class="st">&quot;Zambia&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="mapas.html#cb187-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(africa)</span>
+<span id="cb187-2"><a href="mapas.html#cb187-2" aria-hidden="true" tabindex="-1"></a>zambia <span class="ot">&lt;-</span> africa <span class="sc">%&gt;%</span> <span class="fu">filter</span>(sovereignt<span class="sc">==</span><span class="st">&quot;Zambia&quot;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="mapas.html#cb188-1" aria-hidden="true" tabindex="-1"></a>zambia <span class="sc">%&gt;%</span>  </span>
 <span id="cb188-2"><a href="mapas.html#cb188-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb188-3"><a href="mapas.html#cb188-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()</span></code></pre></div>
@@ -334,16 +336,21 @@ div.csl-indent {
 <div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="mapas.html#cb191-1" aria-hidden="true" tabindex="-1"></a>zambia_adm1 <span class="sc">%&gt;%</span> </span>
 <span id="cb191-2"><a href="mapas.html#cb191-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb191-3"><a href="mapas.html#cb191-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()</span></code></pre></div>
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="mapas.html#cb192-1" aria-hidden="true" tabindex="-1"></a>zambia_adm2 <span class="ot">&lt;-</span> <span class="fu">geoboundaries</span>(<span class="fu">c</span>(<span class="st">&quot;Zambia&quot;</span>), <span class="st">&quot;adm2&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="mapas.html#cb192-1" aria-hidden="true" tabindex="-1"></a>zambia_adm2 <span class="ot">&lt;-</span> <span class="fu">geoboundaries</span>(<span class="fu">c</span>(<span class="st">&quot;Zambia&quot;</span>), <span class="st">&quot;adm2&quot;</span>)</span>
+<span id="cb192-2"><a href="mapas.html#cb192-2" aria-hidden="true" tabindex="-1"></a>zambia_adm2</span></code></pre></div>
 <div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="mapas.html#cb193-1" aria-hidden="true" tabindex="-1"></a>zambia_adm2 <span class="sc">%&gt;%</span> </span>
 <span id="cb193-2"><a href="mapas.html#cb193-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb193-3"><a href="mapas.html#cb193-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()</span></code></pre></div>
+<span id="cb193-3"><a href="mapas.html#cb193-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>() <span class="co">#+ </span></span>
+<span id="cb193-4"><a href="mapas.html#cb193-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># geom_sf_text(aes(label = shapeName), size=2)</span></span>
+<span id="cb193-5"><a href="mapas.html#cb193-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># coord_sf(xlim = c(22, 30),  ylim = c(-10, -16))</span></span></code></pre></div>
 <p>Hasta ahora veniamos con graficos estáticos</p>
 <p>Veamos uno dinámico con <code>leaflet</code></p>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="mapas.html#cb194-1" aria-hidden="true" tabindex="-1"></a>zambia_adm2 <span class="sc">%&gt;%</span></span>
-<span id="cb194-2"><a href="mapas.html#cb194-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">leaflet</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb194-3"><a href="mapas.html#cb194-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb194-4"><a href="mapas.html#cb194-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addPolygons</span>(<span class="at">label =</span> zambia_adm1<span class="sc">$</span>shapeName, <span class="at">weight=</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="mapas.html#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(htmltools)</span>
+<span id="cb194-2"><a href="mapas.html#cb194-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb194-3"><a href="mapas.html#cb194-3" aria-hidden="true" tabindex="-1"></a>zambia_adm2 <span class="sc">%&gt;%</span></span>
+<span id="cb194-4"><a href="mapas.html#cb194-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">leaflet</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb194-5"><a href="mapas.html#cb194-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb194-6"><a href="mapas.html#cb194-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addPolygons</span>(<span class="at">label =</span> zambia_adm1<span class="sc">$</span>shapeName, <span class="at">weight=</span><span class="dv">1</span>, <span class="at">popup =</span> <span class="sc">~</span><span class="fu">htmlEscape</span>(shapeID))</span></code></pre></div>
 </div>
 <div id="choropleth-maps" class="section level2" number="12.2">
 <h2><span class="header-section-number">12.2</span> Choropleth maps</h2>
@@ -371,13 +378,13 @@ div.csl-indent {
 <span id="cb197-3"><a href="mapas.html#cb197-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculating mean of the monthly maximum temperatures</span></span>
 <span id="cb197-4"><a href="mapas.html#cb197-4" aria-hidden="true" tabindex="-1"></a>tmax_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(tmax_data)</span></code></pre></div>
 <p>Extraemos los datos de zambia</p>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="mapas.html#cb198-1" aria-hidden="true" tabindex="-1"></a>tmax_mean_zam <span class="ot">&lt;-</span> raster<span class="sc">::</span><span class="fu">mask</span>(tmax_mean, <span class="fu">as_Spatial</span>(zambia_sf))</span></code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="mapas.html#cb198-1" aria-hidden="true" tabindex="-1"></a>tmax_mean_zam <span class="ot">&lt;-</span> raster<span class="sc">::</span><span class="fu">mask</span>(tmax_mean, <span class="fu">as_Spatial</span>(zambia_adm1))</span></code></pre></div>
 <p>Converting the raster object into a dataframe</p>
 <div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="mapas.html#cb199-1" aria-hidden="true" tabindex="-1"></a>tmax_mean_zambia_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(tmax_mean_zam, <span class="at">xy =</span> <span class="cn">TRUE</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="mapas.html#cb200-1" aria-hidden="true" tabindex="-1"></a>tmax_mean_zambia_df <span class="sc">%&gt;%</span></span>
 <span id="cb200-2"><a href="mapas.html#cb200-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
 <span id="cb200-3"><a href="mapas.html#cb200-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_raster</span>(<span class="fu">aes</span>(<span class="at">fill =</span> layer)) <span class="sc">+</span></span>
-<span id="cb200-4"><a href="mapas.html#cb200-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> zambia_sf, <span class="at">inherit.aes =</span> <span class="cn">FALSE</span>, <span class="at">fill =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb200-4"><a href="mapas.html#cb200-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> zambia_adm1, <span class="at">inherit.aes =</span> <span class="cn">FALSE</span>, <span class="at">fill =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
 <span id="cb200-5"><a href="mapas.html#cb200-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
 <span id="cb200-6"><a href="mapas.html#cb200-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Mean monthly maximum temperatures in zambia&quot;</span>,</span>
 <span id="cb200-7"><a href="mapas.html#cb200-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;For the years 1970-2000&quot;</span></span>
@@ -426,7 +433,8 @@ div.csl-indent {
 <span id="cb205-2"><a href="mapas.html#cb205-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data=</span>mis_corr)<span class="sc">+</span></span>
 <span id="cb205-3"><a href="mapas.html#cb205-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data=</span>sampling_points, <span class="fu">aes</span>(<span class="at">col=</span>sp))<span class="sc">+</span></span>
 <span id="cb205-4"><a href="mapas.html#cb205-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="st">&quot;year&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb205-5"><a href="mapas.html#cb205-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code></pre></div>
+<span id="cb205-5"><a href="mapas.html#cb205-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span>
+<span id="cb205-6"><a href="mapas.html#cb205-6" aria-hidden="true" tabindex="-1"></a>      <span class="co"># theme_map() </span></span></code></pre></div>
 <p>Y si hubo algun patron en el tamaño de los especimenes registrados</p>
 <div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="mapas.html#cb206-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb206-2"><a href="mapas.html#cb206-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data=</span>mis_corr, <span class="at">col=</span><span class="st">&quot;gray70&quot;</span>)<span class="sc">+</span></span>
@@ -456,27 +464,33 @@ div.csl-indent {
 <span id="cb209-4"><a href="mapas.html#cb209-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span>  </span>
 <span id="cb209-5"><a href="mapas.html#cb209-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>coord)</span>
 <span id="cb209-6"><a href="mapas.html#cb209-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb209-7"><a href="mapas.html#cb209-7" aria-hidden="true" tabindex="-1"></a>samp_xls <span class="sc">%&gt;%</span> </span>
-<span id="cb209-8"><a href="mapas.html#cb209-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> lon, <span class="at">y =</span> lat, <span class="at">col=</span>sp)) <span class="sc">+</span></span>
-<span id="cb209-9"><a href="mapas.html#cb209-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotation_map_tile</span>(<span class="at">type =</span> <span class="st">&quot;cartolight&quot;</span>,</span>
-<span id="cb209-10"><a href="mapas.html#cb209-10" aria-hidden="true" tabindex="-1"></a>                      <span class="at">zoomin =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
-<span id="cb209-11"><a href="mapas.html#cb209-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_spatial_point</span>() <span class="sc">+</span></span>
-<span id="cb209-12"><a href="mapas.html#cb209-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ylim(c(-52, 40)) +</span></span>
-<span id="cb209-13"><a href="mapas.html#cb209-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># xlim(c(-115, -40)) +</span></span>
-<span id="cb209-14"><a href="mapas.html#cb209-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="st">&quot;year&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb209-15"><a href="mapas.html#cb209-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">size=</span><span class="st">&quot;none&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb209-16"><a href="mapas.html#cb209-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_sf</span>(<span class="at">crs =</span> <span class="dv">4326</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="mapas.html#cb210-1" aria-hidden="true" tabindex="-1"></a>cities <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb210-2"><a href="mapas.html#cb210-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">63.58595</span>, <span class="fl">116.41214</span>), </span>
-<span id="cb210-3"><a href="mapas.html#cb210-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">c</span>(<span class="fl">44.64862</span>, <span class="fl">40.19063</span>), </span>
-<span id="cb210-4"><a href="mapas.html#cb210-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">city =</span> <span class="fu">c</span>(<span class="st">&quot;Halifax&quot;</span>, <span class="st">&quot;Beijing&quot;</span>)</span>
-<span id="cb210-5"><a href="mapas.html#cb210-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb210-6"><a href="mapas.html#cb210-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb210-7"><a href="mapas.html#cb210-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cities, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
-<span id="cb210-8"><a href="mapas.html#cb210-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotation_map_tile</span>() <span class="sc">+</span></span>
-<span id="cb210-9"><a href="mapas.html#cb210-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_spatial_point</span>() <span class="sc">+</span></span>
-<span id="cb210-10"><a href="mapas.html#cb210-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_spatial_label_repel</span>(<span class="fu">aes</span>(<span class="at">label =</span> city), <span class="at">box.padding =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb210-11"><a href="mapas.html#cb210-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_sf</span>(<span class="at">crs =</span> <span class="dv">3995</span>)</span></code></pre></div>
+<span id="cb209-7"><a href="mapas.html#cb209-7" aria-hidden="true" tabindex="-1"></a>samp_xls</span>
+<span id="cb209-8"><a href="mapas.html#cb209-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb209-9"><a href="mapas.html#cb209-9" aria-hidden="true" tabindex="-1"></a>samp_xls <span class="sc">%&gt;%</span> </span>
+<span id="cb209-10"><a href="mapas.html#cb209-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> lon, <span class="at">y =</span> lat, <span class="at">col=</span>sp)) <span class="sc">+</span></span>
+<span id="cb209-11"><a href="mapas.html#cb209-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotation_map_tile</span>(<span class="at">type =</span> <span class="st">&quot;cartolight&quot;</span>,</span>
+<span id="cb209-12"><a href="mapas.html#cb209-12" aria-hidden="true" tabindex="-1"></a>                      <span class="at">zoomin =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb209-13"><a href="mapas.html#cb209-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_spatial_point</span>() <span class="sc">+</span></span>
+<span id="cb209-14"><a href="mapas.html#cb209-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ylim(c(-52, 40)) +</span></span>
+<span id="cb209-15"><a href="mapas.html#cb209-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># xlim(c(-115, -40)) +</span></span>
+<span id="cb209-16"><a href="mapas.html#cb209-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="st">&quot;year&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb209-17"><a href="mapas.html#cb209-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">size=</span><span class="st">&quot;none&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb209-18"><a href="mapas.html#cb209-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_sf</span>(<span class="at">crs =</span> <span class="dv">4326</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="mapas.html#cb210-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb210-2"><a href="mapas.html#cb210-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb210-3"><a href="mapas.html#cb210-3" aria-hidden="true" tabindex="-1"></a>cities <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb210-4"><a href="mapas.html#cb210-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">longitude =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">58.3612</span>, <span class="sc">-</span><span class="fl">58.3173</span>, <span class="sc">-</span><span class="fl">58.2940</span>, <span class="sc">-</span><span class="fl">58.7228</span>, <span class="sc">-</span><span class="fl">57.9556</span>, <span class="sc">-</span><span class="fl">58.2395</span>), </span>
+<span id="cb210-5"><a href="mapas.html#cb210-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">latitude  =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">38.0165</span>, <span class="sc">-</span><span class="fl">37.9428</span>, <span class="sc">-</span><span class="fl">37.5447</span>, <span class="sc">-</span><span class="fl">37.6301</span>, <span class="sc">-</span><span class="fl">37.8666</span>, <span class="sc">-</span><span class="fl">37.6467</span>), </span>
+<span id="cb210-6"><a href="mapas.html#cb210-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">city =</span> <span class="fu">c</span>(<span class="st">&quot;San Agustin&quot;</span>, <span class="st">&quot;Los Pinos&quot;</span>, <span class="st">&quot;Ramos Otero&quot;</span>, <span class="st">&quot;Napaleofu&quot;</span>, <span class="st">&quot;La Brava&quot;</span>, <span class="st">&quot;Bosch&quot;</span>)</span>
+<span id="cb210-7"><a href="mapas.html#cb210-7" aria-hidden="true" tabindex="-1"></a>) </span>
+<span id="cb210-8"><a href="mapas.html#cb210-8" aria-hidden="true" tabindex="-1"></a>cities <span class="sc">%&gt;%</span> </span>
+<span id="cb210-9"><a href="mapas.html#cb210-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>( <span class="fu">aes</span>(longitude, latitude)) <span class="sc">+</span></span>
+<span id="cb210-10"><a href="mapas.html#cb210-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotation_map_tile</span>(<span class="at">zoom =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb210-11"><a href="mapas.html#cb210-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_spatial_point</span>() <span class="sc">+</span></span>
+<span id="cb210-12"><a href="mapas.html#cb210-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_spatial_label_repel</span>(<span class="fu">aes</span>(<span class="at">label =</span> city))<span class="sc">+</span></span>
+<span id="cb210-13"><a href="mapas.html#cb210-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fixed_plot_aspect</span>() </span>
+<span id="cb210-14"><a href="mapas.html#cb210-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb210-15"><a href="mapas.html#cb210-15" aria-hidden="true" tabindex="-1"></a><span class="co"># coord_sf(crs = 3995)</span></span></code></pre></div>
 <p>Referencias</p>
 <ul>
 <li><a href="https://afrimapr.github.io/afrimapr.website/" class="uri">https://afrimapr.github.io/afrimapr.website/</a></li>
@@ -486,6 +500,7 @@ div.csl-indent {
 <li><a href="https://docs.ropensci.org/rnaturalearth/" class="uri">https://docs.ropensci.org/rnaturalearth/</a></li>
 <li><a href="https://datavizs21.classes.andrewheiss.com/example/12-example/" class="uri">https://datavizs21.classes.andrewheiss.com/example/12-example/</a></li>
 <li><a href="https://luisdva.github.io/rstats/mapassf/" class="uri">https://luisdva.github.io/rstats/mapassf/</a></li>
+<li><a href="https://bookdown.org/nicohahn/making_maps_with_r5/docs/introduction.html" class="uri">https://bookdown.org/nicohahn/making_maps_with_r5/docs/introduction.html</a></li>
 </ul>
 <div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="mapas.html#cb211-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rgeoboundaries)</span>
 <span id="cb211-2"><a href="mapas.html#cb211-2" aria-hidden="true" tabindex="-1"></a><span class="co"># https://rspatialdata.github.io/admin_boundaries.html</span></span>

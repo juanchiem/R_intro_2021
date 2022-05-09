@@ -19,11 +19,11 @@ Obtención de datos georeferenciaodos
 
 
 ```r
-# remotes::install_gitlab("dickoa/rgeoboundaries")  
+remotes::install_gitlab("dickoa/rgeoboundaries")
 library(rgeoboundaries)
 library(raster)
-library(ggspatial)
 library(rnaturalearth)
+# install.packages("rnaturalearthdata")
 ```
 
 Generacion de mapas con sintaxis acoplable a `ggplot`
@@ -32,6 +32,7 @@ Generacion de mapas con sintaxis acoplable a `ggplot`
 ```r
 library(sf)
 library(leaflet)
+library(htmltools)
 library(ggspatial)
 ```
 
@@ -72,12 +73,11 @@ africa %>%
   coord_sf(crs = st_crs("EPSG:3395"))   # Mercator
 ```
 
-
-
 Manipualacion con `dplyr`
 
 
 ```r
+head(africa)
 zambia <- africa %>% filter(sovereignt=="Zambia")
 ```
 
@@ -116,13 +116,16 @@ ggplot() +
 
 ```r
 zambia_adm2 <- geoboundaries(c("Zambia"), "adm2")
+zambia_adm2
 ```
 
 
 ```r
 zambia_adm2 %>% 
 ggplot() +
-  geom_sf()
+  geom_sf() #+ 
+  # geom_sf_text(aes(label = shapeName), size=2)
+  # coord_sf(xlim = c(22, 30),  ylim = c(-10, -16))
 ```
 
 Hasta ahora veniamos con graficos estáticos
@@ -131,10 +134,12 @@ Veamos uno dinámico con `leaflet`
 
 
 ```r
+library(htmltools)
+
 zambia_adm2 %>%
   leaflet() %>%
   addTiles() %>%
-  addPolygons(label = zambia_adm1$shapeName, weight=1)
+  addPolygons(label = zambia_adm1$shapeName, weight=1, popup = ~htmlEscape(shapeID))
 ```
 
 ## Choropleth maps
@@ -152,6 +157,7 @@ zambia_adm1 %>%
   scale_fill_viridis(direction=-1) 
   # scale_fill_viridis(option = "plasma") 
 ```
+
 Por ejemplo, podemos practicar esto mismo con datos reales poblacionales con el paquete `wopr`
 
 - https://rspatialdata.github.io/population.html 
@@ -179,7 +185,7 @@ Extraemos los datos de zambia
 
 
 ```r
-tmax_mean_zam <- raster::mask(tmax_mean, as_Spatial(zambia_sf))
+tmax_mean_zam <- raster::mask(tmax_mean, as_Spatial(zambia_adm1))
 ```
 
 Converting the raster object into a dataframe
@@ -193,7 +199,7 @@ tmax_mean_zambia_df <- as.data.frame(tmax_mean_zam, xy = TRUE, na.rm = TRUE)
 tmax_mean_zambia_df %>%
   ggplot(aes(x = x, y = y)) +
   geom_raster(aes(fill = layer)) +
-  geom_sf(data = zambia_sf, inherit.aes = FALSE, fill = NA) +
+  geom_sf(data = zambia_adm1, inherit.aes = FALSE, fill = NA) +
   labs(
     title = "Mean monthly maximum temperatures in zambia",
     subtitle = "For the years 1970-2000"
@@ -266,6 +272,7 @@ ggplot()+
   geom_sf(data=sampling_points, aes(col=sp))+
   facet_wrap("year") + 
   theme_void()
+      # theme_map() 
 ```
 
 Y si hubo algun patron en el tamaño de los especimenes registrados 
@@ -316,6 +323,8 @@ samp_xls <- sampling_points %>%
   as_tibble() %>%  
   dplyr::select(-coord)
 
+samp_xls
+
 samp_xls %>% 
   ggplot(aes(x = lon, y = lat, col=sp)) +
   annotation_map_tile(type = "cartolight",
@@ -331,17 +340,21 @@ samp_xls %>%
 
 
 ```r
-cities <- data.frame(
-  x = c(-63.58595, 116.41214), 
-  y = c(44.64862, 40.19063), 
-  city = c("Halifax", "Beijing")
-)
+library(sf)
 
-ggplot(cities, aes(x, y)) +
-  annotation_map_tile() +
+cities <- data.frame(
+  longitude = c(-58.3612, -58.3173, -58.2940, -58.7228, -57.9556, -58.2395), 
+  latitude  = c(-38.0165, -37.9428, -37.5447, -37.6301, -37.8666, -37.6467), 
+  city = c("San Agustin", "Los Pinos", "Ramos Otero", "Napaleofu", "La Brava", "Bosch")
+) 
+cities %>% 
+ggplot( aes(longitude, latitude)) +
+  annotation_map_tile(zoom = 10) +
   geom_spatial_point() +
-  geom_spatial_label_repel(aes(label = city), box.padding = 1) +
-  coord_sf(crs = 3995)
+  geom_spatial_label_repel(aes(label = city))+
+  fixed_plot_aspect() 
+
+# coord_sf(crs = 3995)
 ```
 
 
@@ -354,6 +367,7 @@ Referencias
 - https://docs.ropensci.org/rnaturalearth/
 - https://datavizs21.classes.andrewheiss.com/example/12-example/
 - https://luisdva.github.io/rstats/mapassf/
+- https://bookdown.org/nicohahn/making_maps_with_r5/docs/introduction.html
   
 
 ```r
